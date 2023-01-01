@@ -10,7 +10,7 @@ export default StyleSheet.create({
     borderRadius: Layout.BorderRadius.SM,
     overflow: 'hidden',
     padding: Layout.Spacing.MD,
-    elevation: Layout.Elevation.SM,
+    elevation: 10,
     shadowColor: Colors.Light.ShadowColor,
   },
   text: {

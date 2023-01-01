@@ -11,10 +11,6 @@ namespace Layout {
     SM = 10,
     PILL = 100
   }
-
-  export enum Elevation {
-    SM = 10,
-  }
 }
 
 export default Layout;
