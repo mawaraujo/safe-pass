@@ -1,18 +1,26 @@
 import React from 'react';
 import {View, TextInput} from 'react-native';
 import styles from './searchBar.styles';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-export default function SearchBar() {
-  const [value, setValue] = React.useState<string>('');
+interface ISearchBarProps {
+  onChange: (e: string) => void,
+}
 
+export default function SearchBar({onChange}: ISearchBarProps) {
   const handleChange = (e: string): void => {
-    setValue(e);
+    if (onChange) {
+      onChange(e);
+    }
   };
 
   return (
     <View style={styles.container}>
+      <Icon
+        name="search"
+        size={16} />
+
       <TextInput
-        value={value}
         onChangeText={handleChange}
         placeholder="Search password"
         style={styles.input} />

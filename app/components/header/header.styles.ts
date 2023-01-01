@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Fonts} from '../../res';
+import {Colors, Fonts, Layout} from '../../res';
 
 export default StyleSheet.create({
   header: {
@@ -7,7 +7,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 50,
-    paddingHorizontal: 10,
+    paddingHorizontal: Layout.Spacing.SM,
     backgroundColor: Colors.System.Brand,
   },
   leftContainer: {
@@ -27,7 +27,7 @@ export default StyleSheet.create({
     fontSize: Fonts.Size.LG,
   },
   userContainer: {
-    marginLeft: 20,
+    marginLeft: Layout.Spacing.MD,
   },
   welcomeText: {
     fontSize: Fonts.Size.REGULAR,
