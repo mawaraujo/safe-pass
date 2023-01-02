@@ -2,15 +2,21 @@ import React from 'react';
 import {View} from 'react-native';
 import styles from './main.styles';
 import Default from '../../layout/default/default';
-import Header from '../../components/header/header';
-import {Colors} from '../../res';
+import Header from './components/header/header';
 import SearchBar from '../../components/searchBar/searchBar';
 import {useSelector} from 'react-redux';
 import type {RootState} from '../../store/store';
 import PasswordElement from '../../components/passwordElement/password';
 import Empty from '../../components/empty/empty';
+import {Screens} from '../../res';
 
-export default function Main() {
+interface ImainProps {
+  navigation: {
+    navigate: Function
+  }
+}
+
+export default function Main({navigation}: ImainProps) {
   const [
     searchValue,
     setSearchValue,
@@ -19,16 +25,13 @@ export default function Main() {
   const passwords = useSelector((state: RootState) => state.passwords);
 
   const addPassword = React.useCallback(() => {
-    console.log('Password add');
+    navigation.navigate(Screens.mainStack.name, {
+      screen: Screens.addPassword.name,
+    });
   }, []);
 
   return (
-    <Default
-      statusBar={{
-        backgroundColor: Colors.System.BrandSemiLight,
-        barStyle: 'light-content',
-      }}
-      style={styles.main}>
+    <Default style={styles.main}>
 
       <Header />
 
@@ -49,7 +52,7 @@ export default function Main() {
           !passwords?.length && (
             <Empty
               text="Your password list is empty"
-              actionButtonText="Add password"
+              actionButtonText="Add Password"
               onPress={addPassword} />
           )
         }

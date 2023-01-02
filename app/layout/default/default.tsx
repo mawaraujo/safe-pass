@@ -16,7 +16,17 @@ interface IDefaultProps {
   style?: ViewStyle
 }
 
-export default function Default({statusBar, children, style}: IDefaultProps) {
+const initialStatusBarConfig = {
+  backgroundColor: Colors.System.BrandSemiLight,
+  barStyle: 'light-content' as 'light-content',
+};
+
+export default function Default({
+  statusBar = initialStatusBarConfig,
+  children,
+  style,
+}: IDefaultProps) {
+
   return (
     <SafeAreaView
       style={[
