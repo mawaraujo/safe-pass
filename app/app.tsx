@@ -7,7 +7,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Colors, Screens} from './res';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Navigation from './utils/navigation';
+import {Navigation} from './utils';
 
 import Main from './activities/main/main';
 import AddPasssword from './activities/addPassword/addPassword';
