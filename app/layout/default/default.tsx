@@ -2,23 +2,21 @@ import React from 'react';
 import {
   SafeAreaView,
   StatusBar,
+  StatusBarProps,
   StyleSheet,
   ViewStyle,
 } from 'react-native';
 import {Colors} from '../../res';
 
 interface IDefaultProps {
-  statusBar?: {
-    backgroundColor?: string,
-    barStyle?: 'light-content' | 'dark-content'
-  },
+  statusBar?: StatusBarProps
   children?: React.ReactNode,
   style?: ViewStyle
 }
 
-const initialStatusBarConfig = {
+const initialStatusBarConfig: StatusBarProps = {
   backgroundColor: Colors.System.BrandSemiLight,
-  barStyle: 'light-content' as 'light-content',
+  barStyle: 'light-content',
 };
 
 export default function Default({
