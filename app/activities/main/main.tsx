@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {ScrollView} from 'react-native';
 import styles from './main.styles';
 import Default from '../../layout/default/default';
 import Header from './components/header/header';
@@ -32,11 +32,13 @@ export default function Main({navigation}: ImainProps) {
 
   return (
     <Default style={styles.main}>
-
       <Header />
 
-      <View style={styles.mainContent}>
-        <SearchBar onChange={setSearchValue} />
+      <ScrollView
+        contentContainerStyle={styles.mainContent}>
+
+        <SearchBar
+          onChange={setSearchValue} />
 
         {
           passwords?.length > 0 && (
@@ -56,7 +58,7 @@ export default function Main({navigation}: ImainProps) {
               onPress={addPassword} />
           )
         }
-      </View>
+      </ScrollView>
     </Default>
   );
 }

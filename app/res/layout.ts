@@ -8,7 +8,7 @@ namespace Layout {
   }
 
   export enum BorderRadius {
-    SM = 10,
+    SM = 7,
     PILL = 100
   }
 }

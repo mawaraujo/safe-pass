@@ -24,5 +24,6 @@ module.exports = {
     'linebreak-style': 'off',
     'max-len': 'off',
     'padded-blocks': 'off',
+    'valid-jsdoc': 'off',
   },
 };

@@ -6,6 +6,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   mainContent: {
-    margin: Layout.Spacing.SM,
+    padding: Layout.Spacing.SM,
+    flex: 1,
   },
 });

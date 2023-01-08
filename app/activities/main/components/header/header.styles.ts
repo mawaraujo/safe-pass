@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 50,
+    paddingVertical: 25,
     paddingHorizontal: Layout.Spacing.SM,
     backgroundColor: Colors.System.Brand,
   },

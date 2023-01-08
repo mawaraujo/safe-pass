@@ -16,12 +16,13 @@ export default StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: Fonts.Size.MD,
+    marginTop: Layout.Spacing.LG,
   },
   buttonContainer: {
     marginTop: Layout.Spacing.SM,
   },
   image: {
     width: '100%',
-    height: 300,
+    height: 150,
   },
 });
