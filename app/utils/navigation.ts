@@ -1,4 +1,3 @@
-import {string} from 'yup';
 import {Screens} from '../res';
 import {createNavigationContainerRef} from '@react-navigation/native';
 
@@ -25,9 +24,14 @@ class Navigation {
 
   static getIcon(routeName: string): string {
     switch (routeName) {
-      case Screens.mainStack.name:
-        return Screens.mainStack.icon;
+      case Screens.main.name:
+        return Screens.main.icon;
 
+      case Screens.addPassword.name:
+        return Screens.addPassword.icon;
+
+      case Screens.settings.name:
+        return Screens.settings.icon;
       default:
         return '';
     }

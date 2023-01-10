@@ -1,14 +1,16 @@
 /* eslint-disable no-unused-vars */
 
 export default {
-  mainStack: {
-    name: 'mainStack',
-    icon: 'home-outline',
-  },
   main: {
     name: 'main',
+    icon: 'home-outline',
   },
   addPassword: {
     name: 'addPassword',
+    icon: 'add-outline',
+  },
+  settings: {
+    name: 'settings',
+    icon: 'settings-outline',
   },
 };
