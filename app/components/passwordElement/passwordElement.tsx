@@ -12,7 +12,7 @@ function Component({item}: IPasswordElementProps) {
     <TouchableOpacity
       style={styles.container}>
 
-      <Text>{item.password}</Text>
+      <Text>{item.name}</Text>
     </TouchableOpacity>
   );
 }

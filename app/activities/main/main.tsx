@@ -21,6 +21,7 @@ interface ImainProps {
 function searchFilterLogic(searchValue: string, passwords: NPassword.Passwords): NPassword.Passwords {
   return passwords.filter((password: NPassword.Password) => {
     return (
+      password.name.toLowerCase().includes(searchValue.toLowerCase()) ||
       password.email?.toLowerCase().includes(searchValue.toLowerCase()) ||
       password.url?.toLowerCase().includes(searchValue.toLowerCase()) ||
       password.username?.toLowerCase().includes(searchValue.toLowerCase()) ||
@@ -35,9 +36,6 @@ export default function Main({navigation}: ImainProps) {
   const passwords = useSelector(
       (state: RootState) => state.passwords);
 
-  /**
-   * REFACTOR ME
-   */
   const computedPasswords: NPassword.Passwords = React.useMemo(() => {
     return searchFilterLogic(
         search.value,
