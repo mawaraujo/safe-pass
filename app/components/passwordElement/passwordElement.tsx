@@ -7,12 +7,17 @@ interface IPasswordElementProps {
   item: NPassword.Password
 }
 
-export default function PasswordElement({item}: IPasswordElementProps) {
+function Component({item}: IPasswordElementProps) {
   return (
     <TouchableOpacity
       style={styles.container}>
 
-      <Text>{item.email}</Text>
+      <Text>{item.password}</Text>
     </TouchableOpacity>
   );
 }
+
+export default React.memo(
+    Component,
+    (_prev, _next) => true,
+);

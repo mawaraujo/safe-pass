@@ -9,6 +9,7 @@ import PasswordElement from '../../components/passwordElement/passwordElement';
 import Empty from '../../components/empty/empty';
 import {Screens} from '../../res';
 import {NPassword} from '../../types';
+import EmptySearch from '../../components/emptySearch/emptySearch';
 
 interface ImainProps {
   navigation: {
@@ -67,6 +68,12 @@ export default function Main({navigation}: ImainProps) {
                 key={`${password.id}${index}`}
                 item={password} />
             ))
+          )
+        }
+
+        {
+          !computedPasswords?.length && (
+            <EmptySearch />
           )
         }
 
