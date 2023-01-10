@@ -10,6 +10,7 @@ import Empty from '../../components/empty/empty';
 import {Screens} from '../../res';
 import {NPassword} from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
+import useSearch from '../../hooks/useSearch';
 
 interface ImainProps {
   navigation: {
@@ -29,27 +30,20 @@ function searchFilterLogic(searchValue: string, passwords: NPassword.Passwords):
 }
 
 export default function Main({navigation}: ImainProps) {
-  const [
-    searchValue,
-    setSearchValue,
-  ] = React.useState<string>('');
+  const search = useSearch();
 
   const passwords = useSelector(
       (state: RootState) => state.passwords);
-
-  const handleClearSearch = React.useCallback(() => {
-    setSearchValue('');
-  }, [searchValue]);
 
   /**
    * REFACTOR ME
    */
   const computedPasswords: NPassword.Passwords = React.useMemo(() => {
     return searchFilterLogic(
-        searchValue,
+        search.value,
         passwords,
     );
-  }, [searchValue, passwords]);
+  }, [search.value, passwords]);
 
   const addPassword = React.useCallback(() => {
     navigation.navigate(
@@ -64,9 +58,9 @@ export default function Main({navigation}: ImainProps) {
         contentContainerStyle={styles.mainContent}>
 
         <SearchBar
-          value={searchValue}
-          onClear={handleClearSearch}
-          onChangeText={setSearchValue} />
+          value={search.value}
+          onClear={search.handleClear}
+          onChangeText={search.setVaue} />
 
         {
           computedPasswords?.length > 0 && (
