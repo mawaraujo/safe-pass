@@ -8,7 +8,7 @@ export default createSlice({
   initialState,
   reducers: {
     add(state, action: NStore.Action<NPassword.Password>) {
-      state.push(
+      state.unshift(
           action.payload,
       );
     },
