@@ -46,8 +46,21 @@ export default function AddPassword() {
         contentContainerStyle={styles.container}>
 
         <TextInput
+          value={formik.values.name}
+          label="Name"
+          autoCapitalize={'words'}
+          validationError={formik.errors.name}
+          onChangeText={(e) => {
+            formik.setFieldValue('name', e);
+          }}
+          placeholder="Facebook Username"
+        />
+
+        <TextInput
+          value={formik.values.url}
           label="Site or Application"
           validationError={formik.errors.url}
+          autoCapitalize={'none'}
           onChangeText={(e) => {
             formik.setFieldValue('url', e);
           }}
@@ -55,8 +68,10 @@ export default function AddPassword() {
         />
 
         <TextInput
+          value={formik.values.username}
           label="Username"
           accessibilityHint="username"
+          autoCapitalize={'none'}
           validationError={formik.errors.username}
           onChangeText={(e) => {
             formik.setFieldValue('username', e);
@@ -65,8 +80,10 @@ export default function AddPassword() {
         />
 
         <TextInput
+          value={formik.values.email}
           label="Email"
           accessibilityHint="email_address"
+          autoCapitalize={'none'}
           validationError={formik.errors.email}
           onChangeText={(e) => {
             formik.setFieldValue('email', e);
@@ -75,6 +92,7 @@ export default function AddPassword() {
         />
 
         <TextInput
+          value={formik.values.password}
           label="Password"
           secureTextEntry={true}
           accessibilityHint="password"
@@ -86,6 +104,7 @@ export default function AddPassword() {
         />
 
         <TextInput
+          value={formik.values.notes}
           label="Notes"
           numberOfLines={3}
           textAlignVerticalTop={true}

@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import type {NPassword} from '../../types';
+import styles from './passwordElement.styles';
 
 interface IPasswordElementProps {
   item: NPassword.Password
@@ -8,8 +9,10 @@ interface IPasswordElementProps {
 
 export default function PasswordElement({item}: IPasswordElementProps) {
   return (
-    <View>
-      <Text>{JSON.stringify(item)}</Text>
-    </View>
+    <TouchableOpacity
+      style={styles.container}>
+
+      <Text>{item.email}</Text>
+    </TouchableOpacity>
   );
 }

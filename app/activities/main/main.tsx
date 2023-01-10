@@ -5,7 +5,7 @@ import Default from '../../layout/default/default';
 import SearchBar from '../../components/searchBar/searchBar';
 import {useSelector} from 'react-redux';
 import type {RootState} from '../../store/store';
-import PasswordElement from '../../components/passwordElement/password';
+import PasswordElement from '../../components/passwordElement/passwordElement';
 import Empty from '../../components/empty/empty';
 import {Screens} from '../../res';
 import {NPassword} from '../../types';
@@ -19,7 +19,7 @@ interface ImainProps {
 function searchFilterLogic(searchValue: string, passwords: NPassword.Passwords): NPassword.Passwords {
   return passwords.filter((password: NPassword.Password) => {
     return (
-      password.email.toLowerCase().includes(searchValue.toLowerCase()) ||
+      password.email?.toLowerCase().includes(searchValue.toLowerCase()) ||
       password.url?.toLowerCase().includes(searchValue.toLowerCase()) ||
       password.username?.toLowerCase().includes(searchValue.toLowerCase()) ||
       password.notes?.toLowerCase().includes(searchValue.toLowerCase())

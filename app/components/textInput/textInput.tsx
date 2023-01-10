@@ -6,12 +6,18 @@ import {Strings} from '../../utils';
 type ITextInputProps = {
   label?: string,
   validationError?: string,
-  textAlignVerticalTop?: boolean
+  textAlignVerticalTop?: boolean,
 }
 
 type ExtendedITextInputProps = ITextInputProps & TextInputProps
 
-export default function TextInput({label, validationError, textAlignVerticalTop = false, ...rest}: ExtendedITextInputProps) {
+export default function TextInput({
+  label,
+  validationError,
+  textAlignVerticalTop = false,
+  ...rest
+}: ExtendedITextInputProps) {
+
   const [focused, setFocused] = React.useState<boolean>(false);
 
   return (
