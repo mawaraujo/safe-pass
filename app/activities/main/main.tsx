@@ -37,6 +37,10 @@ export default function Main({navigation}: ImainProps) {
   const passwords = useSelector(
       (state: RootState) => state.passwords);
 
+  const handleClearSearch = React.useCallback(() => {
+    setSearchValue('');
+  }, [searchValue]);
+
   /**
    * REFACTOR ME
    */
@@ -56,10 +60,13 @@ export default function Main({navigation}: ImainProps) {
   return (
     <Default style={styles.main}>
       <ScrollView
+        keyboardShouldPersistTaps={'always'}
         contentContainerStyle={styles.mainContent}>
 
         <SearchBar
-          onChange={setSearchValue} />
+          value={searchValue}
+          onClear={handleClearSearch}
+          onChangeText={setSearchValue} />
 
         {
           computedPasswords?.length > 0 && (

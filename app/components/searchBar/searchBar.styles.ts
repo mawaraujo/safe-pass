@@ -13,7 +13,10 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    width: '100%',
-    marginLeft: 5,
+    flex: 1,
+    marginHorizontal: 5,
+  },
+  clearIcon: {
+
   },
 });
