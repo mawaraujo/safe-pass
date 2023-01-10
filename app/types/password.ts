@@ -3,7 +3,7 @@ namespace NPassword {
     id: string,
     password: string,
     email: string,
-    url: string,
+    url?: string,
     username?: string,
     notes?: string,
   }

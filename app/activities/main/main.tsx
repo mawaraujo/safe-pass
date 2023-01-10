@@ -8,11 +8,23 @@ import type {RootState} from '../../store/store';
 import PasswordElement from '../../components/passwordElement/password';
 import Empty from '../../components/empty/empty';
 import {Screens} from '../../res';
+import {NPassword} from '../../types';
 
 interface ImainProps {
   navigation: {
     navigate: Function
   }
+}
+
+function searchFilterLogic(searchValue: string, passwords: NPassword.Passwords): NPassword.Passwords {
+  return passwords.filter((password: NPassword.Password) => {
+    return (
+      password.email.toLowerCase().includes(searchValue.toLowerCase()) ||
+      password.url?.toLowerCase().includes(searchValue.toLowerCase()) ||
+      password.username?.toLowerCase().includes(searchValue.toLowerCase()) ||
+      password.notes?.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  });
 }
 
 export default function Main({navigation}: ImainProps) {
@@ -21,10 +33,23 @@ export default function Main({navigation}: ImainProps) {
     setSearchValue,
   ] = React.useState<string>('');
 
-  const passwords = useSelector((state: RootState) => state.passwords);
+  const passwords = useSelector(
+      (state: RootState) => state.passwords);
+
+  /**
+   * REFACTOR ME
+   */
+  const computedPasswords: NPassword.Passwords = React.useMemo(() => {
+    return searchFilterLogic(
+        searchValue,
+        passwords,
+    );
+  }, [searchValue, passwords]);
 
   const addPassword = React.useCallback(() => {
-    navigation.navigate(Screens.addPassword.name);
+    navigation.navigate(
+        Screens.addPassword.name,
+    );
   }, []);
 
   return (
@@ -36,10 +61,10 @@ export default function Main({navigation}: ImainProps) {
           onChange={setSearchValue} />
 
         {
-          passwords?.length > 0 && (
-            passwords.map((password) => (
+          computedPasswords?.length > 0 && (
+            computedPasswords.map((password, index) => (
               <PasswordElement
-                key={password.id}
+                key={`${password.id}${index}`}
                 item={password} />
             ))
           )

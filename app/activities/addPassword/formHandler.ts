@@ -6,7 +6,7 @@ export default class FormHandler {
   public static validationSchema = yup
       .object()
       .shape({
-        email: yup.string().email(),
+        email: yup.string().email().required(),
         username: yup.string(),
         url: yup.string().url(),
         password: yup.string().required(),
