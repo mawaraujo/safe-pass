@@ -4,7 +4,8 @@ namespace NPassword {
     password: string,
     email: string,
     url: string,
-    username?: string
+    username?: string,
+    notes?: string,
   }
 
   export type Passwords = Array<Password>

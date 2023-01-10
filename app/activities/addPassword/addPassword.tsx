@@ -41,7 +41,9 @@ export default function AddPassword() {
       <NavigationBar
         name="Create Password" />
 
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        keyboardShouldPersistTaps={'always'}
+        contentContainerStyle={styles.container}>
 
         <TextInput
           label="Site or Application"
@@ -81,6 +83,17 @@ export default function AddPassword() {
             formik.setFieldValue('password', e);
           }}
           placeholder="*****"
+        />
+
+        <TextInput
+          label="Notes"
+          numberOfLines={3}
+          textAlignVerticalTop={true}
+          multiline={true}
+          validationError={formik.errors.notes}
+          onChangeText={(e) => {
+            formik.setFieldValue('notes', e);
+          }}
         />
 
         <Button

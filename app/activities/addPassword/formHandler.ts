@@ -6,10 +6,11 @@ export default class FormHandler {
   public static validationSchema = yup
       .object()
       .shape({
-        email: yup.string(),
+        email: yup.string().email(),
         username: yup.string(),
-        url: yup.string(),
+        url: yup.string().url(),
         password: yup.string().required(),
+        notes: yup.string(),
       });
 
   public static initialValues: NPassword.Password = {
@@ -18,5 +19,6 @@ export default class FormHandler {
     username: '',
     password: '',
     email: '',
+    notes: '',
   }
 }

@@ -8,7 +8,7 @@ export default StyleSheet.create({
   label: {
     marginBottom: Layout.Spacing.SM,
   },
-  inputError: {
+  errorMessage: {
     color: 'red',
     marginTop: Layout.Spacing.SM,
   },
@@ -16,5 +16,18 @@ export default StyleSheet.create({
     backgroundColor: Colors.Light.CardColor,
     borderRadius: Layout.BorderRadius.SM,
     padding: Layout.Spacing.SM,
+    elevation: 5,
+    shadowColor: Colors.Light.ShadowColor,
+    borderWidth: 3,
+    borderColor: 'transparent',
+  },
+  inputFocused: {
+    borderColor: Colors.System.BrandTransparent,
+  },
+  inputError: {
+    borderColor: Colors.System.DangerTransparent,
+  },
+  textAlignVerticalTop: {
+    textAlignVertical: 'top',
   },
 });

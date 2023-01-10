@@ -6,11 +6,13 @@ import {Strings} from '../../utils';
 type ITextInputProps = {
   label?: string,
   validationError?: string,
+  textAlignVerticalTop?: boolean
 }
 
 type ExtendedITextInputProps = ITextInputProps & TextInputProps
 
-export default function TextInput({label, validationError, ...rest}: ExtendedITextInputProps) {
+export default function TextInput({label, validationError, textAlignVerticalTop = false, ...rest}: ExtendedITextInputProps) {
+  const [focused, setFocused] = React.useState<boolean>(false);
 
   return (
     <View style={styles.container}>
@@ -21,12 +23,19 @@ export default function TextInput({label, validationError, ...rest}: ExtendedITe
       }
 
       <RNTextInput
-        style={styles.input}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        style={[
+          styles.input,
+          (textAlignVerticalTop && styles.textAlignVerticalTop),
+          (focused && styles.inputFocused),
+          (validationError ? styles.inputError : null),
+        ]}
         {...rest} />
 
       {
         (validationError && validationError?.length > 0) && (
-          <Text style={styles.inputError}>
+          <Text style={styles.errorMessage}>
             {
               Strings.capitalizeFirstLetter(
                   validationError,
