@@ -7,7 +7,7 @@ export default StyleSheet.create({
 
   },
   mainScrollView: {
-    margin: Layout.Spacing.SM,
+    padding: Layout.Spacing.SM,
   },
   title: {
     marginTop: Layout.Spacing.MD,

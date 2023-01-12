@@ -80,7 +80,7 @@ export default function Main({navigation}: ImainProps) {
       <ScrollView
         ref={scrollRef}
         keyboardShouldPersistTaps={'always'}
-        style={styles.mainScrollView}>
+        contentContainerStyle={styles.mainScrollView}>
 
         {
           !search.value?.length && (
