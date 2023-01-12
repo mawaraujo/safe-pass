@@ -12,6 +12,7 @@ import {Navigation} from './utils';
 import Main from './activities/main/main';
 import AddPasssword from './activities/addPassword/addPassword';
 import Settings from './activities/settings/settings';
+import PasswordDetails from './activities/passwordDetails/passwordDetails';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -46,6 +47,14 @@ export default function App() {
             <Tab.Screen
               component={Settings}
               name={Screens.settings.name} />
+
+            <Tab.Screen
+              options={{
+                tabBarItemStyle: {display: 'none'},
+                tabBarIcon: () => null,
+              }}
+              component={PasswordDetails}
+              name={Screens.passwordDetails.name} />
           </Tab.Navigator>
 
         </NavigationContainer>

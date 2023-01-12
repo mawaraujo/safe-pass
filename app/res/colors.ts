@@ -9,11 +9,14 @@ namespace Colors {
     White = '#FFFFFF',
     WhiteTransparent = 'rgba(255, 255, 255, 0.5)',
 
+    Black = '#000000',
+
     Danger = '#FF3B30',
     DangerTransparent = 'rgba(255, 56, 46, 0.5)',
     Warning = '#FF9500',
     Info = '#007AFF',
-    Success = System.Brand
+    Success = System.Brand,
+
   }
 
   export enum Light {

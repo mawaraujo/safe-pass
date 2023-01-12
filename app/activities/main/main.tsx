@@ -11,6 +11,7 @@ import {Screens} from '../../res';
 import {NPassword} from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
 import useSearch from '../../hooks/useSearch';
+import Navigation from '../../utils/navigation';
 
 interface ImainProps {
   navigation: {
@@ -43,11 +44,26 @@ export default function Main({navigation}: ImainProps) {
     );
   }, [search.value, passwords]);
 
+  /**
+   * Go to add password screen
+   */
   const addPassword = React.useCallback(() => {
     navigation.navigate(
         Screens.addPassword.name,
     );
   }, []);
+
+  /**
+   * Go to password details screen
+   */
+  const handleViewPasswordDetails = React.useCallback((password: NPassword.Password) => {
+    Navigation.navigate(
+        Screens.passwordDetails.name,
+        {
+          password,
+        });
+
+  }, [passwords, computedPasswords]);
 
   return (
     <Default style={styles.main}>
@@ -64,6 +80,7 @@ export default function Main({navigation}: ImainProps) {
           computedPasswords?.length > 0 && (
             computedPasswords.map((password, index) => (
               <PasswordElement
+                onPress={handleViewPasswordDetails}
                 key={`${password.id}${index}`}
                 item={password} />
             ))

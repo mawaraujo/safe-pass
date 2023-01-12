@@ -7,7 +7,10 @@ export default {
   },
   addPassword: {
     name: 'addPassword',
-    icon: 'add-outline',
+    icon: 'add-circle-outline',
+  },
+  passwordDetails: {
+    name: 'passwordDetails',
   },
   settings: {
     name: 'settings',

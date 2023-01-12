@@ -9,5 +9,16 @@ export default StyleSheet.create({
     shadowColor: Colors.Light.ShadowColor,
     borderRadius: Layout.BorderRadius.SM,
     padding: Layout.Spacing.SM,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  title: {
+    color: Colors.System.Black,
+    fontWeight: 'bold',
+    textTransform: 'capitalize',
+  },
+  left: {
+    flex: 1,
   },
 });
