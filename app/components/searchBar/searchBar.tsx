@@ -23,29 +23,31 @@ export default function SearchBar({onChangeText, onClear, value}: ISearchBarProp
   };
 
   return (
-    <View style={styles.container}>
-      <Icon
-        name="search"
-        size={16} />
+    <View style={styles.wrapper}>
+      <View style={styles.container}>
+        <Icon
+          name="search"
+          size={16} />
 
-      <TextInput
-        value={value}
-        onChangeText={handleChange}
-        placeholder="Search password"
-        style={styles.input} />
+        <TextInput
+          value={value}
+          onChangeText={handleChange}
+          placeholder="Search password"
+          style={styles.input} />
 
-      {
-        value?.length > 0 && (
-          <TouchableOpacity
-            onPress={handleClear}
-            style={styles.clearIcon}>
+        {
+          value?.length > 0 && (
+            <TouchableOpacity
+              onPress={handleClear}
+              style={styles.clearIcon}>
 
-            <Icon
-              name="close-outline"
-              size={20} />
-          </TouchableOpacity>
-        )
-      }
+              <Icon
+                name="close-outline"
+                size={20} />
+            </TouchableOpacity>
+          )
+        }
+      </View>
     </View>
   );
 }

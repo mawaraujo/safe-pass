@@ -1,12 +1,17 @@
 import {StyleSheet} from 'react-native';
-import {Layout} from '../../res';
+import {Fonts, Layout} from '../../res';
 
 export default StyleSheet.create({
   main: {
     flex: 1,
+
   },
-  mainContent: {
-    padding: Layout.Spacing.SM,
-    flex: 1,
+  mainScrollView: {
+    margin: Layout.Spacing.SM,
+  },
+  title: {
+    marginTop: Layout.Spacing.MD,
+    marginBottom: Layout.Spacing.SM,
+    fontSize: Fonts.Size.MD,
   },
 });

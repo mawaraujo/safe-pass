@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {ScrollView, Text} from 'react-native';
 import styles from './main.styles';
 import Default from '../../layout/default/default';
 import SearchBar from '../../components/searchBar/searchBar';
@@ -67,14 +67,22 @@ export default function Main({navigation}: ImainProps) {
 
   return (
     <Default style={styles.main}>
+      <SearchBar
+        value={search.value}
+        onClear={search.handleClear}
+        onChangeText={search.setVaue} />
+
       <ScrollView
         keyboardShouldPersistTaps={'always'}
-        contentContainerStyle={styles.mainContent}>
+        style={styles.mainScrollView}>
 
-        <SearchBar
-          value={search.value}
-          onClear={search.handleClear}
-          onChangeText={search.setVaue} />
+        {
+          !search.value?.length && (
+            <Text style={styles.title}>
+            All passwords
+            </Text>
+          )
+        }
 
         {
           computedPasswords?.length > 0 && (

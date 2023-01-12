@@ -2,6 +2,11 @@ import {StyleSheet} from 'react-native';
 import {Colors, Layout} from '../../res';
 
 export default StyleSheet.create({
+  wrapper: {
+    backgroundColor: Colors.System.Brand,
+    width: '100%',
+    padding: Layout.Spacing.SM,
+  },
   container: {
     backgroundColor: Colors.Light.CardColor,
     width: '100%',
