@@ -12,6 +12,7 @@ import {NPassword} from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
 import useSearch from '../../hooks/useSearch';
 import Navigation from '../../utils/navigation';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 interface ImainProps {
   navigation: {
@@ -32,6 +33,10 @@ function searchFilterLogic(searchValue: string, passwords: NPassword.Passwords):
 }
 
 export default function Main({navigation}: ImainProps) {
+  const {
+    scrollRef,
+  } = useScrollToTop();
+
   const search = useSearch();
 
   const passwords = useSelector(
@@ -73,6 +78,7 @@ export default function Main({navigation}: ImainProps) {
         onChangeText={search.setVaue} />
 
       <ScrollView
+        ref={scrollRef}
         keyboardShouldPersistTaps={'always'}
         style={styles.mainScrollView}>
 

@@ -12,9 +12,12 @@ import {useDispatch} from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import {Navigation} from '../../utils';
 import screens from '../../res/screens';
-
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 export default function AddPassword() {
+  const {
+    scrollRef,
+  } = useScrollToTop();
 
   const dispatch = useDispatch();
   const {validationSchema, initialValues} = FormHandler;
@@ -42,6 +45,7 @@ export default function AddPassword() {
         name="Create Password" />
 
       <ScrollView
+        ref={scrollRef}
         keyboardShouldPersistTaps={'always'}
         contentContainerStyle={styles.container}>
 
