@@ -5,7 +5,8 @@ namespace Fonts {
     XL = 30,
     LG = 25,
     MD = 18,
-    REGULAR = 14
+    REGULAR = 14,
+    XS = 12
   }
 }
 

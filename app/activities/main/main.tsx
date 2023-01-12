@@ -47,23 +47,23 @@ export default function Main({navigation}: ImainProps) {
   /**
    * Go to add password screen
    */
-  const addPassword = React.useCallback(() => {
+  const addPassword = () => {
     navigation.navigate(
         Screens.addPassword.name,
     );
-  }, []);
+  };
 
   /**
    * Go to password details screen
    */
-  const handleViewPasswordDetails = React.useCallback((password: NPassword.Password) => {
+  const handleViewPasswordDetails = (password: NPassword.Password) => {
     Navigation.navigate(
         Screens.passwordDetails.name,
         {
           password,
         });
 
-  }, [passwords, computedPasswords]);
+  };
 
   return (
     <Default style={styles.main}>

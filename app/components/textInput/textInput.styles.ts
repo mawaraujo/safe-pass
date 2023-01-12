@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Layout} from '../../res';
+import {Colors, Fonts, Layout} from '../../res';
 
 export default StyleSheet.create({
   container: {
@@ -10,7 +10,8 @@ export default StyleSheet.create({
   },
   errorMessage: {
     color: 'red',
-    marginTop: Layout.Spacing.SM,
+    marginTop: Layout.Spacing.XS,
+    fontSize: Fonts.Size.XS,
   },
   input: {
     backgroundColor: Colors.Light.CardColor,
