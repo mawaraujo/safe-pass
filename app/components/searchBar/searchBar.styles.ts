@@ -3,9 +3,9 @@ import {Colors, Layout} from '../../res';
 
 export default StyleSheet.create({
   wrapper: {
-    backgroundColor: Colors.System.Brand,
     width: '100%',
-    padding: Layout.Spacing.SM,
+    paddingTop: Layout.Spacing.MD,
+    paddingHorizontal: Layout.Spacing.MD,
   },
   container: {
     backgroundColor: Colors.Light.CardColor,

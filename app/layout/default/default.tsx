@@ -15,8 +15,8 @@ interface IDefaultProps {
 }
 
 const initialStatusBarConfig: StatusBarProps = {
-  backgroundColor: Colors.System.BrandSemiLight,
-  barStyle: 'light-content',
+  backgroundColor: Colors.Light.BackgroundColor,
+  barStyle: 'dark-content',
 };
 
 export default function Default({

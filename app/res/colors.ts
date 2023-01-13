@@ -2,9 +2,9 @@
 
 namespace Colors {
   export enum System {
-    Brand = '#11834F',
-    BrandSemiLight = '#238D5E',
-    BrandTransparent = 'rgba(17, 131, 80, 0.2)',
+    Brand = '#0D2043',
+    BrandSemiLight = '#223654',
+    BrandTransparent = 'rgba(13, 32, 67, 0.5)',
 
     White = '#FFFFFF',
     WhiteTransparent = 'rgba(255, 255, 255, 0.5)',
@@ -15,8 +15,7 @@ namespace Colors {
     DangerTransparent = 'rgba(255, 56, 46, 0.5)',
     Warning = '#FF9500',
     Info = '#007AFF',
-    Success = System.Brand,
-
+    Success = '#34C759',
   }
 
   export enum Light {

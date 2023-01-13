@@ -32,7 +32,7 @@ export default function SearchBar({onChangeText, onClear, value}: ISearchBarProp
         <TextInput
           value={value}
           onChangeText={handleChange}
-          placeholder="Search password"
+          placeholder="Search for passwords..."
           style={styles.input} />
 
         {

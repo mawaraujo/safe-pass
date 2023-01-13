@@ -7,7 +7,7 @@ export default StyleSheet.create({
     width: 'auto',
     paddingVertical: Layout.Spacing.SM,
     paddingHorizontal: Layout.Spacing.LG,
-    borderRadius: Layout.BorderRadius.PILL,
+    borderRadius: Layout.BorderRadius.SM,
     justifyContent: 'center',
     alignItems: 'center',
   },

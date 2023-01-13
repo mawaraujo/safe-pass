@@ -3,6 +3,7 @@ import {Layout} from '../../res';
 
 export default StyleSheet.create({
   container: {
-    padding: Layout.Spacing.MD,
+    paddingHorizontal: Layout.Spacing.MD,
+    paddingBottom: Layout.Spacing.MD,
   },
 });

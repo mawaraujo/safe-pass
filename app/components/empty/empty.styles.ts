@@ -6,7 +6,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.Light.CardColor,
-    marginTop: Layout.Spacing.SM,
     borderRadius: Layout.BorderRadius.SM,
     overflow: 'hidden',
     padding: Layout.Spacing.MD,

@@ -5,7 +5,6 @@ export default StyleSheet.create({
   container: {
     width: '100%',
     padding: Layout.Spacing.MD,
-    backgroundColor: Colors.System.Brand,
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
@@ -14,7 +13,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   name: {
-    color: Colors.System.White,
+    color: Colors.System.Brand,
     fontSize: Fonts.Size.MD,
     marginLeft: Layout.Spacing.SM,
   },

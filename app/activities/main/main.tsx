@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 import styles from './main.styles';
 import Default from '../../layout/default/default';
 import SearchBar from '../../components/searchBar/searchBar';
@@ -20,18 +20,6 @@ interface ImainProps {
   }
 }
 
-function searchFilterLogic(searchValue: string, passwords: NPassword.Passwords): NPassword.Passwords {
-  return passwords.filter((password: NPassword.Password) => {
-    return (
-      password.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-      password.email?.toLowerCase().includes(searchValue.toLowerCase()) ||
-      password.url?.toLowerCase().includes(searchValue.toLowerCase()) ||
-      password.username?.toLowerCase().includes(searchValue.toLowerCase()) ||
-      password.notes?.toLowerCase().includes(searchValue.toLowerCase())
-    );
-  });
-}
-
 export default function Main({navigation}: ImainProps) {
   const {
     scrollRef,
@@ -43,7 +31,7 @@ export default function Main({navigation}: ImainProps) {
       (state: RootState) => state.passwords);
 
   const computedPasswords: NPassword.Passwords = React.useMemo(() => {
-    return searchFilterLogic(
+    return searchFilter(
         search.value,
         passwords,
     );
@@ -83,14 +71,6 @@ export default function Main({navigation}: ImainProps) {
         contentContainerStyle={styles.mainScrollView}>
 
         {
-          !search.value?.length && (
-            <Text style={styles.title}>
-            All passwords
-            </Text>
-          )
-        }
-
-        {
           computedPasswords?.length > 0 && (
             computedPasswords.map((password, index) => (
               <PasswordElement
@@ -102,7 +82,7 @@ export default function Main({navigation}: ImainProps) {
         }
 
         {
-          !computedPasswords?.length && (
+          search.value && !computedPasswords?.length && (
             <EmptySearch />
           )
         }
@@ -118,4 +98,26 @@ export default function Main({navigation}: ImainProps) {
       </ScrollView>
     </Default>
   );
+}
+
+function searchFilter(str: string, passwords: NPassword.Passwords): NPassword.Passwords {
+  return passwords.filter((password: NPassword.Password) => {
+    return (
+      password.name
+          .toLowerCase()
+          .includes(str.toLowerCase()) ||
+      password.email
+          ?.toLowerCase()
+          .includes(str.toLowerCase()) ||
+      password.url
+          ?.toLowerCase()
+          .includes(str.toLowerCase()) ||
+      password.username
+          ?.toLowerCase()
+          .includes(str.toLowerCase()) ||
+      password.notes
+          ?.toLowerCase()
+          .includes(str.toLowerCase())
+    );
+  });
 }
