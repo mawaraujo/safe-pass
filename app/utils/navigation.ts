@@ -22,6 +22,12 @@ class Navigation {
     }
   }
 
+  static setParams(params: object): void {
+    if (this.navigationRef.isReady()) {
+      this.navigationRef.setParams(params as never);
+    }
+  }
+
   static getIcon(routeName: string): string {
     switch (routeName) {
       case Screens.main.name:

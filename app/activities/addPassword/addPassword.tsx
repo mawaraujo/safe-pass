@@ -22,16 +22,22 @@ interface IAddPAsswordProps {
   }
 }
 
-
 export default function AddPassword({route}: IAddPAsswordProps) {
   const dispatch = useDispatch();
-  const {validationSchema, initialValues} = FormHandler;
+
+  const {
+    validationSchema,
+    initialValues,
+  } = FormHandler;
 
   const password = route?.params?.password;
   const [editMode, setEditMode] = React.useState(false);
 
   const onSubmit = (value: NPassword.Password, helpers: FormikHelpers<NPassword.Password>) => {
+    // If not in edit mode, We will create a new password
     if (!editMode) {
+
+      // Create a random uuid
       value.id = uuid.v4().toString();
 
       dispatch(
@@ -48,6 +54,7 @@ export default function AddPassword({route}: IAddPAsswordProps) {
       );
     }
 
+    helpers.resetForm();
     Navigation.navigate(screens.main.name);
   };
 
@@ -57,12 +64,20 @@ export default function AddPassword({route}: IAddPAsswordProps) {
     onSubmit,
   });
 
+  /**
+   * Check if the screen will edit a password or create a new
+   */
   React.useEffect(() => {
     if (password && Object.keys(password).length !== 0) {
       setEditMode(true);
 
-      formik
-          .setValues(password);
+      // Set the current password value on the formik state
+      formik.setValues(password);
+
+      // Unmount screen on blur fix
+      Navigation.setParams({
+        password: undefined,
+      });
     }
   }, [password]);
 
