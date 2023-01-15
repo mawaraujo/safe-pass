@@ -26,6 +26,10 @@ export default StyleSheet.create({
   },
   textValue: {
   },
+  left: {
+    flex: 1,
+    marginRight: Layout.Spacing.MD,
+  },
   buttonMarginBottom: {
     marginBottom: Layout.Spacing.XS,
   },

@@ -70,7 +70,7 @@ export default function Preview({route}: IPreviewProps) {
               styles.cardRowMarginBottom,
             ]}>
 
-            <View>
+            <View style={styles.left}>
               <Text style={styles.textLabel}>URL</Text>
               <Text style={styles.textValue}>
                 { password.url || 'No information'}
@@ -96,7 +96,7 @@ export default function Preview({route}: IPreviewProps) {
               styles.cardRowMarginBottom,
             ]}>
 
-            <View>
+            <View style={styles.left}>
               <Text style={styles.textLabel}>Username</Text>
               <Text style={styles.textValue}>
                 { password.username || 'No information'}
@@ -122,7 +122,7 @@ export default function Preview({route}: IPreviewProps) {
               styles.cardRowMarginBottom,
             ]}>
 
-            <View>
+            <View style={styles.left}>
               <Text style={styles.textLabel}>Email</Text>
               <Text style={styles.textValue}>
                 { password.email || 'No information'}
@@ -148,7 +148,7 @@ export default function Preview({route}: IPreviewProps) {
               styles.cardRowMarginBottom,
             ]}>
 
-            <View>
+            <View style={styles.left}>
               <Text style={styles.textLabel}>Password</Text>
               <Text style={styles.textValue}>
                 { password.password ? '******' : 'No information'}
@@ -169,7 +169,7 @@ export default function Preview({route}: IPreviewProps) {
           </View>
 
           <View style={styles.cardRow}>
-            <View>
+            <View style={styles.left}>
               <Text style={styles.textLabel}>Notes</Text>
               <Text style={styles.textValue}>
                 { password.notes || 'No information'}
