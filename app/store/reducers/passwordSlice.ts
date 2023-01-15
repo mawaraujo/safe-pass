@@ -12,5 +12,20 @@ export default createSlice({
           action.payload,
       );
     },
+
+    edit(state, action: NStore.Action<NPassword.Password>) {
+      const itemIndex = state.findIndex((pass) => pass.id === action.payload.id);
+
+      if (itemIndex !== -1) {
+        state[itemIndex] = action.payload;
+      }
+    },
+
+    delete(state, action: NStore.Action<NPassword.Password>) {
+      const filtered = state.filter((item) =>
+        item.id !== action.payload.id);
+
+      state = filtered;
+    },
   },
 });

@@ -12,19 +12,42 @@ import {useDispatch} from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import {Navigation} from '../../utils';
 import screens from '../../res/screens';
+import uuid from 'react-native-uuid';
 
-export default function AddPassword() {
+interface IAddPAsswordProps {
+  route?: {
+    params: {
+      password: NPassword.Password
+    }
+  }
+}
+
+
+export default function AddPassword({route}: IAddPAsswordProps) {
   const dispatch = useDispatch();
   const {validationSchema, initialValues} = FormHandler;
 
-  const onSubmit = (value: NPassword.Password, helpers: FormikHelpers<NPassword.Password>) => {
-    dispatch(
-        passwordSlice
-            .actions
-            .add(value),
-    );
+  const password = route?.params?.password;
+  const [editMode, setEditMode] = React.useState(false);
 
-    helpers.resetForm();
+  const onSubmit = (value: NPassword.Password, helpers: FormikHelpers<NPassword.Password>) => {
+    if (!editMode) {
+      value.id = uuid.v4().toString();
+
+      dispatch(
+          passwordSlice.actions.add(
+              value,
+          ),
+      );
+
+    } else {
+      dispatch(
+          passwordSlice.actions.edit(
+              value,
+          ),
+      );
+    }
+
     Navigation.navigate(screens.main.name);
   };
 
@@ -34,10 +57,19 @@ export default function AddPassword() {
     onSubmit,
   });
 
+  React.useEffect(() => {
+    if (password && Object.keys(password).length !== 0) {
+      setEditMode(true);
+
+      formik
+          .setValues(password);
+    }
+  }, [password]);
+
   return (
     <Default>
       <NavigationBar
-        name="Create Password" />
+        name={editMode ? 'Update Entry' : 'Create Entry'} />
 
       <ScrollView
         keyboardShouldPersistTaps={'always'}
@@ -115,8 +147,7 @@ export default function AddPassword() {
 
         <Button
           onPress={formik.handleSubmit}
-          text="Create password" />
-
+          text="Save changes" />
       </ScrollView>
     </Default>
   );

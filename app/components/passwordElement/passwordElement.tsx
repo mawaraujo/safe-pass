@@ -34,7 +34,6 @@ export default function PasswordElement({item, onPress}: IPasswordElementProps) 
           !loadImageError ?
           {
             uri: `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.url}&size=256`,
-            cache: 'only-if-cached',
           } :
           DefaultImage
         }
@@ -44,7 +43,7 @@ export default function PasswordElement({item, onPress}: IPasswordElementProps) 
       <View style={styles.left}>
         <Text style={styles.title}>{item.name}</Text>
 
-        { item.username && !item.email && (
+        { item.username && (
           <Text>{item.username}</Text>
         )}
 
@@ -54,7 +53,7 @@ export default function PasswordElement({item, onPress}: IPasswordElementProps) 
 
         {
           !item.username && !item.email && (
-            <Text>Empty username</Text>
+            <Text>No information</Text>
           )
         }
       </View>

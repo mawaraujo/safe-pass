@@ -37,6 +37,9 @@ export default function App() {
             })}>
 
             <Tab.Screen
+              options={{
+                unmountOnBlur: true,
+              }}
               component={Main}
               name={Screens.main.name} />
 

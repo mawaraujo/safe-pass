@@ -8,6 +8,8 @@ import styles from './passwordDetails.styles';
 import Button from '../../components/button/button';
 import useClipboard from '../../hooks/useClipboard';
 import useLink from '../../hooks/useLink';
+import {Navigation} from '../../utils';
+import {Screens} from '../../res';
 
 interface IPasswordDetailsProps {
   route?: {
@@ -43,6 +45,14 @@ export default function PasswordDetails({route}: IPasswordDetailsProps) {
     }
 
     link.open(value);
+  };
+
+  const editPassword = () => {
+    Navigation.navigate(
+        Screens.addPassword.name,
+        {
+          password,
+        });
   };
 
   return (
@@ -169,6 +179,7 @@ export default function PasswordDetails({route}: IPasswordDetailsProps) {
         </View>
 
         <Button
+          onPress={editPassword}
           style={styles.buttonMarginBottom}
           text="Edit" />
 
