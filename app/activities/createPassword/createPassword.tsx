@@ -72,7 +72,7 @@ export default function ManagePassword({route}: IAddPAsswordProps) {
       // Set the current password value on the formik state
       formik.setValues(password);
 
-      // Unmount screen on blur fix
+      // Screen unmount on blur fix
       Navigation.setParams({
         password: undefined,
       });
