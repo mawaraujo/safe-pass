@@ -33,8 +33,8 @@ class Navigation {
       case Screens.main.name:
         return Screens.main.icon;
 
-      case Screens.addPassword.name:
-        return Screens.addPassword.icon;
+      case Screens.createPassword.name:
+        return Screens.createPassword.icon;
 
       case Screens.settings.name:
         return Screens.settings.icon;

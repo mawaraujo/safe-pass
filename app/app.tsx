@@ -10,9 +10,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {Navigation} from './utils';
 
 import Main from './activities/main/main';
-import AddPasssword from './activities/addPassword/addPassword';
+import CreatePassword from './activities/createPassword/createPassword';
 import Settings from './activities/settings/settings';
-import PasswordDetails from './activities/passwordDetails/passwordDetails';
+import Preview from './activities/preview/preview';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,8 +47,8 @@ export default function App() {
               options={{
                 unmountOnBlur: true,
               }}
-              component={AddPasssword}
-              name={Screens.addPassword.name} />
+              component={CreatePassword}
+              name={Screens.createPassword.name} />
 
             <Tab.Screen
               component={Settings}
@@ -59,8 +59,8 @@ export default function App() {
                 tabBarItemStyle: {display: 'none'},
                 tabBarIcon: () => null,
               }}
-              component={PasswordDetails}
-              name={Screens.passwordDetails.name} />
+              component={Preview}
+              name={Screens.preview.name} />
           </Tab.Navigator>
 
         </NavigationContainer>

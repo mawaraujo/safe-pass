@@ -5,12 +5,12 @@ export default {
     name: 'main',
     icon: 'home-outline',
   },
-  addPassword: {
-    name: 'addPassword',
+  createPassword: {
+    name: 'createPassword',
     icon: 'add-circle-outline',
   },
-  passwordDetails: {
-    name: 'passwordDetails',
+  preview: {
+    name: 'preview',
   },
   settings: {
     name: 'settings',

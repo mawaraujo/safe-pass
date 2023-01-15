@@ -4,14 +4,14 @@ import DefaultLayout from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import type {NPassword} from '../../types';
 import Icon from 'react-native-vector-icons/Ionicons';
-import styles from './passwordDetails.styles';
+import styles from './preview.styles';
 import Button from '../../components/button/button';
 import useClipboard from '../../hooks/useClipboard';
 import useLink from '../../hooks/useLink';
 import {Navigation} from '../../utils';
 import {Screens} from '../../res';
 
-interface IPasswordDetailsProps {
+interface IPreviewProps {
   route?: {
     params: {
       password: NPassword.Password
@@ -19,7 +19,7 @@ interface IPasswordDetailsProps {
   }
 }
 
-export default function PasswordDetails({route}: IPasswordDetailsProps) {
+export default function Preview({route}: IPreviewProps) {
   const clipboard = useClipboard();
   const link = useLink();
 
@@ -49,7 +49,7 @@ export default function PasswordDetails({route}: IPasswordDetailsProps) {
 
   const editPassword = () => {
     Navigation.navigate(
-        Screens.addPassword.name,
+        Screens.createPassword.name,
         {
           password,
         });

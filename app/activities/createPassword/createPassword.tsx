@@ -5,7 +5,7 @@ import NavigationBar from '../../components/navigationBar/navigationBar';
 import {FormikHelpers, useFormik} from 'formik';
 import FormHandler from './formHandler';
 import Button from '../../components/button/button';
-import styles from './addPassword.styles';
+import styles from './createPassword.styles';
 import TextInput from '../../components/textInput/textInput';
 import type {NPassword} from '../../types';
 import {useDispatch} from 'react-redux';
@@ -22,18 +22,17 @@ interface IAddPAsswordProps {
   }
 }
 
-export default function AddPassword({route}: IAddPAsswordProps) {
+export default function ManagePassword({route}: IAddPAsswordProps) {
   const dispatch = useDispatch();
-
-  const {
-    validationSchema,
-    initialValues,
-  } = FormHandler;
 
   const password = route?.params?.password;
   const [editMode, setEditMode] = React.useState(false);
 
-  const onSubmit = (value: NPassword.Password, helpers: FormikHelpers<NPassword.Password>) => {
+  const onSubmit = (
+      value: NPassword.Password,
+      _helpers: FormikHelpers<NPassword.Password>,
+  ) => {
+
     // If not in edit mode, We will create a new password
     if (!editMode) {
 
@@ -54,13 +53,12 @@ export default function AddPassword({route}: IAddPAsswordProps) {
       );
     }
 
-    helpers.resetForm();
     Navigation.navigate(screens.main.name);
   };
 
   const formik = useFormik({
-    validationSchema,
-    initialValues,
+    validationSchema: FormHandler.validationSchema,
+    initialValues: FormHandler.initialValues,
     onSubmit,
   });
 
