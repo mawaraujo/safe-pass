@@ -41,6 +41,9 @@ export default function App() {
               name={Screens.main.name} />
 
             <Tab.Screen
+              options={{
+                unmountOnBlur: true,
+              }}
               component={AddPasssword}
               name={Screens.addPassword.name} />
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView} from 'react-native';
 import styles from './main.styles';
 import Default from '../../layout/default/default';
 import SearchBar from '../../components/searchBar/searchBar';
@@ -12,7 +12,6 @@ import {NPassword} from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
 import useSearch from '../../hooks/useSearch';
 import Navigation from '../../utils/navigation';
-import useScrollToTop from '../../hooks/useScrollToTop';
 
 interface ImainProps {
   navigation: {
@@ -21,10 +20,6 @@ interface ImainProps {
 }
 
 export default function Main({navigation}: ImainProps) {
-  const {
-    scrollRef,
-  } = useScrollToTop();
-
   const search = useSearch();
 
   const passwords = useSelector(
@@ -66,7 +61,6 @@ export default function Main({navigation}: ImainProps) {
         onChangeText={search.setVaue} />
 
       <ScrollView
-        ref={scrollRef}
         keyboardShouldPersistTaps={'always'}
         contentContainerStyle={styles.mainScrollView}>
 
