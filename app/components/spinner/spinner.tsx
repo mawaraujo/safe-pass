@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, ActivityIndicator, SafeAreaView} from 'react-native';
+import {ActivityIndicator, SafeAreaView} from 'react-native';
 import {Colors} from '../../res';
 import spinnerStyles from './spinner.styles';
 
-export default function Spinner() {
+function Spinner() {
   return (
     <SafeAreaView
       style={spinnerStyles.container}>
@@ -14,3 +14,8 @@ export default function Spinner() {
     </SafeAreaView>
   );
 }
+
+export default React.memo(
+    Spinner,
+    (_prev: any, _next: any) => true,
+);
