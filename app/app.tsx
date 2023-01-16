@@ -9,6 +9,7 @@ import {Colors, Screens} from './res';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Navigation} from './utils';
 import GlobalToast from './components/toast/toast';
+import Spinner from './components/spinner/spinner';
 
 import Main from './activities/main/main';
 import CreatePassword from './activities/createPassword/createPassword';
@@ -21,7 +22,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <ReduxProvider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<Spinner />} persistor={persistor}>
         <GlobalToast />
 
         <NavigationContainer
