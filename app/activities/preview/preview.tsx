@@ -6,8 +6,7 @@ import type {NPassword} from '../../types';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './preview.styles';
 import Button from '../../components/button/button';
-import useClipboard from '../../hooks/useClipboard';
-import useLink from '../../hooks/useLink';
+import {useLink, useClipboard} from '../../hooks';
 import {Navigation} from '../../utils';
 import {Screens} from '../../res';
 

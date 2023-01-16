@@ -1,7 +1,9 @@
 import NPassword from './password';
 import NStore from './store';
+import NToast from './toast';
 
-export {
+export type {
   NPassword,
   NStore,
+  NToast,
 };

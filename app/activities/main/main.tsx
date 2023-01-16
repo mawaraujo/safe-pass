@@ -10,7 +10,7 @@ import Empty from '../../components/empty/empty';
 import {Screens} from '../../res';
 import {NPassword} from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
-import useSearch from '../../hooks/useSearch';
+import {useSearch} from '../../hooks';
 import Navigation from '../../utils/navigation';
 
 interface ImainProps {

@@ -7,6 +7,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import {Colors} from '../../res';
+import Toast from '../../components/toast/toast';
 
 interface IDefaultProps {
   statusBar?: StatusBarProps
@@ -35,6 +36,7 @@ export default function Default({
         <StatusBar {...statusBar} />
       )}
 
+      <Toast />
       { children && children }
     </SafeAreaView>
   );

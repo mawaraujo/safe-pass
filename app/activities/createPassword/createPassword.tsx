@@ -13,6 +13,7 @@ import passwordSlice from '../../store/reducers/passwordSlice';
 import {Navigation} from '../../utils';
 import screens from '../../res/screens';
 import uuid from 'react-native-uuid';
+import toastSlice from '../../store/reducers/toastSlice';
 
 interface IAddPAsswordProps {
   route?: {
@@ -52,6 +53,15 @@ export default function ManagePassword({route}: IAddPAsswordProps) {
           ),
       );
     }
+
+    // Display success toast
+    dispatch(
+        toastSlice.actions.show({
+          title: 'Done!',
+          extraInformation: `The entry was ${editMode ? 'updated' : 'created'} successfully`,
+          type: 'Success',
+        }),
+    );
 
     Navigation.navigate(screens.main.name);
   };

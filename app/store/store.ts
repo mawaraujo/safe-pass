@@ -15,17 +15,26 @@ import {
 } from 'redux-persist';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+/**
+ * Slices imports
+ */
 import passwordSlice from './reducers/passwordSlice';
+import toastSlice from './reducers/toastSlice';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
+  whiteList: [
+    'passwords',
+  ],
 };
 
 const reducer = persistReducer(
     persistConfig,
     combineReducers({
       passwords: passwordSlice.reducer,
+      toast: toastSlice.reducer,
     }),
 );
 
