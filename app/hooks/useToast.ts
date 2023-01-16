@@ -6,15 +6,11 @@ export default function useToast() {
   const dispatch = useDispatch();
 
   const show = (toastValue: NToast.Toast) => {
-    hide();
-
-    setTimeout(() => {
-      dispatch(
-          toastSlice.actions.show(
-              toastValue,
-          ),
-      );
-    }, 300);
+    dispatch(
+        toastSlice.actions.show(
+            toastValue,
+        ),
+    );
   };
 
   const hide = () => {

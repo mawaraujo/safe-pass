@@ -22,10 +22,10 @@ export default createSlice({
     },
 
     delete(state, action: NStore.Action<NPassword.Password>) {
-      const filtered = state.filter((item) =>
-        item.id !== action.payload.id);
+      const itemIndex = state.findIndex((pass) =>
+        pass.id === action.payload.id);
 
-      state = filtered;
+      state.splice(itemIndex, 1);
     },
   },
 });

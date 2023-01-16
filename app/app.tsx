@@ -8,6 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Colors, Screens} from './res';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Navigation} from './utils';
+import GlobalToast from './components/toast/toast';
 
 import Main from './activities/main/main';
 import CreatePassword from './activities/createPassword/createPassword';
@@ -21,7 +22,10 @@ export default function App() {
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <NavigationContainer ref={Navigation.navigationRef}>
+        <GlobalToast />
+
+        <NavigationContainer
+          ref={Navigation.navigationRef}>
 
           <Tab.Navigator
             screenOptions={({route}) => ({

@@ -57,7 +57,7 @@ export default function ManagePassword({route}: IAddPAsswordProps) {
     // Display success toast
     dispatch(
         toastSlice.actions.show({
-          title: 'Done!',
+          title: 'Done',
           extraInformation: `The entry was ${editMode ? 'updated' : 'created'} successfully`,
           type: 'Success',
         }),

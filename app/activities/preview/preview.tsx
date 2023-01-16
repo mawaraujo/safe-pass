@@ -9,6 +9,10 @@ import Button from '../../components/button/button';
 import {useLink, useClipboard} from '../../hooks';
 import {Navigation} from '../../utils';
 import {Screens} from '../../res';
+import Confirm from '../../components/confirm/confirm';
+import passwordSlice from '../../store/reducers/passwordSlice';
+import {useDispatch} from 'react-redux';
+import toastSlice from '../../store/reducers/toastSlice';
 
 interface IPreviewProps {
   route?: {
@@ -19,6 +23,10 @@ interface IPreviewProps {
 }
 
 export default function Preview({route}: IPreviewProps) {
+
+  const dispatch = useDispatch();
+  const [askDeletePassword, setAskDeletePassword] = React.useState(false);
+
   const clipboard = useClipboard();
   const link = useLink();
 
@@ -54,10 +62,41 @@ export default function Preview({route}: IPreviewProps) {
         });
   };
 
+  const handleDelete = () => {
+    dispatch(
+        passwordSlice.actions.delete(
+            password,
+        ),
+    );
+
+    setAskDeletePassword(false);
+    Navigation.navigate(Screens.main.name);
+
+    dispatch(
+        toastSlice.actions.show({
+          title: 'Done',
+          extraInformation: 'Entry deleted successfully',
+          type: 'Success',
+        }),
+    );
+  };
+
   return (
     <DefaultLayout>
       <NavigationBar
         name={password.name} />
+
+      {
+        askDeletePassword && (
+          <Confirm
+            title="¿Do you want to delete this entry?"
+            extraInformation="This entry will delete forever"
+            onAccept={handleDelete}
+            onCancel={() => setAskDeletePassword(false)}
+            show={askDeletePassword}
+          />
+        )
+      }
 
       <ScrollView
         contentContainerStyle={styles.main}>
@@ -183,6 +222,7 @@ export default function Preview({route}: IPreviewProps) {
           text="Edit" />
 
         <Button
+          onPress={() => setAskDeletePassword(true)}
           style={styles.deleteButton}
           text="Delete" />
       </ScrollView>

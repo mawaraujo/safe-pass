@@ -4,7 +4,7 @@ namespace Fonts {
   export enum Size {
     XL = 30,
     LG = 25,
-    MD = 18,
+    MD = 17,
     REGULAR = 14,
     XS = 12
   }
