@@ -13,6 +13,7 @@ import Confirm from '../../components/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import {useDispatch} from 'react-redux';
 import toastSlice from '../../store/reducers/toastSlice';
+import Card from '../../components/card/card';
 
 interface IPreviewProps {
   route?: {
@@ -101,7 +102,7 @@ export default function Preview({route}: IPreviewProps) {
       <ScrollView
         contentContainerStyle={styles.main}>
 
-        <View style={styles.card}>
+        <Card>
           <View
             style={[
               styles.cardRow,
@@ -214,7 +215,7 @@ export default function Preview({route}: IPreviewProps) {
               </Text>
             </View>
           </View>
-        </View>
+        </Card>
 
         <Button
           onPress={editPassword}

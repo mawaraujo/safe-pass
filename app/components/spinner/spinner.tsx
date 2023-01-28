@@ -15,7 +15,4 @@ function Spinner() {
   );
 }
 
-export default React.memo(
-    Spinner,
-    (_prev: any, _next: any) => true,
-);
+export default React.memo(Spinner, () => true);

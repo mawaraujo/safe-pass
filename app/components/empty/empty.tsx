@@ -11,7 +11,7 @@ interface IEmptyProps {
   onPress?: () => void
 }
 
-function Component({text, actionButtonText, onPress}: IEmptyProps) {
+function Empty({text, actionButtonText, onPress}: IEmptyProps) {
   const handlePress = () => {
     if (onPress) {
       onPress();
@@ -42,7 +42,4 @@ function Component({text, actionButtonText, onPress}: IEmptyProps) {
   );
 }
 
-export default React.memo(
-    Component,
-    (_prev, _next) => true,
-);
+export default React.memo(Empty, () => true);

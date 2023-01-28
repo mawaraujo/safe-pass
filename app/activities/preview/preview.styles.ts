@@ -5,14 +5,6 @@ export default StyleSheet.create({
   main: {
     paddingHorizontal: Layout.Spacing.MD,
   },
-  card: {
-    backgroundColor: Colors.Light.CardColor,
-    shadowColor: Colors.Light.ShadowColor,
-    borderRadius: Layout.BorderRadius.SM,
-    padding: Layout.Spacing.MD,
-    width: '100%',
-    marginBottom: Layout.Spacing.MD,
-  },
   cardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
