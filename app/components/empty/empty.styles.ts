@@ -5,23 +5,20 @@ export default StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.Light.CardColor,
-    borderRadius: Layout.BorderRadius.SM,
     overflow: 'hidden',
-    padding: Layout.Spacing.MD,
-    elevation: 10,
-    shadowColor: Colors.Light.ShadowColor,
+    flex: 1,
   },
   text: {
     textAlign: 'center',
-    fontSize: Fonts.Size.MD,
-    marginTop: Layout.Spacing.LG,
+    fontSize: Fonts.Size.LG,
+    marginVertical: Layout.Spacing.SM,
+    color: Colors.System.Brand,
   },
   buttonContainer: {
-    marginTop: Layout.Spacing.SM,
+    marginTop: Layout.Spacing.LG,
   },
   image: {
     width: '100%',
-    height: 150,
+    height: 300,
   },
 });

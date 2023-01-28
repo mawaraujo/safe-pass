@@ -55,14 +55,27 @@ export default function Main({navigation}: ImainProps) {
 
   return (
     <Default style={styles.main}>
-      <SearchBar
-        value={search.value}
-        onClear={search.handleClear}
-        onChangeText={search.setVaue} />
+      {
+        passwords.length > 0 && (
+          <SearchBar
+            value={search.value}
+            onClear={search.handleClear}
+            onChangeText={search.setVaue} />
+        )
+      }
 
       <ScrollView
         keyboardShouldPersistTaps={'always'}
         contentContainerStyle={styles.mainScrollView}>
+
+        {
+          !passwords?.length && (
+            <Empty
+              text="Your password list is empty"
+              actionButtonText="Add Password"
+              onPress={addPassword} />
+          )
+        }
 
         {
           computedPasswords?.length > 0 && (
@@ -78,15 +91,6 @@ export default function Main({navigation}: ImainProps) {
         {
           search.value && !computedPasswords?.length && (
             <EmptySearch />
-          )
-        }
-
-        {
-          !passwords?.length && (
-            <Empty
-              text="Your password list is empty"
-              actionButtonText="Add Password"
-              onPress={addPassword} />
           )
         }
       </ScrollView>

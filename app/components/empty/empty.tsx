@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text} from 'react-native';
 import styles from './empty.styles';
-import EmptyListPNG from '../../res/assets/images/empty_list.png';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Button from '../button/button';
+import {Colors} from '../../res';
 
 interface IEmptyProps {
   text?: string,
@@ -19,7 +20,10 @@ function Component({text, actionButtonText, onPress}: IEmptyProps) {
 
   return (
     <View style={styles.container}>
-      <Image source={EmptyListPNG} style={styles.image} resizeMode="cover" />
+      <Icon
+        name="key"
+        size={100}
+        color={Colors.System.Brand} />
 
       <Text style={styles.text}>
         {text && text}

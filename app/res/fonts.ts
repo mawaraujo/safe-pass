@@ -8,6 +8,14 @@ namespace Fonts {
     REGULAR = 14,
     XS = 12
   }
+
+  export enum Family {
+    Thin = 'Poppins-Thin',
+    Light = 'Poppins-Light',
+    Regular = 'Poppins-Regular',
+    Bold = 'Poppins-Bold',
+    Italic = 'Poppins-Italic',
+  }
 }
 
 export default Fonts;
