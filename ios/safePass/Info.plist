@@ -53,11 +53,9 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Poppins-Bold.ttf</string>
-		<string>Poppins-Italic.ttf</string>
-		<string>Poppins-Light.ttf</string>
-		<string>Poppins-Regular.ttf</string>
-		<string>Poppins-Thin.ttf</string>
+		<string>SF-Bold.ttf</string>
+		<string>SF-Regular.ttf</string>
+		<string>SF-Semibold.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -10,11 +10,9 @@ namespace Fonts {
   }
 
   export enum Family {
-    Thin = 'Poppins-Thin',
-    Light = 'Poppins-Light',
-    Regular = 'Poppins-Regular',
-    Bold = 'Poppins-Bold',
-    Italic = 'Poppins-Italic',
+    Regular = 'SF-Regular',
+    SemiBold = 'SF-Semibold',
+    Bold = 'SF-Bold',
   }
 }
 

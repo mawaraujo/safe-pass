@@ -11,6 +11,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.Light.CardColor,
     width: '100%',
     borderRadius: Layout.BorderRadius.SM,
+    paddingVertical: Layout.Spacing.SM,
     paddingHorizontal: Layout.Spacing.MD,
     elevation: 10,
     shadowColor: Colors.Light.ShadowColor,
@@ -19,8 +20,10 @@ export default StyleSheet.create({
   },
   input: {
     flex: 1,
-    marginHorizontal: 5,
+    marginHorizontal: Layout.Spacing.SM,
     fontFamily: Fonts.Family.Regular,
+    padding: 0,
+    margin: 0,
   },
   clearIcon: {
 
