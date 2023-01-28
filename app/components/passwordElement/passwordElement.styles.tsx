@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Layout} from '../../res';
+import {Colors, Fonts, Layout} from '../../res';
 
 export default StyleSheet.create({
   container: {
@@ -18,10 +18,13 @@ export default StyleSheet.create({
   },
   title: {
     color: Colors.System.Brand,
-    fontWeight: 'bold',
     textTransform: 'capitalize',
+    fontFamily: Fonts.Family.Bold,
   },
   left: {
     flex: 1,
+  },
+  extraInfo: {
+    fontFamily: Fonts.Family.Regular,
   },
 });

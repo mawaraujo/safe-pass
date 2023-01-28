@@ -7,11 +7,13 @@ export default StyleSheet.create({
   },
   label: {
     marginBottom: Layout.Spacing.SM,
+    fontFamily: Fonts.Family.Regular,
   },
   errorMessage: {
     color: 'red',
     marginTop: Layout.Spacing.XS,
     fontSize: Fonts.Size.XS,
+    fontFamily: Fonts.Family.Regular,
   },
   input: {
     backgroundColor: Colors.Light.CardColor,
@@ -21,6 +23,7 @@ export default StyleSheet.create({
     shadowColor: Colors.Light.ShadowColor,
     borderWidth: 3,
     borderColor: 'transparent',
+    fontFamily: Fonts.Family.Regular,
   },
   inputFocused: {
     borderColor: Colors.System.BrandTransparent,

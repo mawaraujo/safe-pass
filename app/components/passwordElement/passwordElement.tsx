@@ -3,7 +3,7 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 import type {NPassword} from '../../types';
 import styles from './passwordElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import DefaultImage from '../../res/assets/images/key.png';
+import DefaultImage from '../../assets/images/key.png';
 
 interface IPasswordElementProps {
   item: NPassword.Password,
@@ -44,16 +44,22 @@ export default function PasswordElement({item, onPress}: IPasswordElementProps) 
         <Text style={styles.title}>{item.name}</Text>
 
         { item.username && (
-          <Text>{item.username}</Text>
+          <Text style={styles.extraInfo}>
+            {item.username}
+          </Text>
         )}
 
         { !item.username && item.email && (
-          <Text>{item.email}</Text>
+          <Text style={styles.extraInfo}>
+            {item.email}
+          </Text>
         )}
 
         {
           !item.username && !item.email && (
-            <Text>No information</Text>
+            <Text style={styles.extraInfo}>
+              No information
+            </Text>
           )
         }
       </View>

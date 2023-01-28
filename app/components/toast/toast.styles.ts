@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Layout} from '../../res';
+import {Colors, Fonts, Layout} from '../../res';
 
 export default StyleSheet.create({
   toastContainer: {
@@ -38,10 +38,10 @@ export default StyleSheet.create({
   },
   toastTitle: {
     color: Colors.System.Black,
-    fontWeight: 'bold',
+    fontFamily: Fonts.Family.Bold,
   },
   toastExtraInformation: {
-
+    fontFamily: Fonts.Family.Regular,
   },
   rightContainer: {
 

@@ -11,11 +11,12 @@ export default StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: Fonts.Size.LG,
-    marginVertical: Layout.Spacing.SM,
+    marginTop: Layout.Spacing.SM,
     color: Colors.System.Brand,
+    fontFamily: Fonts.Family.Regular,
   },
   buttonContainer: {
-    marginTop: Layout.Spacing.LG,
+
   },
   image: {
     width: '100%',

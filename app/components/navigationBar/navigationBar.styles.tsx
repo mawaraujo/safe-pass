@@ -16,5 +16,6 @@ export default StyleSheet.create({
     color: Colors.System.Brand,
     fontSize: Fonts.Size.MD,
     marginLeft: Layout.Spacing.SM,
+    fontFamily: Fonts.Family.Regular,
   },
 });

@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Layout} from '../../res';
+import {Colors, Fonts, Layout} from '../../res';
 
 export default StyleSheet.create({
   wrapper: {
@@ -20,6 +20,7 @@ export default StyleSheet.create({
   input: {
     flex: 1,
     marginHorizontal: 5,
+    fontFamily: Fonts.Family.Regular,
   },
   clearIcon: {
 
