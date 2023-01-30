@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import useAppState from './useAppState';
 import {LocalAuthentication} from '../modules';
 import {Platform} from 'react-native';
+import {useSelector} from 'react-redux';
+import {RootState} from '../store/store';
 
 interface UseLocalAuthentication {
   authorized: boolean
@@ -10,6 +12,8 @@ interface UseLocalAuthentication {
 export default function useLocalAuthentication(): UseLocalAuthentication {
   const [authorized, setAuthorized] = useState<boolean>(false);
   const appState = useAppState();
+
+  const settings = useSelector((state: RootState) => state.settings);
 
   const handlePrompt = async () => {
     if (authorized) {
@@ -35,7 +39,9 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
 
   useEffect(() => {
     if (appState.isActive) {
-      handlePrompt();
+      if (settings.enableLocalAuthentication) {
+        handlePrompt();
+      }
 
     } else {
       setAuthorized(false);

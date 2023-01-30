@@ -4,28 +4,25 @@ import {Provider as ReduxProvider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-// import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Colors, Screens} from './res';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Navigation} from './utils';
 import GlobalToast from './components/toast/toast';
 import Spinner from './components/spinner/spinner';
+import Bootstrapper from './components/bootstrapper/bootstrapper';
 
 import Main from './activities/main/main';
 import CreatePassword from './activities/createPassword/createPassword';
 import Settings from './activities/settings/settings';
 import Preview from './activities/preview/preview';
-import {useLocalAuthentication} from './hooks';
 
-// const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  useLocalAuthentication();
-
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
+        <Bootstrapper />
         <GlobalToast />
 
         <NavigationContainer

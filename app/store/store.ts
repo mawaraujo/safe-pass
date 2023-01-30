@@ -21,6 +21,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
  */
 import passwordSlice from './reducers/passwordSlice';
 import toastSlice from './reducers/toastSlice';
+import settingsSlice from './reducers/settingsSlice';
 
 const persistConfig = {
   key: 'root',
@@ -35,6 +36,7 @@ const reducer = persistReducer(
     combineReducers({
       passwords: passwordSlice.reducer,
       toast: toastSlice.reducer,
+      settings: settingsSlice.reducer,
     }),
 );
 
