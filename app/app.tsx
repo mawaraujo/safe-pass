@@ -15,11 +15,14 @@ import Main from './activities/main/main';
 import CreatePassword from './activities/createPassword/createPassword';
 import Settings from './activities/settings/settings';
 import Preview from './activities/preview/preview';
+import {useLocalAuthentication} from './hooks';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  useLocalAuthentication();
+
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
