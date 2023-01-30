@@ -27,14 +27,11 @@ import settingsSlice from './reducers/settingsSlice';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whiteList: [
-    'passwords',
-    'settings',
-  ],
+  whiteList: ['passwords', 'settings'],
 
   transforms: [
     encryptTransform({
-      secretKey: 'my-super-password',
+      secretKey: 'my-super-password', // Change this for production
       onError: function(error) {
         console.log('Encrypt transform error', error);
       },
