@@ -1,18 +1,16 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {NStore, NSettings} from '../../types';
+import {NSettings} from '../../types';
 
 const initialState: NSettings.AvailableOptions = {
-  enableLocalAuthentication: true,
+  enableLocalAuthentication: false,
 };
 
 export default createSlice({
   name: 'settings',
   initialState,
   reducers: {
-    toggle(state, action: NStore.Action<NSettings.ToggleAction>) {
-      if (action.payload.enableLocalAuthentication) {
-        state.enableLocalAuthentication = action.payload.enableLocalAuthentication;
-      }
+    toggleLocalAuthentication(state) {
+      state.enableLocalAuthentication = !state.enableLocalAuthentication;
     },
   },
 });

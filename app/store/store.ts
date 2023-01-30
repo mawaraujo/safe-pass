@@ -28,6 +28,7 @@ const persistConfig = {
   storage: AsyncStorage,
   whiteList: [
     'passwords',
+    'settings',
   ],
 };
 
