@@ -15,6 +15,7 @@ import {
 } from 'redux-persist';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {encryptTransform} from 'redux-persist-transform-encrypt';
 
 /**
  * Slices imports
@@ -29,6 +30,15 @@ const persistConfig = {
   whiteList: [
     'passwords',
     'settings',
+  ],
+
+  transforms: [
+    encryptTransform({
+      secretKey: 'my-super-password',
+      onError: function(error) {
+        console.log('Encrypt transform error', error);
+      },
+    }),
   ],
 };
 
