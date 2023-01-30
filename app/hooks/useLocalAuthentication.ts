@@ -23,8 +23,7 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
 
     try {
       const response = await LocalAuthentication.authenticate({
-        promptTitle: 'Hello worlds',
-        promptSubTitle: 'Loginsss',
+        promptTitle: 'Local authentication',
       });
 
       setAuthorized(response.success);
