@@ -2,14 +2,18 @@ import {useEffect, useState} from 'react';
 import useAppState from './useAppState';
 import {LocalAuthentication} from '../modules';
 import {Platform} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../store/store';
+import settingsSlice from '../store/reducers/settingsSlice';
+import toastSlice from '../store/reducers/toastSlice';
 
 interface UseLocalAuthentication {
   authorized: boolean
 }
 
 export default function useLocalAuthentication(): UseLocalAuthentication {
+  const dispatch = useDispatch();
+
   const [authorized, setAuthorized] = useState<boolean>(false);
   const appState = useAppState();
 
@@ -34,6 +38,19 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
 
     } catch (error) {
       console.log(error);
+
+      dispatch(
+          toastSlice.actions.show({
+            title: 'Phone security is not enabled',
+            type: 'Danger',
+          }),
+      );
+
+      dispatch(
+          settingsSlice
+              .actions
+              .toggleLocalAuthentication(),
+      );
     }
   };
 
