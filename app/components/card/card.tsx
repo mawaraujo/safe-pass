@@ -6,12 +6,10 @@ interface Props {
   children: React.ReactNode
 }
 
-function Card({children}: Props) {
+export default function Card({children}: Props) {
   return (
     <View style={styles.container}>
       {children && children}
     </View>
   );
 }
-
-export default React.memo(Card, () => true);
