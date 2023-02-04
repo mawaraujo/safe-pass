@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Switch} from 'react-native';
-import {Colors} from '../../res';
+import {Colors} from '../../../../res';
 import itemSwitchStyles from './itemSwitch.styles';
 
 interface ItemSwitchProps {

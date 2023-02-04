@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../../../store/store';
 import settingsSlice from '../../../../store/reducers/settingsSlice';
 import Card from '../../../../components/card/card';
-import ItemSwitch from '../../../../components/itemSwitch/itemSwitch';
+import ItemSwitch from '../../components/itemSwitch/itemSwitch';
 
 export default function SecuritySection() {
   const dispatch = useDispatch();

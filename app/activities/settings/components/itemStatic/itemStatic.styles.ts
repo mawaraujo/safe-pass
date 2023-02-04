@@ -1,20 +1,14 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Fonts, Layout} from '../../res';
+import {Colors, Fonts, Layout} from '../../../../res';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: 'column',
     marginTop: Layout.Spacing.MD,
   },
   removeMargin: {
     marginTop: 0,
-  },
-  leftContainer: {
-    flex: 1,
-    maxWidth: '75%',
   },
   title: {
     color: Colors.System.Brand,
