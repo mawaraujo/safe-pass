@@ -20,13 +20,17 @@ const Stack = createNativeStackNavigator();
 
 function BackupStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+
       <Stack.Screen
-        name={Screens.backup.import.name}
+        name={Screens.Backup.Import.Name}
         component={Import} />
 
       <Stack.Screen
-        name={Screens.backup.export.name}
+        name={Screens.Backup.Export.Name}
         component={Export} />
     </Stack.Navigator>
   );
@@ -47,23 +51,23 @@ export default function App() {
 
             <Stack.Screen
               component={Main}
-              name={Screens.main.name} />
+              name={Screens.Main.Name} />
 
             <Stack.Screen
               component={CreatePassword}
-              name={Screens.createPassword.name} />
+              name={Screens.CreatePassword.Name} />
 
             <Stack.Screen
               component={Settings}
-              name={Screens.settings.name} />
+              name={Screens.Settings.Name} />
 
             <Stack.Screen
               component={Preview}
-              name={Screens.preview.name} />
+              name={Screens.Preview.Name} />
 
             <Stack.Screen
               component={BackupStack}
-              name={Screens.backup.name} />
+              name={Screens.Backup.Name} />
           </Stack.Navigator>
 
         </NavigationContainer>

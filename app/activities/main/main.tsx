@@ -37,7 +37,7 @@ export default function Main({navigation}: ImainProps) {
    */
   const addPassword = () => {
     navigation.navigate(
-        Screens.createPassword.name,
+        Screens.CreatePassword.Name,
     );
   };
 
@@ -46,7 +46,7 @@ export default function Main({navigation}: ImainProps) {
    */
   const handleViewPasswordDetails = (password: NPassword.Password) => {
     Navigation.navigate(
-        Screens.preview.name,
+        Screens.Preview.Name,
         {
           password,
         });

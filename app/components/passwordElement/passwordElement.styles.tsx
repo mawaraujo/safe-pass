@@ -26,5 +26,6 @@ export default StyleSheet.create({
   },
   extraInfo: {
     fontFamily: Fonts.Family.Regular,
+    color: Colors.Light.Muted,
   },
 });

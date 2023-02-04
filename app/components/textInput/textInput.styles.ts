@@ -8,6 +8,7 @@ export default StyleSheet.create({
   label: {
     marginBottom: Layout.Spacing.SM,
     fontFamily: Fonts.Family.Regular,
+    color: Colors.System.Brand,
   },
   errorMessage: {
     color: 'red',
@@ -24,6 +25,7 @@ export default StyleSheet.create({
     borderWidth: 3,
     borderColor: 'transparent',
     fontFamily: Fonts.Family.Regular,
+    color: Colors.System.Brand,
   },
   inputFocused: {
     borderColor: Colors.System.BrandTransparent,

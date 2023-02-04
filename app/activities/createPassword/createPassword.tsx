@@ -63,7 +63,7 @@ export default function ManagePassword({route}: IAddPAsswordProps) {
         }),
     );
 
-    Navigation.navigate(screens.main.name);
+    Navigation.navigate(screens.Main.Name);
   };
 
   const formik = useFormik({

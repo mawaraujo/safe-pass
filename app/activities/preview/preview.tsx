@@ -57,7 +57,7 @@ export default function Preview({route}: IPreviewProps) {
 
   const editPassword = () => {
     Navigation.navigate(
-        Screens.createPassword.name,
+        Screens.CreatePassword.Name,
         {
           password,
         });
@@ -71,7 +71,7 @@ export default function Preview({route}: IPreviewProps) {
     );
 
     setAskDeletePassword(false);
-    Navigation.navigate(Screens.main.name);
+    Navigation.navigate(Screens.Main.Name);
 
     dispatch(
         toastSlice.actions.show({

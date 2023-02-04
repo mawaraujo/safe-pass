@@ -21,7 +21,8 @@ namespace Colors {
   export enum Light {
     BackgroundColor = '#F3F5F7',
     CardColor = '#FFFFFF',
-    ShadowColor = '#B3B3B3'
+    ShadowColor = '#B3B3B3',
+    Muted = '#9496A1',
   }
 }
 

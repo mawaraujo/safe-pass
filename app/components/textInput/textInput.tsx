@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, TextInput as RNTextInput, TextInputProps} from 'react-native';
 import styles from './textInput.styles';
 import {Strings} from '../../utils';
+import {Colors} from '../../res';
 
 type ITextInputProps = {
   label?: string,
@@ -31,6 +32,7 @@ export default function TextInput({
       <RNTextInput
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
+        placeholderTextColor={Colors.Light.Muted}
         style={[
           styles.input,
           (textAlignVerticalTop && styles.textAlignVerticalTop),

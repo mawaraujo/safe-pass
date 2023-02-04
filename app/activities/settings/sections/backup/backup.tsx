@@ -5,24 +5,24 @@ import {Navigation} from '../../../../utils';
 import {Screens} from '../../../../res';
 
 export default function BackupSection() {
-  const handleNavigate = (importScreen: boolean = false): void => {
-    Navigation.navigate(Screens.backup.name, {
-      screen: importScreen
-        ? Screens.backup.import.name
-        : Screens.backup.export.name,
-    });
-  };
-
   return (
     <Card>
       <Item
-        onPress={() => handleNavigate(true)}
+        onPress={() => {
+          Navigation.navigate(Screens.Backup.Name, {
+            screen: Screens.Backup.Export.Name,
+          });
+        }}
         firstItem={true}
         title="Export data"
         description="Save your passwords, categories, and other settings on a backup file." />
 
       <Item
-        onPress={() => handleNavigate()}
+        onPress={() => {
+          Navigation.navigate(Screens.Backup.Name, {
+            screen: Screens.Backup.Import.Name,
+          });
+        }}
         title="Import data"
         description="Import a backup file with your data." />
     </Card>

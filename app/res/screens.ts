@@ -1,32 +1,32 @@
 /* eslint-disable no-unused-vars */
 
 export default {
-  main: {
-    name: 'main',
-    icon: 'library-outline',
-    iconFocused: 'library',
+  Main: {
+    Name: 'Main',
+    Icon: 'library-outline',
+    IconFocused: 'library',
   },
-  createPassword: {
-    name: 'createPassword',
-    icon: 'add',
+  CreatePassword: {
+    Name: 'CreatePassword',
+    Icon: 'add',
   },
-  preview: {
-    name: 'preview',
+  Preview: {
+    Name: 'preview',
   },
-  settings: {
-    name: 'settings',
-    icon: 'settings-outline',
-    iconFocused: 'settings',
+  Settings: {
+    Name: 'Settings',
+    Icon: 'settings-outline',
+    IconFocused: 'settings',
   },
 
-  backup: {
-    name: 'backup',
+  Backup: {
+    Name: 'Backup',
 
-    import: {
-      name: 'backup-import',
+    Import: {
+      Name: 'Import',
     },
-    export: {
-      name: 'backup-export',
+    Export: {
+      Name: 'Export',
     },
   },
 };

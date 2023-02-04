@@ -41,14 +41,14 @@ export default function BottomTab() {
       <View style={bottomTabStyles.container}>
         <TouchableOpacity
           onPress={() => {
-            Navigation.navigate(Screens.main.name);
+            Navigation.navigate(Screens.Main.Name);
           }}>
 
           <Icon
             name={
-              isFocused(Screens.main.name)
-                ? Screens.main.iconFocused
-                : Screens.main.icon
+              isFocused(Screens.Main.Name)
+                ? Screens.Main.IconFocused
+                : Screens.Main.Icon
             }
             size={28}
             color={Colors.System.Brand} />
@@ -60,25 +60,25 @@ export default function BottomTab() {
             bottomTabStyles.buttonActive,
           ]}
           onPress={() => {
-            Navigation.navigate(Screens.createPassword.name);
+            Navigation.navigate(Screens.CreatePassword.Name);
           }}>
 
           <Icon
-            name={Screens.createPassword.icon}
+            name={Screens.CreatePassword.Icon}
             size={28}
             color={Colors.System.White} />
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => {
-            Navigation.navigate(Screens.settings.name);
+            Navigation.navigate(Screens.Settings.Name);
           }}>
 
           <Icon
             name={
-              isFocused(Screens.settings.name)
-                ? Screens.settings.iconFocused
-                : Screens.settings.icon
+              isFocused(Screens.Settings.Name)
+                ? Screens.Settings.IconFocused
+                : Screens.Settings.Icon
             }
             size={28}
             color={Colors.System.Brand} />

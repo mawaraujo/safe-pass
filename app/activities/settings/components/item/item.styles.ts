@@ -23,5 +23,6 @@ export default StyleSheet.create({
   description: {
     fontFamily: Fonts.Family.Regular,
     fontSize: Fonts.Size.XS,
+    color: Colors.Light.Muted,
   },
 });
