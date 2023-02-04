@@ -5,7 +5,8 @@ namespace Layout {
     XS = 5,
     SM = 10,
     MD = 20,
-    LG = 30
+    LG = 30,
+    XL = 50,
   }
 
   export enum BorderRadius {

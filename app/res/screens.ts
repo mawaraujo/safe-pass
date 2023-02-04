@@ -3,11 +3,12 @@
 export default {
   main: {
     name: 'main',
-    icon: 'home-outline',
+    icon: 'library-outline',
+    iconFocused: 'library',
   },
   createPassword: {
     name: 'createPassword',
-    icon: 'add-circle-outline',
+    icon: 'add',
   },
   preview: {
     name: 'preview',
@@ -15,5 +16,6 @@ export default {
   settings: {
     name: 'settings',
     icon: 'settings-outline',
+    iconFocused: 'settings',
   },
 };

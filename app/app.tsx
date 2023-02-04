@@ -3,9 +3,8 @@ import {store, persistor} from './store/store';
 import {Provider as ReduxProvider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Colors, Screens} from './res';
-import Icon from 'react-native-vector-icons/Ionicons';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Screens} from './res';
 import {Navigation} from './utils';
 import GlobalToast from './components/toast/toast';
 import Spinner from './components/spinner/spinner';
@@ -16,7 +15,7 @@ import CreatePassword from './activities/createPassword/createPassword';
 import Settings from './activities/settings/settings';
 import Preview from './activities/preview/preview';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
@@ -25,48 +24,28 @@ export default function App() {
         <Bootstrapper />
         <GlobalToast />
 
-        <NavigationContainer
-          ref={Navigation.navigationRef}>
-
-          <Tab.Navigator
-            screenOptions={({route}) => ({
-              tabBarShowLabel: false,
+        <NavigationContainer ref={Navigation.navigationRef}>
+          <Stack.Navigator
+            screenOptions={{
               headerShown: false,
-              tabBarActiveTintColor: Colors.System.Brand,
-              tabBarIcon: ({color, size}) => (
-                <Icon
-                  name={Navigation.getIcon(route.name)}
-                  color={color}
-                  size={size} />
-              ),
-            })}>
+            }}>
 
-            <Tab.Screen
-              options={{
-                unmountOnBlur: true,
-              }}
+            <Stack.Screen
               component={Main}
               name={Screens.main.name} />
 
-            <Tab.Screen
-              options={{
-                unmountOnBlur: true,
-              }}
+            <Stack.Screen
               component={CreatePassword}
               name={Screens.createPassword.name} />
 
-            <Tab.Screen
+            <Stack.Screen
               component={Settings}
               name={Screens.settings.name} />
 
-            <Tab.Screen
-              options={{
-                tabBarItemStyle: {display: 'none'},
-                tabBarIcon: () => null,
-              }}
+            <Stack.Screen
               component={Preview}
               name={Screens.preview.name} />
-          </Tab.Navigator>
+          </Stack.Navigator>
 
         </NavigationContainer>
       </PersistGate>

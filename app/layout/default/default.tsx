@@ -6,6 +6,7 @@ import {
   StyleSheet,
   ViewStyle,
 } from 'react-native';
+import BottomTab from '../../components/bottomTab/bottomTab';
 import {Colors} from '../../res';
 
 interface IDefaultProps {
@@ -36,6 +37,8 @@ export default function Default({
       )}
 
       { children && children }
+
+      <BottomTab />
     </SafeAreaView>
   );
 }

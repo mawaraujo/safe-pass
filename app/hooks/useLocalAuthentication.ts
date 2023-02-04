@@ -41,7 +41,7 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
 
       dispatch(
           toastSlice.actions.show({
-            title: 'Phone security is not enabled',
+            title: 'The device unlock system is not enabled',
             type: 'Danger',
           }),
       );
