@@ -14,8 +14,23 @@ import Main from './activities/main/main';
 import CreatePassword from './activities/createPassword/createPassword';
 import Settings from './activities/settings/settings';
 import Preview from './activities/preview/preview';
+import {Import, Export} from './activities/backup/backup';
 
 const Stack = createNativeStackNavigator();
+
+function BackupStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name={Screens.backup.import.name}
+        component={Import} />
+
+      <Stack.Screen
+        name={Screens.backup.export.name}
+        component={Export} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -45,6 +60,10 @@ export default function App() {
             <Stack.Screen
               component={Preview}
               name={Screens.preview.name} />
+
+            <Stack.Screen
+              component={BackupStack}
+              name={Screens.backup.name} />
           </Stack.Navigator>
 
         </NavigationContainer>

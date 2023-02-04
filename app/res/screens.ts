@@ -18,4 +18,15 @@ export default {
     icon: 'settings-outline',
     iconFocused: 'settings',
   },
+
+  backup: {
+    name: 'backup',
+
+    import: {
+      name: 'backup-import',
+    },
+    export: {
+      name: 'backup-export',
+    },
+  },
 };
