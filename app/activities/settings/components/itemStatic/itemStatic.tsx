@@ -10,7 +10,7 @@ interface ItemStaticProps {
   firstItem?: boolean,
 }
 
-export default function ItemStatic({title, description, firstItem = false}: ItemStaticProps) {
+function ItemStatic({title, description, firstItem = false}: ItemStaticProps) {
   return (
     <View
       style={[
@@ -28,3 +28,8 @@ export default function ItemStatic({title, description, firstItem = false}: Item
     </View>
   );
 }
+
+export default React.memo(
+    ItemStatic,
+    () => true,
+);

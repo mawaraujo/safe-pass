@@ -14,7 +14,7 @@ interface ItemSelectorProps {
   firstItem?: boolean,
 }
 
-export default function ItemSelector({title, description, onPress, firstItem = false}: ItemSelectorProps) {
+function ItemSelector({title, description, onPress, firstItem = false}: ItemSelectorProps) {
   return (
     <TouchableOpacity
       style={[
@@ -38,3 +38,8 @@ export default function ItemSelector({title, description, onPress, firstItem = f
     </TouchableOpacity>
   );
 }
+
+export default React.memo(
+    ItemSelector,
+    () => true,
+);
