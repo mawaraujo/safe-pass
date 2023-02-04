@@ -1,22 +1,24 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {Colors} from '../../../../res';
-import itemSelectorStyles from './itemSelector.styles';
+import itemSelectorStyles from './item.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native';
 
-interface ItemSelectorProps {
+interface ItemProps {
   title: string,
   description?: string,
-  onPress?: (value: boolean) => void,
+  onPress?: () => void,
+  isLink?: boolean,
 
   /** When this flag is true, the margin-top of the item is removed  */
   firstItem?: boolean,
 }
 
-function ItemSelector({title, description, onPress, firstItem = false}: ItemSelectorProps) {
+function Item({title, description, onPress, isLink, firstItem = false}: ItemProps) {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={[
         itemSelectorStyles.container,
         firstItem && itemSelectorStyles.removeMargin,
@@ -31,15 +33,19 @@ function ItemSelector({title, description, onPress, firstItem = false}: ItemSele
         )}
       </View>
 
-      <Icon
-        color={Colors.System.Brand}
-        name="chevron-forward-outline"
-        size={26} />
+      {
+        onPress && (
+          <Icon
+            color={Colors.System.Brand}
+            name={isLink ? 'open-outline' : 'chevron-forward-outline'}
+            size={26} />
+        )
+      }
     </TouchableOpacity>
   );
 }
 
 export default React.memo(
-    ItemSelector,
+    Item,
     () => true,
 );
