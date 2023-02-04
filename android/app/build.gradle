@@ -117,6 +117,13 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+
+        release {
+            storeFile file('safePass.keystore')
+            storePassword 'mawlabs.safepass'
+            keyAlias 'mawlabs'
+            keyPassword 'mawlabs.safepass'
+        }
     }
     buildTypes {
         debug {
