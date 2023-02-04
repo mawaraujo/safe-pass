@@ -18,16 +18,6 @@ export default function Toast() {
 
   const popAnim = React.useRef(new Animated.Value(INITIAL_VALUE)).current;
 
-  const getToastIcon = React.useCallback((): string => {
-    switch (toastValue.type) {
-      case 'Success':
-        return 'rocket';
-
-      default:
-        return 'help';
-    }
-  }, [toastValue]);
-
   const popIn = () => {
     Animated.spring(popAnim, {
       toValue: 0,
@@ -80,26 +70,11 @@ export default function Toast() {
         style={[
           toastStyles.toast,
           {
-            borderColor: toastColor,
+            backgroundColor: toastColor,
           },
         ]}>
 
         <View style={toastStyles.leftContainer}>
-          <View
-            style={[
-              toastStyles.icon,
-              {
-                borderColor: toastColor,
-              },
-            ]}>
-            <Icon
-              style={{
-                color: toastColor,
-              }}
-              name={getToastIcon()}
-              size={20} />
-          </View>
-
           <View>
             <Text
               style={toastStyles.toastTitle}>
@@ -121,7 +96,10 @@ export default function Toast() {
           onPress={instantPopOut}
           style={toastStyles.rightContainer}>
 
-          <Icon name="close-outline" size={20} />
+          <Icon
+            name="close-outline"
+            size={20}
+            color={Colors.System.White} />
         </TouchableOpacity>
       </View>
     </Animated.View>

@@ -27,21 +27,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  icon: {
-    width: 30,
-    height: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: Layout.BorderRadius.PILL,
-    marginRight: Layout.Spacing.SM,
-    borderWidth: 1,
-  },
   toastTitle: {
-    color: Colors.System.Black,
+    color: Colors.System.White,
     fontFamily: Fonts.Family.Bold,
   },
   toastExtraInformation: {
     fontFamily: Fonts.Family.Regular,
+    color: Colors.System.White,
   },
   rightContainer: {
 
