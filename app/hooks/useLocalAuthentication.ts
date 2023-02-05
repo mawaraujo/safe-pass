@@ -8,7 +8,9 @@ import settingsSlice from '../store/reducers/settingsSlice';
 import toastSlice from '../store/reducers/toastSlice';
 
 interface UseLocalAuthentication {
-  authorized: boolean
+  enabled: boolean,
+  authorized: boolean,
+  handlePrompt: () => Promise<void>
 }
 
 export default function useLocalAuthentication(): UseLocalAuthentication {
@@ -66,6 +68,8 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
   }, [appState]);
 
   return {
+    enabled: settings.enableLocalAuthentication,
     authorized,
+    handlePrompt,
   };
 }

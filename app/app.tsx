@@ -8,7 +8,7 @@ import {Screens} from './res';
 import {Navigation} from './utils';
 import GlobalToast from './components/toast/toast';
 import Spinner from './components/spinner/spinner';
-import Bootstrapper from './components/bootstrapper/bootstrapper';
+import UnlockRequest from './components/unlockRequest/unlockRequest';
 
 import Main from './activities/main/main';
 import CreatePassword from './activities/createPassword/createPassword';
@@ -40,7 +40,7 @@ export default function App() {
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
-        <Bootstrapper />
+        <UnlockRequest />
         <GlobalToast />
 
         <NavigationContainer ref={Navigation.navigationRef}>
