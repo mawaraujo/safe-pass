@@ -4,6 +4,7 @@ import type {NPassword} from '../../types';
 import styles from './passwordElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DefaultImage from '../../assets/images/key.png';
+import {Colors} from '../../res';
 
 interface IPasswordElementProps {
   item: NPassword.Password,
@@ -66,6 +67,7 @@ export default function PasswordElement({item, onPress}: IPasswordElementProps) 
 
       <Icon
         name="chevron-forward-outline"
+        color={Colors.System.Brand}
         size={26} />
     </TouchableOpacity>
   );
