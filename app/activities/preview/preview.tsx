@@ -8,7 +8,7 @@ import styles from './preview.styles';
 import Button from '../../components/button/button';
 import {useLink, useClipboard} from '../../hooks';
 import {Navigation} from '../../utils';
-import {Screens} from '../../res';
+import {Colors, Screens} from '../../res';
 import Confirm from '../../components/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import {useDispatch} from 'react-redux';
@@ -119,9 +119,11 @@ export default function Preview({route}: IPreviewProps) {
             {
               password.url && (
                 <TouchableOpacity
+                  style={styles.actionButton}
                   onPress={() => handleOpenLink(password.url)}>
 
                   <Icon
+                    color={Colors.System.White}
                     name="open-outline"
                     size={20} />
                 </TouchableOpacity>
@@ -145,9 +147,11 @@ export default function Preview({route}: IPreviewProps) {
             {
               password.username && (
                 <TouchableOpacity
+                  style={styles.actionButton}
                   onPress={() => handleCopy(password.username)}>
 
                   <Icon
+                    color={Colors.System.White}
                     name="clipboard-outline"
                     size={20} />
                 </TouchableOpacity>
@@ -171,9 +175,11 @@ export default function Preview({route}: IPreviewProps) {
             {
               password.email && (
                 <TouchableOpacity
+                  style={styles.actionButton}
                   onPress={() => handleCopy(password.email)}>
 
                   <Icon
+                    color={Colors.System.White}
                     name="clipboard-outline"
                     size={20} />
                 </TouchableOpacity>
@@ -197,9 +203,11 @@ export default function Preview({route}: IPreviewProps) {
             {
               password.password && (
                 <TouchableOpacity
+                  style={styles.actionButton}
                   onPress={() => handleCopy(password.password)}>
 
                   <Icon
+                    color={Colors.System.White}
                     name="clipboard-outline"
                     size={20} />
                 </TouchableOpacity>
