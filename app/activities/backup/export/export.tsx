@@ -22,9 +22,9 @@ export default function Export() {
         return;
       }
 
-      const pickDirectory = await DocumentPicker.pickFolder();
+      const pickFolder = await DocumentPicker.pickFolder();
 
-      if (!pickDirectory) {
+      if (!pickFolder) {
         dispatch(
             toastSlice.actions.show({
               title: 'Backup file creation failed',
@@ -34,7 +34,7 @@ export default function Export() {
         return;
       }
 
-      await FS.writeFile(content, pickDirectory.uri);
+      await FS.writeFile(content, pickFolder.uri);
 
       /**
        * TODO
