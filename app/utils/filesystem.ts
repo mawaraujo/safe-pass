@@ -1,15 +1,13 @@
 import RNFS from 'react-native-fs';
 
-export default class FileSystem {
+namespace FileSystem {
 
-  static getFilename(): string {
+  export function getFilename() {
     return `password_manager_backup_${Date.now()}`;
   }
 
-  static async writeFile(content: string, filename: string = this.getFilename()): Promise<boolean> {
+  export async function writeFile(content: string, path: string, filename: string = getFilename()) {
     try {
-      const path = `${RNFS.DownloadDirectoryPath}/${filename}`;
-
       await RNFS.writeFile(
           path,
           content,
@@ -23,4 +21,17 @@ export default class FileSystem {
       return false;
     }
   }
+
+  export async function readFile(uri: string) {
+    try {
+      const data = await RNFS.readFile(uri);
+      return data;
+
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
 }
+
+export default FileSystem;
