@@ -26,5 +26,6 @@ module.exports = {
     'padded-blocks': 'off',
     'valid-jsdoc': 'off',
     'operator-linebreak': 'off',
+    'object-curly-spacing': ['error', 'always'],
   },
 };

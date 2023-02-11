@@ -1,36 +1,39 @@
 import RNFS from 'react-native-fs';
 
+interface WriteFileResponse {
+  saved: boolean,
+  dir?: string
+}
+
 namespace FileSystem {
 
-  export function getFilename() {
-    return `password_manager_backup_${Date.now()}`;
+  function getFilename(): string {
+    return `password_manager_backup_${Date.now()}.json`;
   }
 
-  export async function writeFile(content: string, path: string, filename: string = getFilename()) {
-    try {
-      await RNFS.writeFile(
-          path,
-          content,
-          'utf8',
-      );
+  export async function writeFile(content: string = '') {
+    const filename: string = getFilename();
 
-      return true;
+    const result: WriteFileResponse = {
+      saved: false,
+    };
+
+    try {
+      const path = `${RNFS.DownloadDirectoryPath}/${filename}`;
+      await RNFS.writeFile(path, content);
+
+      result.saved = true;
+      result.dir = path;
+      return result;
 
     } catch (error) {
-      console.log(error);
-      return false;
+      console.error(error);
+      return result;
     }
   }
 
-  export async function readFile(uri: string) {
-    try {
-      const data = await RNFS.readFile(uri);
-      return data;
-
-    } catch (error) {
-      console.log(error);
-      return null;
-    }
+  export async function readFile(uri: string): Promise<string> {
+    return await RNFS.readFile(uri);
   }
 }
 
