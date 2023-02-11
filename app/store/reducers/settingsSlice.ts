@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {NSettings} from '../../types';
+import { createSlice } from '@reduxjs/toolkit';
+import { NSettings } from '../../types';
 
 const initialState: NSettings.AvailableOptions = {
   enableLocalAuthentication: false,

@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {NStore, NPassword} from '../../types';
+import { createSlice } from '@reduxjs/toolkit';
+import { NStore, NPassword } from '../../types';
 
 const initialState = [] as NPassword.Passwords;
 
@@ -8,9 +8,7 @@ export default createSlice({
   initialState,
   reducers: {
     add(state, action: NStore.Action<NPassword.Password>) {
-      state.unshift(
-          action.payload,
-      );
+      state.unshift(action.payload);
     },
 
     edit(state, action: NStore.Action<NPassword.Password>) {
@@ -26,6 +24,12 @@ export default createSlice({
         pass.id === action.payload.id);
 
       state.splice(itemIndex, 1);
+    },
+
+    import(state, action: NStore.Action<NPassword.Passwords>) {
+      action.payload.forEach((newPassword) => {
+        state.unshift(newPassword);
+      });
     },
   },
 });

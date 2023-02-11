@@ -1,14 +1,13 @@
-import { DocumentPickerResponse, pickSingle, pickDirectory, types } from 'react-native-document-picker';
+import { pickSingle, pickDirectory } from 'react-native-document-picker';
 
 namespace DocumentPicker {
 
-  export async function pickFile(): Promise<void | DocumentPickerResponse> {
-    const response = await pickSingle({
-      type: types.allFiles,
+  export async function pickFile(): Promise<string> {
+    const { uri } = await pickSingle({
       mode: 'import',
     });
 
-    return response;
+    return uri;
   }
 
   export async function pickFolder(): Promise<string> {

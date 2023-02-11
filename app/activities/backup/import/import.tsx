@@ -1,53 +1,120 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import {View, Text} from 'react-native';
-import {useDispatch} from 'react-redux';
+import { View, Text, ActivityIndicator } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import passwordSlice from '../../../store/reducers/passwordSlice';
 import toastSlice from '../../../store/reducers/toastSlice';
-import {DocumentPicker, FileSystem as FS} from '../../../utils';
+import type { NPassword } from '../../../types';
+import { DocumentPicker, FileSystem } from '../../../utils';
+import type { RootState } from '../../../store/store';
+import Button from '../../../components/button/button';
+import { Colors } from '../../../res';
+import importStyles from './import.styles';
+import NavigationBar from '../../../components/navigationBar/navigationBar';
+import Default from '../../../layout/default/default';
 
 export default function Import() {
   const dispatch = useDispatch();
+  const userPasswords = useSelector((state: RootState) => state.passwords);
 
-  const handle = async () => {
-    try {
-      const pickResponse = await DocumentPicker.pickFile();
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [imported, setImported] = React.useState<boolean>(false);
+  const [importedPasswordsCount, setImportedPasswordsCount] = React.useState<number>(0);
 
-      if (!pickResponse) {
-        dispatch(
-            toastSlice.actions.show({
-              title: 'Backup file import failed',
-              type: 'Success',
-            }),
-        );
-        return;
+  const clearStatus = () => {
+    setImported(false);
+    setImportedPasswordsCount(0);
+  };
+
+  const importPasswords = (passwords: NPassword.Passwords) => {
+    if (!passwords || !passwords?.length) return;
+
+    const filteredPasswords = passwords.filter((newPassword) => {
+      if (userPasswords.some((userPassword) => userPassword.id === newPassword.id)) {
+        return false;
       }
 
-      const readResponse = await FS.readFile(pickResponse.uri);
-      console.log(readResponse);
+      return newPassword;
+    });
 
-      /**
-       * TODO
-       * 1. Verify is data is correct
-       * 2. Import only if not exists, (create function)
-       * 3. Add screen ui
-       */
+    setImportedPasswordsCount(filteredPasswords.length);
 
-    } catch (error) {
+    dispatch(
+        passwordSlice.actions.import(
+            filteredPasswords,
+        ),
+    );
+  };
+
+  const handleImport = async () => {
+    setIsLoading(true);
+    clearStatus();
+
+    try {
+      const filename = await DocumentPicker.pickFile();
+      const data = await FileSystem.readFile(filename);
+
+      importPasswords(
+          JSON.parse(
+              JSON.parse(data)?.passwords,
+          ),
+      );
+
       dispatch(
           toastSlice.actions.show({
-            title: 'Backup file import failed',
+            title: 'Backup file was imported successfully',
             type: 'Success',
           }),
       );
-      return;
+
+      setImported(true);
+
+    } catch (error) {
+      console.log(error);
+      clearStatus();
+
+      dispatch(
+          toastSlice.actions.show({
+            title: 'Backup file import failed',
+            type: 'Danger',
+          }),
+      );
+
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <View>
-      <TouchableOpacity onPress={handle}>
-        <Text>Import</Text>
-      </TouchableOpacity>
-    </View>
+    <Default>
+      <NavigationBar name="Import data" />
+
+      {
+        !isLoading && (
+          <View style={importStyles.container}>
+            <Text style={importStyles.title}>
+              {
+                !imported
+                ? 'Import backup file'
+                : `Total imported passwords: ${importedPasswordsCount}`
+              }
+            </Text>
+
+            <Button
+              text="Select File"
+              onPress={handleImport} />
+          </View>
+        )
+      }
+
+      {
+        isLoading && (
+          <View style={importStyles.container}>
+            <ActivityIndicator
+              size="large"
+              color={Colors.System.Brand} />
+          </View>
+        )
+      }
+    </Default>
   );
 }
