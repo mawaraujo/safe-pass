@@ -17,11 +17,11 @@ export default function Import() {
   const userPasswords = useSelector((state: RootState) => state.passwords);
 
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [imported, setImported] = React.useState<boolean>(false);
+  const [importedSuccessfully, setImportedSuccessfully] = React.useState<boolean>(false);
   const [importedPasswordsCount, setImportedPasswordsCount] = React.useState<number>(0);
 
   const clearStatus = () => {
-    setImported(false);
+    setImportedSuccessfully(false);
     setImportedPasswordsCount(0);
   };
 
@@ -66,7 +66,7 @@ export default function Import() {
           }),
       );
 
-      setImported(true);
+      setImportedSuccessfully(true);
 
     } catch (error) {
       console.log(error);
@@ -93,7 +93,7 @@ export default function Import() {
           <View style={importStyles.container}>
             <Text style={importStyles.title}>
               {
-                !imported
+                !importedSuccessfully
                 ? 'Import backup file'
                 : `Total imported passwords: ${importedPasswordsCount}`
               }
