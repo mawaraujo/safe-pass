@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, Switch} from 'react-native';
-import {Colors} from '../../../../res';
+import { View, Text, Switch } from 'react-native';
+import { Colors } from '../../../../res';
 import itemSwitchStyles from './itemSwitch.styles';
 
 interface ItemSwitchProps {
@@ -13,7 +13,7 @@ interface ItemSwitchProps {
   firstItem?: boolean,
 }
 
-export default function ItemSwitch({title, description, onChange, firstItem = false, value}: ItemSwitchProps) {
+export default function ItemSwitch({ title, description, onChange, firstItem = false, value }: ItemSwitchProps) {
 
   const handleToggle = (): void => {
     onChange?.(!value);

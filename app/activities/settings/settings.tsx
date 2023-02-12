@@ -6,6 +6,7 @@ import settingsStyles from './settings.styles';
 import SecuritySection from './sections/security/security';
 import BackupSection from './sections/backup/backup';
 import InformationSection from './sections/information/information';
+import GeneraSection from './sections/general/general';
 
 export default function Settings() {
   return (
@@ -14,6 +15,11 @@ export default function Settings() {
 
       <ScrollView
         contentContainerStyle={settingsStyles.container}>
+
+        <Text style={settingsStyles.sectionTitle}>
+          General
+        </Text>
+        <GeneraSection />
 
         <Text style={settingsStyles.sectionTitle}>
           Security

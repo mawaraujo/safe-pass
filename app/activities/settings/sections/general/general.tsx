@@ -1,0 +1,59 @@
+import React from 'react';
+import Card from '../../../../components/card/card';
+import ItemSlot from '../../components/itemSlot/itemSlot';
+import { Picker } from '@react-native-picker/picker';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootState } from '../../../../store/store';
+import settingsSlice from '../../../../store/reducers/settingsSlice';
+import { NSettings } from '../../../../types';
+import generalStyles from './general.styles';
+
+const LANG_LIST = [
+  {
+    name: 'English',
+    value: 'en',
+  },
+  {
+    name: 'Español',
+    value: 'es',
+  },
+];
+
+export default function GeneraSection() {
+  const dispatch = useDispatch();
+
+  const appLang = useSelector((state: RootState) => state.settings.language);
+
+  const setSelectedLanguage = React.useCallback((value: keyof typeof NSettings.AvailableLanguages) => {
+    dispatch(
+        settingsSlice.actions.selectLanguage(value),
+    );
+  }, []);
+
+  return (
+    <Card>
+      <ItemSlot
+        childrenPosition="bottom"
+        title="Language"
+        firstItem={true}>
+
+        <Picker
+          style={generalStyles.picker}
+          mode="dropdown"
+          selectedValue={appLang}
+          onValueChange={(itemValue, itemIndex) => setSelectedLanguage(itemValue)}>
+
+          {
+            LANG_LIST.map((lang) => (
+              <Picker.Item
+                style={generalStyles.pickerItem}
+                key={lang.value}
+                label={lang.name}
+                value={lang.value} />
+            ))
+          }
+        </Picker>
+      </ItemSlot>
+    </Card>
+  );
+}

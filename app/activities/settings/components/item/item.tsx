@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {Colors} from '../../../../res';
+import { View, Text } from 'react-native';
+import { Colors } from '../../../../res';
 import itemSelectorStyles from './item.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 interface ItemProps {
   title: string,
@@ -15,7 +15,7 @@ interface ItemProps {
   firstItem?: boolean,
 }
 
-function Item({title, description, onPress, isLink, firstItem = false}: ItemProps) {
+function Item({ title, description, onPress, isLink, firstItem = false }: ItemProps) {
   return (
     <TouchableOpacity
       onPress={onPress}

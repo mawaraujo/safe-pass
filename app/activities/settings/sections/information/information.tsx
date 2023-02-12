@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../../../../components/card/card';
 import Application from '../../../../../app.json';
 import Item from '../../components/item/item';
-import {Link} from '../../../../utils';
+import { Link } from '../../../../utils';
 
 export default function InformationSection() {
   return (
