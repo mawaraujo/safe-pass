@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, TextInput, TouchableOpacity} from 'react-native';
+import { View, TextInput, TouchableOpacity } from 'react-native';
 import styles from './searchBar.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Colors} from '../../res';
+import { Colors } from '../../res';
 
 interface ISearchBarProps {
   onChangeText: (e: string) => void,
@@ -10,7 +10,7 @@ interface ISearchBarProps {
   value: string,
 }
 
-export default function SearchBar({onChangeText, onClear, value}: ISearchBarProps) {
+export default function SearchBar({ onChangeText, onClear, value }: ISearchBarProps) {
   const handleChange = (e: string): void => {
     if (onChangeText) {
       onChangeText(e);
@@ -34,7 +34,7 @@ export default function SearchBar({onChangeText, onClear, value}: ISearchBarProp
         <TextInput
           value={value}
           onChangeText={handleChange}
-          placeholder="Search for passwords..."
+          placeholder="Search"
           placeholderTextColor={Colors.Light.Muted}
           style={styles.input} />
 
