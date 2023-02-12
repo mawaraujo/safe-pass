@@ -11,9 +11,10 @@ import { Navigation } from '../../utils';
 import { Colors, Screens } from '../../res';
 import Confirm from '../../components/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import toastSlice from '../../store/reducers/toastSlice';
 import Card from '../../components/card/card';
+import { RootState } from '../../store/store';
 
 interface IPreviewProps {
   route?: {
@@ -24,13 +25,12 @@ interface IPreviewProps {
 }
 
 export default function Preview({ route }: IPreviewProps) {
-
   const dispatch = useDispatch();
   const [askDeletePassword, setAskDeletePassword] = React.useState(false);
-
   const clipboard = useClipboard();
   const link = useLink();
 
+  const tags = useSelector((state: RootState) => state.tags);
   const password = route?.params?.password;
 
   if (!password) {
@@ -81,6 +81,16 @@ export default function Preview({ route }: IPreviewProps) {
         }),
     );
   };
+
+  /**
+   * Get tag name by ID
+   */
+  const getTagById = React.useCallback((id?: string): string => {
+    return tags
+        .filter((tag) => tag.id === id)
+        ?.[0]
+        ?.name;
+  }, [tags]);
 
   return (
     <DefaultLayout>
@@ -213,6 +223,20 @@ export default function Preview({ route }: IPreviewProps) {
                 </TouchableOpacity>
               )
             }
+          </View>
+
+          <View
+            style={[
+              styles.cardRow,
+              styles.cardRowMarginBottom,
+            ]}>
+
+            <View style={styles.left}>
+              <Text style={styles.textLabel}>Tag</Text>
+              <Text style={styles.textValue}>
+                { getTagById(password.tagId) || 'No information' }
+              </Text>
+            </View>
           </View>
 
           <View style={styles.cardRow}>

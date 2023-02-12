@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import styles from './tags.styles';
 import Default from '../../layout/default/default';
 import SearchBar from '../../components/searchBar/searchBar';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../../store/store';
 import Empty from '../../components/empty/empty';
 import { Screens } from '../../res';
@@ -11,6 +11,8 @@ import { NTag } from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
 import { useSearch } from '../../hooks';
 import TagElement from '../../components/tagElement/tagElement';
+import tagSlice from '../../store/reducers/tagSlice';
+import Confirm from '../../components/confirm/confirm';
 
 interface ITagsProps {
   navigation: {
@@ -19,6 +21,9 @@ interface ITagsProps {
 }
 
 export default function Tags({ navigation }: ITagsProps) {
+  const [tagToDelete, setTagToDelete] = React.useState<NTag.Tag | null>(null);
+
+  const dispatch = useDispatch();
   const search = useSearch();
 
   const { tags, passwords } = useSelector((state: RootState) => state);
@@ -30,8 +35,19 @@ export default function Tags({ navigation }: ITagsProps) {
     );
   }, [search.value, tags]);
 
+  const handleDelete = React.useCallback(() => {
+    if (!tagToDelete) return;
 
-  const passwordsCount = React.useCallback((tag: NTag.Tag): number => {
+    dispatch(
+        tagSlice
+            .actions
+            .delete(tagToDelete),
+    );
+
+    setTagToDelete(null);
+  }, [tagToDelete]);
+
+  const countLinkedPasswords = React.useCallback((tag: NTag.Tag): number => {
     return passwords
         .filter((p) => p.tagId === tag.id)
         .length;
@@ -48,6 +64,18 @@ export default function Tags({ navigation }: ITagsProps) {
 
   return (
     <Default style={styles.main}>
+      {
+        tagToDelete !== null && (
+          <Confirm
+            title="¿Do you want to delete this tag?"
+            extraInformation="This entry will delete forever"
+            onAccept={handleDelete}
+            onCancel={() => setTagToDelete(null)}
+            show={tagToDelete !== null}
+          />
+        )
+      }
+
       {
         tags.length > 0 && (
           <SearchBar
@@ -75,7 +103,8 @@ export default function Tags({ navigation }: ITagsProps) {
             computedTags.map((tag, index) => (
               <TagElement
                 key={`${tag.id}${index}`}
-                count={passwordsCount(tag)}
+                linkedPasswords={countLinkedPasswords(tag)}
+                onPressDelete={(item) => setTagToDelete(item)}
                 item={tag} />
             ))
           )

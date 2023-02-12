@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { NStore, NPassword, NTag } from '../../types';
+import { NStore, NTag } from '../../types';
 
-const initialState = [] as NPassword.Passwords;
+const initialState = [] as NTag.Tags;
 
 export default createSlice({
   name: 'tags',

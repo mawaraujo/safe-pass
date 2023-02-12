@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import confirmStyles from './confirm.styles';
 import Button from '../button/button';
 
@@ -11,7 +11,7 @@ interface IConfirmProps {
   show: boolean
 }
 
-export default function Confirm({show, title, onCancel, onAccept, extraInformation}: IConfirmProps) {
+export default function Confirm({ show, title, onCancel, onAccept, extraInformation }: IConfirmProps) {
 
   const handleAccept = () => {
     if (onAccept) {

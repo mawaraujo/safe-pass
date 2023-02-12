@@ -12,6 +12,7 @@ export default class FormHandler {
         url: yup.string().url(),
         password: yup.string(),
         notes: yup.string(),
+        tagId: yup.string(),
       });
 
   public static initialValues: NPassword.Password = {
@@ -22,5 +23,6 @@ export default class FormHandler {
     password: '',
     email: '',
     notes: '',
+    tagId: '',
   }
 }

@@ -7,13 +7,16 @@ import FormHandler from './formHandler';
 import Button from '../../components/button/button';
 import styles from './createPassword.styles';
 import TextInput from '../../components/textInput/textInput';
+import Select from '../../components/select/select';
 import type { NPassword } from '../../types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import { Navigation } from '../../utils';
 import screens from '../../res/screens';
 import uuid from 'react-native-uuid';
 import toastSlice from '../../store/reducers/toastSlice';
+import { RootState } from '../../store/store';
+
 
 interface ICreatePassword {
   route?: {
@@ -25,6 +28,7 @@ interface ICreatePassword {
 
 export default function CreatePassword({ route }: ICreatePassword) {
   const dispatch = useDispatch();
+  const tags = useSelector((state: RootState) => state.tags);
 
   const password = route?.params?.password;
   const [editMode, setEditMode] = React.useState(false);
@@ -65,6 +69,10 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
     Navigation.navigate(screens.Main.Name);
   };
+
+  const parsedTags = React.useMemo(() => (
+    tags.map((tag) => ({ name: tag.name, value: tag.id }))
+  ), [tags]);
 
   const formik = useFormik({
     validationSchema: FormHandler.validationSchema,
@@ -154,6 +162,16 @@ export default function CreatePassword({ route }: ICreatePassword) {
             formik.setFieldValue('password', e);
           }}
           placeholder="*****"
+        />
+
+        <Select
+          value={formik.values.tagId}
+          label="Tag"
+          validationError={formik.errors.notes}
+          options={parsedTags}
+          onChangeText={(tagId: string) => {
+            formik.setFieldValue('tagId', tagId);
+          }}
         />
 
         <TextInput
