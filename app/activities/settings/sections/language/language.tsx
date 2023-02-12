@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../../../../store/store';
 import settingsSlice from '../../../../store/reducers/settingsSlice';
 import { NSettings } from '../../../../types';
-import generalStyles from './general.styles';
+import generalStyles from './language.styles';
 
 const LANG_LIST = [
   {
@@ -19,7 +19,7 @@ const LANG_LIST = [
   },
 ];
 
-export default function GeneraSection() {
+export default function LanguageSection() {
   const dispatch = useDispatch();
 
   const appLang = useSelector((state: RootState) => state.settings.language);
