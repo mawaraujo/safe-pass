@@ -18,15 +18,10 @@ export default {
     Icon: 'settings-outline',
     IconFocused: 'settings',
   },
-
-  Backup: {
-    Name: 'Backup',
-
-    Import: {
-      Name: 'Import',
-    },
-    Export: {
-      Name: 'Export',
-    },
+  RestoreBackup: {
+    name: 'restoreBackup',
+  },
+  CreateBackup: {
+    name: 'createBackup',
   },
 };

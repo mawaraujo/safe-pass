@@ -1,29 +1,25 @@
 import React from 'react';
 import Card from '../../../../components/card/card';
 import Item from '../../components/item/item';
-import {Navigation} from '../../../../utils';
-import {Screens} from '../../../../res';
+import { Navigation } from '../../../../utils';
+import { Screens } from '../../../../res';
 
 export default function BackupSection() {
   return (
     <Card>
       <Item
         onPress={() => {
-          Navigation.navigate(Screens.Backup.Name, {
-            screen: Screens.Backup.Export.Name,
-          });
+          Navigation.navigate(Screens.CreateBackup.name);
         }}
         firstItem={true}
-        title="Export data"
+        title="Create backup"
         description="Save your passwords, categories, and other settings on a backup file." />
 
       <Item
         onPress={() => {
-          Navigation.navigate(Screens.Backup.Name, {
-            screen: Screens.Backup.Import.Name,
-          });
+          Navigation.navigate(Screens.RestoreBackup.name);
         }}
-        title="Import data"
+        title="Restore backup"
         description="Import a backup file with your data." />
     </Card>
   );

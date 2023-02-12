@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts, Layout } from '../../../res';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
@@ -8,9 +8,18 @@ export default StyleSheet.create({
     alignItems: 'center',
     gap: Layout.Spacing.MD,
   },
+  statusContainer: {
+    paddingHorizontal: Layout.Spacing.MD,
+    alignItems: 'center',
+  },
+  icon: {
+    marginBottom: Layout.Spacing.SM,
+  },
   title: {
     color: Colors.System.Brand,
     fontFamily: Fonts.Family.Regular,
     fontSize: Fonts.Size.LG,
+    textAlign: 'center',
+    marginBottom: Layout.Spacing.MD,
   },
 });

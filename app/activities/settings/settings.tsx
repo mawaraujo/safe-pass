@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, ScrollView} from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import DefaultLayout from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import settingsStyles from './settings.styles';
@@ -21,7 +21,7 @@ export default function Settings() {
         <SecuritySection />
 
         <Text style={settingsStyles.sectionTitle}>
-          Backups
+          Backup
         </Text>
         <BackupSection />
 
