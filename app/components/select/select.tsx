@@ -36,12 +36,16 @@ export default function Select({ label, validationError, options, value, onChang
         ]}>
 
         <Picker.Item
-          label="None"
+          style={[
+            styles.pickerItem,
+          ]}
+          label="Select a Tag"
           value="" />
 
         {
           options && options.map((opt, index) => (
             <Picker.Item
+              style={styles.pickerItem}
               label={opt.name}
               key={index + '__option_select'}
               value={opt.value} />

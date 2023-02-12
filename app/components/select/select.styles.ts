@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Fonts, Layout} from '../../res';
+import { StyleSheet } from 'react-native';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
@@ -24,8 +24,6 @@ export default StyleSheet.create({
     shadowColor: Colors.Light.ShadowColor,
     borderWidth: 3,
     borderColor: 'transparent',
-    fontFamily: Fonts.Family.Regular,
-    color: Colors.System.Brand,
   },
   inputFocused: {
     borderColor: Colors.System.BrandTransparent,
@@ -35,5 +33,10 @@ export default StyleSheet.create({
   },
   textAlignVerticalTop: {
     textAlignVertical: 'top',
+  },
+  pickerItem: {
+    fontFamily: Fonts.Family.Regular,
+    fontSize: Fonts.Size.REGULAR,
+    color: Colors.System.Brand,
   },
 });
