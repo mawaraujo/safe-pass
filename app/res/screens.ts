@@ -3,8 +3,8 @@
 export default {
   Main: {
     Name: 'Main',
-    Icon: 'library-outline',
-    IconFocused: 'library',
+    Icon: 'home-outline',
+    IconFocused: 'home',
   },
   CreatePassword: {
     Name: 'CreatePassword',
@@ -19,9 +19,17 @@ export default {
     IconFocused: 'settings',
   },
   RestoreBackup: {
-    name: 'restoreBackup',
+    Name: 'restoreBackup',
   },
   CreateBackup: {
-    name: 'createBackup',
+    Name: 'createBackup',
+  },
+  Tags: {
+    Name: 'tags',
+    Icon: 'pricetags-outline',
+    IconFocused: 'pricetags',
+  },
+  CreateTag: {
+    Name: 'createTag',
   },
 };

@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {NStore, NToast} from '../../types';
+import { createSlice } from '@reduxjs/toolkit';
+import { NStore, NToast } from '../../types';
 
 const initialState: NToast.Toast = {
   title: '',

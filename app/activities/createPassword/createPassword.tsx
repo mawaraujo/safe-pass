@@ -1,21 +1,21 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import { ScrollView } from 'react-native';
 import Default from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
-import {FormikHelpers, useFormik} from 'formik';
+import { FormikHelpers, useFormik } from 'formik';
 import FormHandler from './formHandler';
 import Button from '../../components/button/button';
 import styles from './createPassword.styles';
 import TextInput from '../../components/textInput/textInput';
-import type {NPassword} from '../../types';
-import {useDispatch} from 'react-redux';
+import type { NPassword } from '../../types';
+import { useDispatch } from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
-import {Navigation} from '../../utils';
+import { Navigation } from '../../utils';
 import screens from '../../res/screens';
 import uuid from 'react-native-uuid';
 import toastSlice from '../../store/reducers/toastSlice';
 
-interface IAddPAsswordProps {
+interface ICreatePassword {
   route?: {
     params: {
       password: NPassword.Password
@@ -23,7 +23,7 @@ interface IAddPAsswordProps {
   }
 }
 
-export default function ManagePassword({route}: IAddPAsswordProps) {
+export default function CreatePassword({ route }: ICreatePassword) {
   const dispatch = useDispatch();
 
   const password = route?.params?.password;

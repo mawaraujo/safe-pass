@@ -9,13 +9,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  logo: {
-    width: '100%',
-    height: '100%',
-    maxWidth: 30,
-    maxHeight: 30,
-    marginRight: Layout.Spacing.MD,
-  },
   title: {
     color: Colors.System.Brand,
     textTransform: 'capitalize',
@@ -23,9 +16,14 @@ export default StyleSheet.create({
   },
   left: {
     flex: 1,
+    marginLeft: Layout.Spacing.MD,
   },
   extraInfo: {
     fontFamily: Fonts.Family.Regular,
     color: Colors.Light.Muted,
+  },
+  actions: {
+    flexDirection: 'row',
+    gap: Layout.Spacing.MD,
   },
 });

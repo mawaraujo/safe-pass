@@ -1,17 +1,17 @@
 import React from 'react';
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import DefaultLayout from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
-import type {NPassword} from '../../types';
+import type { NPassword } from '../../types';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './preview.styles';
 import Button from '../../components/button/button';
-import {useLink, useClipboard} from '../../hooks';
-import {Navigation} from '../../utils';
-import {Colors, Screens} from '../../res';
+import { useLink, useClipboard } from '../../hooks';
+import { Navigation } from '../../utils';
+import { Colors, Screens } from '../../res';
 import Confirm from '../../components/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import toastSlice from '../../store/reducers/toastSlice';
 import Card from '../../components/card/card';
 
@@ -23,7 +23,7 @@ interface IPreviewProps {
   }
 }
 
-export default function Preview({route}: IPreviewProps) {
+export default function Preview({ route }: IPreviewProps) {
 
   const dispatch = useDispatch();
   const [askDeletePassword, setAskDeletePassword] = React.useState(false);

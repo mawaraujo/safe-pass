@@ -23,11 +23,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import passwordSlice from './reducers/passwordSlice';
 import toastSlice from './reducers/toastSlice';
 import settingsSlice from './reducers/settingsSlice';
+import tagSlice from './reducers/tagSlice';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whiteList: ['passwords', 'settings'],
+  blackList: ['toast', 'settings'],
 
   // transforms: [
   //   encryptTransform({
@@ -45,6 +46,7 @@ const reducer = persistReducer(
       passwords: passwordSlice.reducer,
       toast: toastSlice.reducer,
       settings: settingsSlice.reducer,
+      tags: tagSlice.reducer,
     }),
 );
 

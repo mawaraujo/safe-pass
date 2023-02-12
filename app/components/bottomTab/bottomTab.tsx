@@ -1,11 +1,11 @@
 import React from 'react';
-import {Keyboard, View} from 'react-native';
+import { Keyboard, View } from 'react-native';
 import bottomTabStyles from './bottomTab.styles';
-import {Screens, Colors} from '../../res';
+import { Screens, Colors } from '../../res';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native';
-import {Navigation} from '../../utils';
-import {useRoute} from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native';
+import { Navigation } from '../../utils';
+import { useRoute } from '@react-navigation/native';
 
 export default function BottomTab() {
   const [hide, setHide] = React.useState<boolean>(false);
@@ -71,14 +71,14 @@ export default function BottomTab() {
 
         <TouchableOpacity
           onPress={() => {
-            Navigation.navigate(Screens.Settings.Name);
+            Navigation.navigate(Screens.Tags.Name);
           }}>
 
           <Icon
             name={
-              isFocused(Screens.Settings.Name)
-                ? Screens.Settings.IconFocused
-                : Screens.Settings.Icon
+              isFocused(Screens.Tags.Name)
+                ? Screens.Tags.IconFocused
+                : Screens.Tags.Icon
             }
             size={28}
             color={Colors.System.Brand} />

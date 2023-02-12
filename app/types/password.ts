@@ -7,6 +7,7 @@ namespace NPassword {
     url?: string,
     username?: string,
     notes?: string,
+    tagId?: string
   }
 
   export type Passwords = Array<Password>

@@ -9,7 +9,7 @@ export default function BackupSection() {
     <Card>
       <Item
         onPress={() => {
-          Navigation.navigate(Screens.CreateBackup.name);
+          Navigation.navigate(Screens.CreateBackup.Name);
         }}
         firstItem={true}
         title="Create backup"
@@ -17,7 +17,7 @@ export default function BackupSection() {
 
       <Item
         onPress={() => {
-          Navigation.navigate(Screens.RestoreBackup.name);
+          Navigation.navigate(Screens.RestoreBackup.Name);
         }}
         title="Restore backup"
         description="Import a backup file with your data." />

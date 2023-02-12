@@ -1,17 +1,17 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
-import type {NPassword} from '../../types';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import type { NPassword } from '../../types';
 import styles from './passwordElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DefaultImage from '../../assets/images/key.png';
-import {Colors} from '../../res';
+import { Colors } from '../../res';
 
 interface IPasswordElementProps {
   item: NPassword.Password,
   onPress?: (password: NPassword.Password) => void
 }
 
-export default function PasswordElement({item, onPress}: IPasswordElementProps) {
+export default function PasswordElement({ item, onPress }: IPasswordElementProps) {
   const [loadImageError, setLoadImageError] = React.useState(false);
 
   const handlePress = (): void => {

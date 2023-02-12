@@ -1,16 +1,16 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import { ScrollView } from 'react-native';
 import styles from './main.styles';
 import Default from '../../layout/default/default';
 import SearchBar from '../../components/searchBar/searchBar';
-import {useSelector} from 'react-redux';
-import type {RootState} from '../../store/store';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../store/store';
 import PasswordElement from '../../components/passwordElement/passwordElement';
 import Empty from '../../components/empty/empty';
-import {Screens} from '../../res';
-import {NPassword} from '../../types';
+import { Screens } from '../../res';
+import { NPassword } from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
-import {useSearch} from '../../hooks';
+import { useSearch } from '../../hooks';
 import Navigation from '../../utils/navigation';
 
 interface ImainProps {
@@ -19,7 +19,7 @@ interface ImainProps {
   }
 }
 
-export default function Main({navigation}: ImainProps) {
+export default function Main({ navigation }: ImainProps) {
   const search = useSearch();
 
   const passwords = useSelector(

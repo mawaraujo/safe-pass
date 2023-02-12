@@ -16,6 +16,8 @@ import Settings from './activities/settings/settings';
 import Preview from './activities/preview/preview';
 import CreateBackup from './activities/createBackup/createBackup';
 import RestoreBackup from './activities/restoreBackup/restoreBackup';
+import CreateTag from './activities/createTag/createTag';
+import Tags from './activities/tags/tags';
 
 const Stack = createNativeStackNavigator();
 
@@ -49,12 +51,20 @@ export default function App() {
               name={Screens.Preview.Name} />
 
             <Stack.Screen
-              name={Screens.RestoreBackup.name}
+              name={Screens.RestoreBackup.Name}
               component={RestoreBackup} />
 
             <Stack.Screen
-              name={Screens.CreateBackup.name}
+              name={Screens.CreateBackup.Name}
               component={CreateBackup} />
+
+            <Stack.Screen
+              name={Screens.Tags.Name}
+              component={Tags} />
+
+            <Stack.Screen
+              name={Screens.CreateTag.Name}
+              component={CreateTag} />
           </Stack.Navigator>
 
         </NavigationContainer>
