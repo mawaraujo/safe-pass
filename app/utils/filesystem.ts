@@ -1,9 +1,4 @@
-import RNFS from 'react-native-fs';
-
-interface WriteFileResponse {
-  saved: boolean,
-  dir?: string
-}
+import * as RNCS from 'react-native-scoped-storage';
 
 namespace FileSystem {
 
@@ -11,29 +6,19 @@ namespace FileSystem {
     return `password_manager_backup_${Date.now()}.json`;
   }
 
+  /**
+   * Only works in Android
+   */
   export async function writeFile(content: string = '') {
-    const filename: string = getFilename();
-
-    const result: WriteFileResponse = {
-      saved: false,
-    };
-
-    try {
-      const path = `${RNFS.DownloadDirectoryPath}/${filename}`;
-      await RNFS.writeFile(path, content);
-
-      result.saved = true;
-      result.dir = path;
-      return result;
-
-    } catch (error) {
-      console.error(error);
-      return result;
-    }
+    await RNCS.createDocument(getFilename(), 'application/json', content, 'utf8');
   }
 
-  export async function readFile(uri: string): Promise<string> {
-    return await RNFS.readFile(uri);
+  /**
+   * Only works in Android
+   */
+  export async function readFile(): Promise<RNCS.FileType> {
+    const document = await RNCS.openDocument(true, 'utf8');
+    return document;
   }
 }
 

@@ -25,11 +25,11 @@ export default function Export() {
 
     try {
       const content = await getStorageData();
-      const { dir } = await FileSystem.writeFile(content);
+      await FileSystem.writeFile(content);
 
       dispatch(
           toastSlice.actions.show({
-            title: `File saved in ${dir}`,
+            title: `File saved`,
             type: 'Success',
           }),
       );

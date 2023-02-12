@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import passwordSlice from '../../../store/reducers/passwordSlice';
 import toastSlice from '../../../store/reducers/toastSlice';
 import type { NPassword } from '../../../types';
-import { DocumentPicker, FileSystem } from '../../../utils';
+import { FileSystem } from '../../../utils';
 import type { RootState } from '../../../store/store';
 import Button from '../../../components/button/button';
 import { Colors } from '../../../res';
@@ -50,12 +50,11 @@ export default function Import() {
     clearStatus();
 
     try {
-      const filename = await DocumentPicker.pickFile();
-      const data = await FileSystem.readFile(filename);
+      const document = await FileSystem.readFile();
 
       importPasswords(
           JSON.parse(
-              JSON.parse(data)?.passwords,
+              JSON.parse(document.data)?.passwords,
           ),
       );
 
