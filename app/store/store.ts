@@ -28,7 +28,7 @@ import tagSlice from './reducers/tagSlice';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  blackList: ['toast', 'settings'],
+  blackList: ['toast'],
 
   // transforms: [
   //   encryptTransform({
