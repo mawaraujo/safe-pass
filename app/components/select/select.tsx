@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import styles from './select.styles';
 import { Strings } from '../../utils';
 import { Picker } from '@react-native-picker/picker';
+import { Colors } from '../../res';
 
 type ISelectProps = {
   label?: string,
@@ -25,10 +26,12 @@ export default function Select({ label, validationError, options, value, onChang
       }
 
       <Picker
+        mode="dropdown"
         selectedValue={value}
         onValueChange={(itemValue) => onChangeText?.(itemValue)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
+        dropdownIconColor={Colors.System.Brand}
         style={[
           styles.input,
           (focused && styles.inputFocused),
@@ -36,10 +39,8 @@ export default function Select({ label, validationError, options, value, onChang
         ]}>
 
         <Picker.Item
-          style={[
-            styles.pickerItem,
-          ]}
-          label="Select a Tag"
+          style={styles.pickerItem}
+          label="Select"
           value="" />
 
         {

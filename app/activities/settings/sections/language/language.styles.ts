@@ -9,6 +9,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.Light.BackgroundColor,
     marginTop: Layout.Spacing.XS,
     paddingVertical: 5,
+    color: Colors.System.Brand,
   },
   pickerItem: {
     fontFamily: Fonts.Family.Regular,

@@ -7,6 +7,7 @@ import type { RootState } from '../../../../store/store';
 import settingsSlice from '../../../../store/reducers/settingsSlice';
 import { NSettings } from '../../../../types';
 import generalStyles from './language.styles';
+import { Colors } from '../../../../res';
 
 const LANG_LIST = [
   {
@@ -43,6 +44,7 @@ export default function LanguageSection() {
         <Picker
           style={generalStyles.picker}
           mode="dropdown"
+          dropdownIconColor={Colors.System.Brand}
           selectedValue={appLang}
           onValueChange={(itemValue, itemIndex) => setSelectedLanguage(itemValue)}>
 

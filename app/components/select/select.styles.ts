@@ -24,6 +24,7 @@ export default StyleSheet.create({
     shadowColor: Colors.Light.ShadowColor,
     borderWidth: 3,
     borderColor: 'transparent',
+    color: Colors.System.Brand,
   },
   inputFocused: {
     borderColor: Colors.System.BrandTransparent,
@@ -37,6 +38,5 @@ export default StyleSheet.create({
   pickerItem: {
     fontFamily: Fonts.Family.Regular,
     fontSize: Fonts.Size.REGULAR,
-    color: Colors.System.Brand,
   },
 });

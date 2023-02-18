@@ -31,10 +31,13 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
    */
   React.useEffect(() => {
     if (!idSelected?.length) {
-      scrollRef.current?.scrollTo({
-        y: 0,
-        animated: true,
-      });
+      setTimeout(() => {
+        scrollRef.current?.scrollTo({
+          y: 0,
+          x: 0,
+          animated: true,
+        });
+      }, 100);
     }
   }, [idSelected]);
 
@@ -47,7 +50,7 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
   return (
     <View style={tagsSelectorStyles.main}>
       <ScrollView
-        ref={scrollRef.current}
+        ref={scrollRef}
         contentContainerStyle={tagsSelectorStyles.container}
         horizontal={true}
         scrollEventThrottle={200}
