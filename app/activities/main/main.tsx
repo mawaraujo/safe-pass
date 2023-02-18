@@ -12,6 +12,7 @@ import { NPassword } from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
 import { useSearch } from '../../hooks';
 import Navigation from '../../utils/navigation';
+import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
 
 interface ImainProps {
   navigation: {
@@ -50,11 +51,12 @@ export default function Main({ navigation }: ImainProps) {
         {
           password,
         });
-
   };
 
   return (
     <Default style={styles.main}>
+      <WelcomeHeader title="My passwords" />
+
       {
         passwords.length > 0 && (
           <SearchBar

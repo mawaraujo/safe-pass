@@ -13,6 +13,7 @@ import { useSearch } from '../../hooks';
 import TagElement from '../../components/tagElement/tagElement';
 import tagSlice from '../../store/reducers/tagSlice';
 import Confirm from '../../components/confirm/confirm';
+import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
 
 interface ITagsProps {
   navigation: {
@@ -64,6 +65,11 @@ export default function Tags({ navigation }: ITagsProps) {
 
   return (
     <Default style={styles.main}>
+      <WelcomeHeader
+        smallText=""
+        title="Tags"
+        collapsed={false} />
+
       {
         tagToDelete !== null && (
           <Confirm

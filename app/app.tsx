@@ -33,6 +33,7 @@ export default function App() {
         <NavigationContainer ref={Navigation.navigationRef}>
           <Stack.Navigator
             screenOptions={{
+              animation: 'simple_push',
               headerShown: false,
             }}>
 
