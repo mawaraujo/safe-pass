@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../store/store';
+import { Strings } from '../../../utils';
 import tagsSelectorStyles from './tagsSelector.styles';
 
 interface TagsSelectorProps {
@@ -87,7 +88,12 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
                   tagsSelectorStyles.cardTitle,
                   idSelected === tag.id && tagsSelectorStyles.selectedCardTitle,
                 ]}>
-                {tag.name}
+
+                {
+                  tag.name?.length > 15
+                  ? Strings.truncate(tag.name, 15)
+                  : tag.name
+                }
               </Text>
             </TouchableOpacity>
           ))
