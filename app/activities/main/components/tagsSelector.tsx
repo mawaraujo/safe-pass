@@ -10,20 +10,33 @@ interface TagsSelectorProps {
 }
 
 export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps) {
+  const scrollRef = React.useRef<any>();
   const tagsState = useSelector((state: RootState) => state.tags);
 
   const handleSelect = React.useCallback((value: string) => {
     onSelect?.(value);
   }, [onSelect]);
 
+  /**
+   * If the user deletes the last tag
+   */
   React.useEffect(() => {
-    /**
-     * If the user deletes the last tag
-     */
     if (!tagsState.length) {
       handleSelect('');
     }
   }, [tagsState]);
+
+  /**
+   * Auto scroll on select all
+   */
+  React.useEffect(() => {
+    if (!idSelected?.length) {
+      scrollRef.current?.scrollTo({
+        y: 0,
+        animated: true,
+      });
+    }
+  }, [idSelected]);
 
   if (!tagsState.length) {
     return (
@@ -34,8 +47,10 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
   return (
     <View style={tagsSelectorStyles.main}>
       <ScrollView
+        ref={scrollRef.current}
         contentContainerStyle={tagsSelectorStyles.container}
         horizontal={true}
+        scrollEventThrottle={200}
         showsHorizontalScrollIndicator={false}>
 
         <TouchableOpacity

@@ -57,6 +57,15 @@ export default function Main({ navigation }: ImainProps) {
         });
   }, []);
 
+  const handleSelectTag = React.useCallback((value: string) => {
+    if (value === selectedTag) {
+      setSelectedTag('');
+      return;
+    }
+
+    setSelectedTag(value);
+  }, [selectedTag, setSelectedTag]);
+
   return (
     <Default>
       <WelcomeHeader title="My passwords" />
@@ -72,6 +81,13 @@ export default function Main({ navigation }: ImainProps) {
       <View
         style={styles.mainScrollView}>
 
+        {
+          passwords?.length > 0 &&
+            <TagsSelector
+              idSelected={selectedTag}
+              onSelect={handleSelectTag} />
+        }
+
         <FlatList
           style={styles.flatList}
           keyboardShouldPersistTaps={'always'}
@@ -80,17 +96,6 @@ export default function Main({ navigation }: ImainProps) {
           initialNumToRender={10}
           keyExtractor={(item, index) => (item.id + index)}
           data={computedPasswords}
-          ListHeaderComponent={() => {
-            if (passwords?.length) {
-              return (
-                <TagsSelector
-                  idSelected={selectedTag}
-                  onSelect={(value) => setSelectedTag(value)} />
-              );
-            }
-
-            return (null);
-          }}
           renderItem={({ item }) => (
             <PasswordElement
               onPress={() => handleViewPasswordDetails(item)}
