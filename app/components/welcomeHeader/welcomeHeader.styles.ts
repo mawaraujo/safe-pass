@@ -22,6 +22,7 @@ export default StyleSheet.create({
   title: {
     fontFamily: Fonts.Family.SemiBold,
     color: Colors.System.White,
+    fontSize: Fonts.Size.LG,
   },
   rightContainer: {
 

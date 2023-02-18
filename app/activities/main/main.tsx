@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { FlatList, View } from 'react-native';
 import styles from './main.styles';
 import Default from '../../layout/default/default';
 import SearchBar from '../../components/searchBar/searchBar';
@@ -13,6 +13,7 @@ import EmptySearch from '../../components/emptySearch/emptySearch';
 import { useSearch } from '../../hooks';
 import Navigation from '../../utils/navigation';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
+import TagsSelector from './components/tagsSelector';
 
 interface ImainProps {
   navigation: {
@@ -22,6 +23,7 @@ interface ImainProps {
 
 export default function Main({ navigation }: ImainProps) {
   const search = useSearch();
+  const [selectedTag, setSelectedTag] = React.useState<string>('');
 
   const passwords = useSelector(
       (state: RootState) => state.passwords);
@@ -30,28 +32,29 @@ export default function Main({ navigation }: ImainProps) {
     return searchFilter(
         search.value,
         passwords,
+        selectedTag,
     );
-  }, [search.value, passwords]);
+  }, [search.value, passwords, selectedTag]);
 
   /**
    * Go to add password screen
    */
-  const addPassword = () => {
+  const addPassword = React.useCallback(() => {
     navigation.navigate(
         Screens.CreatePassword.Name,
     );
-  };
+  }, []);
 
   /**
    * Go to password details screen
    */
-  const handleViewPasswordDetails = (password: NPassword.Password) => {
+  const handleViewPasswordDetails = React.useCallback((password: NPassword.Password) => {
     Navigation.navigate(
         Screens.Preview.Name,
         {
           password,
         });
-  };
+  }, []);
 
   return (
     <Default style={styles.main}>
@@ -65,28 +68,39 @@ export default function Main({ navigation }: ImainProps) {
             onChangeText={search.setVaue} />
         )
       }
-
-      <ScrollView
-        keyboardShouldPersistTaps={'always'}
-        contentContainerStyle={styles.mainScrollView}>
-
-        {
-          !passwords?.length && (
-            <Empty
-              text="Your password list is empty"
-              actionButtonText="Add Password"
-              onPress={addPassword} />
-          )
-        }
+      <View
+        style={styles.mainScrollView}>
 
         {
           computedPasswords?.length > 0 && (
-            computedPasswords.map((password, index) => (
-              <PasswordElement
-                onPress={handleViewPasswordDetails}
-                key={`${password.id}${index}`}
-                item={password} />
-            ))
+            <FlatList
+              style={styles.flatList}
+              keyboardShouldPersistTaps={'always'}
+              removeClippedSubviews={true}
+              maxToRenderPerBatch={10}
+              initialNumToRender={10}
+              keyExtractor={(item, index) => (item.id + index)}
+              data={computedPasswords}
+              ListHeaderComponent={() => (
+                <TagsSelector
+                  idSelected={selectedTag}
+                  onSelect={(value) => setSelectedTag(value)} />
+              )}
+              renderItem={({ item }) => (
+                <PasswordElement
+                  onPress={() => handleViewPasswordDetails(item)}
+                  item={item} />
+              )}
+              ListEmptyComponent={() => {
+                if (!search.value) {
+                  return <Empty
+                    text="Your password list is empty"
+                    actionButtonText="Add Password"
+                    onPress={addPassword} />;
+                }
+
+                return (null);
+              }} />
           )
         }
 
@@ -95,12 +109,16 @@ export default function Main({ navigation }: ImainProps) {
             <EmptySearch />
           )
         }
-      </ScrollView>
+      </View>
     </Default>
   );
 }
 
-function searchFilter(str: string, passwords: NPassword.Passwords): NPassword.Passwords {
+function searchFilter(
+    str: string,
+    passwords: NPassword.Passwords,
+    selectedTag: string,
+): NPassword.Passwords {
   return passwords.filter((password: NPassword.Password) => {
     return (
       password.name
@@ -118,6 +136,7 @@ function searchFilter(str: string, passwords: NPassword.Passwords): NPassword.Pa
       password.notes
           ?.toLowerCase()
           .includes(str.toLowerCase())
-    );
+
+    ) && password.tagId?.includes(selectedTag);
   });
 }
