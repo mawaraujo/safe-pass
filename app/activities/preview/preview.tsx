@@ -9,7 +9,7 @@ import Button from '../../components/button/button';
 import { useLink, useClipboard } from '../../hooks';
 import { Navigation } from '../../utils';
 import { Colors, Screens } from '../../res';
-import Confirm from '../../components/confirm/confirm';
+import Confirm from '../../components/modal/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import toastSlice from '../../store/reducers/toastSlice';

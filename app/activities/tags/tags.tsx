@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { FlatList, View } from 'react-native';
 import styles from './tags.styles';
 import Default from '../../layout/default/default';
 import SearchBar from '../../components/searchBar/searchBar';
@@ -12,7 +12,7 @@ import EmptySearch from '../../components/emptySearch/emptySearch';
 import { useSearch } from '../../hooks';
 import TagElement from '../../components/tagElement/tagElement';
 import tagSlice from '../../store/reducers/tagSlice';
-import Confirm from '../../components/confirm/confirm';
+import Confirm from '../../components/modal/confirm/confirm';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
 
 interface ITagsProps {
@@ -65,10 +65,7 @@ export default function Tags({ navigation }: ITagsProps) {
 
   return (
     <Default style={styles.main}>
-      <WelcomeHeader
-        smallText=""
-        title="Tags"
-        collapsed={false} />
+      <WelcomeHeader title="Tags" />
 
       {
         tagToDelete !== null && (
@@ -91,37 +88,36 @@ export default function Tags({ navigation }: ITagsProps) {
         )
       }
 
-      <ScrollView
-        keyboardShouldPersistTaps={'always'}
-        contentContainerStyle={styles.mainScrollView}>
+      <View
+        style={styles.mainScrollView}>
 
-        {
-          !tags?.length && (
-            <Empty
+        <FlatList
+          data={computedTags}
+          style={styles.flatList}
+          keyboardShouldPersistTaps={'always'}
+          removeClippedSubviews={true}
+          maxToRenderPerBatch={10}
+          initialNumToRender={10}
+          keyExtractor={(item, index) => (item.id + index)}
+          renderItem={({ item }) => (
+            <TagElement
+              linkedPasswords={countLinkedPasswords(item)}
+              onPressDelete={(item) => setTagToDelete(item)}
+              item={item} />
+          )}
+          ListEmptyComponent={() => {
+            return <Empty
               text="Your tag list is empty"
               actionButtonText="Add tag"
-              onPress={addTag} />
-          )
-        }
-
-        {
-          computedTags?.length > 0 && (
-            computedTags.map((tag, index) => (
-              <TagElement
-                key={`${tag.id}${index}`}
-                linkedPasswords={countLinkedPasswords(tag)}
-                onPressDelete={(item) => setTagToDelete(item)}
-                item={tag} />
-            ))
-          )
-        }
+              onPress={addTag} />;
+          }} />
 
         {
           search.value && !computedTags?.length && (
             <EmptySearch />
           )
         }
-      </ScrollView>
+      </View>
     </Default>
   );
 }

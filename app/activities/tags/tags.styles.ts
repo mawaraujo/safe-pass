@@ -6,7 +6,11 @@ export default StyleSheet.create({
     flex: 1,
   },
   mainScrollView: {
-    padding: Layout.Spacing.MD,
+    paddingHorizontal: Layout.Spacing.MD,
+    paddingTop: Layout.Spacing.MD,
     flexGrow: 1,
+  },
+  flatList: {
+    flex: 1,
   },
 });

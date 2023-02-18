@@ -25,6 +25,8 @@ export default StyleSheet.create({
     fontSize: Fonts.Size.LG,
   },
   rightContainer: {
-
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Layout.Spacing.MD,
   },
 });

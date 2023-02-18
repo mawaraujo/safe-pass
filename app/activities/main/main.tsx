@@ -72,38 +72,34 @@ export default function Main({ navigation }: ImainProps) {
       <View
         style={styles.mainScrollView}>
 
-        {
-          computedPasswords?.length > 0 && (
-            <FlatList
-              style={styles.flatList}
-              keyboardShouldPersistTaps={'always'}
-              removeClippedSubviews={true}
-              maxToRenderPerBatch={10}
-              initialNumToRender={10}
-              keyExtractor={(item, index) => (item.id + index)}
-              data={computedPasswords}
-              ListHeaderComponent={() => (
-                <TagsSelector
-                  idSelected={selectedTag}
-                  onSelect={(value) => setSelectedTag(value)} />
-              )}
-              renderItem={({ item }) => (
-                <PasswordElement
-                  onPress={() => handleViewPasswordDetails(item)}
-                  item={item} />
-              )}
-              ListEmptyComponent={() => {
-                if (!search.value) {
-                  return <Empty
-                    text="Your password list is empty"
-                    actionButtonText="Add Password"
-                    onPress={addPassword} />;
-                }
+        <FlatList
+          style={styles.flatList}
+          keyboardShouldPersistTaps={'always'}
+          removeClippedSubviews={true}
+          maxToRenderPerBatch={10}
+          initialNumToRender={10}
+          keyExtractor={(item, index) => (item.id + index)}
+          data={computedPasswords}
+          ListHeaderComponent={() => (
+            <TagsSelector
+              idSelected={selectedTag}
+              onSelect={(value) => setSelectedTag(value)} />
+          )}
+          renderItem={({ item }) => (
+            <PasswordElement
+              onPress={() => handleViewPasswordDetails(item)}
+              item={item} />
+          )}
+          ListEmptyComponent={() => {
+            if (!search.value) {
+              return <Empty
+                text="Your password list is empty"
+                actionButtonText="Add Password"
+                onPress={addPassword} />;
+            }
 
-                return (null);
-              }} />
-          )
-        }
+            return (null);
+          }} />
 
         {
           search.value && !computedPasswords?.length && (
