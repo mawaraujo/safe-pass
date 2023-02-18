@@ -5,6 +5,10 @@ export default StyleSheet.create({
   main: {
     paddingHorizontal: Layout.Spacing.MD,
   },
+  navActions: {
+    flexDirection: 'row',
+    gap: Layout.Spacing.MD,
+  },
   cardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -32,11 +36,5 @@ export default StyleSheet.create({
     width: 40,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  buttonMarginBottom: {
-    marginBottom: Layout.Spacing.XS,
-  },
-  deleteButton: {
-    backgroundColor: Colors.System.Danger,
   },
 });

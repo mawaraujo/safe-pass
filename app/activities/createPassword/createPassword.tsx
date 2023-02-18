@@ -12,7 +12,7 @@ import type { NPassword } from '../../types';
 import { useDispatch, useSelector } from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import { Navigation } from '../../utils';
-import screens from '../../res/screens';
+import { Screens } from '../../res';
 import uuid from 'react-native-uuid';
 import toastSlice from '../../store/reducers/toastSlice';
 import { RootState } from '../../store/store';
@@ -67,7 +67,12 @@ export default function CreatePassword({ route }: ICreatePassword) {
         }),
     );
 
-    Navigation.navigate(screens.Main.Name);
+    if (editMode) {
+      Navigation.goBack();
+      return;
+    }
+
+    Navigation.navigate(Screens.Main.Name);
   };
 
   const parsedTags = React.useMemo(() => (

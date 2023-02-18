@@ -53,7 +53,7 @@ export default function Main({ navigation }: ImainProps) {
     Navigation.navigate(
         Screens.Preview.Name,
         {
-          password,
+          passwordId: password.id,
         });
   }, []);
 

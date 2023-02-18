@@ -2,13 +2,11 @@ import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import DefaultLayout from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
-import type { NPassword } from '../../types';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './preview.styles';
-import Button from '../../components/button/button';
 import { useLink, useClipboard } from '../../hooks';
 import { Navigation } from '../../utils';
-import { Colors, Screens } from '../../res';
+import { Colors, Fonts, Screens } from '../../res';
 import Confirm from '../../components/modal/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,7 +17,7 @@ import { RootState } from '../../store/store';
 interface IPreviewProps {
   route?: {
     params: {
-      password: NPassword.Password
+      passwordId: string
     }
   }
 }
@@ -30,14 +28,10 @@ export default function Preview({ route }: IPreviewProps) {
   const clipboard = useClipboard();
   const link = useLink();
 
-  const tags = useSelector((state: RootState) => state.tags);
-  const password = route?.params?.password;
+  const { tags, passwords } = useSelector((state: RootState) => state);
 
-  if (!password) {
-    return (
-      null
-    );
-  }
+  const passwordId = route?.params?.passwordId;
+  const password= passwords.filter((p) => p.id === passwordId)?.[0];
 
   const handleCopy = (value?: string) => {
     if (!value) {
@@ -64,6 +58,8 @@ export default function Preview({ route }: IPreviewProps) {
   };
 
   const handleDelete = () => {
+    if (!password) return;
+
     dispatch(
         passwordSlice.actions.delete(
             password,
@@ -92,10 +88,37 @@ export default function Preview({ route }: IPreviewProps) {
         ?.name;
   }, [tags]);
 
+  if (!password) {
+    return (
+      null
+    );
+  }
+
   return (
     <DefaultLayout>
       <NavigationBar
-        name={password.name} />
+        name={password.name}>
+
+        <View style={styles.navActions}>
+          <TouchableOpacity
+            onPress={editPassword}>
+
+            <Icon
+              name="create-outline"
+              size={Fonts.Size.LG}
+              color={Colors.System.Brand} />
+
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setAskDeletePassword(true)}>
+
+            <Icon
+              name="trash-outline"
+              size={Fonts.Size.LG}
+              color={Colors.System.Brand} />
+          </TouchableOpacity>
+        </View>
+      </NavigationBar>
 
       {
         askDeletePassword && (
@@ -248,16 +271,6 @@ export default function Preview({ route }: IPreviewProps) {
             </View>
           </View>
         </Card>
-
-        <Button
-          onPress={editPassword}
-          style={styles.buttonMarginBottom}
-          text="Edit" />
-
-        <Button
-          onPress={() => setAskDeletePassword(true)}
-          style={styles.deleteButton}
-          text="Delete" />
       </ScrollView>
     </DefaultLayout>
   );
