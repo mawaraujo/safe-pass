@@ -5,17 +5,18 @@ namespace NSettings {
 
   export enum AvailableLanguages {
     es = 'es',
-    en = 'en'
+    en = 'en',
   }
 
-  export interface AvailableOptions {
-    enableLocalAuthentication: EnableLocalAuthentication,
-    language: keyof typeof AvailableLanguages,
-  }
-
-  export interface ToggleAction {
+  export interface State {
     enableLocalAuthentication?: EnableLocalAuthentication,
     language?: keyof typeof AvailableLanguages,
+    forcedLanguage?: boolean,
+  }
+
+  export interface LanguageAction {
+    language: keyof typeof AvailableLanguages,
+    forcedLanguage?: boolean,
   }
 }
 

@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { NSettings, NStore } from '../../types';
 
-const initialState: NSettings.AvailableOptions = {
+const initialState: NSettings.State = {
   enableLocalAuthentication: false,
   language: 'en',
+  forcedLanguage: false,
 };
 
 export default createSlice({
@@ -13,8 +14,12 @@ export default createSlice({
     toggleLocalAuthentication(state) {
       state.enableLocalAuthentication = !state.enableLocalAuthentication;
     },
-    selectLanguage(state, action: NStore.Action<keyof typeof NSettings.AvailableLanguages>) {
-      state.language = action.payload;
+    setLanguage(state, action: NStore.Action<NSettings.LanguageAction>) {
+      state.language = action.payload.language;
+
+      if (action.payload.forcedLanguage) {
+        state.forcedLanguage = action.payload.forcedLanguage;
+      }
     },
   },
 });

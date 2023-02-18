@@ -26,7 +26,10 @@ export default function LanguageSection() {
 
   const setSelectedLanguage = React.useCallback((value: keyof typeof NSettings.AvailableLanguages) => {
     dispatch(
-        settingsSlice.actions.selectLanguage(value),
+        settingsSlice.actions.setLanguage({
+          language: value,
+          forcedLanguage: true,
+        }),
     );
   }, []);
 

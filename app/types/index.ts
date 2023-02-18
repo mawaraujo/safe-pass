@@ -4,7 +4,7 @@ import NToast from './toast';
 import NSettings from './settings';
 import NTag from './tag';
 
-export type {
+export {
   NPassword,
   NStore,
   NToast,
