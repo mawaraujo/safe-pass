@@ -8,7 +8,7 @@ export default StyleSheet.create({
   mainScrollView: {
     paddingHorizontal: Layout.Spacing.MD,
     paddingTop: Layout.Spacing.MD,
-    flexGrow: 1,
+    flex: 1,
   },
   flatList: {
     flex: 1,

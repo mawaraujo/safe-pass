@@ -9,7 +9,7 @@ import PasswordElement from '../../components/passwordElement/passwordElement';
 import Empty from '../../components/empty/empty';
 import { Screens } from '../../res';
 import { NPassword } from '../../types';
-import EmptySearch from '../../components/emptySearch/emptySearch';
+// import EmptySearch from '../../components/emptySearch/emptySearch';
 import { useSearch } from '../../hooks';
 import Navigation from '../../utils/navigation';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
@@ -58,7 +58,7 @@ export default function Main({ navigation }: ImainProps) {
   }, []);
 
   return (
-    <Default style={styles.main}>
+    <Default>
       <WelcomeHeader title="My passwords" />
 
       {
@@ -80,18 +80,24 @@ export default function Main({ navigation }: ImainProps) {
           initialNumToRender={10}
           keyExtractor={(item, index) => (item.id + index)}
           data={computedPasswords}
-          ListHeaderComponent={() => (
-            <TagsSelector
-              idSelected={selectedTag}
-              onSelect={(value) => setSelectedTag(value)} />
-          )}
+          ListHeaderComponent={() => {
+            if (passwords?.length) {
+              return (
+                <TagsSelector
+                  idSelected={selectedTag}
+                  onSelect={(value) => setSelectedTag(value)} />
+              );
+            }
+
+            return (null);
+          }}
           renderItem={({ item }) => (
             <PasswordElement
               onPress={() => handleViewPasswordDetails(item)}
               item={item} />
           )}
           ListEmptyComponent={() => {
-            if (!search.value) {
+            if (!search.value && !selectedTag) {
               return <Empty
                 text="Your password list is empty"
                 actionButtonText="Add Password"
@@ -101,11 +107,14 @@ export default function Main({ navigation }: ImainProps) {
             return (null);
           }} />
 
-        {
-          search.value && !computedPasswords?.length && (
+        {/* {
+          (
+            (search.value || selectedTag?.length > 0) &&
+            computedPasswords?.length <= 0
+          ) && (
             <EmptySearch />
           )
-        }
+        } */}
       </View>
     </Default>
   );

@@ -6,12 +6,13 @@ export default StyleSheet.create({
     fontSize: Fonts.Size.MD,
     color: Colors.System.Black,
     textAlign: 'center',
-    fontFamily: Fonts.Family.Regular,
+    fontFamily: Fonts.Family.SemiBold,
   },
   extraInformation: {
     textAlign: 'center',
     marginTop: Layout.Spacing.XS,
     fontFamily: Fonts.Family.Regular,
+    color: Colors.System.Brand,
   },
   acceptButton: {
     marginTop: Layout.Spacing.LG,
