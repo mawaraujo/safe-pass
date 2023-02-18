@@ -17,7 +17,8 @@ import TagsSelector from './components/tagsSelector';
 
 interface ImainProps {
   navigation: {
-    navigate: Function
+    navigate: Function,
+    addListener: (event: string, callback: Function) => Function
   }
 }
 

@@ -12,15 +12,24 @@ interface TagsSelectorProps {
 export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps) {
   const tagsState = useSelector((state: RootState) => state.tags);
 
+  const handleSelect = React.useCallback((value: string) => {
+    onSelect?.(value);
+  }, [onSelect]);
+
+  React.useEffect(() => {
+    /**
+     * If the user deletes the last tag
+     */
+    if (!tagsState.length) {
+      handleSelect('');
+    }
+  }, [tagsState]);
+
   if (!tagsState.length) {
     return (
       null
     );
   }
-
-  const handleSelect = React.useCallback((value: string) => {
-    onSelect?.(value);
-  }, [onSelect]);
 
   return (
     <View style={tagsSelectorStyles.main}>
