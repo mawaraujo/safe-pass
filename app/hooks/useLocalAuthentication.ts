@@ -1,11 +1,13 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import useAppState from './useAppState';
-import {LocalAuthentication} from '../modules';
-import {Platform} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../store/store';
+import { LocalAuthentication } from '../modules';
+import { Platform } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 import settingsSlice from '../store/reducers/settingsSlice';
 import toastSlice from '../store/reducers/toastSlice';
+import logSlice from '../store/reducers/logSlice';
+import { Env } from '../utils';
 
 interface UseLocalAuthentication {
   enabled: boolean,
@@ -39,7 +41,9 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
       setAuthorized(response.success);
 
     } catch (error) {
-      console.log(error);
+      if (Env.isDevMode()) {
+        dispatch(logSlice.actions.create(error));
+      }
 
       dispatch(
           toastSlice.actions.show({
@@ -59,7 +63,9 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
   useEffect(() => {
     if (appState.isActive) {
       if (settings.enableLocalAuthentication) {
-        handlePrompt();
+        setTimeout(() => {
+          handlePrompt();
+        }, 0);
       }
 
     } else {
@@ -68,7 +74,7 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
   }, [appState]);
 
   return {
-    enabled: settings.enableLocalAuthentication,
+    enabled: (settings.enableLocalAuthentication || false),
     authorized,
     handlePrompt,
   };

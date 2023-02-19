@@ -3,5 +3,8 @@
   "displayName": "safePass",
   "version": "0.1.8",
   "author": "Mauro Araujo",
-  "github": "https://github.com/mawaraujo"
+  "github": "https://github.com/mawaraujo",
+  "environment": {
+    "dev": true
+  }
 }

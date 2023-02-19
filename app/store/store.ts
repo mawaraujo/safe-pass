@@ -6,24 +6,22 @@ import {
 import {
   persistReducer,
   persistStore,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
+  // FLUSH,
+  // REHYDRATE,
+  // PAUSE,
+  // PERSIST,
+  // PURGE,
+  // REGISTER,
 } from 'redux-persist';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import {encryptTransform} from 'redux-persist-transform-encrypt';
 
-/**
- * Slices imports
- */
 import passwordSlice from './reducers/passwordSlice';
 import toastSlice from './reducers/toastSlice';
 import settingsSlice from './reducers/settingsSlice';
 import tagSlice from './reducers/tagSlice';
+import logSlice from './reducers/logSlice';
 
 const persistConfig = {
   key: 'root',
@@ -47,6 +45,7 @@ const reducer = persistReducer(
       toast: toastSlice.reducer,
       settings: settingsSlice.reducer,
       tags: tagSlice.reducer,
+      logs: logSlice.reducer,
     }),
 );
 
@@ -54,9 +53,10 @@ export const store = configureStore({
   reducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false,
+      // serializableCheck: {
+      //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      // },
     }),
 });
 
