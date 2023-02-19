@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Fonts, Layout} from '../../res';
+import { StyleSheet } from 'react-native';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   toastContainer: {
@@ -26,6 +26,7 @@ export default StyleSheet.create({
   leftContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    maxWidth: '85%',
   },
   toastTitle: {
     color: Colors.System.White,

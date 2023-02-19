@@ -12,8 +12,11 @@ import styles from './restoreBackup.styles';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import Default from '../../layout/default/default';
 import Icons from 'react-native-vector-icons/Ionicons';
+import { useTranslation } from 'react-i18next';
 
 export default function RestoreBackup() {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const userPasswords = useSelector((state: RootState) => state.passwords);
 
@@ -63,7 +66,7 @@ export default function RestoreBackup() {
 
       dispatch(
           toastSlice.actions.show({
-            title: 'Backup file import failed',
+            title: t('Backup file import failed') ?? 'Backup file import failed',
             type: 'Danger',
           }),
       );
@@ -75,7 +78,8 @@ export default function RestoreBackup() {
 
   return (
     <Default>
-      <NavigationBar name="Restore backup" />
+      <NavigationBar
+        name={t('Restore backup') ?? 'Restore backup'} />
 
       {
         !isLoading && (
@@ -90,11 +94,11 @@ export default function RestoreBackup() {
                     color={Colors.System.Brand} />
 
                   <Text style={styles.title}>
-                    Select a backup file
+                    {t('Select a backup file')}
                   </Text>
 
                   <Button
-                    text="Select file"
+                    text={t('Select') ?? 'Select'}
                     onPress={handleImport} />
                 </View>
               )
@@ -110,11 +114,11 @@ export default function RestoreBackup() {
                     color={Colors.System.Brand} />
 
                   <Text style={styles.title}>
-                    Backup imported successfully
+                    {t('Backup imported successfully')}
                   </Text>
 
                   <Button
-                    text="Done"
+                    text={t('Continue') ?? 'Continue'}
                     onPress={clearStatus} />
                 </View>
               )

@@ -5,6 +5,7 @@ import styles from './passwordElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DefaultImage from '../../assets/images/key.png';
 import { Colors } from '../../res';
+import { useTranslation } from 'react-i18next';
 
 interface IPasswordElementProps {
   item: NPassword.Password,
@@ -12,6 +13,7 @@ interface IPasswordElementProps {
 }
 
 export default function PasswordElement({ item, onPress }: IPasswordElementProps) {
+  const { t } = useTranslation();
   const [loadImageError, setLoadImageError] = React.useState(false);
 
   const handlePress = (): void => {
@@ -59,7 +61,7 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
         {
           !item.username && !item.email && (
             <Text style={styles.extraInfo}>
-              No information
+              {t('noInformation')}
             </Text>
           )
         }

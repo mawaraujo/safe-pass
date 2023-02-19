@@ -16,6 +16,7 @@ import { Screens } from '../../res';
 import uuid from 'react-native-uuid';
 import toastSlice from '../../store/reducers/toastSlice';
 import { RootState } from '../../store/store';
+import { useTranslation } from 'react-i18next';
 
 
 interface ICreatePassword {
@@ -27,6 +28,7 @@ interface ICreatePassword {
 }
 
 export default function CreatePassword({ route }: ICreatePassword) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const tags = useSelector((state: RootState) => state.tags);
 
@@ -61,8 +63,9 @@ export default function CreatePassword({ route }: ICreatePassword) {
     // Display success toast
     dispatch(
         toastSlice.actions.show({
-          title: 'Done',
-          extraInformation: `The entry was ${editMode ? 'updated' : 'created'} successfully`,
+          title: editMode
+            ? t('EntryUpdated') ?? 'The entry was updated successfully'
+            : t('EntryCreated') ?? 'The entry was created successfully',
           type: 'Success',
         }),
     );
@@ -105,7 +108,11 @@ export default function CreatePassword({ route }: ICreatePassword) {
   return (
     <Default>
       <NavigationBar
-        name={editMode ? 'Update Entry' : 'Create Entry'} />
+        name={
+          editMode
+          ? t('Edit password') ?? 'Edit password'
+          : t('Create password') ?? 'Create password'
+        } />
 
       <ScrollView
         keyboardShouldPersistTaps={'always'}
@@ -113,7 +120,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
         <TextInput
           value={formik.values.name}
-          label="Name"
+          label={t('Name') ?? 'Name'}
           autoCapitalize={'words'}
           validationError={formik.errors.name}
           onChangeText={(e) => {
@@ -124,7 +131,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
         <TextInput
           value={formik.values.url}
-          label="Site or Application"
+          label={t('Site or Application') ?? 'Site or Application'}
           validationError={formik.errors.url}
           autoCapitalize={'none'}
           onChangeText={(e) => {
@@ -135,7 +142,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
         <TextInput
           value={formik.values.username}
-          label="Username"
+          label={t('Username') ?? 'Username'}
           accessibilityHint="username"
           autoCapitalize={'none'}
           validationError={formik.errors.username}
@@ -147,7 +154,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
         <TextInput
           value={formik.values.email}
-          label="Email"
+          label={t('Email') ?? 'Email'}
           accessibilityHint="email_address"
           autoCapitalize={'none'}
           validationError={formik.errors.email}
@@ -159,7 +166,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
         <TextInput
           value={formik.values.password}
-          label="Password"
+          label={t('Password') ?? 'Password'}
           secureTextEntry={true}
           accessibilityHint="password"
           validationError={formik.errors.password}
@@ -171,7 +178,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
         <Select
           value={formik.values.tagId}
-          label="Tag"
+          label={t('Tag') ?? 'Tag'}
           validationError={formik.errors.notes}
           options={parsedTags}
           onChangeText={(tagId: string) => {
@@ -181,7 +188,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
         <TextInput
           value={formik.values.notes}
-          label="Notes"
+          label={t('Notes') ?? 'Notes'}
           numberOfLines={3}
           textAlignVerticalTop={true}
           multiline={true}
@@ -193,7 +200,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
 
         <Button
           onPress={formik.handleSubmit}
-          text="Save changes" />
+          text={t('Save changes') ?? 'Save changes'} />
       </ScrollView>
     </Default>
   );

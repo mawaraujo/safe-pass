@@ -1,6 +1,6 @@
 import React from 'react';
-import {ActivityIndicator, SafeAreaView} from 'react-native';
-import {Colors} from '../../res';
+import { ActivityIndicator, SafeAreaView } from 'react-native';
+import { Colors } from '../../res';
 import spinnerStyles from './spinner.styles';
 
 function Spinner() {

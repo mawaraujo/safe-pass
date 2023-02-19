@@ -14,7 +14,7 @@ interface ISearchBarProps {
 export default function SearchBar({ onChangeText, onClear, value }: ISearchBarProps) {
   const { t } = useTranslation();
 
-  const placeholderText: string = t('searchPlaceholder');
+  const placeholderText: string = t('Search');
 
   const handleChange = (e: string): void => {
     if (onChangeText) {

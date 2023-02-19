@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../store/store';
@@ -11,6 +12,8 @@ interface TagsSelectorProps {
 }
 
 export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps) {
+  const { t } = useTranslation();
+
   const scrollRef = React.useRef<any>();
   const tagsState = useSelector((state: RootState) => state.tags);
 
@@ -69,7 +72,7 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
               tagsSelectorStyles.cardTitle,
               !idSelected && tagsSelectorStyles.selectedCardTitle,
             ]}>
-            All tags
+            {t('All tags')}
           </Text>
         </TouchableOpacity>
 

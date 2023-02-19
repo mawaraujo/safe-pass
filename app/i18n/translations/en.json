@@ -1,5 +1,67 @@
 {
   "translation": {
-    "searchPlaceholder": "Search"
+    "Development Mode Detected": "Development mode",
+    "Search": "Search",
+    "Search not found": "Search not found",
+    "Create": "Create",
+    "Password": "Password",
+    "Tag": "Tag",
+    "Tags": "Etiquetas",
+    "Close": "Close",
+    "Accept": "Accept",
+    "Cancel": "Cancel",
+    "Select": "Select",
+    "Continue": "Continue",
+
+    "Contains [n] passwords": "Contains [n] passwords",
+
+    "Unlock request title": "Locked",
+    "Unlock request details": "Use your device unlock system to continue",
+
+    "The device unlock system is not enabled": "The device unlock system is not enabled",
+    "An error occurred while trying to create the file": "An error occurred while trying to create the file",
+
+    "Create backup": "Create backup",
+    "Create backup summary": "Save your passwords, tags, and other settings on a backup file.",
+    "Export your data and save it locally": "Export your data and save it locally",
+    "Backup created successfully": "Backup created successfully",
+    "Restore backup": "Restore backup",
+    "Restore backup summary": "Import a backup file with your data",
+    "Backup file import failed": "Backup file import failed",
+    "Select a backup file": "Select a backup file",
+    "Backup imported successfully": "Backup imported successfully",
+
+    "Create password": "Create password",
+    "Edit password": "Update password",
+    "Create tag": "Create tag",
+    "Edit tag": "Edit tag",
+
+    "Name": "Name",
+    "Site or Application": "Site or Application",
+    "Username": "Username",
+    "Email": "Email",
+    "Notes": "Notes",
+    "Save changes": "Save changes",
+    "All tags": "All tags",
+    "My passwords": "My passwords",
+    "List empty": "Your list is empty",
+    "Edit": "Edit",
+    "NoInformation": "No information",
+    "EntryUpdated": "Entry updated successfully",
+    "EntryCreated": "Entry created successfully",
+    "EntryDeleted": "Entry deleted successfully",
+
+    "DeletePasswordTitle": "¿Do you want to delete this password?",
+    "DeleteTagTitle": "¿Do you want to delete this tag?",
+
+    "Security": "Security",
+    "Backup": "Backup",
+    "Information": "Information",
+    "Developer": "Developer",
+    "Version": "Version",
+    "Language": "Language",
+    "Unlock system": "Unlock system",
+    "Unlock system summary": "Use your device unlock system to enter the app",
+    "Settings": "Settings"
   }
 }

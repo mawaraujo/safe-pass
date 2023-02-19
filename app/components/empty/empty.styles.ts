@@ -7,6 +7,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     overflow: 'hidden',
     flex: 1,
+    marginTop: Layout.Spacing.XL,
   },
   text: {
     textAlign: 'center',

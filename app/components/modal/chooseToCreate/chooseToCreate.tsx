@@ -6,6 +6,7 @@ import { Navigation } from '../../../utils';
 import { Colors, Screens } from '../../../res';
 import Button from '../../button/button';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useTranslation } from 'react-i18next';
 
 interface ChooseToCreateProps {
   show: boolean,
@@ -13,6 +14,7 @@ interface ChooseToCreateProps {
 }
 
 export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
+  const { t } = useTranslation();
 
   const handleNavigate = React.useCallback((screen: string) => {
     Navigation.navigate(screen);
@@ -26,7 +28,7 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
   return (
     <BaseModal show={show}>
       <Text style={chooseToCreateStyles.title}>
-        Create entry
+        {t('Create')}
       </Text>
 
       <View style={chooseToCreateStyles.container}>
@@ -39,7 +41,7 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
             size={28} />
 
           <Text style={chooseToCreateStyles.buttonText}>
-            Password
+            {t('Password')}
           </Text>
         </TouchableOpacity>
 
@@ -52,7 +54,7 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
             size={28} />
 
           <Text style={chooseToCreateStyles.buttonText}>
-            Tag
+            {t('Tag')}
           </Text>
         </TouchableOpacity>
       </View>
@@ -61,7 +63,7 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
         onPress={handleClose}
         style={chooseToCreateStyles.cancelButton}
         textStyle={chooseToCreateStyles.cancelButtonText}
-        text="Close" />
+        text={t('Close') ?? 'Close'} />
     </BaseModal>
   );
 }

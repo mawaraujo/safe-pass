@@ -9,8 +9,10 @@ import NavigationBar from '../../components/navigationBar/navigationBar';
 import styles from './createBackup.styles';
 import { Colors } from '../../res';
 import Icons from 'react-native-vector-icons/Ionicons';
+import { useTranslation } from 'react-i18next';
 
 export default function CreateBackup() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [exportedSuccessfully, setExportedSuccessfully] = React.useState<boolean>(false);
@@ -41,7 +43,7 @@ export default function CreateBackup() {
 
       dispatch(
           toastSlice.actions.show({
-            title: 'An error occurred while trying to create the file',
+            title: t('An error occurred while trying to create the file'),
             type: 'Danger',
           }),
       );
@@ -53,7 +55,7 @@ export default function CreateBackup() {
 
   return (
     <Default>
-      <NavigationBar name="Create backup" />
+      <NavigationBar name={t('Create backup') ?? 'Create backup'} />
 
       {
         !isLoading && (
@@ -68,11 +70,11 @@ export default function CreateBackup() {
                     color={Colors.System.Brand} />
 
                   <Text style={styles.title}>
-                    Export your data and save it locally
+                    {t('Export your data and save it locally')}
                   </Text>
 
                   <Button
-                    text="Create backup"
+                    text={t('Create backup') ?? 'Create backup'}
                     onPress={handleExport} />
                 </View>
               )
@@ -88,11 +90,11 @@ export default function CreateBackup() {
                     color={Colors.System.Brand} />
 
                   <Text style={styles.title}>
-                    Backup exported successfully
+                    {t('Backup created successfully')}
                   </Text>
 
                   <Button
-                    text="Done"
+                    text={t('Continue') ?? 'Continue'}
                     onPress={clearStatus} />
                 </View>
               )

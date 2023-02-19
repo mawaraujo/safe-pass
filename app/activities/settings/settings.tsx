@@ -7,11 +7,14 @@ import SecuritySection from './sections/security/security';
 import BackupSection from './sections/backup/backup';
 import InformationSection from './sections/information/information';
 import LanguageSection from './sections/language/language';
+import { useTranslation } from 'react-i18next';
 
 export default function Settings() {
+  const { t } = useTranslation();
+
   return (
     <DefaultLayout>
-      <NavigationBar name="Settings" />
+      <NavigationBar name={t('Settings') ?? 'Settings'} />
 
       <ScrollView
         contentContainerStyle={settingsStyles.container}>
@@ -19,17 +22,17 @@ export default function Settings() {
         <LanguageSection />
 
         <Text style={settingsStyles.sectionTitle}>
-          Security
+          {t('Security')}
         </Text>
         <SecuritySection />
 
         <Text style={settingsStyles.sectionTitle}>
-          Backup
+          {t('Backup')}
         </Text>
         <BackupSection />
 
         <Text style={settingsStyles.sectionTitle}>
-          Information
+          {t('Information')}
         </Text>
         <InformationSection />
       </ScrollView>

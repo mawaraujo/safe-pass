@@ -5,6 +5,7 @@ import styles from './tagElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors, Screens } from '../../res';
 import { Navigation } from '../../utils';
+import { useTranslation } from 'react-i18next';
 
 interface ITagElementProps {
   item: NTag.Tag,
@@ -13,6 +14,8 @@ interface ITagElementProps {
 }
 
 export default function TagElement({ item, linkedPasswords, onPressDelete }: ITagElementProps) {
+  const { t } = useTranslation();
+
   const handleEdit = React.useCallback(() => {
     Navigation.navigate(
         Screens.CreateTag.Name, {
@@ -36,7 +39,12 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
 
       <View style={styles.left}>
         <Text style={styles.title}>{item.name}</Text>
-        <Text style={styles.extraInfo}>Contains {linkedPasswords} passwords</Text>
+        <Text style={styles.extraInfo}>
+          {
+            t('Contains [n] passwords')
+                ?.replace('[n]', String(linkedPasswords))
+          }
+        </Text>
       </View>
 
       <View style={styles.actions}>

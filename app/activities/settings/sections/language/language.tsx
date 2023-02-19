@@ -20,7 +20,7 @@ const LANG_LIST = [
 ];
 
 export default function LanguageSection() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [lang, setLang] = React.useState<string>(NLang.AvailableLanguages.En);
 
   const setLangValue = async (value: string) => {
@@ -41,8 +41,6 @@ export default function LanguageSection() {
     const result = await Storage.get(StorageRes.Keys.Language);
 
     if (result) {
-      console.log(result);
-
       const lang: NLang.Options = JSON.parse(result);
       setLang(lang.language);
     }
@@ -56,7 +54,7 @@ export default function LanguageSection() {
     <Card>
       <ItemSlot
         childrenPosition="bottom"
-        title="Language"
+        title={t('Language') ?? 'Language'}
         firstItem={true}>
 
         <Picker

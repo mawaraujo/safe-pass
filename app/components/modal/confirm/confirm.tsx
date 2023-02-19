@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 import confirmStyles from './confirm.styles';
 import Button from '../../button/button';
 import BaseModal from '../base/base';
+import { useTranslation } from 'react-i18next';
 
 interface IConfirmProps {
   title: string,
@@ -13,6 +14,7 @@ interface IConfirmProps {
 }
 
 export default function Confirm({ show, title, onCancel, onAccept, extraInformation }: IConfirmProps) {
+  const { t } = useTranslation();
 
   const handleAccept = () => {
     if (onAccept) {
@@ -40,13 +42,13 @@ export default function Confirm({ show, title, onCancel, onAccept, extraInformat
       <Button
         onPress={handleAccept}
         style={confirmStyles.acceptButton}
-        text="Accept" />
+        text={t('Accept') ?? 'Accept'} />
 
       <Button
         onPress={handleCancel}
         style={confirmStyles.cancelButton}
         textStyle={confirmStyles.cancelButtonText}
-        text="Cancel" />
+        text={t('Cancel') ?? 'Cancel'} />
     </BaseModal>
   );
 }

@@ -6,7 +6,6 @@ import SearchBar from '../../components/searchBar/searchBar';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../../store/store';
 import Empty from '../../components/empty/empty';
-import { Screens } from '../../res';
 import { NTag } from '../../types';
 import EmptySearch from '../../components/emptySearch/emptySearch';
 import { useSearch } from '../../hooks';
@@ -14,6 +13,7 @@ import TagElement from '../../components/tagElement/tagElement';
 import tagSlice from '../../store/reducers/tagSlice';
 import Confirm from '../../components/modal/confirm/confirm';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
+import { useTranslation } from 'react-i18next';
 
 interface ITagsProps {
   navigation: {
@@ -22,6 +22,7 @@ interface ITagsProps {
 }
 
 export default function Tags({ navigation }: ITagsProps) {
+  const { t } = useTranslation();
   const [tagToDelete, setTagToDelete] = React.useState<NTag.Tag | null>(null);
 
   const dispatch = useDispatch();
@@ -54,24 +55,14 @@ export default function Tags({ navigation }: ITagsProps) {
         .length;
   }, [passwords]);
 
-  /**
-   * Go to add tag screen
-   */
-  const addTag = () => {
-    navigation.navigate(
-        Screens.CreateTag.Name,
-    );
-  };
-
   return (
     <Default style={styles.main}>
-      <WelcomeHeader title="Tags" />
+      <WelcomeHeader title={t('Tags') ?? 'Tags'} />
 
       {
         tagToDelete !== null && (
           <Confirm
-            title="¿Do you want to delete this tag?"
-            extraInformation="This entry will delete forever"
+            title={t('DeleteTagTitle') ?? '¿Do you want to delete this tag?'}
             onAccept={handleDelete}
             onCancel={() => setTagToDelete(null)}
             show={tagToDelete !== null}
@@ -106,10 +97,7 @@ export default function Tags({ navigation }: ITagsProps) {
               item={item} />
           )}
           ListEmptyComponent={() => {
-            return <Empty
-              text="Your tag list is empty"
-              actionButtonText="Add tag"
-              onPress={addTag} />;
+            return <Empty text={t('List empty') ?? 'List empty'} />;
           }} />
 
         {

@@ -1,5 +1,67 @@
 {
   "translation": {
-    "searchPlaceholder": "Buscar"
+    "Development Mode Detected": "Modo desarrollo",
+    "Search": "Buscar",
+    "Search not found": "Búsqueda no encontrada",
+    "Create": "Crear",
+    "Password": "Contraseña",
+    "Tag": "Etiqueta",
+    "Tags": "Etiquetas",
+    "Close": "Cerrar",
+    "Accept": "Aceptar",
+    "Cancel": "Cancelar",
+    "Select": "Seleccionar",
+    "Continue": "Continuar",
+
+    "Contains [n] passwords": "Contiene [n] contraseñas",
+
+    "Unlock request title": "Bloqueado",
+    "Unlock request details": "Usa el método de desbloqueo de tu dispositivo para continuar",
+    
+    "The device unlock system is not enabled": "El método de desbloqueo de tu dispositivo no se encuentra habilitado",
+    "An error occurred while trying to create the file": "Ocurrió un error al intentar crear el archivo",
+    
+    "Create backup": "Crear copia de seguridad",
+    "Create backup summary": "Guarda tus contraseñas, etiquetas y otras configuraciones en un archivo",
+    "Export your data and save it locally": "Exporta tus datos y guárdalos en tu dispositivo",
+    "Backup created successfully": "Copia de seguridad creada con éxito",
+    "Restore backup": "Restaurar copia de seguridad",
+    "Restore backup summary": "Restaura tu información",
+    "Backup file import failed": "Ocurrió un error al intentar importar la copia de seguridad",
+    "Select a backup file": "Seleccionar archivo",
+    "Backup imported successfully": "Copia de seguridad restaurada correctamente",
+
+    "Create password": "Crear contraseña",
+    "Edit password": "Editar contraseña",
+    "Create tag": "Crear etiqueta",
+    "Edit tag": "Editar etiqueta",
+
+    "Name": "Nombre",
+    "Site or Application": "Sitio o Aplicación",
+    "Username": "Usuario",
+    "Email": "Email",
+    "Notes": "Notas",
+    "Save changes": "Guardar cambios",
+    "All tags": "Todas las etiquetas",
+    "My passwords": "Mis contraseñas",
+    "List empty": "Tu lista se encuentra vacía",
+    "Edit": "Editar",
+    "NoInformation": "Sin información",
+    "EntryUpdated": "Registro actualizado correctamente",
+    "EntryCreated": "Registro creado correctamente",
+    "EntryDeleted": "Registro eliminado correctamente",
+
+    "DeletePasswordTitle": "¿Deseas eliminar esta contraseña?",
+    "DeleteTagTitle": "¿Deseas eliminar esta etiqueta?",
+
+    "Security": "Seguridad",
+    "Backup": "Copia de seguridad",
+    "Information": "Información general",
+    "Developer": "Desarollador",
+    "Version": "Versión",
+    "Language": "Idioma",
+    "Unlock system": "Sistema de desbloqueo",
+    "Unlock system summary": "Usa el sistema de desbloqueo de tu dispositivo para ingresar a la aplicación",
+    "Settings": "Configuración"
   }
 }

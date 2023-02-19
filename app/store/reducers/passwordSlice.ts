@@ -20,6 +20,11 @@ export default createSlice({
     },
 
     delete(state, action: NStore.Action<NPassword.Password>) {
+      if (state.length === 1) {
+        state = [];
+        return;
+      }
+
       const itemIndex = state.findIndex((pass) =>
         pass.id === action.payload.id);
 

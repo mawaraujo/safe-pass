@@ -8,6 +8,7 @@ import settingsSlice from '../store/reducers/settingsSlice';
 import toastSlice from '../store/reducers/toastSlice';
 import logSlice from '../store/reducers/logSlice';
 import { Env } from '../utils';
+import { useTranslation } from 'react-i18next';
 
 interface UseLocalAuthentication {
   enabled: boolean,
@@ -16,8 +17,9 @@ interface UseLocalAuthentication {
 }
 
 export default function useLocalAuthentication(): UseLocalAuthentication {
-  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
+  const dispatch = useDispatch();
   const [authorized, setAuthorized] = useState<boolean>(false);
   const appState = useAppState();
 
@@ -47,7 +49,7 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
 
       dispatch(
           toastSlice.actions.show({
-            title: 'The device unlock system is not enabled',
+            title: t('The device unlock system is not enabled'),
             type: 'Danger',
           }),
       );

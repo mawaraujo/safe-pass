@@ -14,6 +14,7 @@ import { Navigation } from '../../utils';
 import screens from '../../res/screens';
 import uuid from 'react-native-uuid';
 import toastSlice from '../../store/reducers/toastSlice';
+import { useTranslation } from 'react-i18next';
 
 interface ICreateTag {
   route?: {
@@ -24,8 +25,9 @@ interface ICreateTag {
 }
 
 export default function CreateTag({ route }: ICreateTag) {
-  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
+  const dispatch = useDispatch();
   const tag = route?.params?.tag;
   const [editMode, setEditMode] = React.useState(false);
 
@@ -57,8 +59,9 @@ export default function CreateTag({ route }: ICreateTag) {
     // Display success toast
     dispatch(
         toastSlice.actions.show({
-          title: 'Done',
-          extraInformation: `The entry was ${editMode ? 'updated' : 'created'} successfully`,
+          title: editMode
+            ? t('EntryUpdated') ?? 'The entry was updated successfully'
+            : t('EntryCreated') ?? 'The entry was created successfully',
           type: 'Success',
         }),
     );
@@ -94,7 +97,11 @@ export default function CreateTag({ route }: ICreateTag) {
   return (
     <Default>
       <NavigationBar
-        name={editMode ? 'Update tag' : 'Create tag'} />
+        name={
+          editMode
+          ? t('Edit tag') ?? 'Edit tag'
+          : t('Create tag') ?? 'Create tag'
+        } />
 
       <ScrollView
         keyboardShouldPersistTaps={'always'}
@@ -102,7 +109,7 @@ export default function CreateTag({ route }: ICreateTag) {
 
         <TextInput
           value={formik.values.name}
-          label="Name"
+          label={t('Name') ?? 'Name'}
           autoCapitalize={'words'}
           validationError={formik.errors.name}
           onChangeText={(e) => {
@@ -113,7 +120,7 @@ export default function CreateTag({ route }: ICreateTag) {
 
         <Button
           onPress={formik.handleSubmit}
-          text="Save changes" />
+          text={t('Save changes') ?? 'Save changes'} />
       </ScrollView>
     </Default>
   );

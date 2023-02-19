@@ -4,6 +4,7 @@ import styles from './select.styles';
 import { Strings } from '../../utils';
 import { Picker } from '@react-native-picker/picker';
 import { Colors } from '../../res';
+import { useTranslation } from 'react-i18next';
 
 type ISelectProps = {
   label?: string,
@@ -15,6 +16,7 @@ type ISelectProps = {
 
 
 export default function Select({ label, validationError, options, value, onChangeText }: ISelectProps) {
+  const { t } = useTranslation();
   const [focused, setFocused] = React.useState<boolean>(false);
 
   return (
@@ -40,7 +42,7 @@ export default function Select({ label, validationError, options, value, onChang
 
         <Picker.Item
           style={styles.pickerItem}
-          label="Select"
+          label={t('Select') ?? 'Select'}
           value="" />
 
         {

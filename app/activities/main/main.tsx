@@ -14,6 +14,7 @@ import { useSearch } from '../../hooks';
 import Navigation from '../../utils/navigation';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
 import TagsSelector from './components/tagsSelector';
+import { useTranslation } from 'react-i18next';
 
 interface ImainProps {
   navigation: {
@@ -23,6 +24,8 @@ interface ImainProps {
 }
 
 export default function Main({ navigation }: ImainProps) {
+  const { t } = useTranslation();
+
   const search = useSearch();
   const [selectedTag, setSelectedTag] = React.useState<string>('');
 
@@ -36,15 +39,6 @@ export default function Main({ navigation }: ImainProps) {
         selectedTag,
     );
   }, [search.value, passwords, selectedTag]);
-
-  /**
-   * Go to add password screen
-   */
-  const addPassword = React.useCallback(() => {
-    navigation.navigate(
-        Screens.CreatePassword.Name,
-    );
-  }, []);
 
   /**
    * Go to password details screen
@@ -68,7 +62,7 @@ export default function Main({ navigation }: ImainProps) {
 
   return (
     <Default>
-      <WelcomeHeader title="My passwords" />
+      <WelcomeHeader title={t('My passwords') ?? 'My passwords'} />
 
       {
         passwords.length > 0 && (
@@ -103,10 +97,7 @@ export default function Main({ navigation }: ImainProps) {
           )}
           ListEmptyComponent={() => {
             if (!search.value && !selectedTag) {
-              return <Empty
-                text="Your password list is empty"
-                actionButtonText="Add Password"
-                onPress={addPassword} />;
+              return <Empty text={t('List empty') ?? 'List empty'} />;
             }
 
             return (null);

@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import toastSlice from '../../store/reducers/toastSlice';
 import Card from '../../components/card/card';
 import { RootState } from '../../store/store';
+import { useTranslation } from 'react-i18next';
+import Button from '../../components/button/button';
 
 interface IPreviewProps {
   route?: {
@@ -23,6 +25,8 @@ interface IPreviewProps {
 }
 
 export default function Preview({ route }: IPreviewProps) {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const [askDeletePassword, setAskDeletePassword] = React.useState(false);
   const clipboard = useClipboard();
@@ -71,8 +75,7 @@ export default function Preview({ route }: IPreviewProps) {
 
     dispatch(
         toastSlice.actions.show({
-          title: 'Done',
-          extraInformation: 'Entry deleted successfully',
+          title: t('EntryDeleted') ?? 'Entry deleted successfully',
           type: 'Success',
         }),
     );
@@ -101,15 +104,6 @@ export default function Preview({ route }: IPreviewProps) {
 
         <View style={styles.navActions}>
           <TouchableOpacity
-            onPress={editPassword}>
-
-            <Icon
-              name="create-outline"
-              size={Fonts.Size.LG}
-              color={Colors.System.Brand} />
-
-          </TouchableOpacity>
-          <TouchableOpacity
             onPress={() => setAskDeletePassword(true)}>
 
             <Icon
@@ -123,8 +117,7 @@ export default function Preview({ route }: IPreviewProps) {
       {
         askDeletePassword && (
           <Confirm
-            title="¿Do you want to delete this entry?"
-            extraInformation="This entry will delete forever"
+            title={t('DeletePasswordTitle')}
             onAccept={handleDelete}
             onCancel={() => setAskDeletePassword(false)}
             show={askDeletePassword}
@@ -145,7 +138,7 @@ export default function Preview({ route }: IPreviewProps) {
             <View style={styles.left}>
               <Text style={styles.textLabel}>URL</Text>
               <Text style={styles.textValue}>
-                { password.url || 'No information'}
+                { password.url || t('noInformation')}
               </Text>
             </View>
 
@@ -171,9 +164,9 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>Username</Text>
+              <Text style={styles.textLabel}>{t('Username')}</Text>
               <Text style={styles.textValue}>
-                { password.username || 'No information'}
+                { password.username || t('noInformation')}
               </Text>
             </View>
 
@@ -199,9 +192,9 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>Email</Text>
+              <Text style={styles.textLabel}>{t('Email')}</Text>
               <Text style={styles.textValue}>
-                { password.email || 'No information'}
+                { password.email || t('noInformation')}
               </Text>
             </View>
 
@@ -227,9 +220,9 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>Password</Text>
+              <Text style={styles.textLabel}>{t('Password')}</Text>
               <Text style={styles.textValue}>
-                { password.password ? '******' : 'No information'}
+                { password.password ? '******' : t('noInformation')}
               </Text>
             </View>
 
@@ -255,22 +248,26 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>Tag</Text>
+              <Text style={styles.textLabel}>{t('Tag')}</Text>
               <Text style={styles.textValue}>
-                { getTagById(password.tagId) || 'No information' }
+                { getTagById(password.tagId) || t('noInformation') }
               </Text>
             </View>
           </View>
 
           <View style={styles.cardRow}>
             <View style={styles.left}>
-              <Text style={styles.textLabel}>Notes</Text>
+              <Text style={styles.textLabel}>{t('Notes')}</Text>
               <Text style={styles.textValue}>
-                { password.notes || 'No information'}
+                { password.notes || t('noInformation')}
               </Text>
             </View>
           </View>
         </Card>
+
+        <Button
+          text={t('Edit') ?? 'Edit'}
+          onPress={editPassword} />
       </ScrollView>
     </DefaultLayout>
   );

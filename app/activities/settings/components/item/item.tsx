@@ -15,7 +15,7 @@ interface ItemProps {
   firstItem?: boolean,
 }
 
-function Item({ title, description, onPress, isLink, firstItem = false }: ItemProps) {
+export default function Item({ title, description, onPress, isLink, firstItem = false }: ItemProps) {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -44,8 +44,3 @@ function Item({ title, description, onPress, isLink, firstItem = false }: ItemPr
     </TouchableOpacity>
   );
 }
-
-export default React.memo(
-    Item,
-    () => true,
-);
