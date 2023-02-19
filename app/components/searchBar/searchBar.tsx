@@ -3,6 +3,7 @@ import { View, TextInput, TouchableOpacity } from 'react-native';
 import styles from './searchBar.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors } from '../../res';
+import { useTranslation } from 'react-i18next';
 
 interface ISearchBarProps {
   onChangeText: (e: string) => void,
@@ -11,6 +12,10 @@ interface ISearchBarProps {
 }
 
 export default function SearchBar({ onChangeText, onClear, value }: ISearchBarProps) {
+  const { t } = useTranslation();
+
+  const placeholderText: string = t('searchPlaceholder');
+
   const handleChange = (e: string): void => {
     if (onChangeText) {
       onChangeText(e);
@@ -34,7 +39,7 @@ export default function SearchBar({ onChangeText, onClear, value }: ISearchBarPr
         <TextInput
           value={value}
           onChangeText={handleChange}
-          placeholder="Search"
+          placeholder={placeholderText}
           placeholderTextColor={Colors.Light.Muted}
           style={styles.input} />
 

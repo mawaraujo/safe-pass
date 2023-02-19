@@ -12,4 +12,14 @@ export default class Storage {
       return null;
     }
   }
+
+  static async set(key: string, data: string): Promise<boolean> {
+    try {
+      await AsyncStorage.setItem(key, data);
+      return true;
+
+    } catch (error) {
+      return false;
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import './i18n';
 import React from 'react';
 import { store, persistor } from './store/store';
 import { Provider as ReduxProvider } from 'react-redux';
@@ -18,7 +19,6 @@ import CreateBackup from './activities/createBackup/createBackup';
 import RestoreBackup from './activities/restoreBackup/restoreBackup';
 import CreateTag from './activities/createTag/createTag';
 import Tags from './activities/tags/tags';
-import Boostrap from './components/bootstrap/bootstrap';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +26,6 @@ export default function App() {
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
-        <Boostrap/>
         <UnlockRequest />
         <GlobalToast />
 
