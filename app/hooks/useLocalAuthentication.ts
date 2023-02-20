@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LocalAuthentication } from '../modules';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { useTranslation } from 'react-i18next';
 import { AppState } from 'react-native';
-import { AppStateStatus } from 'react-native';
 
 interface UseLocalAuthentication {
   enabled: boolean,
@@ -16,13 +15,20 @@ interface UseLocalAuthentication {
 export default function useLocalAuthentication(): UseLocalAuthentication {
   const { t } = useTranslation();
 
-  const appState = useRef<AppStateStatus>(AppState.currentState);
+  const [
+    isFocused,
+    setIsFocused
+  ] = useState<boolean>(false);
 
-  const [isFocused, setIsFocused] = useState<boolean>(false);
-  const [authorized, setAuthorized] = useState<boolean>(false);
+  const [
+    authorized,
+    setAuthorized
+  ] = useState<boolean>(false);
+
   const settings = useSelector((state: RootState) => state.settings);
 
   const handlePrompt = async () => {
+    if(!settings.enableLocalAuthentication) return;
     if (authorized) return;
 
     try {
@@ -38,7 +44,7 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
   };
 
   useEffect(() => {
-    handlePrompt();
+    setIsFocused(true);
 
     const subscription = AppState
         .addEventListener('change', (nextAppState) => {
@@ -46,12 +52,10 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
           if (nextAppState !== 'active') {
             setAuthorized(false);
             setIsFocused(false);
-            appState.current = nextAppState;
             return;
           }
 
           setIsFocused(true);
-          appState.current = nextAppState;
         });
 
     return () => {
