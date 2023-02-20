@@ -16,15 +16,12 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
   const { t } = useTranslation();
   const [loadImageError, setLoadImageError] = React.useState(false);
 
-  const handlePress = (): void => {
-    if (onPress) {
-      onPress(item);
-    }
-  };
+  const handlePress = (): void => onPress?.(item);
+  const handleLoadImageError = () => setLoadImageError(!loadImageError);
 
-  const handleLoadImageError = (e: any) => {
-    setLoadImageError(true);
-  };
+  React.useEffect(() => {
+    handleLoadImageError();
+  }, [item.url]);
 
   return (
     <TouchableOpacity
