@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import useAppState from './useAppState';
 import { LocalAuthentication } from '../modules';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import logSlice from '../store/reducers/logSlice';
-import { Env } from '../utils';
 import { useTranslation } from 'react-i18next';
 
 interface UseLocalAuthentication {
@@ -16,7 +14,6 @@ interface UseLocalAuthentication {
 export default function useLocalAuthentication(): UseLocalAuthentication {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
   const [authorized, setAuthorized] = useState<boolean>(false);
   const appState = useAppState();
 
@@ -34,10 +31,6 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
 
     } catch (error) {
       console.error(error);
-
-      if (Env.isDevMode()) {
-        dispatch(logSlice.actions.create(error));
-      }
     }
   };
 

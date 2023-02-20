@@ -1,21 +1,6 @@
-import {
-  combineReducers,
-  configureStore,
-} from '@reduxjs/toolkit';
-
-import {
-  persistReducer,
-  persistStore,
-  // FLUSH,
-  // REHYDRATE,
-  // PAUSE,
-  // PERSIST,
-  // PURGE,
-  // REGISTER,
-} from 'redux-persist';
-
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import {encryptTransform} from 'redux-persist-transform-encrypt';
 
 import passwordSlice from './reducers/passwordSlice';
 import toastSlice from './reducers/toastSlice';
@@ -26,16 +11,12 @@ import logSlice from './reducers/logSlice';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  blackList: ['toast'],
-
-  // transforms: [
-  //   encryptTransform({
-  //     secretKey: 'my-super-password', // Change this for production
-  //     onError: function(error) {
-  //       console.log('Encrypt transform error', error);
-  //     },
-  //   }),
-  // ],
+  blacklist: [
+    toastSlice.name,
+    settingsSlice.name,
+    logSlice.name,
+    '_persist',
+  ],
 };
 
 const reducer = persistReducer(

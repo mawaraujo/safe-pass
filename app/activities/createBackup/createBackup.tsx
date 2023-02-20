@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import Default from '../../layout/default/default';
-import { FileSystem, Storage } from '../../utils';
+import { Crypto, FileSystem, Storage } from '../../utils';
 import Button from '../../components/button/button';
 import { useDispatch } from 'react-redux';
 import toastSlice from '../../store/reducers/toastSlice';
@@ -34,7 +34,9 @@ export default function CreateBackup() {
 
     try {
       const content = await getStorageData();
-      await FileSystem.writeFile(content);
+      const encryptedContent = Crypto.encrypt(content);
+
+      await FileSystem.writeFile(encryptedContent);
       setExportedSuccessfully(true);
 
     } catch (error) {

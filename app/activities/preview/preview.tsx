@@ -138,7 +138,7 @@ export default function Preview({ route }: IPreviewProps) {
             <View style={styles.left}>
               <Text style={styles.textLabel}>URL</Text>
               <Text style={styles.textValue}>
-                { password.url || t('noInformation')}
+                { password.url || t('NoInformation')}
               </Text>
             </View>
 

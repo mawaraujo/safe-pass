@@ -4,7 +4,7 @@
   "version": "0.1.8",
   "author": "Mauro Araujo",
   "github": "https://github.com/mawaraujo",
-  "environment": {
-    "dev": true
+  "encrypt": {
+    "key": "my-favorite-food-is-the-milanesa"
   }
 }

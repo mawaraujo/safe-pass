@@ -7,7 +7,6 @@ import {
   ViewStyle,
 } from 'react-native';
 import BottomTab from '../../components/bottomTab/bottomTab';
-import DevMode from '../../components/devMode/devMode';
 import { Colors } from '../../res';
 
 interface IDefaultProps {
@@ -40,7 +39,6 @@ export default function Default({
       { children && children }
 
       <BottomTab />
-      <DevMode />
     </SafeAreaView>
   );
 }

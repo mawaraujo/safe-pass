@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import toastSlice from '../../store/reducers/toastSlice';
 import type { NPassword, NTag } from '../../types';
-import { FileSystem } from '../../utils';
+import { Crypto, FileSystem } from '../../utils';
 import type { RootState } from '../../store/store';
 import Button from '../../components/button/button';
 import { Colors } from '../../res';
@@ -64,7 +64,7 @@ export default function RestoreBackup() {
 
     try {
       const document = await FileSystem.readFile();
-      const data = JSON.parse(document.data);
+      const data = JSON.parse(Crypto.decrypt(document.data));
 
       importPasswords(JSON.parse(data?.passwords));
       importTags(JSON.parse(data?.tags));
