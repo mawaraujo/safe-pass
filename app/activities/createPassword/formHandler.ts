@@ -9,7 +9,7 @@ export default class FormHandler {
         name: yup.string().required(),
         email: yup.string().email(),
         username: yup.string(),
-        url: yup.string().url(),
+        url: yup.string(),
         password: yup.string(),
         notes: yup.string(),
         tagId: yup.string(),
