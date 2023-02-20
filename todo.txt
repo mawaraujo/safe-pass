@@ -1,4 +1,0 @@
-TODO:
-2. Add spanish language
-3. Encrypt data
-4. Working
