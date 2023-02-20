@@ -8,11 +8,15 @@ export default StyleSheet.create({
     top: 0,
     height: '100%',
     width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: Colors.Light.BackgroundColor,
     zIndex: 10,
-    paddingHorizontal: Layout.Spacing.MD,
+    padding: Layout.Spacing.MD,
+    justifyContent: 'center',
+  },
+  topContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     color: Colors.System.Brand,

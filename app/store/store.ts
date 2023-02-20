@@ -13,7 +13,6 @@ const persistConfig = {
   storage: AsyncStorage,
   blacklist: [
     toastSlice.name,
-    settingsSlice.name,
     logSlice.name,
     '_persist',
   ],

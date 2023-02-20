@@ -19,21 +19,23 @@ export default function UnlockRequest() {
 
   return (
     <View style={styles.container}>
-      <Icon
-        name={
+      <View style={styles.topContainer}>
+        <Icon
+          name={
           authorized
             ? 'lock-open-outline'
             : 'lock-closed-outline'
-        }
-        size={90}
-        color={Colors.System.Brand} />
+          }
+          size={90}
+          color={Colors.System.Brand} />
 
-      <Text style={styles.title}>
-        {t('Unlock request')}
-      </Text>
+        <Text style={styles.title}>
+          {t('Unlock request')}
+        </Text>
+      </View>
 
       <Button
-        text={t('Continue') ?? 'Continue'}
+        text={t('Unlock') ?? 'Unlock'}
         onPress={handlePrompt} />
     </View>
   );

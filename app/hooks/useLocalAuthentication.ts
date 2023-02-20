@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import useAppState from './useAppState';
 import { LocalAuthentication } from '../modules';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { useTranslation } from 'react-i18next';
+import { AppState } from 'react-native';
 
 interface UseLocalAuthentication {
   enabled: boolean,
@@ -15,8 +15,6 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
   const { t } = useTranslation();
 
   const [authorized, setAuthorized] = useState<boolean>(false);
-  const appState = useAppState();
-
   const settings = useSelector((state: RootState) => state.settings);
 
   const handlePrompt = async () => {
@@ -30,22 +28,24 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
       setAuthorized(response.success);
 
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 
   useEffect(() => {
-    if (appState.isActive) {
-      if (settings.enableLocalAuthentication) {
-        setTimeout(() => {
-          handlePrompt();
-        }, 0);
-      }
+    handlePrompt();
 
-    } else {
-      setAuthorized(false);
-    }
-  }, [appState]);
+    const subscription = AppState
+        .addEventListener('change', (nextAppState) => {
+          if (nextAppState !== 'active') {
+            setAuthorized(false);
+          }
+        });
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   return {
     enabled: (settings.enableLocalAuthentication || false),
