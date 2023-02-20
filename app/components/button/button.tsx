@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
+import { Text, TextStyle, TouchableOpacity, TouchableOpacityProps, ViewStyle } from 'react-native';
 import styles from './button.styles';
 
 interface IButtonProps {
@@ -7,12 +7,15 @@ interface IButtonProps {
   text?: string,
   style?: ViewStyle,
   textStyle?: TextStyle,
-  onPress?: () => void
+  onPress?: () => void,
 }
 
-export default function Button({children, text, style, textStyle, onPress}: IButtonProps) {
+type Props = IButtonProps & TouchableOpacityProps
+
+export default function Button({ children, text, style, textStyle, onPress, ...rest }: Props) {
   return (
     <TouchableOpacity
+      {...rest}
       onPress={onPress}
       style={[
         styles.container,
