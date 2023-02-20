@@ -25,5 +25,11 @@ export default createSlice({
 
       state.splice(itemIndex, 1);
     },
+
+    import(state, action: NStore.Action<NTag.Tags>) {
+      action.payload.forEach((newTag) => {
+        state.unshift(newTag);
+      });
+    },
   },
 });

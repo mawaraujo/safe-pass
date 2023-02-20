@@ -3,7 +3,7 @@ import { View, Text, ActivityIndicator } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import toastSlice from '../../store/reducers/toastSlice';
-import type { NPassword } from '../../types';
+import type { NPassword, NTag } from '../../types';
 import { FileSystem } from '../../utils';
 import type { RootState } from '../../store/store';
 import Button from '../../components/button/button';
@@ -13,6 +13,7 @@ import NavigationBar from '../../components/navigationBar/navigationBar';
 import Default from '../../layout/default/default';
 import Icons from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
+import tagSlice from '../../store/reducers/tagSlice';
 
 export default function RestoreBackup() {
   const { t } = useTranslation();
@@ -27,14 +28,11 @@ export default function RestoreBackup() {
     setImportedSuccessfully(false);
   };
 
-  const importPasswords = (passwords: NPassword.Passwords) => {
+  const importPasswords = (passwords: NPassword.Passwords): void => {
     if (!passwords || !passwords?.length) return;
 
     const filteredPasswords = passwords.filter((newPassword) => {
-      if (userPasswords.some((userPassword) => userPassword.id === newPassword.id)) {
-        return false;
-      }
-
+      if (userPasswords.some((userPassword) => userPassword.id === newPassword.id)) return false;
       return newPassword;
     });
 
@@ -45,18 +43,31 @@ export default function RestoreBackup() {
     );
   };
 
+  const importTags = (tags: NTag.Tags): void => {
+    if (!tags || !tags?.length) return;
+
+    const filteredTags = tags.filter((newTag) => {
+      if (userPasswords.some((userTag) => userTag.id === newTag.id)) return false;
+      return newTag;
+    });
+
+    dispatch(
+        tagSlice.actions.import(
+            filteredTags,
+        ),
+    );
+  };
+
   const handleImport = async () => {
     setIsLoading(true);
     clearStatus();
 
     try {
       const document = await FileSystem.readFile();
+      const data = JSON.parse(document.data);
 
-      importPasswords(
-          JSON.parse(
-              JSON.parse(document.data)?.passwords,
-          ),
-      );
+      importPasswords(JSON.parse(data?.passwords));
+      importTags(JSON.parse(data?.tags));
 
       setImportedSuccessfully(true);
 
