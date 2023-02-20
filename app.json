@@ -1,7 +1,7 @@
 {
   "name": "safePass",
   "displayName": "safePass",
-  "version": "0.1.8",
+  "version": "1.0.0",
   "author": "Mauro Araujo",
   "github": "https://github.com/mawaraujo",
   "encrypt": {
