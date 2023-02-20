@@ -17,10 +17,10 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
   const [loadImageError, setLoadImageError] = React.useState(false);
 
   const handlePress = (): void => onPress?.(item);
-  const handleLoadImageError = () => setLoadImageError(!loadImageError);
+  const handleLoadImageError = (val: boolean = true) => setLoadImageError(val);
 
   React.useEffect(() => {
-    handleLoadImageError();
+    handleLoadImageError(false);
   }, [item.url]);
 
   return (
@@ -35,7 +35,7 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
             source={{
               uri: `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.url}&size=256`,
             }}
-            onError={handleLoadImageError}
+            onError={() => handleLoadImageError()}
             style={styles.logo} />
         )
       }
