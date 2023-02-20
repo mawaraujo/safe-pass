@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
 import useAppState from './useAppState';
 import { LocalAuthentication } from '../modules';
-import { Platform } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import settingsSlice from '../store/reducers/settingsSlice';
-import toastSlice from '../store/reducers/toastSlice';
 import logSlice from '../store/reducers/logSlice';
 import { Env } from '../utils';
 import { useTranslation } from 'react-i18next';
@@ -26,39 +23,21 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
   const settings = useSelector((state: RootState) => state.settings);
 
   const handlePrompt = async () => {
-    if (authorized) {
-      return;
-    }
-
-    if (Platform.OS !== 'android') {
-      console.warn('the local authentication module is not available on another OS than Android');
-      return;
-    }
+    if (authorized) return;
 
     try {
       const response = await LocalAuthentication.authenticate({
-        promptTitle: 'Local authentication',
+        promptTitle: t('Unlock') ?? 'Unlock',
       });
 
       setAuthorized(response.success);
 
     } catch (error) {
+      console.error(error);
+
       if (Env.isDevMode()) {
         dispatch(logSlice.actions.create(error));
       }
-
-      dispatch(
-          toastSlice.actions.show({
-            title: t('The device unlock system is not enabled'),
-            type: 'Danger',
-          }),
-      );
-
-      dispatch(
-          settingsSlice
-              .actions
-              .toggleLocalAuthentication(),
-      );
     }
   };
 

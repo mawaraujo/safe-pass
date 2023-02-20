@@ -29,11 +29,7 @@ export default function UnlockRequest() {
         color={Colors.System.Brand} />
 
       <Text style={styles.title}>
-        {t('Unlock request title')}
-      </Text>
-
-      <Text style={styles.subTitle}>
-        {t('Unlock request details')}
+        {t('Unlock request')}
       </Text>
 
       <Button

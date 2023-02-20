@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Fonts, Layout} from '../../res';
+import { StyleSheet } from 'react-native';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
@@ -19,13 +19,6 @@ export default StyleSheet.create({
     fontFamily: Fonts.Family.SemiBold,
     fontSize: Fonts.Size.LG,
     marginTop: Layout.Spacing.MD,
-    marginBottom: Layout.Spacing.XS,
-    textAlign: 'center',
-  },
-  subTitle: {
-    color: Colors.Light.Muted,
-    fontFamily: Fonts.Family.SemiBold,
-    fontSize: Fonts.Size.MD,
     marginBottom: Layout.Spacing.MD,
     textAlign: 'center',
   },

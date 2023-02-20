@@ -5,6 +5,7 @@ import settingsSlice from '../../../../store/reducers/settingsSlice';
 import Card from '../../../../components/card/card';
 import ItemSwitch from '../../components/itemSwitch/itemSwitch';
 import { useTranslation } from 'react-i18next';
+import LocalAuthentication from '../../../../modules/localAuthentication/localAuthentication';
 
 export default function SecuritySection() {
   const { t } = useTranslation();
@@ -12,7 +13,24 @@ export default function SecuritySection() {
   const dispatch = useDispatch();
   const settings = useSelector((state: RootState) => state.settings);
 
-  const toggleLocalAuthentication = () => {
+  const toggleLocalAuthentication = async () => {
+    if (!settings.enableLocalAuthentication) {
+      try {
+        const result = await LocalAuthentication.isAvailable();
+
+        if (result.available) {
+          dispatch(
+              settingsSlice.actions.toggleLocalAuthentication(),
+          );
+        }
+
+      } catch (error) {
+        console.log(error);
+      }
+
+      return;
+    }
+
     dispatch(
         settingsSlice.actions.toggleLocalAuthentication(),
     );

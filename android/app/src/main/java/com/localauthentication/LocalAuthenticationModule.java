@@ -20,6 +20,9 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.UiThreadUtil;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableNativeMap;
+
 import java.util.concurrent.Executors;
 
 public class LocalAuthenticationModule extends ReactContextBaseJavaModule {
@@ -30,6 +33,40 @@ public class LocalAuthenticationModule extends ReactContextBaseJavaModule {
   @Override
   public String getName() {
     return "LocalAuthentication";
+  }
+
+  @ReactMethod
+  public void isAvailable(final Promise promise) {
+    try {
+      ReactApplicationContext reactApplicationContext = getReactApplicationContext();
+      BiometricManager biometricManager = BiometricManager.from(reactApplicationContext);
+      WritableMap resultMap = new WritableNativeMap();
+
+      switch (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG | BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
+        case BiometricManager.BIOMETRIC_SUCCESS:
+          resultMap.putBoolean("available", true);
+          break;
+
+        case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
+          resultMap.putBoolean("available", false);
+          resultMap.putString("error", "BIOMETRIC_ERROR_NO_HARDWARE");
+          break;
+
+        case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
+          resultMap.putBoolean("available", false);
+          resultMap.putString("error", "BIOMETRIC_ERROR_HW_UNAVAILABLE");
+          break;
+
+        case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
+          resultMap.putBoolean("available", false);
+          resultMap.putString("error", "BIOMETRIC_ERROR_NONE_ENROLLED");
+          break;
+      }
+
+      promise.resolve(resultMap);
+    } catch(Exception e) {
+      promise.reject("Error detecting biometrics availability: " + e.getMessage(), "Error detecting biometrics availability: " + e.getMessage());
+    }
   }
 
   @ReactMethod

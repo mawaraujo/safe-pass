@@ -8,7 +8,7 @@
  * @Email e.mauroar@gmail.com
  */
 
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 
 const {
   LocalAuthentication,
@@ -20,6 +20,11 @@ interface LocalAuthenticationInterface {
   authenticate(payload: PromptConfig): Promise<{
     success: boolean
   }>;
+
+  isAvailable(): Promise<{
+    available: boolean,
+    error?: string
+  }>
 }
 
 export default LocalAuthentication as LocalAuthenticationInterface;

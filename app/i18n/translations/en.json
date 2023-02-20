@@ -14,9 +14,9 @@
     "Continue": "Continue",
 
     "Contains [n] passwords": "Contains [n] passwords",
-
-    "Unlock request title": "Locked",
-    "Unlock request details": "Use your device unlock system to continue",
+    
+    "Unlock": "Unlock",
+    "Unlock request": "Use your device unlock system to continue",
 
     "The device unlock system is not enabled": "The device unlock system is not enabled",
     "An error occurred while trying to create the file": "An error occurred while trying to create the file",
