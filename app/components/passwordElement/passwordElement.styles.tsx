@@ -16,6 +16,9 @@ export default StyleSheet.create({
     maxHeight: 30,
     marginRight: Layout.Spacing.MD,
   },
+  icon: {
+    marginRight: Layout.Spacing.MD,
+  },
   title: {
     color: Colors.System.Brand,
     textTransform: 'capitalize',

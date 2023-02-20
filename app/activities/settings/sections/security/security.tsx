@@ -6,6 +6,7 @@ import Card from '../../../../components/card/card';
 import ItemSwitch from '../../components/itemSwitch/itemSwitch';
 import { useTranslation } from 'react-i18next';
 import LocalAuthentication from '../../../../modules/localAuthentication/localAuthentication';
+import toastSlice from '../../../../store/reducers/toastSlice';
 
 export default function SecuritySection() {
   const { t } = useTranslation();
@@ -21,6 +22,14 @@ export default function SecuritySection() {
         if (result.available) {
           dispatch(
               settingsSlice.actions.toggleLocalAuthentication(),
+          );
+
+        } else {
+          dispatch(
+              toastSlice.actions.show({
+                title: t('The device unlock system is not enabled') ?? 'The device unlock system is not enabled',
+                type: 'Danger',
+              }),
           );
         }
 

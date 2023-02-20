@@ -1,4 +1,5 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import { View, Text, Switch } from 'react-native';
 import { Colors } from '../../../../res';
 import itemSwitchStyles from './itemSwitch.styles';
@@ -20,7 +21,8 @@ export default function ItemSwitch({ title, description, onChange, firstItem = f
   };
 
   return (
-    <View
+    <TouchableOpacity
+      onPress={handleToggle}
       style={[
         itemSwitchStyles.container,
         firstItem && itemSwitchStyles.removeMargin,
@@ -44,6 +46,6 @@ export default function ItemSwitch({ title, description, onChange, firstItem = f
         onValueChange={handleToggle}
         value={value}
       />
-    </View>
+    </TouchableOpacity>
   );
 }

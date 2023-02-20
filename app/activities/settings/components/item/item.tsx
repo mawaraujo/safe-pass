@@ -38,7 +38,7 @@ export default function Item({ title, description, onPress, isLink, firstItem = 
           <Icon
             color={Colors.System.Brand}
             name={isLink ? 'open-outline' : 'chevron-forward-outline'}
-            size={26} />
+            size={24} />
         )
       }
     </TouchableOpacity>
