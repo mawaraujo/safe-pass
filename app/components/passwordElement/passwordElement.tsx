@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors } from '../../res';
 import { useTranslation } from 'react-i18next';
 
-
 interface IPasswordElementProps {
   item: NPassword.Password,
   onPress?: (password: NPassword.Password) => void
