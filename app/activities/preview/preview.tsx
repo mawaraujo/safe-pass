@@ -166,7 +166,7 @@ export default function Preview({ route }: IPreviewProps) {
             <View style={styles.left}>
               <Text style={styles.textLabel}>{t('Username')}</Text>
               <Text style={styles.textValue}>
-                { password.username || t('noInformation')}
+                { password.username || t('NoInformation')}
               </Text>
             </View>
 
@@ -194,7 +194,7 @@ export default function Preview({ route }: IPreviewProps) {
             <View style={styles.left}>
               <Text style={styles.textLabel}>{t('Email')}</Text>
               <Text style={styles.textValue}>
-                { password.email || t('noInformation')}
+                { password.email || t('NoInformation')}
               </Text>
             </View>
 
@@ -222,7 +222,7 @@ export default function Preview({ route }: IPreviewProps) {
             <View style={styles.left}>
               <Text style={styles.textLabel}>{t('Password')}</Text>
               <Text style={styles.textValue}>
-                { password.password ? '******' : t('noInformation')}
+                { password.password ? '******' : t('NoInformation')}
               </Text>
             </View>
 
@@ -250,7 +250,7 @@ export default function Preview({ route }: IPreviewProps) {
             <View style={styles.left}>
               <Text style={styles.textLabel}>{t('Tag')}</Text>
               <Text style={styles.textValue}>
-                { getTagById(password.tagId) || t('noInformation') }
+                { getTagById(password.tagId) || t('NoInformation') }
               </Text>
             </View>
           </View>
@@ -259,7 +259,7 @@ export default function Preview({ route }: IPreviewProps) {
             <View style={styles.left}>
               <Text style={styles.textLabel}>{t('Notes')}</Text>
               <Text style={styles.textValue}>
-                { password.notes || t('noInformation')}
+                { password.notes || t('NoInformation')}
               </Text>
             </View>
           </View>
