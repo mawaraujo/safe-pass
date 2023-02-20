@@ -61,7 +61,7 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
         {
           !item.username && !item.email && (
             <Text style={styles.extraInfo}>
-              {t('noInformation')}
+              {t('NoInformation')}
             </Text>
           )
         }

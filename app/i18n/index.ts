@@ -10,17 +10,7 @@ import en from './translations/en.json';
 
 async function onStart(): Promise<void> {
   const result = await Storage.get(StorageRes.Keys.Language);
-
-  /**
-   * If there is no default language, we set the one detected by i18n
-   */
   if (!result) {
-    const options: NLang.Options = {
-      language: i18n.language,
-      forced: false,
-    };
-
-    await Storage.set(StorageRes.Keys.Language, JSON.stringify(options));
     return;
   }
 
@@ -28,6 +18,7 @@ async function onStart(): Promise<void> {
    * If the language is forced, we change it
    */
   const language: NLang.Options = JSON.parse(result);
+
   if (language.forced) {
     i18n.changeLanguage(language.language);
   }

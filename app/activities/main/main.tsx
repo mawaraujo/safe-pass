@@ -62,7 +62,8 @@ export default function Main({ navigation }: ImainProps) {
 
   return (
     <Default>
-      <WelcomeHeader title={t('My passwords') ?? 'My passwords'} />
+      <WelcomeHeader
+        title={t('Passwords') ?? 'My passwords'} />
 
       {
         passwords.length > 0 && (
