@@ -71,7 +71,7 @@ export default function TagsSelector({ idSelected, onSelect }: Props) {
         </TouchableOpacity>
 
         {
-          tagsState?.length && tagsState.map((tag) => (
+          tagsState?.length > 0 && tagsState.map((tag) => (
             <TouchableOpacity
               onPress={() => handleSelect(tag.id)}
               style={[
