@@ -124,7 +124,7 @@ export default function CreateTag({ route }: ICreateTag) {
         />
 
         <Button
-          onPress={formik.handleSubmit}
+          onPress={formik.handleSubmit as any}
           text={t('Save changes') ?? 'Save changes'} />
       </ScrollView>
     </Default>
