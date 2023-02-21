@@ -39,7 +39,7 @@
     "Name": "Nombre",
     "Site or Application": "Sitio o Aplicación",
     "Username": "Usuario",
-    "Email": "Email",
+    "Email": "Correo electrónico",
     "Notes": "Notas",
     "Save changes": "Guardar cambios",
     "All tags": "Todas las etiquetas",
@@ -62,6 +62,9 @@
     "Language": "Idioma",
     "Unlock system": "Sistema de desbloqueo",
     "Unlock system summary": "Usa el sistema de desbloqueo de tu dispositivo para ingresar a la aplicación",
-    "Settings": "Configuración"
+    "Settings": "Configuración",
+
+    "The field is required": "El campo es requerido",
+    "Invalid email": "Correo electrónico inválido"
   }
 }

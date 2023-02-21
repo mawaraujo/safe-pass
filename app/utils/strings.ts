@@ -14,4 +14,12 @@ export default class Strings {
 
     return value;
   }
+
+  static addHttps(url: string = ''): string {
+    if (!url.includes('http') || !url.includes('https')) {
+      return `https://${url}`;
+    }
+
+    return url;
+  }
 }

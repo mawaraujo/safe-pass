@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts, Layout } from '../../../res';
+import { Colors, Fonts, Layout } from '../../../../res';
 
 export default StyleSheet.create({
   main: {

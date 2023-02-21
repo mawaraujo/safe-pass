@@ -5,6 +5,7 @@ import styles from './passwordElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors } from '../../res';
 import { useTranslation } from 'react-i18next';
+import { Strings } from '../../utils';
 
 interface IPasswordElementProps {
   item: NPassword.Password,
@@ -18,9 +19,11 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
   const handlePress = (): void => onPress?.(item);
   const handleLoadImageError = (val: boolean = true) => setLoadImageError(val);
 
-  React.useEffect(() => {
-    handleLoadImageError(false);
-  }, [item.url]);
+  const parsedUrl: string = React.useMemo(() => (
+    Strings.addHttps(item.url)
+  ), [item.url]);
+
+  React.useEffect(() => handleLoadImageError(false), [item.url]);
 
   return (
     <TouchableOpacity
@@ -32,7 +35,7 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
           <Image
             resizeMode="contain"
             source={{
-              uri: `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${item.url}&size=256`,
+              uri: `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${parsedUrl}&size=256`,
             }}
             onError={() => handleLoadImageError()}
             style={styles.logo} />

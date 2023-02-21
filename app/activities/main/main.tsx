@@ -13,7 +13,7 @@ import { NPassword } from '../../types';
 import { useSearch } from '../../hooks';
 import Navigation from '../../utils/navigation';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
-import TagsSelector from './components/tagsSelector';
+import TagsSelector from './components/tagsSelector/tagsSelector';
 import { useTranslation } from 'react-i18next';
 
 interface ImainProps {

@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import Default from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import { FormikHelpers, useFormik } from 'formik';
-import FormHandler from './formHandler';
+import useForm from './useForm';
 import Button from '../../components/button/button';
 import styles from './createPassword.styles';
 import TextInput from '../../components/textInput/textInput';
@@ -18,8 +18,7 @@ import toastSlice from '../../store/reducers/toastSlice';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
 
-
-interface ICreatePassword {
+interface Props {
   route?: {
     params: {
       password: NPassword.Password
@@ -27,13 +26,22 @@ interface ICreatePassword {
   }
 }
 
-export default function CreatePassword({ route }: ICreatePassword) {
+export default function CreatePassword({ route }: Props) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const tags = useSelector((state: RootState) => state.tags);
 
+  const [
+    editMode,
+    setEditMode,
+  ] = React.useState(false);
+
+  const {
+    initialValues,
+    validationSchema,
+  } = useForm();
+
+  const tags = useSelector((state: RootState) => state.tags);
   const password = route?.params?.password;
-  const [editMode, setEditMode] = React.useState(false);
 
   const onSubmit = (
       value: NPassword.Password,
@@ -83,8 +91,8 @@ export default function CreatePassword({ route }: ICreatePassword) {
   ), [tags]);
 
   const formik = useFormik({
-    validationSchema: FormHandler.validationSchema,
-    initialValues: FormHandler.initialValues,
+    validationSchema: validationSchema,
+    initialValues: initialValues,
     onSubmit,
   });
 
@@ -137,7 +145,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
           onChangeText={(e) => {
             formik.setFieldValue('url', e);
           }}
-          placeholder="https://www.facebook.com"
+          placeholder="www.facebook.com"
         />
 
         <TextInput
@@ -199,7 +207,7 @@ export default function CreatePassword({ route }: ICreatePassword) {
         />
 
         <Button
-          onPress={formik.handleSubmit}
+          onPress={formik.handleSubmit as any}
           text={t('Save changes') ?? 'Save changes'} />
       </ScrollView>
     </Default>

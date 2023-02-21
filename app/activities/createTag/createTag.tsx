@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import Default from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import { FormikHelpers, useFormik } from 'formik';
-import FormHandler from './formHandler';
+import useForm from './useForm';
 import Button from '../../components/button/button';
 import styles from './createTag.styles';
 import TextInput from '../../components/textInput/textInput';
@@ -26,8 +26,13 @@ interface ICreateTag {
 
 export default function CreateTag({ route }: ICreateTag) {
   const { t } = useTranslation();
-
   const dispatch = useDispatch();
+
+  const {
+    initialValues,
+    validationSchema,
+  } = useForm();
+
   const tag = route?.params?.tag;
   const [editMode, setEditMode] = React.useState(false);
 
@@ -72,8 +77,8 @@ export default function CreateTag({ route }: ICreateTag) {
   };
 
   const formik = useFormik({
-    validationSchema: FormHandler.validationSchema,
-    initialValues: FormHandler.initialValues,
+    validationSchema: validationSchema,
+    initialValues: initialValues,
     onSubmit,
   });
 

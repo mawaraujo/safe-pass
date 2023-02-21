@@ -2,17 +2,16 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
-import type { RootState } from '../../../store/store';
-import { Strings } from '../../../utils';
-import tagsSelectorStyles from './tagsSelector.styles';
-import Icon from 'react-native-vector-icons/Ionicons';
+import type { RootState } from '../../../../store/store';
+import { Strings } from '../../../../utils';
+import styles from './tagsSelector.styles';
 
-interface TagsSelectorProps {
+interface Props {
   idSelected?: string,
   onSelect?: (value: string) => void
 }
 
-export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps) {
+export default function TagsSelector({ idSelected, onSelect }: Props) {
   const { t } = useTranslation();
 
   const scrollRef = React.useRef<any>();
@@ -47,10 +46,10 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
   }, [idSelected]);
 
   return (
-    <View style={tagsSelectorStyles.main}>
+    <View style={styles.main}>
       <ScrollView
         ref={scrollRef}
-        contentContainerStyle={tagsSelectorStyles.container}
+        contentContainerStyle={styles.container}
         horizontal={true}
         scrollEventThrottle={200}
         showsHorizontalScrollIndicator={false}>
@@ -58,14 +57,14 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
         <TouchableOpacity
           onPress={() => handleSelect('')}
           style={[
-            tagsSelectorStyles.card,
-            !idSelected && tagsSelectorStyles.selectedCard,
+            styles.card,
+            !idSelected && styles.selectedCard,
           ]}>
 
           <Text
             style={[
-              tagsSelectorStyles.cardTitle,
-              !idSelected && tagsSelectorStyles.selectedCardTitle,
+              styles.cardTitle,
+              !idSelected && styles.selectedCardTitle,
             ]}>
             {t('All tags')}
           </Text>
@@ -76,15 +75,15 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
             <TouchableOpacity
               onPress={() => handleSelect(tag.id)}
               style={[
-                tagsSelectorStyles.card,
-                idSelected === tag.id && tagsSelectorStyles.selectedCard,
+                styles.card,
+                idSelected === tag.id && styles.selectedCard,
               ]}
               key={tag.id}>
 
               <Text
                 style={[
-                  tagsSelectorStyles.cardTitle,
-                  idSelected === tag.id && tagsSelectorStyles.selectedCardTitle,
+                  styles.cardTitle,
+                  idSelected === tag.id && styles.selectedCardTitle,
                 ]}>
 
                 {

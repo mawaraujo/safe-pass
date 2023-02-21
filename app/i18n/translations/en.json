@@ -62,6 +62,9 @@
     "Language": "Language",
     "Unlock system": "Unlock system",
     "Unlock system summary": "Use your device unlock system to enter the app",
-    "Settings": "Settings"
+    "Settings": "Settings",
+
+    "The field is required": "The field is required",
+    "Invalid email": "Invalid email"
   }
 }
