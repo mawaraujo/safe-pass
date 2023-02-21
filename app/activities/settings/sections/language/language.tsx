@@ -43,6 +43,9 @@ export default function LanguageSection() {
     if (result) {
       const lang: NLang.Options = JSON.parse(result);
       setLang(lang.language);
+
+    } else {
+      setLang(i18n.language);
     }
   };
 

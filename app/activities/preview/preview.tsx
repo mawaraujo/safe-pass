@@ -5,7 +5,7 @@ import NavigationBar from '../../components/navigationBar/navigationBar';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './preview.styles';
 import { useLink, useClipboard } from '../../hooks';
-import { Navigation } from '../../utils';
+import { Navigation, Strings } from '../../utils';
 import { Colors, Fonts, Screens } from '../../res';
 import Confirm from '../../components/modal/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
@@ -146,7 +146,11 @@ export default function Preview({ route }: IPreviewProps) {
               password.url && (
                 <TouchableOpacity
                   style={styles.actionButton}
-                  onPress={() => handleOpenLink(password.url)}>
+                  onPress={() => {
+                    handleOpenLink(
+                        Strings.addHttps(password.url),
+                    );
+                  }}>
 
                   <Icon
                     color={Colors.System.White}
