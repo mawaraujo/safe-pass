@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Screens } from './res';
 import { Navigation } from './utils';
-import GlobalToast from './components/toast/toast';
+import GlobalAlert from './components/modal/alert/alert';
 import Spinner from './components/spinner/spinner';
 import UnlockRequest from './components/unlockRequest/unlockRequest';
 
@@ -27,7 +27,7 @@ export default function App() {
     <ReduxProvider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
         <UnlockRequest />
-        <GlobalToast />
+        <GlobalAlert />
 
         <NavigationContainer ref={Navigation.navigationRef}>
           <Stack.Navigator

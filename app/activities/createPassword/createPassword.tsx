@@ -14,7 +14,7 @@ import passwordSlice from '../../store/reducers/passwordSlice';
 import { Navigation } from '../../utils';
 import { Screens } from '../../res';
 import uuid from 'react-native-uuid';
-import toastSlice from '../../store/reducers/toastSlice';
+import alertSlice from '../../store/reducers/alertSlice';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
 
@@ -68,9 +68,9 @@ export default function CreatePassword({ route }: Props) {
       );
     }
 
-    // Display success toast
+    // Display success alert
     dispatch(
-        toastSlice.actions.show({
+        alertSlice.actions.show({
           title: editMode
             ? t('EntryUpdated') ?? 'The entry was updated successfully'
             : t('EntryCreated') ?? 'The entry was created successfully',

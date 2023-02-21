@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
-import toastSlice from '../../store/reducers/toastSlice';
+import alertSlice from '../../store/reducers/alertSlice';
 import type { NPassword, NTag } from '../../types';
 import { Crypto, FileSystem } from '../../utils';
 import type { RootState } from '../../store/store';
@@ -76,7 +76,7 @@ export default function RestoreBackup() {
       clearStatus();
 
       dispatch(
-          toastSlice.actions.show({
+          alertSlice.actions.show({
             title: t('Backup file import failed') ?? 'Backup file import failed',
             type: 'Danger',
           }),

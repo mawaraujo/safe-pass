@@ -13,7 +13,7 @@ import tagSlice from '../../store/reducers/tagSlice';
 import { Navigation } from '../../utils';
 import screens from '../../res/screens';
 import uuid from 'react-native-uuid';
-import toastSlice from '../../store/reducers/toastSlice';
+import alertSlice from '../../store/reducers/alertSlice';
 import { useTranslation } from 'react-i18next';
 
 interface ICreateTag {
@@ -61,9 +61,9 @@ export default function CreateTag({ route }: ICreateTag) {
       );
     }
 
-    // Display success toast
+    // Display success alert
     dispatch(
-        toastSlice.actions.show({
+        alertSlice.actions.show({
           title: editMode
             ? t('EntryUpdated') ?? 'The entry was updated successfully'
             : t('EntryCreated') ?? 'The entry was created successfully',

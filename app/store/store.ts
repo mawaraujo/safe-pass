@@ -3,7 +3,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import passwordSlice from './reducers/passwordSlice';
-import toastSlice from './reducers/toastSlice';
+import alertSlice from './reducers/alertSlice';
 import settingsSlice from './reducers/settingsSlice';
 import tagSlice from './reducers/tagSlice';
 import logSlice from './reducers/logSlice';
@@ -12,7 +12,7 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   blacklist: [
-    toastSlice.name,
+    alertSlice.name,
     logSlice.name,
     '_persist',
   ],
@@ -22,7 +22,7 @@ const reducer = persistReducer(
     persistConfig,
     combineReducers({
       passwords: passwordSlice.reducer,
-      toast: toastSlice.reducer,
+      alert: alertSlice.reducer,
       settings: settingsSlice.reducer,
       tags: tagSlice.reducer,
       logs: logSlice.reducer,

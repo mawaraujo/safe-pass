@@ -10,7 +10,7 @@ import { Colors, Fonts, Screens } from '../../res';
 import Confirm from '../../components/modal/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import toastSlice from '../../store/reducers/toastSlice';
+import alertSlice from '../../store/reducers/alertSlice';
 import Card from '../../components/card/card';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
@@ -74,7 +74,7 @@ export default function Preview({ route }: IPreviewProps) {
     Navigation.navigate(Screens.Main.Name);
 
     dispatch(
-        toastSlice.actions.show({
+        alertSlice.actions.show({
           title: t('EntryDeleted') ?? 'Entry deleted successfully',
           type: 'Success',
         }),

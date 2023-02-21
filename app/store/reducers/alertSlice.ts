@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { NStore, NToast } from '../../types';
+import { NStore, NAlert } from '../../types';
 
-const initialState: NToast.Toast = {
+const initialState: NAlert.Alert = {
   title: '',
   extraInformation: undefined,
   type: 'Success',
@@ -9,10 +9,10 @@ const initialState: NToast.Toast = {
 };
 
 export default createSlice({
-  name: 'toast',
+  name: 'alert',
   initialState,
   reducers: {
-    show(state, action: NStore.Action<NToast.Toast>) {
+    show(state, action: NStore.Action<NAlert.Alert>) {
       state.title = action.payload.title;
       state.extraInformation = action.payload.extraInformation;
       state.type = action.payload.type;

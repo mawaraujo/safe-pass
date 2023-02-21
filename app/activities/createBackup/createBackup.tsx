@@ -4,7 +4,7 @@ import Default from '../../layout/default/default';
 import { Crypto, FileSystem, Storage } from '../../utils';
 import Button from '../../components/button/button';
 import { useDispatch } from 'react-redux';
-import toastSlice from '../../store/reducers/toastSlice';
+import alertSlice from '../../store/reducers/alertSlice';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import styles from './createBackup.styles';
 import { Colors } from '../../res';
@@ -44,7 +44,7 @@ export default function CreateBackup() {
       clearStatus();
 
       dispatch(
-          toastSlice.actions.show({
+          alertSlice.actions.show({
             title: t('An error occurred while trying to create the file'),
             type: 'Danger',
           }),

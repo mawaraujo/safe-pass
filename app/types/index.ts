@@ -1,6 +1,6 @@
 import NPassword from './password';
 import NStore from './store';
-import NToast from './toast';
+import NAlert from './alert';
 import NSettings from './settings';
 import NTag from './tag';
 import NLang from './lang';
@@ -8,7 +8,7 @@ import NLang from './lang';
 export {
   NPassword,
   NStore,
-  NToast,
+  NAlert,
   NSettings,
   NTag,
   NLang,
