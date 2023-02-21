@@ -22,11 +22,6 @@ export default function RestoreBackup() {
   const userPasswords = useSelector((state: RootState) => state.passwords);
 
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [importedSuccessfully, setImportedSuccessfully] = React.useState<boolean>(false);
-
-  const clearStatus = () => {
-    setImportedSuccessfully(false);
-  };
 
   const importPasswords = (passwords: NPassword.Passwords): void => {
     if (!passwords || !passwords?.length) return;
@@ -60,7 +55,6 @@ export default function RestoreBackup() {
 
   const handleImport = async () => {
     setIsLoading(true);
-    clearStatus();
 
     try {
       const document = await FileSystem.readFile();
@@ -69,15 +63,19 @@ export default function RestoreBackup() {
       importPasswords(JSON.parse(data?.passwords));
       importTags(JSON.parse(data?.tags));
 
-      setImportedSuccessfully(true);
+      dispatch(
+          alertSlice.actions.show({
+            title: t('Backup imported successfully'),
+            type: 'Success',
+          }),
+      );
 
     } catch (error) {
       console.log(error);
-      clearStatus();
 
       dispatch(
           alertSlice.actions.show({
-            title: t('Backup file import failed') ?? 'Backup file import failed',
+            title: t('Backup file import failed'),
             type: 'Danger',
           }),
       );
@@ -95,45 +93,21 @@ export default function RestoreBackup() {
       {
         !isLoading && (
           <View style={styles.container}>
-            {
-              !importedSuccessfully && (
-                <View style={styles.statusContainer}>
-                  <Icons
-                    style={styles.icon}
-                    name="attach-outline"
-                    size={100}
-                    color={Colors.System.Brand} />
+            <View style={styles.statusContainer}>
+              <Icons
+                style={styles.icon}
+                name="attach-outline"
+                size={100}
+                color={Colors.System.Brand} />
 
-                  <Text style={styles.title}>
-                    {t('Select a backup file')}
-                  </Text>
+              <Text style={styles.title}>
+                {t('Select a backup file')}
+              </Text>
 
-                  <Button
-                    text={t('Select') ?? 'Select'}
-                    onPress={handleImport} />
-                </View>
-              )
-            }
-
-            {
-              importedSuccessfully && (
-                <View style={styles.statusContainer}>
-                  <Icons
-                    style={styles.icon}
-                    name="checkmark-circle-outline"
-                    size={100}
-                    color={Colors.System.Brand} />
-
-                  <Text style={styles.title}>
-                    {t('Backup imported successfully')}
-                  </Text>
-
-                  <Button
-                    text={t('Continue') ?? 'Continue'}
-                    onPress={clearStatus} />
-                </View>
-              )
-            }
+              <Button
+                text={t('Select') ?? 'Select'}
+                onPress={handleImport} />
+            </View>
           </View>
         )
       }

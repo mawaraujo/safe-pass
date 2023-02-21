@@ -36,7 +36,7 @@ export default function Alert() {
       <View style={styles.container}>
         <Icon
           name={alertIcon}
-          size={80}
+          size={70}
           color={alertColor} />
 
         <Text
@@ -50,10 +50,11 @@ export default function Alert() {
 
       <Button
         onPress={hide}
+        textStyle={{ color: alertColor }}
         style={[
           styles.button,
           {
-            backgroundColor: alertColor,
+            borderColor: alertColor,
           },
         ]}
         text={t('Accept') ?? 'Accept'} />

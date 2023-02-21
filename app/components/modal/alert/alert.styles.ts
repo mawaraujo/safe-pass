@@ -11,11 +11,16 @@ export default StyleSheet.create({
   title: {
     color: Colors.System.Brand,
     fontFamily: Fonts.Family.SemiBold,
-    fontSize: Fonts.Size.LG,
-    marginBottom: Layout.Spacing.MD,
+    fontSize: Fonts.Size.MD,
+    marginBottom: Layout.Spacing.LG,
     textAlign: 'center',
   },
   button: {
     width: '100%',
+    borderWidth: 1,
+    backgroundColor: 'transparent',
+  },
+  buttonText: {
+    color: Colors.System.Brand,
   },
 });

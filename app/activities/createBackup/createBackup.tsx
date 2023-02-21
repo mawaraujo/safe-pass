@@ -15,11 +15,6 @@ export default function CreateBackup() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [exportedSuccessfully, setExportedSuccessfully] = React.useState<boolean>(false);
-
-  const clearStatus = () => {
-    setExportedSuccessfully(false);
-  };
 
   const getStorageData = async () => {
     const content = await Storage.get('persist:root');
@@ -30,18 +25,22 @@ export default function CreateBackup() {
 
   const handleExport = async (): Promise<void> => {
     setIsLoading(true);
-    clearStatus();
 
     try {
       const content = await getStorageData();
       const encryptedContent = Crypto.encrypt(content);
 
       await FileSystem.writeFile(encryptedContent);
-      setExportedSuccessfully(true);
+
+      dispatch(
+          alertSlice.actions.show({
+            title: t('Backup created successfully'),
+            type: 'Success',
+          }),
+      );
 
     } catch (error) {
       console.error(error);
-      clearStatus();
 
       dispatch(
           alertSlice.actions.show({
@@ -62,45 +61,21 @@ export default function CreateBackup() {
       {
         !isLoading && (
           <View style={styles.container}>
-            {
-              !exportedSuccessfully && (
-                <View style={styles.statusContainer}>
-                  <Icons
-                    style={styles.icon}
-                    name="documents-outline"
-                    size={100}
-                    color={Colors.System.Brand} />
+            <View style={styles.statusContainer}>
+              <Icons
+                style={styles.icon}
+                name="documents-outline"
+                size={100}
+                color={Colors.System.Brand} />
 
-                  <Text style={styles.title}>
-                    {t('Export your data and save it locally')}
-                  </Text>
+              <Text style={styles.title}>
+                {t('Export your data and save it locally')}
+              </Text>
 
-                  <Button
-                    text={t('Create backup') ?? 'Create backup'}
-                    onPress={handleExport} />
-                </View>
-              )
-            }
-
-            {
-              exportedSuccessfully && (
-                <View style={styles.statusContainer}>
-                  <Icons
-                    style={styles.icon}
-                    name="checkmark-circle-outline"
-                    size={100}
-                    color={Colors.System.Brand} />
-
-                  <Text style={styles.title}>
-                    {t('Backup created successfully')}
-                  </Text>
-
-                  <Button
-                    text={t('Continue') ?? 'Continue'}
-                    onPress={clearStatus} />
-                </View>
-              )
-            }
+              <Button
+                text={t('Create backup') ?? 'Create backup'}
+                onPress={handleExport} />
+            </View>
           </View>
         )
       }

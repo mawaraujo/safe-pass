@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Fonts, Layout} from '../../res';
+import { StyleSheet } from 'react-native';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
@@ -13,6 +13,6 @@ export default StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontFamily: Fonts.Family.Regular,
+    fontFamily: Fonts.Family.SemiBold,
   },
 });

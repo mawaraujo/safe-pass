@@ -13,9 +13,9 @@ namespace Colors {
 
     Danger = '#FF3B30',
     DangerTransparent = 'rgba(255, 56, 46, 0.5)',
-    Warning = '#FF9500',
-    Info = '#007AFF',
-    Success = '#34C759',
+    Warning = '#F0A92D',
+    Info = '#007BC3',
+    Success = '#1EA779',
   }
 
   export enum Light {

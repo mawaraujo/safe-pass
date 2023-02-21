@@ -9,7 +9,7 @@ export default StyleSheet.create({
     height: '100%',
     width: '100%',
     backgroundColor: Colors.Light.BackgroundColor,
-    zIndex: 10,
+    zIndex: 11,
     padding: Layout.Spacing.MD,
     justifyContent: 'center',
   },
