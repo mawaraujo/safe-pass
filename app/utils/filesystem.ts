@@ -10,7 +10,7 @@ namespace FileSystem {
    * Only works in Android
    */
   export async function writeFile(content: string = '') {
-    await RNCS.createDocument(getFilename(), 'application/json', content, 'utf8');
+    return await RNCS.createDocument(getFilename(), 'application/json', content, 'utf8');
   }
 
   /**

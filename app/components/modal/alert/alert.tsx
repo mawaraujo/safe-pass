@@ -22,12 +22,8 @@ export default function Alert() {
       case 'Success':
         return 'thumbs-up-outline';
 
-      case 'Info':
-      case 'Warning':
-        return 'alert-circle-outline';
-
       default:
-        return 'skull-outline';
+        return 'alert-circle-outline';
     }
   }, [alertValue]);
 

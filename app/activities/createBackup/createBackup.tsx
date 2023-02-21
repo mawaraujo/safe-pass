@@ -30,14 +30,16 @@ export default function CreateBackup() {
       const content = await getStorageData();
       const encryptedContent = Crypto.encrypt(content);
 
-      await FileSystem.writeFile(encryptedContent);
+      const result = await FileSystem.writeFile(encryptedContent);
 
-      dispatch(
-          alertSlice.actions.show({
-            title: t('Backup created successfully'),
-            type: 'Success',
-          }),
-      );
+      if (result?.uri) {
+        dispatch(
+            alertSlice.actions.show({
+              title: t('Backup created successfully'),
+              type: 'Success',
+            }),
+        );
+      }
 
     } catch (error) {
       console.error(error);
