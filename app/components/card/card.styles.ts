@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Layout} from '../../res';
+import { StyleSheet } from 'react-native';
+import { Colors, Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
     backgroundColor: Colors.Light.CardColor,
-    elevation: 10,
+    elevation: 5,
     shadowColor: Colors.Light.ShadowColor,
     borderRadius: Layout.BorderRadius.SM,
     padding: Layout.Spacing.MD,

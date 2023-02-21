@@ -18,7 +18,7 @@ export default StyleSheet.create({
     borderRadius: Layout.BorderRadius.SM,
     backgroundColor: Colors.Light.CardColor,
     shadowColor: Colors.Light.ShadowColor,
-    elevation: 10,
+    elevation: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

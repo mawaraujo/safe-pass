@@ -14,7 +14,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.Light.CardColor,
     paddingVertical: 8,
     position: 'relative',
-    elevation: 10,
+    elevation: 5,
     shadowColor: Colors.Light.ShadowColor,
   },
   buttonContainer: {

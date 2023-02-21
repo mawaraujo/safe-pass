@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Fonts, Layout} from '../../res';
+import { StyleSheet } from 'react-native';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   wrapper: {
@@ -13,7 +13,7 @@ export default StyleSheet.create({
     borderRadius: Layout.BorderRadius.SM,
     paddingVertical: Layout.Spacing.SM,
     paddingHorizontal: Layout.Spacing.MD,
-    elevation: 10,
+    elevation: 5,
     shadowColor: Colors.Light.ShadowColor,
     flexDirection: 'row',
     alignItems: 'center',

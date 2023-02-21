@@ -4,10 +4,10 @@ import { Colors, Fonts, Layout } from '../../../../res';
 export default StyleSheet.create({
   main: {
     // marginHorizontal: Layout.Spacing.MD,
-    marginBottom: Layout.Spacing.MD,
   },
   container: {
     gap: Layout.Spacing.MD,
+    paddingBottom: Layout.Spacing.MD,
   },
   card: {
     backgroundColor: Colors.Light.CardColor,
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     paddingVertical: Layout.Spacing.SM,
     borderRadius: Layout.BorderRadius.SM,
     shadowColor: Colors.Light.ShadowColor,
-    elevation: 10,
+    elevation: 5,
   },
   selectedCard: {
     backgroundColor: Colors.System.Brand,

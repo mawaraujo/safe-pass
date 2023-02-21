@@ -7,7 +7,7 @@ export default StyleSheet.create({
     padding: Layout.Spacing.MD,
     backgroundColor: Colors.System.Brand,
     shadowColor: Colors.Light.ShadowColor,
-    elevation: 10,
+    elevation: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
