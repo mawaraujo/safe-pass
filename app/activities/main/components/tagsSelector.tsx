@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../../../store/store';
 import { Strings } from '../../../utils';
 import tagsSelectorStyles from './tagsSelector.styles';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface TagsSelectorProps {
   idSelected?: string,
@@ -45,12 +46,6 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
     }
   }, [idSelected]);
 
-  if (!tagsState.length) {
-    return (
-      null
-    );
-  }
-
   return (
     <View style={tagsSelectorStyles.main}>
       <ScrollView
@@ -77,7 +72,7 @@ export default function TagsSelector({ idSelected, onSelect }: TagsSelectorProps
         </TouchableOpacity>
 
         {
-          tagsState.map((tag) => (
+          tagsState?.length && tagsState.map((tag) => (
             <TouchableOpacity
               onPress={() => handleSelect(tag.id)}
               style={[

@@ -15,8 +15,8 @@
 
     "Contains [n] passwords": "Contiene [n] contraseñas",
 
-    "Unlock": "Desbloquear",
-    "Unlock request": "Usa el método de desbloqueo de tu dispositivo para continuar",
+    "Unlock": "Continuar",
+    "Unlock request": "Usa tu huella, PIN o patrón para continuar",
     
     "The device unlock system is not enabled": "El método de desbloqueo de tu dispositivo no se encuentra habilitado",
     "An error occurred while trying to create the file": "Ocurrió un error al intentar crear el archivo",

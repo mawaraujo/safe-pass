@@ -76,12 +76,9 @@ export default function Main({ navigation }: ImainProps) {
       <View
         style={styles.mainScrollView}>
 
-        {
-          passwords?.length > 0 &&
-            <TagsSelector
-              idSelected={selectedTag}
-              onSelect={handleSelectTag} />
-        }
+        <TagsSelector
+          idSelected={selectedTag}
+          onSelect={handleSelectTag} />
 
         <FlatList
           style={styles.flatList}

@@ -31,5 +31,6 @@ export default StyleSheet.create({
   },
   selectedCardTitle: {
     color: Colors.System.White,
+    fontFamily: Fonts.Family.SemiBold,
   },
 });

@@ -17,18 +17,18 @@ export default function useLocalAuthentication(): UseLocalAuthentication {
 
   const [
     isFocused,
-    setIsFocused
+    setIsFocused,
   ] = useState<boolean>(false);
 
   const [
     authorized,
-    setAuthorized
+    setAuthorized,
   ] = useState<boolean>(false);
 
   const settings = useSelector((state: RootState) => state.settings);
 
   const handlePrompt = async () => {
-    if(!settings.enableLocalAuthentication) return;
+    if (!settings.enableLocalAuthentication) return;
     if (authorized) return;
 
     try {
