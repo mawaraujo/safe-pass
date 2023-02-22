@@ -15,6 +15,7 @@ import Card from '../../components/card/card';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/button/button';
+import ClipboardButton from './components/clipboardButton/clipboardButton';
 
 interface IPreviewProps {
   route?: {
@@ -27,49 +28,44 @@ interface IPreviewProps {
 export default function Preview({ route }: IPreviewProps) {
   const { t } = useTranslation();
 
-  const dispatch = useDispatch();
-  const [askDeletePassword, setAskDeletePassword] = React.useState(false);
-  const clipboard = useClipboard();
   const link = useLink();
+  const dispatch = useDispatch();
+  const clipboard = useClipboard();
 
-  const { tags, passwords } = useSelector((state: RootState) => state);
+  const [askDeletePassword, setAskDeletePassword] = React.useState<boolean>(false);
+
+  const {
+    tags,
+    passwords,
+  } = useSelector((state: RootState) => state);
 
   const passwordId = route?.params?.passwordId;
   const password= passwords.filter((p) => p.id === passwordId)?.[0];
 
-  const handleCopy = (value?: string) => {
-    if (!value) {
-      return;
+  const handleCopy = React.useCallback((value?: string) => {
+    if (value) {
+      clipboard.set(value);
     }
+  }, [clipboard]);
 
-    clipboard.set(value);
-  };
-
-  const handleOpenLink = (value?: string) => {
-    if (!value) {
-      return;
+  const handleOpenLink = React.useCallback((value?: string) => {
+    if (value) {
+      link.open(value);
     }
+  }, [link]);
 
-    link.open(value);
-  };
-
-  const editPassword = () => {
+  const editPassword = React.useCallback(() => {
     Navigation.navigate(
         Screens.CreatePassword.Name,
         {
           password,
         });
-  };
+  }, [password]);
 
-  const handleDelete = () => {
+  const handleDelete = React.useCallback(() => {
     if (!password) return;
 
-    dispatch(
-        passwordSlice.actions.delete(
-            password,
-        ),
-    );
-
+    dispatch(passwordSlice.actions.delete(password));
     setAskDeletePassword(false);
     Navigation.navigate(Screens.Main.Name);
 
@@ -79,7 +75,7 @@ export default function Preview({ route }: IPreviewProps) {
           type: 'Success',
         }),
     );
-  };
+  }, [password]);
 
   /**
    * Get tag name by ID
@@ -176,15 +172,9 @@ export default function Preview({ route }: IPreviewProps) {
 
             {
               password.username && (
-                <TouchableOpacity
-                  style={styles.actionButton}
-                  onPress={() => handleCopy(password.username)}>
-
-                  <Icon
-                    color={Colors.System.White}
-                    name="clipboard-outline"
-                    size={20} />
-                </TouchableOpacity>
+                <ClipboardButton
+                  item={password.username}
+                  onCopy={handleCopy} />
               )
             }
           </View>
@@ -204,15 +194,9 @@ export default function Preview({ route }: IPreviewProps) {
 
             {
               password.email && (
-                <TouchableOpacity
-                  style={styles.actionButton}
-                  onPress={() => handleCopy(password.email)}>
-
-                  <Icon
-                    color={Colors.System.White}
-                    name="clipboard-outline"
-                    size={20} />
-                </TouchableOpacity>
+                <ClipboardButton
+                  item={password.email}
+                  onCopy={handleCopy} />
               )
             }
           </View>
@@ -232,15 +216,9 @@ export default function Preview({ route }: IPreviewProps) {
 
             {
               password.password && (
-                <TouchableOpacity
-                  style={styles.actionButton}
-                  onPress={() => handleCopy(password.password)}>
-
-                  <Icon
-                    color={Colors.System.White}
-                    name="clipboard-outline"
-                    size={20} />
-                </TouchableOpacity>
+                <ClipboardButton
+                  item={password.password}
+                  onCopy={handleCopy} />
               )
             }
           </View>
