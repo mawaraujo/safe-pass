@@ -18,22 +18,25 @@ export default function NavigationBar({ name, showBackIcon = true, children }: I
 
   return (
     <View style={styles.container}>
-      <View style={styles.left}>
-        { showBackIcon && (
-          <TouchableOpacity
-            onPress={handlePressBack}>
+      <TouchableOpacity
+        onPress={
+          showBackIcon
+            ? handlePressBack
+            : undefined
+        }
+        style={styles.left}>
 
-            <Icon
-              name="arrow-back-outline"
-              color={Colors.System.Brand}
-              size={Fonts.Size.XL} />
-          </TouchableOpacity>
+        { showBackIcon && (
+          <Icon
+            name="arrow-back-outline"
+            color={Colors.System.Brand}
+            size={Fonts.Size.XL} />
         )}
 
         { name && (
           <Text style={styles.name}>{name}</Text>
         )}
-      </View>
+      </TouchableOpacity>
 
       {
         children && children
