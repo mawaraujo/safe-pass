@@ -19,15 +19,15 @@ export default function RestoreBackup() {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const userPasswords = useSelector((state: RootState) => state.passwords);
-
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
+  const state = useSelector((state: RootState) => state);
 
   const importPasswords = (passwords: NPassword.Passwords): void => {
     if (!passwords || !passwords?.length) return;
 
     const filteredPasswords = passwords.filter((newPassword) => {
-      if (userPasswords.some((userPassword) => userPassword.id === newPassword.id)) return false;
+      if (state.passwords.some((userPassword) => userPassword.id === newPassword.id)) return false;
       return newPassword;
     });
 
@@ -42,7 +42,7 @@ export default function RestoreBackup() {
     if (!tags || !tags?.length) return;
 
     const filteredTags = tags.filter((newTag) => {
-      if (userPasswords.some((userTag) => userTag.id === newTag.id)) return false;
+      if (state.tags.some((userTag) => userTag.id === newTag.id)) return false;
       return newTag;
     });
 
