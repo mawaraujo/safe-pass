@@ -14,8 +14,12 @@ export default StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: Layout.Spacing.MD,
+  },
+  buttonLeft: {
+    flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: Layout.Spacing.XS,
   },
   border: {
     borderColor: Colors.System.BrandTransparent,
@@ -28,6 +32,6 @@ export default StyleSheet.create({
     marginLeft: Layout.Spacing.MD,
   },
   actionButton: {
-    marginTop: Layout.Spacing.MD,
+
   },
 });

@@ -32,34 +32,15 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
       </Text>
 
       <View style={chooseToCreateStyles.container}>
-        <TouchableOpacity
-          style={chooseToCreateStyles.button}
-          onPress={() => handleNavigate(Screens.CreatePassword.Name)}>
-          <Icon
-            name="key-outline"
-            color={Colors.System.Brand}
-            size={Fonts.Size.XL} />
+        <Option
+          icon="key-outline"
+          onPress={() => handleNavigate(Screens.CreatePassword.Name)}
+          value={t('Password')}/>
 
-          <Text style={chooseToCreateStyles.buttonText}>
-            {t('Password')}
-          </Text>
-        </TouchableOpacity>
-
-        <View
-          style={chooseToCreateStyles.border} />
-
-        <TouchableOpacity
-          style={chooseToCreateStyles.button}
-          onPress={() => handleNavigate(Screens.CreateTag.Name)}>
-          <Icon
-            name="pricetag-outline"
-            color={Colors.System.Brand}
-            size={Fonts.Size.XL} />
-
-          <Text style={chooseToCreateStyles.buttonText}>
-            {t('Tag')}
-          </Text>
-        </TouchableOpacity>
+        <Option
+          icon="pricetag-outline"
+          onPress={() => handleNavigate(Screens.CreateTag.Name)}
+          value={t('Tag')} />
       </View>
 
       <Button
@@ -67,5 +48,35 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
         onPress={handleClose}
         text={t('Close') ?? 'Close'} />
     </BaseModal>
+  );
+}
+
+interface OptionProps {
+  onPress: () => void,
+  icon: string,
+  value: string
+}
+
+function Option({ onPress, icon, value }: OptionProps) {
+  return (
+    <TouchableOpacity
+      style={chooseToCreateStyles.button}
+      onPress={onPress}>
+      <View style={chooseToCreateStyles.buttonLeft}>
+        <Icon
+          name={icon}
+          color={Colors.System.Brand}
+          size={Fonts.Size.XL} />
+
+        <Text style={chooseToCreateStyles.buttonText}>
+          {value}
+        </Text>
+      </View>
+
+      <Icon
+        name="chevron-forward-outline"
+        color={Colors.System.Brand}
+        size={Fonts.Size.XL} />
+    </TouchableOpacity>
   );
 }
