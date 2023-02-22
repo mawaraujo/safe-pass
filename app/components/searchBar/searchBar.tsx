@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, TouchableOpacity } from 'react-native';
 import styles from './searchBar.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Colors } from '../../res';
+import { Colors, Fonts } from '../../res';
 import { useTranslation } from 'react-i18next';
 
 interface ISearchBarProps {
@@ -34,7 +34,7 @@ export default function SearchBar({ onChangeText, onClear, value }: ISearchBarPr
         <Icon
           name="search"
           color={Colors.Light.Muted}
-          size={16} />
+          size={Fonts.Size.MD} />
 
         <TextInput
           value={value}
@@ -52,7 +52,7 @@ export default function SearchBar({ onChangeText, onClear, value }: ISearchBarPr
               <Icon
                 name="close-outline"
                 color={Colors.Light.Muted}
-                size={20} />
+                size={Fonts.Size.MD} />
             </TouchableOpacity>
           )
         }

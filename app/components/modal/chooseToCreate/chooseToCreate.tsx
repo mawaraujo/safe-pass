@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, View } from 'react-native';
 import BaseModal from '../base/base';
 import chooseToCreateStyles from './chooseToCreate.styles';
 import { Navigation } from '../../../utils';
-import { Colors, Screens } from '../../../res';
+import { Colors, Fonts, Screens } from '../../../res';
 import Button from '../../button/button';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
@@ -38,12 +38,15 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
           <Icon
             name="key-outline"
             color={Colors.System.Brand}
-            size={28} />
+            size={Fonts.Size.XL} />
 
           <Text style={chooseToCreateStyles.buttonText}>
             {t('Password')}
           </Text>
         </TouchableOpacity>
+
+        <View
+          style={chooseToCreateStyles.border} />
 
         <TouchableOpacity
           style={chooseToCreateStyles.button}
@@ -51,7 +54,7 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
           <Icon
             name="pricetag-outline"
             color={Colors.System.Brand}
-            size={28} />
+            size={Fonts.Size.XL} />
 
           <Text style={chooseToCreateStyles.buttonText}>
             {t('Tag')}
@@ -60,9 +63,8 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
       </View>
 
       <Button
+        style={chooseToCreateStyles.actionButton}
         onPress={handleClose}
-        style={chooseToCreateStyles.cancelButton}
-        textStyle={chooseToCreateStyles.cancelButtonText}
         text={t('Close') ?? 'Close'} />
     </BaseModal>
   );

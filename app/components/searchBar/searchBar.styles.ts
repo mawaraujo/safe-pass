@@ -12,7 +12,7 @@ export default StyleSheet.create({
     width: '100%',
     borderRadius: Layout.BorderRadius.SM,
     paddingVertical: Layout.Spacing.SM,
-    paddingHorizontal: Layout.Spacing.MD,
+    paddingHorizontal: Layout.Spacing.SM,
     elevation: 5,
     shadowColor: Colors.Light.ShadowColor,
     flexDirection: 'row',

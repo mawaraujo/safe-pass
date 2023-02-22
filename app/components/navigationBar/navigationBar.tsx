@@ -26,7 +26,7 @@ export default function NavigationBar({ name, showBackIcon = true, children }: I
             <Icon
               name="arrow-back-outline"
               color={Colors.System.Brand}
-              size={Fonts.Size.LG} />
+              size={Fonts.Size.XL} />
           </TouchableOpacity>
         )}
 

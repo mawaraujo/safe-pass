@@ -36,7 +36,7 @@ export default function BottomTab() {
               ? Screens.Main.IconFocused
               : Screens.Main.Icon
             }
-            size={Fonts.Size.LG}
+            size={Fonts.Size.XL}
             color={Colors.System.Brand} />
         </TouchableOpacity>
 
@@ -51,7 +51,7 @@ export default function BottomTab() {
 
           <Icon
             name={Screens.CreatePassword.Icon}
-            size={Fonts.Size.LG}
+            size={Fonts.Size.XL}
             color={Colors.System.White} />
         </TouchableOpacity>
 
@@ -66,7 +66,7 @@ export default function BottomTab() {
               ? Screens.Tags.IconFocused
               : Screens.Tags.Icon
             }
-            size={Fonts.Size.LG}
+            size={Fonts.Size.XL}
             color={Colors.System.Brand} />
         </TouchableOpacity>
       </View>

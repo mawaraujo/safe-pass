@@ -47,7 +47,7 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
           <Icon
             style={styles.icon}
             name="earth-outline"
-            size={30}
+            size={Fonts.Size.XL}
             color={Colors.System.Brand} />
         )
       }
@@ -79,7 +79,7 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
       <Icon
         name="chevron-forward-outline"
         color={Colors.System.Brand}
-        size={Fonts.Size.LG} />
+        size={Fonts.Size.XL} />
     </TouchableOpacity>
   );
 }

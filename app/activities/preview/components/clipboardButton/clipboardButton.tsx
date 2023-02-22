@@ -12,7 +12,7 @@ interface Props {
 export default function ClipboardButton({ onCopy, item }: Props) {
   const [copied, setCopied] = React.useState<boolean>(false);
 
-  const iconName = React.useMemo(() => (copied ? 'checkmark-done-outline' : 'clipboard-outline'), [copied]);
+  const iconName = React.useMemo(() => (copied ? 'checkmark-outline' : 'clipboard-outline'), [copied]);
 
   const handlePress = React.useCallback(() => {
     if (!item) {

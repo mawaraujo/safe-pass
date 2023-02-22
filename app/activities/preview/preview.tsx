@@ -104,7 +104,7 @@ export default function Preview({ route }: IPreviewProps) {
 
             <Icon
               name="trash-outline"
-              size={Fonts.Size.LG}
+              size={Fonts.Size.XL}
               color={Colors.System.Brand} />
           </TouchableOpacity>
         </View>

@@ -6,31 +6,28 @@ export default StyleSheet.create({
     color: Colors.System.Brand,
     fontFamily: Fonts.Family.SemiBold,
     fontSize: Fonts.Size.MD,
-    marginBottom: Layout.Spacing.SM,
+    marginBottom: Layout.Spacing.MD,
   },
   container: {
     gap: Layout.Spacing.SM,
     marginBottom: Layout.Spacing.SM,
   },
-  cancelButton: {
-    backgroundColor: 'transparent',
-  },
-  cancelButtonText: {
-    color: Colors.System.Brand,
-  },
   button: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingVertical: Layout.Spacing.XS,
+  },
+  border: {
     borderColor: Colors.System.BrandTransparent,
-    borderWidth: 1,
-    padding: Layout.Spacing.SM,
-    borderRadius: Layout.BorderRadius.SM,
+    borderWidth: 0.5,
   },
   buttonText: {
     textAlign: 'center',
     color: Colors.System.Brand,
     fontFamily: Fonts.Family.Regular,
-    marginTop: Layout.Spacing.XS,
     marginLeft: Layout.Spacing.MD,
+  },
+  actionButton: {
+    marginTop: Layout.Spacing.MD,
   },
 });
