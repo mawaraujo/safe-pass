@@ -11,11 +11,12 @@ namespace Colors {
 
     Black = '#000000',
 
-    Danger = '#FF3B30',
-    DangerTransparent = 'rgba(255, 56, 46, 0.5)',
-    Warning = '#F0A92D',
-    Info = '#007BC3',
-    Success = '#1EA779',
+    Danger = '#F44336',
+    DangerTransparent = 'rgba(244, 67, 54, 0.5)',
+
+    Warning = '#FF9800',
+    Info = '#2196F3',
+    Success = '#4CAF50',
   }
 
   export enum Light {
