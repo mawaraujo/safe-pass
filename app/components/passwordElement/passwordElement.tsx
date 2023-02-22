@@ -3,7 +3,7 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import type { NPassword } from '../../types';
 import styles from './passwordElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Colors } from '../../res';
+import { Colors, Fonts } from '../../res';
 import { useTranslation } from 'react-i18next';
 import { Strings } from '../../utils';
 
@@ -79,7 +79,7 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
       <Icon
         name="chevron-forward-outline"
         color={Colors.System.Brand}
-        size={24} />
+        size={Fonts.Size.LG} />
     </TouchableOpacity>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Colors } from '../../../../res';
+import { Colors, Fonts } from '../../../../res';
 import itemSelectorStyles from './item.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native';
@@ -38,7 +38,7 @@ export default function Item({ title, description, onPress, isLink, firstItem = 
           <Icon
             color={Colors.System.Brand}
             name={isLink ? 'open-outline' : 'chevron-forward-outline'}
-            size={24} />
+            size={Fonts.Size.LG} />
         )
       }
     </TouchableOpacity>

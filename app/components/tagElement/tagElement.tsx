@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import type { NTag } from '../../types';
 import styles from './tagElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Colors, Screens } from '../../res';
+import { Colors, Fonts, Screens } from '../../res';
 import { Navigation } from '../../utils';
 import { useTranslation } from 'react-i18next';
 
@@ -39,7 +39,7 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
             : 'document-outline'
         }
         color={Colors.System.Brand}
-        size={26} />
+        size={Fonts.Size.LG} />
 
       <View style={styles.left}>
         <Text style={styles.title}>{item.name}</Text>
@@ -56,7 +56,7 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
           <Icon
             name="create-outline"
             color={Colors.System.Brand}
-            size={26} />
+            size={Fonts.Size.LG} />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -65,7 +65,7 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
           <Icon
             name="trash-outline"
             color={Colors.System.Brand}
-            size={26} />
+            size={Fonts.Size.LG} />
         </TouchableOpacity>
       </View>
     </View>
