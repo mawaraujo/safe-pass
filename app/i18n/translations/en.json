@@ -13,7 +13,7 @@
     "Select": "Select",
     "Continue": "Continue",
 
-    "Contains [n] passwords": "Contains [n] passwords",
+    "Contains [n] passwords": "Passwords found: [n]",
     
     "Unlock": "Unlock to continue",
     "Unlock request": "Use your fingerprint, PIN or pattern to continue",

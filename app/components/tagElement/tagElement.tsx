@@ -33,7 +33,11 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
       style={styles.container}>
 
       <Icon
-        name="pricetag-outline"
+        name={
+          (linkedPasswords && linkedPasswords > 1)
+            ? 'documents-outline'
+            : 'document-outline'
+        }
         color={Colors.System.Brand}
         size={26} />
 

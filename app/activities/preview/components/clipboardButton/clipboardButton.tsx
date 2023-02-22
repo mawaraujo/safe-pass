@@ -21,7 +21,7 @@ export default function ClipboardButton({ onCopy, item }: Props) {
 
     onCopy(item);
     setCopied(true);
-    setTimeout(() => setCopied(false), 1000);
+    setTimeout(() => setCopied(false), 3000);
   }, [item]);
 
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StatusBar, TouchableOpacity, Text } from 'react-native';
 import styles from './welcomeHeader.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Colors, Screens } from '../../res';
+import { Colors, Fonts, Screens } from '../../res';
 import { Navigation } from '../../utils';
 
 interface WelcomeHeaderProps {
@@ -33,7 +33,7 @@ export default function WelcomeHeader(props: WelcomeHeaderProps) {
           <Icon
             name="settings-outline"
             color={Colors.System.White}
-            size={28} />
+            size={Fonts.Size.LG} />
         </TouchableOpacity>
       </View>
     </View>

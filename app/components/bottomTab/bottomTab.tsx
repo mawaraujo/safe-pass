@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import bottomTabStyles from './bottomTab.styles';
-import { Screens, Colors } from '../../res';
+import { Screens, Colors, Fonts } from '../../res';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native';
 import { Navigation } from '../../utils';
@@ -36,7 +36,7 @@ export default function BottomTab() {
               ? Screens.Main.IconFocused
               : Screens.Main.Icon
             }
-            size={28}
+            size={Fonts.Size.LG}
             color={Colors.System.Brand} />
         </TouchableOpacity>
 
@@ -51,7 +51,7 @@ export default function BottomTab() {
 
           <Icon
             name={Screens.CreatePassword.Icon}
-            size={28}
+            size={Fonts.Size.LG}
             color={Colors.System.White} />
         </TouchableOpacity>
 
@@ -66,7 +66,7 @@ export default function BottomTab() {
               ? Screens.Tags.IconFocused
               : Screens.Tags.Icon
             }
-            size={28}
+            size={Fonts.Size.LG}
             color={Colors.System.Brand} />
         </TouchableOpacity>
       </View>
