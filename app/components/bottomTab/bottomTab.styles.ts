@@ -11,6 +11,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: Layout.Spacing.XL,
+    borderTopWidth: 0.5,
+    borderTopColor: Colors.Light.Muted,
     backgroundColor: Colors.Light.CardColor,
     paddingVertical: 8,
     position: 'relative',
