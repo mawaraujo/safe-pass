@@ -7,6 +7,7 @@ namespace Autocomplete {
     'www.reddit.com',
     'www.disneyplus.com',
     'www.paramountplus.com',
+    'www.starplus.com',
     'www.hbomax.com',
     'www.mercadolibre.com',
     'www.primevideo.com',
