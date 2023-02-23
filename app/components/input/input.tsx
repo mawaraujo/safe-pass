@@ -1,23 +1,23 @@
 import React from 'react';
-import {View, Text, TextInput as RNTextInput, TextInputProps} from 'react-native';
-import styles from './textInput.styles';
-import {Strings} from '../../utils';
-import {Colors} from '../../res';
+import { View, Text, TextInput as RNTextInput, TextInputProps } from 'react-native';
+import styles from './input.styles';
+import { Strings } from '../../utils';
+import { Colors } from '../../res';
 
-type ITextInputProps = {
+type Props = {
   label?: string,
   validationError?: string,
   textAlignVerticalTop?: boolean,
 }
 
-type ExtendedITextInputProps = ITextInputProps & TextInputProps
+type ExtendedProps = Props & TextInputProps
 
-export default function TextInput({
+export default function Input({
   label,
   validationError,
   textAlignVerticalTop = false,
   ...rest
-}: ExtendedITextInputProps) {
+}: ExtendedProps) {
 
   const [focused, setFocused] = React.useState<boolean>(false);
 

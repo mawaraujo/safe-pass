@@ -6,7 +6,8 @@ import { FormikHelpers, useFormik } from 'formik';
 import useForm from './useForm';
 import Button from '../../components/button/button';
 import styles from './createPassword.styles';
-import TextInput from '../../components/textInput/textInput';
+import Input from '../../components/input/input';
+import InputAutocomplete from '../../components/inputAutocomplete/inputAutocomplete';
 import Select from '../../components/select/select';
 import type { NPassword } from '../../types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -126,9 +127,9 @@ export default function CreatePassword({ route }: Props) {
         keyboardShouldPersistTaps={'always'}
         contentContainerStyle={styles.container}>
 
-        <TextInput
+        <Input
           value={formik.values.name}
-          label={t('Name') ?? 'Name'}
+          label={`${t('Name') ?? 'Name'}*`}
           autoCapitalize={'words'}
           validationError={formik.errors.name}
           onChangeText={(e) => {
@@ -137,8 +138,9 @@ export default function CreatePassword({ route }: Props) {
           placeholder="Facebook Username"
         />
 
-        <TextInput
+        <InputAutocomplete
           value={formik.values.url}
+          autoCompleteList={['https://facebook.com', 'https://reddit.com', 'https://twitter.com', 'https://udemy.com', 'https://mastodon.com', 'https://wikipedia.com']}
           label={t('Site or Application') ?? 'Site or Application'}
           validationError={formik.errors.url}
           autoCapitalize={'none'}
@@ -148,7 +150,7 @@ export default function CreatePassword({ route }: Props) {
           placeholder="www.facebook.com"
         />
 
-        <TextInput
+        <Input
           value={formik.values.username}
           label={t('Username') ?? 'Username'}
           accessibilityHint="username"
@@ -160,7 +162,7 @@ export default function CreatePassword({ route }: Props) {
           placeholder="myusername1"
         />
 
-        <TextInput
+        <Input
           value={formik.values.email}
           label={t('Email') ?? 'Email'}
           accessibilityHint="email_address"
@@ -172,7 +174,7 @@ export default function CreatePassword({ route }: Props) {
           placeholder="email@example.com"
         />
 
-        <TextInput
+        <Input
           value={formik.values.password}
           label={t('Password') ?? 'Password'}
           secureTextEntry={true}
@@ -194,7 +196,7 @@ export default function CreatePassword({ route }: Props) {
           }}
         />
 
-        <TextInput
+        <Input
           value={formik.values.notes}
           label={t('Notes') ?? 'Notes'}
           numberOfLines={3}

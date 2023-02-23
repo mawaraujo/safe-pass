@@ -6,7 +6,7 @@ import { FormikHelpers, useFormik } from 'formik';
 import useForm from './useForm';
 import Button from '../../components/button/button';
 import styles from './createTag.styles';
-import TextInput from '../../components/textInput/textInput';
+import Input from '../../components/input/input';
 import type { NTag } from '../../types';
 import { useDispatch } from 'react-redux';
 import tagSlice from '../../store/reducers/tagSlice';
@@ -112,7 +112,7 @@ export default function CreateTag({ route }: ICreateTag) {
         keyboardShouldPersistTaps={'always'}
         contentContainerStyle={styles.container}>
 
-        <TextInput
+        <Input
           value={formik.values.name}
           label={t('Name') ?? 'Name'}
           autoCapitalize={'words'}
