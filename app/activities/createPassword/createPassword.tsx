@@ -18,6 +18,9 @@ import uuid from 'react-native-uuid';
 import alertSlice from '../../store/reducers/alertSlice';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
+import topSites from 'top-sites';
+
+topSites.unshift({ rank: -0, rootDomain: 'reddit.com', linkingRootDomains: 100000, domainAuthority: 1000000 });
 
 interface Props {
   route?: {
@@ -43,6 +46,8 @@ export default function CreatePassword({ route }: Props) {
 
   const tags = useSelector((state: RootState) => state.tags);
   const password = route?.params?.password;
+
+  const autocomplete = React.useMemo(() => topSites.map((t) => t.rootDomain), []);
 
   const onSubmit = (
       value: NPassword.Password,
@@ -140,14 +145,14 @@ export default function CreatePassword({ route }: Props) {
 
         <InputAutocomplete
           value={formik.values.url}
-          autoCompleteList={['https://facebook.com', 'https://reddit.com', 'https://twitter.com', 'https://udemy.com', 'https://mastodon.com', 'https://wikipedia.com']}
+          data={autocomplete}
           label={t('Site or Application') ?? 'Site or Application'}
           validationError={formik.errors.url}
           autoCapitalize={'none'}
           onChangeText={(e) => {
             formik.setFieldValue('url', e);
           }}
-          placeholder="www.facebook.com"
+          placeholder="facebook.com"
         />
 
         <Input

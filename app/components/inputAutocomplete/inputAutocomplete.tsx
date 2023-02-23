@@ -8,27 +8,24 @@ import Results from './results';
 type Props = {
   label?: string,
   validationError?: string,
-  autoCompleteList?: Array<string>
+  data?: Array<string>,
 }
 
 type ExtendedProps = Props & TextInputProps
 
-export default function InputAutocomplete({ label, validationError, autoCompleteList = [], ...rest }: ExtendedProps) {
+export default function InputAutocomplete({ label, validationError, data = [], ...rest }: ExtendedProps) {
   const [focused, setFocused] = React.useState<boolean>(false);
   const [autoCompleteValues, setAutoCompleteValues] = React.useState<Array<string>>([]);
 
   const onChange = React.useCallback(() => {
-    if (!autoCompleteList) {
-      return;
-    }
+    if (!data) return;
 
-    const newList = autoCompleteList.filter((val) => val.toLowerCase().includes(rest.value ?? ''));
+    const newList = data.filter((val) => val.toLowerCase().includes(rest.value ?? ''));
     setAutoCompleteValues(newList);
 
   }, [
+    data,
     rest?.value,
-    autoCompleteList,
-    autoCompleteValues,
     setAutoCompleteValues,
   ]);
 
@@ -38,11 +35,9 @@ export default function InputAutocomplete({ label, validationError, autoComplete
     setTimeout(() => {
       setAutoCompleteValues([]);
     }, 100);
-  }, [rest?.onChangeText]);
+  }, [rest]);
 
-  React.useEffect(() => {
-    onChange();
-  }, [rest?.value]);
+  React.useEffect(() => onChange(), [rest.value]);
 
   return (
     <View style={styles.container}>
