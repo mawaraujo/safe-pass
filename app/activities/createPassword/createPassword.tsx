@@ -13,14 +13,11 @@ import type { NPassword } from '../../types';
 import { useDispatch, useSelector } from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import { Navigation } from '../../utils';
-import { Screens } from '../../res';
+import { Screens, Autocomplete } from '../../res';
 import uuid from 'react-native-uuid';
 import alertSlice from '../../store/reducers/alertSlice';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
-import topSites from 'top-sites';
-
-topSites.unshift({ rank: -0, rootDomain: 'reddit.com', linkingRootDomains: 100000, domainAuthority: 1000000 });
 
 interface Props {
   route?: {
@@ -46,8 +43,6 @@ export default function CreatePassword({ route }: Props) {
 
   const tags = useSelector((state: RootState) => state.tags);
   const password = route?.params?.password;
-
-  const autocomplete = React.useMemo(() => topSites.map((t) => t.rootDomain), []);
 
   const onSubmit = (
       value: NPassword.Password,
@@ -145,7 +140,7 @@ export default function CreatePassword({ route }: Props) {
 
         <InputAutocomplete
           value={formik.values.url}
-          data={autocomplete}
+          data={Autocomplete.Sites}
           label={t('Site or Application') ?? 'Site or Application'}
           validationError={formik.errors.url}
           autoCapitalize={'none'}
