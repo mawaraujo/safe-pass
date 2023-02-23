@@ -4,6 +4,7 @@ import Link from './link';
 import FileSystem from './filesystem';
 import Storage from './storage';
 import Crypto from './crypto';
+import Backup from './backup';
 
 export {
   Navigation,
@@ -12,4 +13,5 @@ export {
   FileSystem,
   Storage,
   Crypto,
+  Backup,
 };
