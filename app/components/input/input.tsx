@@ -10,14 +10,12 @@ type Props = {
   textAlignVerticalTop?: boolean,
 }
 
-type ExtendedProps = Props & TextInputProps
-
 export default function Input({
   label,
   validationError,
   textAlignVerticalTop = false,
   ...rest
-}: ExtendedProps) {
+}: Props & TextInputProps) {
 
   const [focused, setFocused] = React.useState<boolean>(false);
 

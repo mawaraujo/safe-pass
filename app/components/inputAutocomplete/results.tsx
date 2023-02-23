@@ -26,14 +26,13 @@ export default function Results({ values, onChange }: Props) {
         contentContainerStyle={styles.resultsScroll}>
 
         {
-          values.slice(0, 4).map((val) => (
+          values.slice(0, 4).map((val, index) => (
             <TouchableOpacity
+              key={val+index}
               style={styles.resultsItem}
-              onPress={() => onChange?.(val)}
-              key={val}>
+              onPress={() => onChange?.(val)}>
 
-              <Text
-                style={styles.resultsItemText}>
+              <Text style={styles.resultsItemText}>
                 {val}
               </Text>
             </TouchableOpacity>

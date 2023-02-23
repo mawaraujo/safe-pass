@@ -11,14 +11,12 @@ type Props = {
   data?: Array<string>,
 }
 
-type ExtendedProps = Props & TextInputProps
-
 export default function InputAutocomplete({
   label,
   validationError,
   data = [],
   ...rest
-}: ExtendedProps) {
+}: Props & TextInputProps) {
 
   const [focused, setFocused] = React.useState<boolean>(false);
   const [autoCompleteValues, setAutoCompleteValues] = React.useState<Array<string>>([]);
