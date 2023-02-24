@@ -22,4 +22,21 @@ export default class Strings {
 
     return url;
   }
+
+  static generatePassword(length: number = 8): string {
+    const minus = 'abcdefghijklmnopqrstuvwxyz';
+    const mayus = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numbers = '0123456789[';
+    const symbols = ']}{!?_@¡-¿';
+
+    const chars = `${symbols}${minus}${mayus}${numbers}${symbols}`;
+
+    let password = '';
+    for (let i = 1; i < length; i++) {
+      const c = Math.floor(Math.random()*chars.length + 1);
+      password += chars.charAt(c);
+    }
+
+    return password;
+  }
 }

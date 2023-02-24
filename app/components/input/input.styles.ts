@@ -1,9 +1,10 @@
-import {StyleSheet} from 'react-native';
-import {Colors, Fonts, Layout} from '../../res';
+import { StyleSheet } from 'react-native';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
     marginBottom: Layout.Spacing.MD,
+    flex: 1,
   },
   label: {
     marginBottom: Layout.Spacing.SM,
@@ -26,6 +27,7 @@ export default StyleSheet.create({
     borderColor: 'transparent',
     fontFamily: Fonts.Family.Regular,
     color: Colors.System.Brand,
+    flex: 1,
   },
   inputFocused: {
     borderColor: Colors.System.BrandTransparent,
@@ -35,5 +37,9 @@ export default StyleSheet.create({
   },
   textAlignVerticalTop: {
     textAlignVertical: 'top',
+  },
+  formGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

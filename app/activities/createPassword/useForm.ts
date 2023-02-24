@@ -1,10 +1,13 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import * as yup from 'yup';
 import NPassword from '../../types/password';
 import { useTranslation } from 'react-i18next';
 
 export default function useForm() {
   const { t } = useTranslation();
+
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [editMode, setEditMode] = useState<boolean>(false);
 
   const validationSchema = useMemo(() => (
     yup
@@ -34,6 +37,10 @@ export default function useForm() {
   return {
     validationSchema,
     initialValues,
+    editMode,
+    setEditMode,
+    showPassword,
+    setShowPassword,
   };
 }
 

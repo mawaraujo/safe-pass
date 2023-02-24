@@ -12,12 +12,13 @@ import Select from '../../components/select/select';
 import type { NPassword } from '../../types';
 import { useDispatch, useSelector } from 'react-redux';
 import passwordSlice from '../../store/reducers/passwordSlice';
-import { Navigation } from '../../utils';
+import { Navigation, Strings } from '../../utils';
 import { Screens, Autocomplete } from '../../res';
 import uuid from 'react-native-uuid';
 import alertSlice from '../../store/reducers/alertSlice';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
+import PasswordActionIcons from './components/passwordActionIcons/passwordActionIcons';
 
 interface Props {
   route?: {
@@ -31,12 +32,11 @@ export default function CreatePassword({ route }: Props) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const [
+  const {
     editMode,
     setEditMode,
-  ] = React.useState(false);
-
-  const {
+    showPassword,
+    setShowPassword,
     initialValues,
     validationSchema,
   } = useForm();
@@ -44,14 +44,8 @@ export default function CreatePassword({ route }: Props) {
   const tags = useSelector((state: RootState) => state.tags);
   const password = route?.params?.password;
 
-  const onSubmit = (
-      value: NPassword.Password,
-      _helpers: FormikHelpers<NPassword.Password>,
-  ) => {
-
-    // If not in edit mode, We will create a new password
+  const onSubmit = (value: NPassword.Password, _helpers: FormikHelpers<NPassword.Password>) => {
     if (!editMode) {
-
       // Create a random uuid
       value.id = uuid.v4().toString();
 
@@ -177,13 +171,25 @@ export default function CreatePassword({ route }: Props) {
         <Input
           value={formik.values.password}
           label={t('Password') ?? 'Password'}
-          secureTextEntry={true}
+          secureTextEntry={showPassword === false}
           accessibilityHint="password"
           validationError={formik.errors.password}
           onChangeText={(e) => {
             formik.setFieldValue('password', e);
           }}
           placeholder="*****"
+          rightComponent={
+            <PasswordActionIcons
+              onPressGeneratePassword={() => {
+                setShowPassword(true);
+                formik.setFieldValue('password', Strings.generatePassword(12));
+              }}
+              showEye={showPassword}
+              onPressEye={() => {
+                setShowPassword(!showPassword);
+              }}
+            />
+          }
         />
 
         <Select

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { View, Text, TextInput as RNTextInput, TextInputProps } from 'react-native';
 import styles from './input.styles';
 import { Strings } from '../../utils';
@@ -8,12 +8,14 @@ type Props = {
   label?: string,
   validationError?: string,
   textAlignVerticalTop?: boolean,
+  rightComponent?: ReactNode
 }
 
 export default function Input({
   label,
   validationError,
   textAlignVerticalTop = false,
+  rightComponent,
   ...rest
 }: Props & TextInputProps) {
 
@@ -27,17 +29,21 @@ export default function Input({
         )
       }
 
-      <RNTextInput
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        placeholderTextColor={Colors.Light.Muted}
-        style={[
-          styles.input,
-          (textAlignVerticalTop && styles.textAlignVerticalTop),
-          (focused && styles.inputFocused),
-          (validationError ? styles.inputError : null),
-        ]}
-        {...rest} />
+      <View style={styles.formGroup}>
+        <RNTextInput
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          placeholderTextColor={Colors.Light.Muted}
+          style={[
+            styles.input,
+            (textAlignVerticalTop && styles.textAlignVerticalTop),
+            (focused && styles.inputFocused),
+            (validationError ? styles.inputError : null),
+          ]}
+          {...rest} />
+
+        { rightComponent && rightComponent }
+      </View>
 
       {
         (validationError && validationError?.length > 0) && (
