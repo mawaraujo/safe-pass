@@ -32,14 +32,7 @@ export default function CreatePassword({ route }: Props) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const {
-    editMode,
-    setEditMode,
-    showPassword,
-    setShowPassword,
-    initialValues,
-    validationSchema,
-  } = useForm();
+  const { editMode, setEditMode, showPassword, setShowPassword, initialValues, validationSchema } = useForm();
 
   const tags = useSelector((state: RootState) => state.tags);
   const password = route?.params?.password;
@@ -81,9 +74,9 @@ export default function CreatePassword({ route }: Props) {
     Navigation.navigate(Screens.Main.Name);
   };
 
-  const parsedTags = React.useMemo(() => (
-    tags.map((tag) => ({ name: tag.name, value: tag.id }))
-  ), [tags]);
+  const parsedTags = React.useMemo(() =>
+    tags.map((tag) => ({ name: tag.name, value: tag.id })),
+  [tags]);
 
   const formik = useFormik({
     validationSchema: validationSchema,
