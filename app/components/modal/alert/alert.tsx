@@ -20,7 +20,7 @@ export default function Alert() {
   const alertIcon = React.useMemo(() => {
     switch (alertValue.type) {
       case 'Success':
-        return 'thumbs-up-outline';
+        return 'checkmark-circle-outline';
 
       default:
         return 'alert-circle-outline';

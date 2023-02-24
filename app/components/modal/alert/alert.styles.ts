@@ -12,7 +12,7 @@ export default StyleSheet.create({
     color: Colors.System.Brand,
     fontFamily: Fonts.Family.SemiBold,
     fontSize: Fonts.Size.MD,
-    marginBottom: Layout.Spacing.LG,
+    marginBottom: Layout.Spacing.MD,
     textAlign: 'center',
   },
   button: {
