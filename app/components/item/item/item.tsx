@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Colors, Fonts } from '../../../../res';
+import { Colors, Fonts } from '../../../res';
 import itemSelectorStyles from './item.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native';
-import SubTitle from '../../../../components/subTitle/subTitle';
+import SubTitle from '../../../components/subTitle/subTitle';
 
 interface ItemProps {
   title: string,

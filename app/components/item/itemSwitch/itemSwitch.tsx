@@ -1,8 +1,8 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { View, Text, Switch } from 'react-native';
-import SubTitle from '../../../../components/subTitle/subTitle';
-import { Colors } from '../../../../res';
+import SubTitle from '../../../components/subTitle/subTitle';
+import { Colors } from '../../../res';
 import itemSwitchStyles from './itemSwitch.styles';
 
 interface ItemSwitchProps {

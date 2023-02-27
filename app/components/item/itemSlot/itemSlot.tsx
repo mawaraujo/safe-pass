@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import SubTitle from '../../../../components/subTitle/subTitle';
+import SubTitle from '../../../components/subTitle/subTitle';
 import styles from './itemSlot.styles';
 
 interface ItemProps {

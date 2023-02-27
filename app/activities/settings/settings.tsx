@@ -3,11 +3,12 @@ import { ScrollView } from 'react-native';
 import DefaultLayout from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import settingsStyles from './settings.styles';
-import SecuritySection from './sections/security/security';
-import BackupSection from './sections/backup/backup';
-import GeneralSection from './sections/general/general';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/title/title';
+
+import SecuritySection from './components/security/security';
+import BackupSection from './components/backup/backup';
+import InformationGeneral from './components/informationGeneral/informationGeneral';
 
 export default function Settings() {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ export default function Settings() {
 
         <SecuritySection />
         <BackupSection />
-        <GeneralSection />
+        <InformationGeneral />
       </ScrollView>
     </DefaultLayout>
   );

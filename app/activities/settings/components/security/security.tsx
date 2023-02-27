@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../store/store';
 import settingsSlice from '../../../../store/reducers/settingsSlice';
 import Card from '../../../../components/card/card';
-import ItemSwitch from '../../components/itemSwitch/itemSwitch';
+import ItemSwitch from '../../../../components/item/itemSwitch/itemSwitch';
 import { useTranslation } from 'react-i18next';
 import LocalAuthentication from '../../../../modules/localAuthentication/localAuthentication';
 import alertSlice from '../../../../store/reducers/alertSlice';

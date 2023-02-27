@@ -1,14 +1,14 @@
 import React from 'react';
 import Card from '../../../../components/card/card';
 import Application from '../../../../../app.json';
-import ItemSlot from '../../components/itemSlot/itemSlot';
+import ItemSlot from '../../../../components/item/itemSlot/itemSlot';
+import Item from '../../../../components/item/item/item';
 import { Picker } from '@react-native-picker/picker';
-import generalStyles from './general.styles';
+import generalStyles from './informationGeneral.styles';
 import { Colors, Storage as StorageRes } from '../../../../res';
 import { Link, Storage } from '../../../../utils';
 import { NLang } from '../../../../types';
 import { useTranslation } from 'react-i18next';
-import Item from '../../components/item/item';
 
 const LANG_LIST = [
   {
