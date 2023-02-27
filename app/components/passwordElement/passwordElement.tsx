@@ -1,11 +1,12 @@
 import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import type { NPassword } from '../../types';
 import styles from './passwordElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors, Fonts } from '../../res';
 import { useTranslation } from 'react-i18next';
 import { Strings } from '../../utils';
+import Text from '../text/text';
 
 interface IPasswordElementProps {
   item: NPassword.Password,
@@ -53,24 +54,24 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
       }
 
       <View style={styles.left}>
-        <Text style={styles.title}>{item.name}</Text>
+        <Text bold>{item.name}</Text>
 
         { item.username && (
-          <Text style={styles.extraInfo}>
+          <Text muted>
             {item.username}
           </Text>
         )}
 
         { !item.username && item.email && (
-          <Text style={styles.extraInfo}>
+          <Text muted>
             {item.email}
           </Text>
         )}
 
         {
           !item.username && !item.email && (
-            <Text style={styles.extraInfo}>
-              {t('NoInformation')}
+            <Text muted>
+              {t('NoInformation').toString()}
             </Text>
           )
         }

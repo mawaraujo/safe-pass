@@ -19,16 +19,7 @@ export default StyleSheet.create({
   icon: {
     marginRight: Layout.Spacing.MD,
   },
-  title: {
-    color: Colors.System.Brand,
-    textTransform: 'capitalize',
-    fontFamily: Fonts.Family.Bold,
-  },
   left: {
     flex: 1,
-  },
-  extraInfo: {
-    fontFamily: Fonts.Family.Regular,
-    color: Colors.Light.Muted,
   },
 });

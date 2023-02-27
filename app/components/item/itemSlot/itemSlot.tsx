@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import SubTitle from '../../../components/subTitle/subTitle';
+import Text from '../../text/text';
 import styles from './itemSlot.styles';
 
 interface ItemProps {
@@ -21,7 +21,7 @@ export default function ItemSlot({ title, children, childrenPosition = 'left', f
         childrenPosition === 'bottom' && styles.childrenBottom,
       ]}>
       <View style={styles.leftContainer}>
-        <SubTitle muted={false}>{title && title}</SubTitle>
+        <Text bold>{title && title}</Text>
       </View>
 
       { children && children }

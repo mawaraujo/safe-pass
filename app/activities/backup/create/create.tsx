@@ -10,7 +10,7 @@ import { Colors } from '../../../res';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import Title from '../../../components/title/title';
-import SubTitle from '../../../components/subTitle/subTitle';
+import Text from '../../../components/text/text';
 
 export default function CreateBackup() {
   const { t } = useTranslation();
@@ -66,9 +66,9 @@ export default function CreateBackup() {
           {t('Create backup').toString()}
         </Title>
 
-        <SubTitle>
+        <Text muted>
           {t('Export your data and save it locally').toString()}
-        </SubTitle>
+        </Text>
 
         {
           isLoading && (
