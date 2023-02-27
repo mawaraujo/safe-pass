@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Colors, Fonts } from '../../../res';
 import itemSelectorStyles from './item.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native';
 import SubTitle from '../../../components/subTitle/subTitle';
+import Text from '../../../components/text/text';
 
 interface ItemProps {
   title: string,
@@ -28,9 +29,7 @@ export default function Item({ title, description, onPress, isLink, firstItem = 
         <SubTitle muted={false}>{title && title}</SubTitle>
 
         { description && (
-          <Text style={itemSelectorStyles.description}>
-            {description}
-          </Text>
+          <Text muted>{description}</Text>
         )}
       </View>
 

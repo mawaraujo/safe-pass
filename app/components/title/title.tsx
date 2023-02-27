@@ -1,10 +1,10 @@
-import { Text, TextStyle } from 'react-native';
+import { StyleProp, Text, TextStyle } from 'react-native';
 import React from 'react';
 import titleStyles from './title.styles';
 
 interface Props {
   children?: string,
-  style?: TextStyle
+  style?: StyleProp<TextStyle> | undefined
 }
 
 export default function Title({ children, style }: Props) {

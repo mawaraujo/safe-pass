@@ -1,10 +1,10 @@
-import { Text, TextStyle } from 'react-native';
+import { StyleProp, Text, TextStyle } from 'react-native';
 import React from 'react';
 import styles from './subTitle.styles';
 
 interface Props {
   children?: string,
-  style?: TextStyle,
+  style?: StyleProp<TextStyle> | undefined
   muted?: boolean
 }
 

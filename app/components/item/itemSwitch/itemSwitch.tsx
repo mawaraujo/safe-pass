@@ -1,8 +1,9 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { View, Text, Switch } from 'react-native';
+import { View, Switch } from 'react-native';
 import SubTitle from '../../../components/subTitle/subTitle';
 import { Colors } from '../../../res';
+import Text from '../../text/text';
 import itemSwitchStyles from './itemSwitch.styles';
 
 interface ItemSwitchProps {
@@ -32,9 +33,7 @@ export default function ItemSwitch({ title, description, onChange, firstItem = f
         <SubTitle muted={false}>{title && title}</SubTitle>
 
         { description && (
-          <Text style={itemSwitchStyles.description}>
-            {description}
-          </Text>
+          <Text muted>{description}</Text>
         )}
       </View>
 

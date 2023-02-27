@@ -2,9 +2,7 @@ import { StyleSheet } from 'react-native';
 import { Colors, Fonts, Layout } from '../../../../res';
 
 export default StyleSheet.create({
-  main: {
-    // marginHorizontal: Layout.Spacing.MD,
-  },
+  main: { },
   container: {
     gap: Layout.Spacing.MD,
     paddingBottom: Layout.Spacing.MD,
@@ -19,11 +17,6 @@ export default StyleSheet.create({
   },
   selectedCard: {
     backgroundColor: Colors.System.Brand,
-  },
-  title: {
-    color: Colors.System.Brand,
-    fontFamily: Fonts.Family.Regular,
-    marginBottom: Layout.Spacing.XS,
   },
   cardTitle: {
     color: Colors.System.Brand,
