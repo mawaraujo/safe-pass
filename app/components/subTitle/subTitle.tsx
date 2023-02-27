@@ -4,10 +4,11 @@ import styles from './subTitle.styles';
 
 interface Props {
   children?: string,
-  style?: TextStyle
+  style?: TextStyle,
+  muted?: boolean
 }
 
-export default function SubTitle({ children, style }: Props) {
+export default function SubTitle({ children, style, muted = true }: Props) {
   if (!children) {
     return (
       null
@@ -19,6 +20,7 @@ export default function SubTitle({ children, style }: Props) {
       style={[
         styles.subTitle,
         style && style,
+        muted && styles.muted,
       ]}>
 
       {children && children}

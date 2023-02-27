@@ -3,8 +3,11 @@ import { Colors, Fonts } from '../../res';
 
 export default StyleSheet.create({
   subTitle: {
-    color: Colors.Light.Muted,
     fontFamily: Fonts.Family.Regular,
     fontSize: Fonts.Size.MD,
+    color: Colors.System.Brand,
+  },
+  muted: {
+    color: Colors.Light.Muted,
   },
 });

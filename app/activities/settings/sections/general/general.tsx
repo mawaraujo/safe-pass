@@ -1,12 +1,14 @@
 import React from 'react';
 import Card from '../../../../components/card/card';
+import Application from '../../../../../app.json';
 import ItemSlot from '../../components/itemSlot/itemSlot';
 import { Picker } from '@react-native-picker/picker';
-import generalStyles from './language.styles';
+import generalStyles from './general.styles';
 import { Colors, Storage as StorageRes } from '../../../../res';
-import { Storage } from '../../../../utils';
+import { Link, Storage } from '../../../../utils';
 import { NLang } from '../../../../types';
 import { useTranslation } from 'react-i18next';
+import Item from '../../components/item/item';
 
 const LANG_LIST = [
   {
@@ -19,7 +21,7 @@ const LANG_LIST = [
   },
 ];
 
-export default function LanguageSection() {
+export default function GeneralSection() {
   const { t, i18n } = useTranslation();
   const [lang, setLang] = React.useState<string>(NLang.AvailableLanguages.En);
 
@@ -78,6 +80,16 @@ export default function LanguageSection() {
           }
         </Picker>
       </ItemSlot>
+
+      <Item
+        onPress={() => Link.openURL(Application.github)}
+        isLink={true}
+        title={t('Developer') ?? 'Developer'}
+        description={Application.author} />
+
+      <Item
+        title={t('Version') ?? 'Version'}
+        description={Application.version} />
     </Card>
   );
 }
