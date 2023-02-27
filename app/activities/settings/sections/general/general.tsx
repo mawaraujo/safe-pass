@@ -56,40 +56,45 @@ export default function GeneralSection() {
   }, []);
 
   return (
-    <Card>
-      <ItemSlot
-        childrenPosition="bottom"
-        title={t('Language') ?? 'Language'}
-        firstItem={true}>
+    <React.Fragment>
+      <Card>
+        <ItemSlot
+          childrenPosition="bottom"
+          title={t('Language') ?? 'Language'}
+          firstItem={true}>
 
-        <Picker
-          style={generalStyles.picker}
-          mode="dropdown"
-          dropdownIconColor={Colors.System.Brand}
-          selectedValue={lang}
-          onValueChange={(itemValue, itemIndex) => setLangValue(itemValue)}>
+          <Picker
+            style={generalStyles.picker}
+            mode="dropdown"
+            dropdownIconColor={Colors.System.Brand}
+            selectedValue={lang}
+            onValueChange={(itemValue, itemIndex) => setLangValue(itemValue)}>
 
-          {
-            LANG_LIST.map((lang) => (
-              <Picker.Item
-                style={generalStyles.pickerItem}
-                key={lang.value}
-                label={lang.name}
-                value={lang.value} />
-            ))
-          }
-        </Picker>
-      </ItemSlot>
+            {
+              LANG_LIST.map((lang) => (
+                <Picker.Item
+                  style={generalStyles.pickerItem}
+                  key={lang.value}
+                  label={lang.name}
+                  value={lang.value} />
+              ))
+            }
+          </Picker>
+        </ItemSlot>
+      </Card>
 
-      <Item
-        onPress={() => Link.openURL(Application.github)}
-        isLink={true}
-        title={t('Developer') ?? 'Developer'}
-        description={Application.author} />
+      <Card>
+        <Item
+          firstItem
+          onPress={() => Link.openURL(Application.github)}
+          isLink={true}
+          title={t('Developer') ?? 'Developer'}
+          description={Application.author} />
 
-      <Item
-        title={t('Version') ?? 'Version'}
-        description={Application.version} />
-    </Card>
+        <Item
+          title={t('Version') ?? 'Version'}
+          description={Application.version} />
+      </Card>
+    </React.Fragment>
   );
 }

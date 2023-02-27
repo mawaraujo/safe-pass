@@ -21,8 +21,4 @@ export default StyleSheet.create({
     flex: 1,
     maxWidth: '75%',
   },
-  title: {
-    color: Colors.System.Brand,
-    fontFamily: Fonts.Family.Regular,
-  },
 });

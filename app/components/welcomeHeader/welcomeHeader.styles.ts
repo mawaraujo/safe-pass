@@ -20,9 +20,7 @@ export default StyleSheet.create({
     fontFamily: Fonts.Family.Regular,
   },
   title: {
-    fontFamily: Fonts.Family.SemiBold,
     color: Colors.System.White,
-    fontSize: Fonts.Size.MD,
   },
   rightContainer: {
     flexDirection: 'row',

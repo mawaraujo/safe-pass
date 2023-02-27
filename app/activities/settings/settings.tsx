@@ -8,7 +8,6 @@ import BackupSection from './sections/backup/backup';
 import GeneralSection from './sections/general/general';
 import { useTranslation } from 'react-i18next';
 import Title from '../../components/title/title';
-import SubTitle from '../../components/subTitle/subTitle';
 
 export default function Settings() {
   const { t } = useTranslation();
@@ -24,28 +23,8 @@ export default function Settings() {
           {t('Settings').toString()}
         </Title>
 
-        <SubTitle
-          style={settingsStyles.sectionTitle}
-          muted={false}>
-          {t('Security').toString()}
-        </SubTitle>
-
         <SecuritySection />
-
-        <SubTitle
-          style={settingsStyles.sectionTitle}
-          muted={false}>
-          {t('Backup').toString()}
-        </SubTitle>
-
         <BackupSection />
-
-
-        <SubTitle
-          style={settingsStyles.sectionTitle}
-          muted={false}>
-          {t('General').toString()}
-        </SubTitle>
         <GeneralSection />
       </ScrollView>
     </DefaultLayout>
