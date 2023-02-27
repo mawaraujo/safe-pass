@@ -18,12 +18,6 @@ export default {
     Icon: 'settings-outline',
     IconFocused: 'settings',
   },
-  RestoreBackup: {
-    Name: 'restoreBackup',
-  },
-  CreateBackup: {
-    Name: 'createBackup',
-  },
   Tags: {
     Name: 'tags',
     Icon: 'pricetags-outline',
@@ -31,5 +25,22 @@ export default {
   },
   CreateTag: {
     Name: 'createTag',
+  },
+
+  Backup: {
+    Name: 'Backup',
+
+    Create: {
+      Name: 'Create',
+    },
+    Restore: {
+      Name: 'Restore',
+    },
+    RestoreFile: {
+      Name: 'RestoreFile',
+    },
+    RestoreChromeFile: {
+      Name: 'RestoreChromeFile',
+    },
   },
 };

@@ -15,12 +15,38 @@ import Main from './activities/main/main';
 import CreatePassword from './activities/createPassword/createPassword';
 import Settings from './activities/settings/settings';
 import Preview from './activities/preview/preview';
-import CreateBackup from './activities/createBackup/createBackup';
-import RestoreBackup from './activities/restoreBackup/restoreBackup';
 import CreateTag from './activities/createTag/createTag';
 import Tags from './activities/tags/tags';
+import BackupCreate from './activities/backup/create/create';
+import BackupRestore from './activities/backup/restore/restore';
 
 const Stack = createNativeStackNavigator();
+
+function BackupStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+
+      <Stack.Screen
+        name={Screens.Backup.Restore.Name}
+        component={BackupRestore.Restore} />
+
+      <Stack.Screen
+        name={Screens.Backup.RestoreFile.Name}
+        component={BackupRestore.RestoreFile} />
+
+      <Stack.Screen
+        name={Screens.Backup.RestoreChromeFile.Name}
+        component={BackupRestore.RestoreChromeFile} />
+
+      <Stack.Screen
+        name={Screens.Backup.Create.Name}
+        component={BackupCreate} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -53,20 +79,16 @@ export default function App() {
               name={Screens.Preview.Name} />
 
             <Stack.Screen
-              name={Screens.RestoreBackup.Name}
-              component={RestoreBackup} />
-
-            <Stack.Screen
-              name={Screens.CreateBackup.Name}
-              component={CreateBackup} />
-
-            <Stack.Screen
               name={Screens.Tags.Name}
               component={Tags} />
 
             <Stack.Screen
               name={Screens.CreateTag.Name}
               component={CreateTag} />
+
+            <Stack.Screen
+              name={Screens.Backup.Name}
+              component={BackupStack} />
           </Stack.Navigator>
 
         </NavigationContainer>

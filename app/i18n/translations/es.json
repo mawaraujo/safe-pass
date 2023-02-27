@@ -26,6 +26,7 @@
     "Export your data and save it locally": "Exporta tus datos y guárdalos en tu dispositivo",
     "Backup created successfully": "Copia de seguridad creada con éxito",
     "Restore backup": "Restaurar copia de seguridad",
+    "Choose how you want to restore your data": "Elige cómo quieres restaurar tus datos",
     "Restore backup summary": "Restaura tu información desde el almacenamiento interno de tu teléfono",
     "Backup file import failed": "Ocurrió un error al intentar importar la copia de seguridad",
     "Select a backup file": "Seleccionar archivo",
