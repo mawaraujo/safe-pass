@@ -71,8 +71,6 @@ export default function CreateTag({ route }: ICreateTag) {
         }),
     );
 
-
-    console.log('working');
     Navigation.navigate(screens.Tags.Name);
   };
 
@@ -114,7 +112,7 @@ export default function CreateTag({ route }: ICreateTag) {
 
         <Input
           value={formik.values.name}
-          label={t('Name') ?? 'Name'}
+          label={`${t('Name') ?? 'Name'}*`}
           autoCapitalize={'words'}
           validationError={formik.errors.name}
           onChangeText={(e) => {

@@ -28,7 +28,7 @@ export default function Item({ title, description, onPress, isLink, firstItem = 
         <Text>{title && title}</Text>
 
         { description && (
-          <Text muted small>{description}</Text>
+          <Text muted>{description}</Text>
         )}
       </View>
 
