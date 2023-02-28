@@ -70,7 +70,7 @@ function Option({ onPress, icon, value }: OptionProps) {
           color={Colors.System.Brand}
           size={Fonts.Size.Icon} />
 
-        <Text style={chooseToCreateStyles.buttonText}>
+        <Text size="2" style={chooseToCreateStyles.buttonText}>
           {value}
         </Text>
       </View>
