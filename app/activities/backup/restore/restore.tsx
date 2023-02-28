@@ -29,7 +29,6 @@ function Restore() {
 
 import RestoreFile from './restoreFile/restoreFile';
 import RestoreChromeFile from './restoreChromeFile/restoreChromeFile';
-import Text from '../../../components/text/text';
 
 export default {
   Restore,
