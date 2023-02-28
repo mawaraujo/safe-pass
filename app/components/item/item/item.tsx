@@ -5,6 +5,7 @@ import itemSelectorStyles from './item.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native';
 import Text from '../../../components/text/text';
+import SubTitle from '../../subTitle/subTitle';
 
 interface ItemProps {
   title: string,
@@ -25,7 +26,7 @@ export default function Item({ title, description, onPress, isLink, firstItem = 
         firstItem && itemSelectorStyles.removeMargin,
       ]}>
       <View style={itemSelectorStyles.leftContainer}>
-        <Text bold>{title && title}</Text>
+        <SubTitle>{title && title}</SubTitle>
 
         { description && (
           <Text muted>{description}</Text>
