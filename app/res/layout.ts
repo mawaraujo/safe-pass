@@ -2,7 +2,7 @@
 
 namespace Layout {
   export enum Spacing {
-    XS = 5,
+    XS = 3,
     SM = 10,
     MD = 20,
     LG = 30,

@@ -4,7 +4,6 @@ import DefaultLayout from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import settingsStyles from './settings.styles';
 import { useTranslation } from 'react-i18next';
-import Title from '../../components/title/title';
 
 import SecuritySection from './components/security/security';
 import BackupSection from './components/backup/backup';
@@ -15,14 +14,10 @@ export default function Settings() {
 
   return (
     <DefaultLayout>
-      <NavigationBar />
+      <NavigationBar name={t('Settings').toString()} />
 
       <ScrollView
         contentContainerStyle={settingsStyles.container}>
-
-        <Title style={settingsStyles.title}>
-          {t('Settings').toString()}
-        </Title>
 
         <SecuritySection />
         <BackupSection />

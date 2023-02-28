@@ -14,7 +14,6 @@ export default StyleSheet.create({
     fontSize: Fonts.Size.Title,
     marginTop: Layout.Spacing.SM,
     color: Colors.System.Brand,
-    fontFamily: Fonts.Family.Regular,
   },
   buttonContainer: {
 

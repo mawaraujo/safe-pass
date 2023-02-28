@@ -13,6 +13,5 @@ export default StyleSheet.create({
   },
   appVersion: {
     textAlign: 'center',
-    fontFamily: Fonts.Family.Regular,
   },
 });

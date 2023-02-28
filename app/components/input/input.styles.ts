@@ -10,7 +10,6 @@ export default StyleSheet.create({
     color: 'red',
     marginTop: Layout.Spacing.XS,
     fontSize: Fonts.Size.Small,
-    fontFamily: Fonts.Family.Regular,
   },
   input: {
     marginTop: Layout.Spacing.SM,
@@ -21,7 +20,6 @@ export default StyleSheet.create({
     shadowColor: Colors.Light.ShadowColor,
     borderWidth: 3,
     borderColor: 'transparent',
-    fontFamily: Fonts.Family.Regular,
     color: Colors.System.Brand,
     flex: 1,
   },

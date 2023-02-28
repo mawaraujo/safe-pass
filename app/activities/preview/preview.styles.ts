@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts, Layout } from '../../res';
+import { Colors, Layout } from '../../res';
 
 export default StyleSheet.create({
   main: {
@@ -21,11 +21,9 @@ export default StyleSheet.create({
     marginBottom: Layout.Spacing.MD,
   },
   textLabel: {
-    fontFamily: Fonts.Family.Regular,
     color: Colors.System.Brand,
   },
   textValue: {
-    fontFamily: Fonts.Family.Regular,
     color: Colors.Light.Muted,
   },
   left: {

@@ -21,7 +21,6 @@ export default StyleSheet.create({
   input: {
     flex: 1,
     marginHorizontal: Layout.Spacing.SM,
-    fontFamily: Fonts.Family.Regular,
     padding: 0,
     margin: 0,
     color: Colors.System.Brand,

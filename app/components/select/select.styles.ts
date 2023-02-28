@@ -9,7 +9,6 @@ export default StyleSheet.create({
     color: 'red',
     marginTop: Layout.Spacing.XS,
     fontSize: Fonts.Size.Small,
-    fontFamily: Fonts.Family.Regular,
   },
   input: {
     marginTop: Layout.Spacing.SM,
@@ -32,7 +31,7 @@ export default StyleSheet.create({
     textAlignVertical: 'top',
   },
   pickerItem: {
-    fontFamily: Fonts.Family.Regular,
+
     fontSize: Fonts.Size.Text,
   },
 });

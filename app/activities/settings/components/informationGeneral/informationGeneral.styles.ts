@@ -12,7 +12,6 @@ export default StyleSheet.create({
     color: Colors.System.Brand,
   },
   pickerItem: {
-    fontFamily: Fonts.Family.Regular,
     fontSize: Fonts.Size.Text,
   },
 });

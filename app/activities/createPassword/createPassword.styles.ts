@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts, Layout } from '../../res';
+import { Colors, Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
@@ -14,7 +14,6 @@ export default StyleSheet.create({
     shadowColor: Colors.Light.ShadowColor,
     borderWidth: 3,
     borderColor: 'transparent',
-    fontFamily: Fonts.Family.Regular,
     color: Colors.System.Brand,
   },
 });

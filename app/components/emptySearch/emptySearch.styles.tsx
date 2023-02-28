@@ -7,7 +7,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontFamily: Fonts.Family.Regular,
     fontSize: Fonts.Size.Text,
   },
 });

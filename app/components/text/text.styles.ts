@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts } from '../../res';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   text: {
     color: Colors.System.Brand,
-    fontFamily: Fonts.Family.Regular,
     fontSize: Fonts.Size.Text,
+    marginBottom: Layout.Spacing.XS,
   },
   muted: {
     color: Colors.Light.Muted,

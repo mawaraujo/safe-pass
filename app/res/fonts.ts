@@ -2,8 +2,8 @@
 
 namespace Fonts {
   export enum Size {
-    Icon = 26,
-    Title = 20,
+    Icon = 30,
+    Title = 22,
     Text = 14,
     Small = 12
   }

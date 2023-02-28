@@ -4,7 +4,7 @@ import titleStyles from './title.styles';
 
 interface Props {
   children?: string,
-  style?: StyleProp<TextStyle> | undefined
+  style?: StyleProp<TextStyle> | undefined,
 }
 
 export default function Title({ children, style }: Props) {

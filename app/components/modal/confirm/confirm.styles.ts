@@ -11,7 +11,6 @@ export default StyleSheet.create({
   extraInformation: {
     textAlign: 'center',
     marginTop: Layout.Spacing.XS,
-    fontFamily: Fonts.Family.Regular,
     color: Colors.System.Brand,
   },
   acceptButton: {

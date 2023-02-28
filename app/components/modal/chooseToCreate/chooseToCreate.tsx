@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import BaseModal from '../base/base';
 import chooseToCreateStyles from './chooseToCreate.styles';
 import { Navigation } from '../../../utils';
@@ -7,6 +7,9 @@ import { Colors, Fonts, Screens } from '../../../res';
 import Button from '../../button/button';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
+import Title from '../../../components/title/title';
+import Text from '../../../components/text/text';
+
 
 interface ChooseToCreateProps {
   show: boolean,
@@ -27,9 +30,9 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
 
   return (
     <BaseModal show={show}>
-      <Text style={chooseToCreateStyles.title}>
-        {t('Create')}
-      </Text>
+      <Title>
+        {t('Create').toString()}
+      </Title>
 
       <View style={chooseToCreateStyles.container}>
         <Option

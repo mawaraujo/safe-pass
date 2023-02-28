@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts, Layout } from '../../../../res';
+import { Colors, Layout } from '../../../../res';
 
 export default StyleSheet.create({
   main: { },
@@ -20,10 +20,8 @@ export default StyleSheet.create({
   },
   cardTitle: {
     color: Colors.System.Brand,
-    fontFamily: Fonts.Family.Regular,
   },
   selectedCardTitle: {
     color: Colors.System.White,
-    fontFamily: Fonts.Family.SemiBold,
   },
 });
