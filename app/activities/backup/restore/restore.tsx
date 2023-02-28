@@ -17,7 +17,7 @@ function Restore() {
           {t('Restore backup').toString()}
         </Text>
 
-        <Text muted>
+        <Text size="2" muted>
           {t('Choose how you want to restore your data').toString()}
         </Text>
       </View>

@@ -65,7 +65,7 @@ export default function CreateBackup() {
           {t('Create backup').toString()}
         </Text>
 
-        <Text muted>
+        <Text size="2" muted>
           {t('Export your data and save it locally').toString()}
         </Text>
 
