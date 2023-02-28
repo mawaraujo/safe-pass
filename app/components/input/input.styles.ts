@@ -14,7 +14,7 @@ export default StyleSheet.create({
   errorMessage: {
     color: 'red',
     marginTop: Layout.Spacing.XS,
-    fontSize: Fonts.Size.XS,
+    fontSize: Fonts.Size.Small,
     fontFamily: Fonts.Family.Regular,
   },
   input: {

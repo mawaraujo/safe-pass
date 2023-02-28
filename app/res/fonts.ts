@@ -2,11 +2,10 @@
 
 namespace Fonts {
   export enum Size {
-    XL = 30,
-    LG = 25,
-    MD = 17,
-    REGULAR = 14,
-    XS = 12
+    Icon = 30,
+    Title = 21,
+    Text = 14,
+    Small = 12
   }
 
   export enum Family {

@@ -23,7 +23,7 @@ export default function PasswordActionIcons({
         style={styles.actionButton}>
         <Icon
           name={!showEye ? 'eye-outline' : 'eye-off-outline'}
-          size={Fonts.Size.LG}
+          size={Fonts.Size.Title}
           color={Colors.System.Brand} />
       </TouchableOpacity>
 
@@ -33,7 +33,7 @@ export default function PasswordActionIcons({
 
         <Icon
           name="color-wand-outline"
-          size={Fonts.Size.LG}
+          size={Fonts.Size.Title}
           color={Colors.System.Brand} />
       </TouchableOpacity>
     </View>

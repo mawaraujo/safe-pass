@@ -30,7 +30,7 @@ export default function NavigationBar({ name, showBackIcon = true, children }: I
           <Icon
             name="arrow-back-outline"
             color={Colors.System.Brand}
-            size={Fonts.Size.XL} />
+            size={Fonts.Size.Icon} />
         )}
 
         { name && (

@@ -13,6 +13,6 @@ export default StyleSheet.create({
   },
   pickerItem: {
     fontFamily: Fonts.Family.Regular,
-    fontSize: Fonts.Size.REGULAR,
+    fontSize: Fonts.Size.Text,
   },
 });

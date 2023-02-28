@@ -11,7 +11,7 @@ export default StyleSheet.create({
   title: {
     color: Colors.System.Brand,
     fontFamily: Fonts.Family.SemiBold,
-    fontSize: Fonts.Size.MD,
+    fontSize: Fonts.Size.Text,
     marginBottom: Layout.Spacing.MD,
     textAlign: 'center',
   },

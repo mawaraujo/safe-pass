@@ -32,7 +32,7 @@ export default function WelcomeHeader(props: WelcomeHeaderProps) {
           <Icon
             name="settings-outline"
             color={Colors.System.White}
-            size={Fonts.Size.XL} />
+            size={Fonts.Size.Icon} />
         </TouchableOpacity>
       </View>
     </View>

@@ -5,6 +5,6 @@ export default StyleSheet.create({
   title: {
     color: Colors.System.Brand,
     fontFamily: Fonts.Family.SemiBold,
-    fontSize: Fonts.Size.LG,
+    fontSize: Fonts.Size.Title,
   },
 });

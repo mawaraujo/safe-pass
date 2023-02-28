@@ -39,7 +39,7 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
             : 'document-outline'
         }
         color={Colors.System.Brand}
-        size={Fonts.Size.XL} />
+        size={Fonts.Size.Icon} />
 
       <View style={styles.left}>
         <Text style={styles.title}>{item.name}</Text>
@@ -56,7 +56,7 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
           <Icon
             name="create-outline"
             color={Colors.System.Brand}
-            size={Fonts.Size.XL} />
+            size={Fonts.Size.Icon} />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -65,7 +65,7 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
           <Icon
             name="trash-outline"
             color={Colors.System.Brand}
-            size={Fonts.Size.XL} />
+            size={Fonts.Size.Icon} />
         </TouchableOpacity>
       </View>
     </View>

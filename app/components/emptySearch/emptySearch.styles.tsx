@@ -8,6 +8,6 @@ export default StyleSheet.create({
   },
   text: {
     fontFamily: Fonts.Family.Regular,
-    fontSize: Fonts.Size.MD,
+    fontSize: Fonts.Size.Text,
   },
 });

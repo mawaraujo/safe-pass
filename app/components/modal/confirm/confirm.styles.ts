@@ -3,7 +3,7 @@ import { Colors, Fonts, Layout } from '../../../res';
 
 export default StyleSheet.create({
   title: {
-    fontSize: Fonts.Size.MD,
+    fontSize: Fonts.Size.Text,
     color: Colors.System.Black,
     textAlign: 'center',
     fontFamily: Fonts.Family.SemiBold,
