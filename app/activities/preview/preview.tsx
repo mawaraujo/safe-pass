@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, ScrollView, TouchableOpacity } from 'react-native';
 import DefaultLayout from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -16,6 +16,7 @@ import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/button/button';
 import ClipboardButton from './components/clipboardButton/clipboardButton';
+import Text from '../../components/text/text';
 
 interface IPreviewProps {
   route?: {
@@ -132,9 +133,9 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>URL</Text>
-              <Text style={styles.textValue}>
-                { password.url || t('NoInformation')}
+              <Text bold>URL</Text>
+              <Text muted>
+                { password.url || t('NoInformation').toString()}
               </Text>
             </View>
 
@@ -164,9 +165,9 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>{t('Username')}</Text>
-              <Text style={styles.textValue}>
-                { password.username || t('NoInformation')}
+              <Text bold>{t('Username').toString()}</Text>
+              <Text muted>
+                { password.username || t('NoInformation').toString()}
               </Text>
             </View>
 
@@ -186,9 +187,9 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>{t('Email')}</Text>
-              <Text style={styles.textValue}>
-                { password.email || t('NoInformation')}
+              <Text bold>{t('Email').toString()}</Text>
+              <Text muted>
+                { password.email || t('NoInformation').toString()}
               </Text>
             </View>
 
@@ -208,9 +209,9 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>{t('Password')}</Text>
-              <Text style={styles.textValue}>
-                { password.password ? '******' : t('NoInformation')}
+              <Text bold>{t('Password').toString()}</Text>
+              <Text muted>
+                { password.password ? '******' : t('NoInformation').toString()}
               </Text>
             </View>
 
@@ -230,18 +231,18 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text style={styles.textLabel}>{t('Tag')}</Text>
-              <Text style={styles.textValue}>
-                { getTagById(password.tagId) || t('NoInformation') }
+              <Text bold>{t('Tag').toString()}</Text>
+              <Text muted>
+                { getTagById(password.tagId) || t('NoInformation').toString()}
               </Text>
             </View>
           </View>
 
           <View style={styles.cardRow}>
             <View style={styles.left}>
-              <Text style={styles.textLabel}>{t('Notes')}</Text>
-              <Text style={styles.textValue}>
-                { password.notes || t('NoInformation')}
+              <Text bold>{t('Notes').toString()}</Text>
+              <Text muted>
+                { password.notes || t('NoInformation').toString()}
               </Text>
             </View>
           </View>

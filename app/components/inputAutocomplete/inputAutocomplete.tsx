@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, TextInput as RNTextInput, TextInputProps } from 'react-native';
+import { View, TextInput as RNTextInput, TextInputProps } from 'react-native';
 import styles from './inputAutocomplete.styles';
 import { Strings } from '../../utils';
 import { Colors } from '../../res';
 import Results from './results';
+import Text from '../text/text';
 
 type Props = {
   label?: string,
@@ -47,7 +48,7 @@ export default function InputAutocomplete({
     <View style={styles.container}>
       {
         label?.length && (
-          <Text style={styles.label}>{label}</Text>
+          <Text>{label}</Text>
         )
       }
 

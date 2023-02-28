@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import type { NTag } from '../../types';
 import styles from './tagElement.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors, Fonts, Screens } from '../../res';
 import { Navigation } from '../../utils';
 import { useTranslation } from 'react-i18next';
+import Text from '../text/text';
 
 interface ITagElementProps {
   item: NTag.Tag,
@@ -42,8 +43,8 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
         size={Fonts.Size.Icon} />
 
       <View style={styles.left}>
-        <Text style={styles.title}>{item.name}</Text>
-        <Text style={styles.extraInfo}>
+        <Text bold>{item.name}</Text>
+        <Text muted>
           {
             t('Contains [n] passwords')
                 ?.replace('[n]', String(linkedPasswords))

@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import styles from './navigationBar.styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Navigation from '../../utils/navigation';
 import { Fonts, Colors } from '../../res';
+import Text from '../text/text';
 
 interface INavigationBarProps {
   name?: string,
@@ -34,7 +35,7 @@ export default function NavigationBar({ name, showBackIcon = true, children }: I
         )}
 
         { name && (
-          <Text style={styles.name}>{name}</Text>
+          <Text bold>{name}</Text>
         )}
       </TouchableOpacity>
 

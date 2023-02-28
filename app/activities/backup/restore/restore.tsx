@@ -5,7 +5,6 @@ import NavigationBar from '../../../components/navigationBar/navigationBar';
 import { useTranslation } from 'react-i18next';
 import styles from './restore.styles';
 import Title from '../../../components/title/title';
-import SubTitle from '../../../components/subTitle/subTitle';
 
 function Restore() {
   const { t } = useTranslation();
@@ -19,9 +18,9 @@ function Restore() {
           {t('Restore backup').toString()}
         </Title>
 
-        <SubTitle muted>
+        <Text muted>
           {t('Choose how you want to restore your data').toString()}
-        </SubTitle>
+        </Text>
       </View>
     </Default>
   );
@@ -29,6 +28,7 @@ function Restore() {
 
 import RestoreFile from './restoreFile/restoreFile';
 import RestoreChromeFile from './restoreChromeFile/restoreChromeFile';
+import Text from '../../../components/text/text';
 
 export default {
   Restore,

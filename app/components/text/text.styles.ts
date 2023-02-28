@@ -13,4 +13,7 @@ export default StyleSheet.create({
   bold: {
     fontFamily: Fonts.Family.SemiBold,
   },
+  small: {
+    fontSize: Fonts.Size.Small,
+  },
 });

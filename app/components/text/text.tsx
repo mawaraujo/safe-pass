@@ -7,9 +7,10 @@ interface Props {
   style?: StyleProp<TextStyle> | undefined,
   muted?: boolean,
   bold?: boolean,
+  small?: boolean,
 }
 
-export default function Text({ children, style, muted = false, bold = false }: Props) {
+export default function Text({ children, style, muted = false, bold = false, small = false }: Props) {
   if (!children) {
     return (
       null
@@ -22,6 +23,7 @@ export default function Text({ children, style, muted = false, bold = false }: P
         textStyles.text,
         muted && textStyles.muted,
         bold && textStyles.bold,
+        small && textStyles.small,
         style && style,
       ]}>
 

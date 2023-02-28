@@ -5,6 +5,9 @@ export default StyleSheet.create({
   main: {
     paddingHorizontal: Layout.Spacing.MD,
   },
+  title: {
+    marginBottom: Layout.Spacing.MD,
+  },
   navActions: {
     flexDirection: 'row',
     gap: Layout.Spacing.MD,

@@ -6,11 +6,6 @@ export default StyleSheet.create({
     marginBottom: Layout.Spacing.MD,
     flex: 1,
   },
-  label: {
-    marginBottom: Layout.Spacing.SM,
-    fontFamily: Fonts.Family.Regular,
-    color: Colors.System.Brand,
-  },
   errorMessage: {
     color: 'red',
     marginTop: Layout.Spacing.XS,
@@ -18,6 +13,7 @@ export default StyleSheet.create({
     fontFamily: Fonts.Family.Regular,
   },
   input: {
+    marginTop: Layout.Spacing.SM,
     backgroundColor: Colors.Light.CardColor,
     borderRadius: Layout.BorderRadius.SM,
     padding: Layout.Spacing.SM,

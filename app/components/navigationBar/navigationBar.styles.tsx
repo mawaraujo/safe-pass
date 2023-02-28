@@ -11,6 +11,7 @@ export default StyleSheet.create({
   left: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: Layout.Spacing.SM,
   },
   name: {
     color: Colors.System.Brand,

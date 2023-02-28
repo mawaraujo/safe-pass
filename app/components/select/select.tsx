@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import styles from './select.styles';
 import { Strings } from '../../utils';
 import { Picker } from '@react-native-picker/picker';
 import { Colors } from '../../res';
 import { useTranslation } from 'react-i18next';
+import Text from '../text/text';
 
 type ISelectProps = {
   label?: string,
@@ -23,7 +24,7 @@ export default function Select({ label, validationError, options, value, onChang
     <View style={styles.container}>
       {
         label?.length && (
-          <Text style={styles.label}>{label}</Text>
+          <Text>{label}</Text>
         )
       }
 
