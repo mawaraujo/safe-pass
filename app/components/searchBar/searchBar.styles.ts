@@ -24,7 +24,7 @@ export default StyleSheet.create({
     padding: 0,
     margin: 0,
     color: Colors.System.Brand,
-    fontSize: Fonts.Size.Text,
+    fontSize: Fonts.Size.SubTitle,
   },
   clearIcon: {
 

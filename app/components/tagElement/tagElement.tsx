@@ -43,7 +43,7 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
         size={Fonts.Size.Icon} />
 
       <View style={styles.left}>
-        <Text bold>{item.name}</Text>
+        <Text size="2" bold>{item.name}</Text>
         <Text muted>
           {
             t('Contains [n] passwords')

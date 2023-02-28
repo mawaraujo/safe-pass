@@ -133,7 +133,7 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text>URL</Text>
+              <Text size="2">URL</Text>
               <Text muted>
                 { password.url || t('NoInformation').toString()}
               </Text>
@@ -165,7 +165,7 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text>{t('Username').toString()}</Text>
+              <Text size="2">{t('Username').toString()}</Text>
               <Text muted>
                 { password.username || t('NoInformation').toString()}
               </Text>
@@ -187,7 +187,7 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text>{t('Email').toString()}</Text>
+              <Text size="2">{t('Email').toString()}</Text>
               <Text muted>
                 { password.email || t('NoInformation').toString()}
               </Text>
@@ -209,7 +209,7 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text>{t('Password').toString()}</Text>
+              <Text size="2">{t('Password').toString()}</Text>
               <Text muted>
                 { password.password ? '******' : t('NoInformation').toString()}
               </Text>
@@ -231,7 +231,7 @@ export default function Preview({ route }: IPreviewProps) {
             ]}>
 
             <View style={styles.left}>
-              <Text>{t('Tag').toString()}</Text>
+              <Text size="2">{t('Tag').toString()}</Text>
               <Text muted>
                 { getTagById(password.tagId) || t('NoInformation').toString()}
               </Text>
@@ -240,7 +240,7 @@ export default function Preview({ route }: IPreviewProps) {
 
           <View style={styles.cardRow}>
             <View style={styles.left}>
-              <Text>{t('Notes').toString()}</Text>
+              <Text size="2">{t('Notes').toString()}</Text>
               <Text muted>
                 { password.notes || t('NoInformation').toString()}
               </Text>

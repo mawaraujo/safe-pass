@@ -34,7 +34,7 @@ export default function SearchBar({ onChangeText, onClear, value }: ISearchBarPr
         <Icon
           name="search"
           color={Colors.Light.Muted}
-          size={Fonts.Size.Text} />
+          size={Fonts.Size.Title} />
 
         <TextInput
           value={value}
@@ -52,7 +52,7 @@ export default function SearchBar({ onChangeText, onClear, value }: ISearchBarPr
               <Icon
                 name="close-outline"
                 color={Colors.Light.Muted}
-                size={Fonts.Size.Text} />
+                size={Fonts.Size.Title} />
             </TouchableOpacity>
           )
         }

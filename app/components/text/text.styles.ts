@@ -11,5 +11,6 @@ export default StyleSheet.create({
     color: Colors.Light.Muted,
   },
   bold: {
+    fontWeight: '500',
   },
 });

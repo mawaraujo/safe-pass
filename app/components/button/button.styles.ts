@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Layout } from '../../res';
+import { Colors, Fonts, Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
@@ -13,5 +13,6 @@ export default StyleSheet.create({
   },
   text: {
     color: 'white',
+    fontSize: Fonts.Size.SubTitle,
   },
 });

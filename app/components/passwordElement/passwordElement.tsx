@@ -54,7 +54,7 @@ export default function PasswordElement({ item, onPress }: IPasswordElementProps
       }
 
       <View style={styles.left}>
-        <Text bold>{item.name}</Text>
+        <Text size="2" bold>{item.name}</Text>
 
         { item.username && (
           <Text muted>
