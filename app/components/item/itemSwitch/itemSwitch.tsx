@@ -29,7 +29,7 @@ export default function ItemSwitch({ title, description, onChange, firstItem = f
         firstItem && itemSwitchStyles.removeMargin,
       ]}>
       <View style={itemSwitchStyles.leftContainer}>
-        <Text>{title && title}</Text>
+        <Text size="2">{title && title}</Text>
 
         { description && (
           <Text muted>{description}</Text>

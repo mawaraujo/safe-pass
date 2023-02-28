@@ -17,6 +17,5 @@ export default StyleSheet.create({
     color: Colors.System.Brand,
     fontSize: Fonts.Size.Title,
     marginLeft: Layout.Spacing.SM,
-    fontFamily: Fonts.Family.SemiBold,
   },
 });

@@ -21,7 +21,7 @@ export default function ItemSlot({ title, children, childrenPosition = 'left', f
         childrenPosition === 'bottom' && styles.childrenBottom,
       ]}>
       <View style={styles.leftContainer}>
-        <Text>{title && title}</Text>
+        <Text size="2">{title && title}</Text>
       </View>
 
       { children && children }

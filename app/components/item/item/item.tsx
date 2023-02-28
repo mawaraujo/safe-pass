@@ -25,7 +25,7 @@ export default function Item({ title, description, onPress, isLink, firstItem = 
         firstItem && itemSelectorStyles.removeMargin,
       ]}>
       <View style={itemSelectorStyles.leftContainer}>
-        <Text>{title && title}</Text>
+        <Text size="2">{title && title}</Text>
 
         { description && (
           <Text muted>{description}</Text>

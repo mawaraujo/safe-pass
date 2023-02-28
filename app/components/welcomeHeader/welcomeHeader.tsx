@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors, Fonts, Screens } from '../../res';
 import { Navigation } from '../../utils';
 import Title from '../title/title';
+import Text from '../text/text';
 
 interface WelcomeHeaderProps {
   title: string,
@@ -24,7 +25,11 @@ export default function WelcomeHeader(props: WelcomeHeaderProps) {
         barStyle="light-content" />
 
       <View style={styles.leftContainer}>
-        <Title style={styles.title}>{props.title}</Title>
+        <Text
+          size="3"
+          style={styles.title}>
+          {props.title}
+        </Text>
       </View>
 
       <View style={styles.rightContainer}>

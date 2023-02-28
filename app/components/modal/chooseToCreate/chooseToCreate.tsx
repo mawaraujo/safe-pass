@@ -7,7 +7,6 @@ import { Colors, Fonts, Screens } from '../../../res';
 import Button from '../../button/button';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
-import Title from '../../../components/title/title';
 import Text from '../../../components/text/text';
 
 
@@ -30,9 +29,9 @@ export default function ChooseToCreate({ show, onClose }: ChooseToCreateProps) {
 
   return (
     <BaseModal show={show}>
-      <Title>
+      <Text size="3">
         {t('Create').toString()}
-      </Title>
+      </Text>
 
       <View style={chooseToCreateStyles.container}>
         <Option

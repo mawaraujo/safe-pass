@@ -9,7 +9,6 @@ import styles from './create.styles';
 import { Colors } from '../../../res';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
-import Title from '../../../components/title/title';
 import Text from '../../../components/text/text';
 
 export default function CreateBackup() {
@@ -62,9 +61,9 @@ export default function CreateBackup() {
       <NavigationBar />
 
       <View style={styles.container}>
-        <Title>
+        <Text size="3">
           {t('Create backup').toString()}
-        </Title>
+        </Text>
 
         <Text muted>
           {t('Export your data and save it locally').toString()}

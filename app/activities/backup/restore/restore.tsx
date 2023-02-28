@@ -4,7 +4,6 @@ import Default from '../../../layout/default/default';
 import NavigationBar from '../../../components/navigationBar/navigationBar';
 import { useTranslation } from 'react-i18next';
 import styles from './restore.styles';
-import Title from '../../../components/title/title';
 
 function Restore() {
   const { t } = useTranslation();
@@ -14,9 +13,9 @@ function Restore() {
       <NavigationBar />
 
       <View style={styles.main}>
-        <Title>
+        <Text size="3">
           {t('Restore backup').toString()}
-        </Title>
+        </Text>
 
         <Text muted>
           {t('Choose how you want to restore your data').toString()}

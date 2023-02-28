@@ -6,7 +6,6 @@ export default StyleSheet.create({
     fontSize: Fonts.Size.Text,
     color: Colors.System.Black,
     textAlign: 'center',
-    fontFamily: Fonts.Family.SemiBold,
   },
   extraInformation: {
     textAlign: 'center',
