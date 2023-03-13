@@ -4,6 +4,8 @@ import Default from '../../../layout/default/default';
 import NavigationBar from '../../../components/navigationBar/navigationBar';
 import { useTranslation } from 'react-i18next';
 import styles from './restore.styles';
+import Card from '../../../components/card/card';
+import { Item } from '../../../components/item';
 
 function Restore() {
   const { t } = useTranslation();
@@ -17,9 +19,25 @@ function Restore() {
           {t('Restore backup').toString()}
         </Text>
 
-        <Text size="2" muted>
+        <Text
+          style={styles.descriptionText}
+          size="2"
+          muted>
+
           {t('Choose how you want to restore your data').toString()}
         </Text>
+
+        <Card>
+          <Item
+            firstItem={true}
+            title="Restore from file" />
+        </Card>
+
+        <Card>
+          <Item
+            firstItem={true}
+            title="Restore from Chrome File" />
+        </Card>
       </View>
     </Default>
   );

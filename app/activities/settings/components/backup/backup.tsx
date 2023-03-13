@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../../../../components/card/card';
-import Item from '../../../../components/item/item/item';
+import { Item } from '../../../../components/item';
 import { Navigation } from '../../../../utils';
 import { Screens } from '../../../../res';
 import { useTranslation } from 'react-i18next';

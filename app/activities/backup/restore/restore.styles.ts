@@ -6,4 +6,7 @@ export default StyleSheet.create({
     flex: 1,
     marginHorizontal: Layout.Spacing.MD,
   },
+  descriptionText: {
+    marginBottom: Layout.Spacing.MD,
+  },
 });

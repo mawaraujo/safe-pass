@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from '../../../../components/card/card';
 import Application from '../../../../../app.json';
-import ItemSlot from '../../../../components/item/itemSlot/itemSlot';
-import Item from '../../../../components/item/item/item';
+import { ItemSlot } from '../../../../components/item';
+import { Item } from '../../../../components/item';
 import { Picker } from '@react-native-picker/picker';
 import generalStyles from './informationGeneral.styles';
 import { Colors, Storage as StorageRes } from '../../../../res';
