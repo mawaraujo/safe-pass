@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 export default function RestoreChromeFile() {
   return (
     <View>
-      <Text>RestoreFile</Text>
+      <Text>Restore Chrome File</Text>
     </View>
   );
 }

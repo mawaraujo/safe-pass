@@ -1,11 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import Default from '../../../layout/default/default';
 import NavigationBar from '../../../components/navigationBar/navigationBar';
 import { useTranslation } from 'react-i18next';
 import styles from './restore.styles';
 import Card from '../../../components/card/card';
 import { Item } from '../../../components/item';
+import Text from '../../../components/text/text';
+import { Navigation } from '../../../utils';
+import { Screens } from '../../../res';
+
+import RestoreFile from './restoreFile/restoreFile';
+import RestoreChromeFile from './restoreChromeFile/restoreChromeFile';
 
 function Restore() {
   const { t } = useTranslation();
@@ -27,25 +33,29 @@ function Restore() {
           {t('Choose how you want to restore your data').toString()}
         </Text>
 
-        <Card>
-          <Item
-            firstItem={true}
-            title="Restore from file" />
-        </Card>
+        <ScrollView>
+          <Card>
+            <Item
+              onPress={() => {
+                Navigation.navigate(Screens.Backup.RestoreFile.Name);
+              }}
+              firstItem={true}
+              title="Restore from file" />
+          </Card>
 
-        <Card>
-          <Item
-            firstItem={true}
-            title="Restore from Chrome File" />
-        </Card>
+          <Card>
+            <Item
+              onPress={() => {
+                Navigation.navigate(Screens.Backup.RestoreChromeFile.Name);
+              }}
+              firstItem={true}
+              title="Restore from Chrome File" />
+          </Card>
+        </ScrollView>
       </View>
     </Default>
   );
 }
-
-import RestoreFile from './restoreFile/restoreFile';
-import RestoreChromeFile from './restoreChromeFile/restoreChromeFile';
-import Text from '../../../components/text/text';
 
 export default {
   Restore,
