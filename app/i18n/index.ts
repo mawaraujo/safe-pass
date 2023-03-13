@@ -8,6 +8,8 @@ import { NLang } from '../types';
 import es from './translations/es.json';
 import en from './translations/en.json';
 
+import restore from './locales/restore.json';
+
 async function onStart(): Promise<void> {
   const result = await Storage.get(StorageRes.Keys.Language);
   if (!result) {
@@ -29,8 +31,18 @@ i18n
     .init({
       compatibilityJSON: 'v3',
       resources: {
-        es,
-        en,
+        es: {
+          translation: {
+            ...es,
+            ...restore.es,
+          },
+        },
+        en: {
+          translation: {
+            ...en,
+            ...restore.en,
+          },
+        },
       },
       fallbackLng: NLang.AvailableLanguages.En,
       lng: getLocales()[0].languageCode,
