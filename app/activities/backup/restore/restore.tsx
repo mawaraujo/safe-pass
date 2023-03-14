@@ -41,14 +41,11 @@ function Restore() {
               }}
               firstItem={true}
               title={t('restore.actions.restoreFile')} />
-          </Card>
 
-          <Card>
             <Item
               onPress={() => {
                 Navigation.navigate(Screens.Backup.RestoreChromeFile.Name);
               }}
-              firstItem={true}
               title={t('restore.actions.restoreChromeFile')} />
           </Card>
         </ScrollView>

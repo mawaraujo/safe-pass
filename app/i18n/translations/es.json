@@ -62,5 +62,15 @@
   "Settings": "Configuración",
 
   "The field is required": "El campo es requerido",
-  "Invalid email": "Correo electrónico inválido"
+  "Invalid email": "Correo electrónico inválido",
+
+  "restore": {
+    "title": "Restaurar copia de seguridad",
+    "description": "Elige cómo quieres restaurar tus datos",
+
+    "actions": {
+      "restoreFile": "Restaurar copia de seguridad",
+      "restoreChromeFile": "Importar archivo CSV de Google Chrome"
+    }
+  }
 }

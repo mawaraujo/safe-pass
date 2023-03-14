@@ -65,5 +65,15 @@
   "Settings": "Settings",
 
   "The field is required": "The field is required",
-  "Invalid email": "Invalid email"
+  "Invalid email": "Invalid email",
+
+  "restore": {
+    "title": "Restore backup",
+    "description": "Choose how you want to restore your data",
+
+    "actions": {
+      "restoreFile": "Restore backup",
+      "restoreChromeFile": "Import file from Google Chrome"
+    }
+  }
 }
