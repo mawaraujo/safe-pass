@@ -85,7 +85,7 @@ export default function CreateBackup() {
               <ActionButton
                 onPress={handleExport}
                 icon="cloud-download-outline"
-                text={t('backup.create.pressToSave')} />
+                text={t('Create backup').toString()} />
             </View>
           )
         }

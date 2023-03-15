@@ -63,10 +63,6 @@
   "The field is required": "El campo es requerido",
   "Invalid email": "Correo electrónico inválido",
 
-  "backup.create": {
-    "pressToSave": "Presiona el botón y selecciona la ubicación donde se guardará la copia de seguridad"
-  },
-
   "backup.restore": {
     "title": "Restaurar copia de seguridad",
     "description": "Elige cómo quieres restaurar tus datos",
@@ -74,7 +70,7 @@
     "selectItemInstruction": "Seleccione los elementos que desea importar",
     "existingItemsFound": "Se detectaron elementos duplicados",
     "existingItemsFoundDescription": "Algunos elementos estarán deshabilitados y no se podrán importar debido a que ya existen",
-    "selectFile": "Seleccione un archivo para continuar",
+    "selectFile": "Seleccionar archivo",
 
     "actions": {
       "restoreFile": "Restaurar copia de seguridad",

@@ -66,10 +66,6 @@
   "The field is required": "The field is required",
   "Invalid email": "Invalid email",
 
-  "backup.create": {
-    "pressToSave": "Press the button and select the location where you want to save the backup"
-  },
-
   "backup.restore": {
     "title": "Restore backup",
     "description": "Choose how you want to restore your data",
@@ -77,7 +73,7 @@
     "selectItemInstruction": "Select the items you want to import",
     "existingItemsFound": "Duplicate items detected",
     "existingItemsFoundDescription": "Some elements will be disabled and cannot be imported because they already exist",
-    "selectFile": "Choose a backup file to continue",
+    "selectFile": "Choose file",
 
     "actions": {
       "restoreFile": "Restore backup",
