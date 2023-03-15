@@ -2,15 +2,21 @@ import { StyleSheet } from 'react-native';
 import { Colors, Layout } from '../../../../res';
 
 export default StyleSheet.create({
+  containerTitle: {
+    marginHorizontal: Layout.Spacing.MD,
+  },
   container: {
     flex: 1,
-    paddingHorizontal: Layout.Spacing.MD,
+    marginHorizontal: Layout.Spacing.MD,
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  listContainer: {
+    marginHorizontal: Layout.Spacing.MD,
   },
   statusContainer: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'center',
   },
   icon: {
     marginBottom: Layout.Spacing.SM,
@@ -23,14 +29,6 @@ export default StyleSheet.create({
   },
   cardContainer: {
     gap: Layout.Spacing.MD,
-  },
-  cardContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  cardContentText: {
-    flexDirection: 'column',
-    marginLeft: Layout.Spacing.SM,
   },
   uploadButton: {
     backgroundColor: Colors.System.Brand,
@@ -48,7 +46,10 @@ export default StyleSheet.create({
   buttonText: {
     color: Colors.System.Brand,
   },
-  checkboxDisabled: {
-    opacity: 0.1,
+  description: {
+    marginBottom: Layout.Spacing.MD,
+  },
+  selectText: {
+    marginTop: Layout.Spacing.MD,
   },
 });

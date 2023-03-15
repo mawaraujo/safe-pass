@@ -11,9 +11,9 @@ import Default from '../../../../layout/default/default';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import useRestore from '../hooks/useRestore';
-import CheckBox from '@react-native-community/checkbox';
-import { Card } from '../../../../components/card';
+import { CardAccordion } from '../../../../components/card';
 import Text from '../../../../components/text/text';
+import CheckEntry from '../components/checkEntry/checkEntry';
 
 export default function RestoreFile() {
   const { t } = useTranslation();
@@ -90,176 +90,116 @@ export default function RestoreFile() {
     <Default>
       <NavigationBar />
 
-      <View
-        style={styles.container}>
+      <View style={styles.containerTitle}>
+        <Text
+          size="3"
+          style={styles.description}>
 
-        {
-          !restore.hasElementsToSave && (
-            <View style={{ flex: 1 }}>
-              {
-                !isLoading && (
-                  <React.Fragment>
-                    <Text size="3">
-                      {t('restore.actions.restoreFile').toString()}
-                    </Text>
-
-                    <Text size="2" muted>
-                      {t('restore.selectFile').toString()}
-                    </Text>
-                  </React.Fragment>
-                )
-              }
-
-              {
-                !isLoading && (
-                  <View style={styles.statusContainer}>
-                    <TouchableOpacity
-                      onPress={importFile}
-                      style={styles.uploadButton}>
-
-                      <Icon
-                        name="attach-outline"
-                        size={50}
-                        color="white" />
-                    </TouchableOpacity>
-                  </View>
-                )
-              }
-
-              {
-                isLoading && (
-                  <View style={styles.container}>
-                    <ActivityIndicator
-                      size="large"
-                      color={Colors.System.Brand} />
-                  </View>
-                )
-              }
-            </View>
-          )
-        }
-
-        {
-          restore.hasElementsToSave && (
-            <ScrollView>
-              {
-                restore.importedPasswords.length > 0 && (
-                  <React.Fragment>
-                    <Text size="3">
-                      {`${t('Passwords').toString()} (${restore.importedPasswords.length})`}
-                    </Text>
-
-                    <Text
-                      size="2"
-                      muted
-                      style={styles.subTitle}>
-                      {t('restore.selectItemInstruction').toString()}
-                    </Text>
-
-                    <Card>
-                      <View style={styles.cardContainer}>
-                        {
-                          restore.importedPasswords.map((item, key) => (
-                            <View
-                              key={item.id + key}
-                              style={styles.cardContent}>
-
-                              <CheckBox
-                                tintColors={{
-                                  true: Colors.System.Brand,
-                                }}
-                                disabled={item?.duplicated}
-                                style={[
-                                  item?.duplicated && styles.checkboxDisabled,
-                                ]}
-                                value={restore.passwordsToSave.findIndex((t) => t.id === item.id) !== -1}
-                                onValueChange={(val) => {
-                                  if (val) return restore.addPaswordToSave(item);
-                                  restore.removePasswordToSave(item);
-                                }}
-                              />
-                              <View style={styles.cardContentText}>
-                                <Text size="2">{item.name}</Text>
-                                <Text muted>
-                                  {
-                                    item.email ||
-                                    item.username ||
-                                    item.url
-                                  }
-                                </Text>
-                              </View>
-                            </View>
-                          ))
-                        }
-                      </View>
-                    </Card>
-                  </React.Fragment>
-                )
-              }
-
-              {
-                restore.importedTags.length > 0 && (
-                  <React.Fragment>
-                    <Text size="3">
-                      {`${t('Tags').toString()} (${restore.importedTags.length})`}
-                    </Text>
-
-                    <Text
-                      size="2"
-                      muted
-                      style={styles.subTitle}>
-                      {t('restore.selectItemInstruction').toString()}
-                    </Text>
-
-                    <Card>
-                      <View style={styles.cardContainer}>
-                        {
-                          restore.importedTags.map((item, index) => (
-                            <View
-                              key={item.id + index}
-                              style={styles.cardContent}>
-
-                              <CheckBox
-                                tintColors={{
-                                  true: Colors.System.Brand,
-                                }}
-                                style={[
-                                  item?.duplicated && styles.checkboxDisabled,
-                                ]}
-                                disabled={item?.duplicated}
-                                value={restore.tagsToSave.findIndex((t) => t.id === item.id) !== -1}
-                                onValueChange={(val) => {
-                                  if (val) return restore.addTagToSave(item);
-                                  restore.removeTagToSave(item);
-                                }}
-                              />
-                              <Text
-                                style={styles.cardContentText}
-                                size="2">
-                                {item.name}
-                              </Text>
-                            </View>
-                          ))
-                        }
-                      </View>
-                    </Card>
-                  </React.Fragment>
-                )
-              }
-
-              <Button
-                text={t('Save changes').toString()}
-                onPress={saveChanges} />
-
-              <Button
-                style={styles.button}
-                textStyle={styles.buttonText}
-                text={t('Cancel').toString()}
-                onPress={restore.reset}/>
-            </ScrollView>
-          )
-        }
+          {
+            restore.hasElementsToSave
+              ? t('restore.selectItemInstruction').toString()
+              : t('restore.actions.restoreFile').toString()
+          }
+        </Text>
       </View>
+
+      {
+        !restore.hasElementsToSave && (
+          <ScrollView contentContainerStyle={styles.container}>
+            {
+              !isLoading && (
+                <React.Fragment>
+                  <TouchableOpacity
+                    onPress={importFile}
+                    style={styles.uploadButton}>
+
+                    <Icon
+                      name="attach-outline"
+                      size={50}
+                      color="white" />
+                  </TouchableOpacity>
+
+                  <Text muted size="2" style={styles.selectText}>
+                    {t('restore.selectFile').toString()}
+                  </Text>
+                </React.Fragment>
+              )
+            }
+
+            {
+              isLoading && (
+                <View style={styles.container}>
+                  <ActivityIndicator
+                    size="large"
+                    color={Colors.System.Brand} />
+                </View>
+              )
+            }
+          </ScrollView>
+        )
+      }
+
+      {
+        restore.hasElementsToSave && (
+          <ScrollView style={styles.listContainer}>
+            {
+              restore.importedPasswords.length > 0 && (
+                <CardAccordion
+                  title={`${t('Passwords').toString()} (${restore.importedPasswords.length})`}>
+
+                  <View style={styles.cardContainer}>
+                    {
+                      restore.importedPasswords.map((item) => (
+                        <CheckEntry
+                          key={item.id}
+                          name={item.name}
+                          duplicated={item?.duplicated === true}
+                          checked={restore.passwordsToSave.findIndex((t) => t.id === item.id) !== -1}
+                          onAdd={() => restore.addPaswordToSave(item)}
+                          onRemove={() => restore.removePasswordToSave(item)}
+                          showDescription={true}
+                          description={item.username || item.email || item.url} />
+                      ))
+                    }
+                  </View>
+                </CardAccordion>
+              )
+            }
+
+            {
+              restore.importedTags.length > 0 && (
+                <CardAccordion
+                  title={`${t('Tags').toString()} (${restore.importedTags.length})`}>
+
+                  <View style={styles.cardContainer}>
+                    {
+                      restore.importedTags.map((item) => (
+                        <CheckEntry
+                          key={item.id}
+                          name={item.name}
+                          duplicated={item?.duplicated === true}
+                          checked={restore.tagsToSave.findIndex((t) => t.id === item.id) !== -1}
+                          onAdd={() => restore.addTagToSave(item)}
+                          onRemove={() => restore.removeTagToSave(item)} />
+                      ))
+                    }
+                  </View>
+                </CardAccordion>
+              )
+            }
+
+            <Button
+              text={t('Save changes').toString()}
+              onPress={saveChanges} />
+
+            <Button
+              style={styles.button}
+              textStyle={styles.buttonText}
+              text={t('Cancel').toString()}
+              onPress={restore.reset}/>
+          </ScrollView>
+        )
+      }
     </Default>
   );
 }

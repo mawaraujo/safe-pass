@@ -12,10 +12,7 @@ namespace NPassword {
 
   export type Passwords = Array<Password>
 
-  export type VerifiedPassword = Password & {
-    duplicated?: boolean
-  }
-
+  export type VerifiedPassword = Password & { duplicated?: boolean }
   export type VerifiedPasswords = Array<VerifiedPassword>
 }
 

@@ -5,9 +5,7 @@ namespace NTag {
   }
   export type Tags = Array<Tag>
 
-  export type VerifiedTag = Tag & {
-    duplicated?: boolean
-  }
+  export type VerifiedTag = Tag & { duplicated?: boolean }
   export type VerifiedTags = Array<VerifiedTag>
 }
 
