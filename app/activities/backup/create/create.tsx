@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import Default from '../../../layout/default/default';
 import { Crypto, FileSystem, Storage } from '../../../utils';
 import { useDispatch } from 'react-redux';
@@ -7,9 +7,9 @@ import alertSlice from '../../../store/reducers/alertSlice';
 import NavigationBar from '../../../components/navigationBar/navigationBar';
 import styles from './create.styles';
 import { Colors } from '../../../res';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import Text from '../../../components/text/text';
+import ActionButton from '../../../components/actionButton/actionButton';
 
 export default function CreateBackup() {
   const { t } = useTranslation();
@@ -82,15 +82,10 @@ export default function CreateBackup() {
         {
           !isLoading && (
             <View style={styles.content}>
-              <TouchableOpacity
+              <ActionButton
                 onPress={handleExport}
-                style={styles.button}>
-
-                <Icon
-                  name="cloud-download-outline"
-                  size={50}
-                  color="white" />
-              </TouchableOpacity>
+                icon="cloud-download-outline"
+                text={t('backup.create.pressToSave')} />
             </View>
           )
         }

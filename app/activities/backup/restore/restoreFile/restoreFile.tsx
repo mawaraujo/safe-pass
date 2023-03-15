@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
+import { View, ActivityIndicator, ScrollView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import alertSlice from '../../../../store/reducers/alertSlice';
 import { Backup } from '../../../../utils';
@@ -8,12 +8,12 @@ import { Colors } from '../../../../res';
 import styles from './restoreFile.styles';
 import NavigationBar from '../../../../components/navigationBar/navigationBar';
 import Default from '../../../../layout/default/default';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import useRestore from '../hooks/useRestore';
 import { CardAccordion } from '../../../../components/card';
 import Text from '../../../../components/text/text';
 import CheckEntry from '../components/checkEntry/checkEntry';
+import ActionButton from '../../../../components/actionButton/actionButton';
 
 export default function RestoreFile() {
   const { t } = useTranslation();
@@ -32,7 +32,7 @@ export default function RestoreFile() {
       if (!passwords || !tags) {
         dispatch(
             alertSlice.actions.show({
-              title: t('restore.noItemsFound'),
+              title: t('backup.restore.noItemsFound'),
               type: 'Danger',
             }),
         );
@@ -51,8 +51,8 @@ export default function RestoreFile() {
       ) {
         dispatch(
             alertSlice.actions.show({
-              title: t('restore.existingItemsFound'),
-              extraInformation: t('restore.existingItemsFoundDescription').toString(),
+              title: t('backup.restore.existingItemsFound'),
+              extraInformation: t('backup.restore.existingItemsFoundDescription').toString(),
               type: 'Warning',
             }),
         );
@@ -97,8 +97,8 @@ export default function RestoreFile() {
 
           {
             restore.hasElementsToSave
-              ? t('restore.selectItemInstruction').toString()
-              : t('restore.actions.restoreFile').toString()
+              ? t('backup.restore.selectItemInstruction').toString()
+              : t('backup.restore.actions.restoreFile').toString()
           }
         </Text>
       </View>
@@ -108,21 +108,10 @@ export default function RestoreFile() {
           <ScrollView contentContainerStyle={styles.container}>
             {
               !isLoading && (
-                <React.Fragment>
-                  <TouchableOpacity
-                    onPress={importFile}
-                    style={styles.uploadButton}>
-
-                    <Icon
-                      name="attach-outline"
-                      size={50}
-                      color="white" />
-                  </TouchableOpacity>
-
-                  <Text muted size="2" style={styles.selectText}>
-                    {t('restore.selectFile').toString()}
-                  </Text>
-                </React.Fragment>
+                <ActionButton
+                  text={t('backup.restore.selectFile').toString()}
+                  icon="attach-outline"
+                  onPress={importFile} />
               )
             }
 

@@ -22,7 +22,7 @@ function Restore() {
 
       <View style={styles.main}>
         <Text size="3">
-          {t('restore.title').toString()}
+          {t('backup.restore.title').toString()}
         </Text>
 
         <Text
@@ -30,7 +30,7 @@ function Restore() {
           size="2"
           muted>
 
-          {t('restore.description').toString()}
+          {t('backup.restore.description').toString()}
         </Text>
 
         <ScrollView>
@@ -40,13 +40,13 @@ function Restore() {
                 Navigation.navigate(Screens.Backup.RestoreFile.Name);
               }}
               firstItem={true}
-              title={t('restore.actions.restoreFile')} />
+              title={t('backup.restore.actions.restoreFile')} />
 
             <Item
               onPress={() => {
                 Navigation.navigate(Screens.Backup.RestoreChromeFile.Name);
               }}
-              title={t('restore.actions.restoreChromeFile')} />
+              title={t('backup.restore.actions.restoreChromeFile')} />
           </Card>
         </ScrollView>
       </View>

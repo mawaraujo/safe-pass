@@ -30,14 +30,6 @@ export default StyleSheet.create({
   cardContainer: {
     gap: Layout.Spacing.MD,
   },
-  uploadButton: {
-    backgroundColor: Colors.System.Brand,
-    width: 100,
-    height: 100,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: Layout.BorderRadius.PILL,
-  },
   button: {
     backgroundColor: 'transparent',
     marginTop: Layout.Spacing.SM,
@@ -48,8 +40,5 @@ export default StyleSheet.create({
   },
   description: {
     marginBottom: Layout.Spacing.MD,
-  },
-  selectText: {
-    marginTop: Layout.Spacing.MD,
   },
 });
