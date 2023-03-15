@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../../../../components/card/card';
+import { Card } from '../../../../components/card';
 import Application from '../../../../../app.json';
 import { ItemSlot } from '../../../../components/item';
 import { Item } from '../../../../components/item';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../../../../components/card/card';
+import { Card } from '../../../../components/card';
 import { Item } from '../../../../components/item';
 import { Navigation } from '../../../../utils';
 import { Screens } from '../../../../res';

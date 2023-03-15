@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import useRestore from '../hooks/useRestore';
 import CheckBox from '@react-native-community/checkbox';
-import Card from '../../../../components/card/card';
+import { Card } from '../../../../components/card';
 import Text from '../../../../components/text/text';
 
 export default function RestoreFile() {

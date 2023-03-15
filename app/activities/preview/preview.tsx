@@ -11,7 +11,7 @@ import Confirm from '../../components/modal/confirm/confirm';
 import passwordSlice from '../../store/reducers/passwordSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import alertSlice from '../../store/reducers/alertSlice';
-import Card from '../../components/card/card';
+import { Card } from '../../components/card';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/button/button';

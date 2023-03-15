@@ -4,7 +4,7 @@ import Default from '../../../layout/default/default';
 import NavigationBar from '../../../components/navigationBar/navigationBar';
 import { useTranslation } from 'react-i18next';
 import styles from './restore.styles';
-import Card from '../../../components/card/card';
+import { Card } from '../../../components/card';
 import { Item } from '../../../components/item';
 import Text from '../../../components/text/text';
 import { Navigation } from '../../../utils';
