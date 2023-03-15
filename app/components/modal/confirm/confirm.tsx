@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text } from 'react-native';
 import confirmStyles from './confirm.styles';
 import Button from '../../button/button';
 import BaseModal from '../base/base';
 import { useTranslation } from 'react-i18next';
+import Text from '../../text/text';
 
 interface IConfirmProps {
   title: string,
@@ -30,7 +30,11 @@ export default function Confirm({ show, title, onCancel, onAccept, extraInformat
 
   return (
     <BaseModal show={show}>
-      <Text style={confirmStyles.title}>{title}</Text>
+      <Text
+        size="3"
+        style={confirmStyles.title}>
+        {title}
+      </Text>
 
       {
         extraInformation && (

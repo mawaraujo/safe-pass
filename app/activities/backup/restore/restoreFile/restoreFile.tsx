@@ -10,81 +10,53 @@ import NavigationBar from '../../../../components/navigationBar/navigationBar';
 import Default from '../../../../layout/default/default';
 import Icons from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
-import useRestoreFile from './useRestoreFile';
-import { NPassword, NTag } from '../../../../types';
+import useRestore from '../hooks/useRestore';
 import CheckBox from '@react-native-community/checkbox';
 import Card from '../../../../components/card/card';
 import Text from '../../../../components/text/text';
 
 export default function RestoreFile() {
   const { t } = useTranslation();
-  const {
-    importPasswords,
-    importTags,
-    deleteDuplicatedPasswords,
-    deleteDuplicatedTags,
-  } = useRestoreFile();
+  const restore = useRestore();
 
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
-  const [importedPasswords, setImportedPasswords] = React.useState<NPassword.Passwords>([]);
-  const [importedTags, setImportedTags] = React.useState<NTag.Tags>([]);
-
-  const [passwordsToSave, setPasswordsToSave] = React.useState<NPassword.Passwords>([]);
-  const [tagsToSave, setTagsToSave] = React.useState<NTag.Tags>([]);
-
-  const showImportSelector: boolean = (importedPasswords.length > 0 || importedTags.length > 0);
-
-  const addPaswordToSave = (password: NPassword.Password) => (
-    setPasswordsToSave([
-      ...passwordsToSave,
-      password,
-    ])
-  );
-
-  const removePasswordToSave = (password: NPassword.Password): void => {
-    const results = passwordsToSave.filter((p) =>
-      p.id !== password.id);
-
-    setPasswordsToSave(results);
-  };
-
-  const addTagToSave = (password: NTag.Tag): void => (
-    setTagsToSave([
-      ...passwordsToSave,
-      password,
-    ])
-  );
-
-  const removeTagToSave = (tag: NTag.Tag): void => {
-    const results = tagsToSave.filter((p) =>
-      p.id !== tag.id);
-
-    setTagsToSave(results);
-  };
-
   const importFile = async (): Promise<void> => {
-    reset();
+    restore.reset();
     setIsLoading(true);
 
     try {
       const { passwords, tags } = await Backup.restoreOriginalFile();
 
-      const filteredPasswords = deleteDuplicatedPasswords(passwords);
-      const filteredTags = deleteDuplicatedTags(tags);
-
-      if (filteredPasswords.length <= 0 && filteredTags.length <= 0) {
+      if (!passwords || !tags) {
         dispatch(
             alertSlice.actions.show({
               title: t('restore.noItemsFound'),
               type: 'Danger',
             }),
         );
+        return;
       }
 
-      setImportedPasswords(filteredPasswords);
-      setImportedTags(filteredTags);
+      const filteredPasswords = restore.checkDuplicatedPasswords(passwords);
+      const filteredTags = restore.checkDuplicatedTags(tags);
+
+      restore.setImportedPasswords(filteredPasswords);
+      restore.setImportedTags(filteredTags);
+
+      if (
+        filteredPasswords.some((p) => p?.duplicated === true) ||
+        filteredTags.some((f) => f?.duplicated === true)
+      ) {
+        dispatch(
+            alertSlice.actions.show({
+              title: t('restore.existingItemsFound'),
+              extraInformation: t('restore.existingItemsFoundDescription').toString(),
+              type: 'Warning',
+            }),
+        );
+      }
 
     } catch (error) {
       console.log(error);
@@ -102,9 +74,9 @@ export default function RestoreFile() {
   };
 
   const saveChanges = (): void => {
-    importPasswords(passwordsToSave);
-    importTags(tagsToSave);
-    reset();
+    restore.importPasswords();
+    restore.importTags();
+    restore.reset();
 
     dispatch(
         alertSlice.actions.show({
@@ -112,13 +84,6 @@ export default function RestoreFile() {
           type: 'Success',
         }),
     );
-  };
-
-  const reset = (): void => {
-    setImportedPasswords([]);
-    setImportedTags([]);
-    setPasswordsToSave([]);
-    setTagsToSave([]);
   };
 
   return (
@@ -129,7 +94,7 @@ export default function RestoreFile() {
         style={styles.container}>
 
         {
-          !showImportSelector && (
+          !restore.hasElementsToSave && (
             <React.Fragment>
               {
                 !isLoading && (
@@ -168,12 +133,15 @@ export default function RestoreFile() {
         }
 
         {
-          showImportSelector && (
+          restore.hasElementsToSave && (
             <ScrollView>
               {
-                importedPasswords.length > 0 && (
+                restore.importedPasswords.length > 0 && (
                   <React.Fragment>
-                    <Text size="3">{t('Passwords').toString()}</Text>
+                    <Text size="3">
+                      {`${t('Passwords').toString()} (${restore.importedPasswords.length})`}
+                    </Text>
+
                     <Text
                       size="2"
                       muted
@@ -184,7 +152,7 @@ export default function RestoreFile() {
                     <Card>
                       <View style={styles.cardContainer}>
                         {
-                          importedPasswords.map((item, key) => (
+                          restore.importedPasswords.map((item, key) => (
                             <View
                               key={item.id + key}
                               style={styles.cardContent}>
@@ -193,10 +161,14 @@ export default function RestoreFile() {
                                 tintColors={{
                                   true: Colors.System.Brand,
                                 }}
-                                value={passwordsToSave.findIndex((t) => t.id === item.id) !== -1}
+                                disabled={item?.duplicated}
+                                style={[
+                                  item?.duplicated && styles.checkboxDisabled,
+                                ]}
+                                value={restore.passwordsToSave.findIndex((t) => t.id === item.id) !== -1}
                                 onValueChange={(val) => {
-                                  if (val) return addPaswordToSave(item);
-                                  removePasswordToSave(item);
+                                  if (val) return restore.addPaswordToSave(item);
+                                  restore.removePasswordToSave(item);
                                 }}
                               />
                               <View style={styles.cardContentText}>
@@ -219,9 +191,12 @@ export default function RestoreFile() {
               }
 
               {
-                importedTags.length > 0 && (
+                restore.importedTags.length > 0 && (
                   <React.Fragment>
-                    <Text size="3">{t('Tags').toString()}</Text>
+                    <Text size="3">
+                      {`${t('Tags').toString()} (${restore.importedTags.length})`}
+                    </Text>
+
                     <Text
                       size="2"
                       muted
@@ -232,7 +207,7 @@ export default function RestoreFile() {
                     <Card>
                       <View style={styles.cardContainer}>
                         {
-                          importedTags.map((item, index) => (
+                          restore.importedTags.map((item, index) => (
                             <View
                               key={item.id + index}
                               style={styles.cardContent}>
@@ -241,10 +216,14 @@ export default function RestoreFile() {
                                 tintColors={{
                                   true: Colors.System.Brand,
                                 }}
-                                value={tagsToSave.findIndex((t) => t.id === item.id) !== -1}
+                                style={[
+                                  item?.duplicated && styles.checkboxDisabled,
+                                ]}
+                                disabled={item?.duplicated}
+                                value={restore.tagsToSave.findIndex((t) => t.id === item.id) !== -1}
                                 onValueChange={(val) => {
-                                  if (val) return addTagToSave(item);
-                                  removeTagToSave(item);
+                                  if (val) return restore.addTagToSave(item);
+                                  restore.removeTagToSave(item);
                                 }}
                               />
                               <Text
@@ -269,7 +248,7 @@ export default function RestoreFile() {
                 style={styles.button}
                 textStyle={styles.buttonText}
                 text={t('Cancel').toString()}
-                onPress={reset}/>
+                onPress={restore.reset}/>
             </ScrollView>
           )
         }

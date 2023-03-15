@@ -37,22 +37,35 @@ export default function Alert() {
           color={alertColor} />
 
         <Text
-          size="2"
+          size="3"
+          bold
           style={[
             styles.title,
             { color: alertColor },
           ]}>
           {alertValue.title}
         </Text>
+
+        {
+          alertValue.extraInformation && (
+            <Text
+              style={[
+                styles.extraInformation,
+                { color: alertColor },
+              ]}>
+              {alertValue.extraInformation}
+            </Text>
+          )
+        }
       </View>
 
       <Button
         onPress={hide}
-        textStyle={{ color: alertColor }}
+        textStyle={{ color: 'white' }}
         style={[
           styles.button,
           {
-            borderColor: alertColor,
+            backgroundColor: alertColor,
           },
         ]}
         text={t('Accept') ?? 'Accept'} />

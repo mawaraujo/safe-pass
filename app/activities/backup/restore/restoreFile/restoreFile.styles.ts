@@ -33,8 +33,13 @@ export default StyleSheet.create({
   },
   button: {
     backgroundColor: 'transparent',
+    marginTop: Layout.Spacing.SM,
+    marginBottom: Layout.Spacing.MD,
   },
   buttonText: {
     color: Colors.System.Brand,
+  },
+  checkboxDisabled: {
+    opacity: 0.1,
   },
 });

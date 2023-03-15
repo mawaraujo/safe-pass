@@ -72,6 +72,8 @@
     "description": "Choose how you want to restore your data",
     "noItemsFound": "No items found to import",
     "selectItemInstruction": "Select the items you want to import",
+    "existingItemsFound": "Duplicate items detected",
+    "existingItemsFoundDescription": "Some elements will be disabled and cannot be imported because they already exist",
     
     "actions": {
       "restoreFile": "Restore backup",

@@ -10,13 +10,14 @@ export default StyleSheet.create({
   },
   title: {
     color: Colors.System.Brand,
-    marginBottom: Layout.Spacing.MD,
+    textAlign: 'center',
+  },
+  extraInformation: {
     textAlign: 'center',
   },
   button: {
+    marginTop: Layout.Spacing.MD,
     width: '100%',
-    borderWidth: 1,
-    backgroundColor: 'transparent',
   },
   buttonText: {
     color: Colors.System.Brand,

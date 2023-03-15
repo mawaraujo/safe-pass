@@ -69,6 +69,8 @@
     "description": "Elige cómo quieres restaurar tus datos",
     "noItemsFound": "No se encontraron elementos para importar",
     "selectItemInstruction": "Seleccione los elementos que desea importar",
+    "existingItemsFound": "Se detectaron elementos duplicados",
+    "existingItemsFoundDescription": "Algunos elementos estarán deshabilitados y no se podrán importar debido a que ya existen",
 
     "actions": {
       "restoreFile": "Restaurar copia de seguridad",

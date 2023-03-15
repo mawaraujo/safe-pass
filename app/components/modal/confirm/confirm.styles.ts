@@ -1,10 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts, Layout } from '../../../res';
+import { Colors, Layout } from '../../../res';
 
 export default StyleSheet.create({
   title: {
-    fontSize: Fonts.Size.Text,
-    color: Colors.System.Black,
     textAlign: 'center',
   },
   extraInformation: {
