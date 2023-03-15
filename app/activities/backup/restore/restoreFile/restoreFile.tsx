@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ActivityIndicator, ScrollView } from 'react-native';
+import { View, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import alertSlice from '../../../../store/reducers/alertSlice';
 import { Backup } from '../../../../utils';
@@ -8,7 +8,7 @@ import { Colors } from '../../../../res';
 import styles from './restoreFile.styles';
 import NavigationBar from '../../../../components/navigationBar/navigationBar';
 import Default from '../../../../layout/default/default';
-import Icons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import useRestore from '../hooks/useRestore';
 import CheckBox from '@react-native-community/checkbox';
@@ -95,26 +95,33 @@ export default function RestoreFile() {
 
         {
           !restore.hasElementsToSave && (
-            <React.Fragment>
+            <View style={{ flex: 1 }}>
+              {
+                !isLoading && (
+                  <React.Fragment>
+                    <Text size="3">
+                      {t('restore.actions.restoreFile').toString()}
+                    </Text>
+
+                    <Text size="2" muted>
+                      {t('restore.selectFile').toString()}
+                    </Text>
+                  </React.Fragment>
+                )
+              }
+
               {
                 !isLoading && (
                   <View style={styles.statusContainer}>
-                    <Icons
-                      style={styles.icon}
-                      name="attach-outline"
-                      size={100}
-                      color={Colors.System.Brand} />
+                    <TouchableOpacity
+                      onPress={importFile}
+                      style={styles.uploadButton}>
 
-                    <Text
-                      size="3"
-                      style={styles.title}>
-
-                      {t('Select a backup file').toString()}
-                    </Text>
-
-                    <Button
-                      text={t('Select') ?? 'Select'}
-                      onPress={importFile} />
+                      <Icon
+                        name="attach-outline"
+                        size={50}
+                        color="white" />
+                    </TouchableOpacity>
                   </View>
                 )
               }
@@ -128,7 +135,7 @@ export default function RestoreFile() {
                   </View>
                 )
               }
-            </React.Fragment>
+            </View>
           )
         }
 

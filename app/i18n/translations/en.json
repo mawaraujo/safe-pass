@@ -28,7 +28,6 @@
   "Choose how you want to restore your data": "Choose how you want to restore your data",
   "Restore backup summary": "Restore your information from your phone's internal storage",
   "Backup file import failed": "Backup file import failed",
-  "Select a backup file": "Select a backup file",
   "Backup imported successfully": "Backup imported successfully",
 
   "Create password": "Create password",
@@ -74,7 +73,8 @@
     "selectItemInstruction": "Select the items you want to import",
     "existingItemsFound": "Duplicate items detected",
     "existingItemsFoundDescription": "Some elements will be disabled and cannot be imported because they already exist",
-    
+    "selectFile": "Choose a backup file to continue",
+
     "actions": {
       "restoreFile": "Restore backup",
       "restoreChromeFile": "Import file from Google Chrome"

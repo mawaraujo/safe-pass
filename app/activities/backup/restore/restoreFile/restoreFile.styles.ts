@@ -5,6 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: Layout.Spacing.MD,
+    justifyContent: 'center',
   },
   statusContainer: {
     alignItems: 'center',
@@ -30,6 +31,14 @@ export default StyleSheet.create({
   cardContentText: {
     flexDirection: 'column',
     marginLeft: Layout.Spacing.SM,
+  },
+  uploadButton: {
+    backgroundColor: Colors.System.Brand,
+    width: 100,
+    height: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: Layout.BorderRadius.PILL,
   },
   button: {
     backgroundColor: 'transparent',

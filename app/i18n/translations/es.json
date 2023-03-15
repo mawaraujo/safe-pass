@@ -28,7 +28,6 @@
   "Choose how you want to restore your data": "Elige cómo quieres restaurar tus datos",
   "Restore backup summary": "Restaura tu información desde el almacenamiento interno de tu teléfono",
   "Backup file import failed": "Ocurrió un error al intentar importar la copia de seguridad",
-  "Select a backup file": "Seleccionar archivo",
   "Backup imported successfully": "Copia de seguridad restaurada correctamente",
 
   "Create password": "Crear contraseña",
@@ -71,6 +70,7 @@
     "selectItemInstruction": "Seleccione los elementos que desea importar",
     "existingItemsFound": "Se detectaron elementos duplicados",
     "existingItemsFoundDescription": "Algunos elementos estarán deshabilitados y no se podrán importar debido a que ya existen",
+    "selectFile": "Seleccione un archivo para continuar",
 
     "actions": {
       "restoreFile": "Restaurar copia de seguridad",
