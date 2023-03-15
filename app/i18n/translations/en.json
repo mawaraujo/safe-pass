@@ -70,7 +70,9 @@
   "restore": {
     "title": "Restore backup",
     "description": "Choose how you want to restore your data",
-
+    "noItemsFound": "No items found to import",
+    "selectItemInstruction": "Select the items you want to import",
+    
     "actions": {
       "restoreFile": "Restore backup",
       "restoreChromeFile": "Import file from Google Chrome"

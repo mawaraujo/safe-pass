@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import BaseModal from '../base/base';
 import styles from './alert.styles';
 import Button from '../../button/button';
@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Colors } from '../../../res';
+import Text from '../../text/text';
 
 export default function Alert() {
   const { t } = useTranslation();
@@ -36,6 +37,7 @@ export default function Alert() {
           color={alertColor} />
 
         <Text
+          size="2"
           style={[
             styles.title,
             { color: alertColor },
