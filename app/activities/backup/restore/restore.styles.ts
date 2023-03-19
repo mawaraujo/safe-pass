@@ -19,7 +19,6 @@ export default StyleSheet.create({
     marginBottom: Layout.Spacing.SM,
   },
   subTitle: {
-    marginTop: Layout.Spacing.SM,
     marginBottom: Layout.Spacing.MD,
   },
   cardContainer: {
