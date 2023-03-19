@@ -29,6 +29,9 @@ export default StyleSheet.create({
   buttonActive: {
     backgroundColor: Colors.System.Brand,
   },
+  buttonDisabled: {
+    backgroundColor: Colors.System.BrandTransparent,
+  },
   button: {
     borderWidth: 1,
     borderColor: Colors.System.Brand,

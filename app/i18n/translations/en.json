@@ -67,6 +67,9 @@
   "The field is required": "The field is required",
   "Invalid email": "Invalid email",
 
+  "exitConfirmTitle": "Are you sure you want to leave?",
+  "exitConfirmDescription": "Changes made will be lost",
+
   "backup.restore": {
     "title": "Restore backup",
     "noItemsFound": "No items found to import",

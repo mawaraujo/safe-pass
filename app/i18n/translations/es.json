@@ -64,6 +64,9 @@
   "The field is required": "El campo es requerido",
   "Invalid email": "Correo electrónico inválido",
 
+  "exitConfirmTitle": "¿Estás seguro de que quieres salir?",
+  "exitConfirmDescription": "Se perderán los cambios realizados",
+
   "backup.restore": {
     "title": "Restaurar copia de seguridad",
     "noItemsFound": "No se encontraron elementos para importar",

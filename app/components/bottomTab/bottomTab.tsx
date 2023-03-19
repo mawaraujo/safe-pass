@@ -18,6 +18,10 @@ export default function BottomTab() {
     );
   }, [route.name]);
 
+  const isDisabledCreationButton: boolean =
+    isFocused(Screens.CreatePassword.Name) ||
+    isFocused(Screens.CreateTag.Name);
+
   return (
     <React.Fragment>
       <ChooseToCreate
@@ -41,9 +45,11 @@ export default function BottomTab() {
         </TouchableOpacity>
 
         <TouchableOpacity
+          disabled={isDisabledCreationButton}
           style={[
             bottomTabStyles.buttonContainer,
             bottomTabStyles.buttonActive,
+            isDisabledCreationButton && bottomTabStyles.buttonDisabled,
           ]}
           onPress={() => {
             setShowCreationModal(true);
