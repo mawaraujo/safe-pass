@@ -1,12 +1,41 @@
 import { StyleSheet } from 'react-native';
-import { Layout } from '../../../res';
+import { Colors, Layout } from '../../../res';
 
 export default StyleSheet.create({
-  main: {
+  container: {
     flex: 1,
     marginHorizontal: Layout.Spacing.MD,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  descriptionText: {
+  listContainer: {
+    marginHorizontal: Layout.Spacing.MD,
+  },
+  statusContainer: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  icon: {
+    marginBottom: Layout.Spacing.SM,
+  },
+  title: {
+    marginBottom: Layout.Spacing.MD,
+  },
+  subTitle: {
+    marginBottom: Layout.Spacing.MD,
+  },
+  cardContainer: {
+    gap: Layout.Spacing.MD,
+  },
+  button: {
+    backgroundColor: 'transparent',
+    marginTop: Layout.Spacing.SM,
+    marginBottom: Layout.Spacing.MD,
+  },
+  buttonText: {
+    color: Colors.System.Brand,
+  },
+  description: {
     marginBottom: Layout.Spacing.MD,
   },
 });

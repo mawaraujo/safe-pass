@@ -31,15 +31,8 @@ function BackupStack() {
 
       <Stack.Screen
         name={Screens.Backup.Restore.Name}
-        component={BackupRestore.Restore} />
+        component={BackupRestore} />
 
-      <Stack.Screen
-        name={Screens.Backup.RestoreFile.Name}
-        component={BackupRestore.RestoreFile} />
-
-      <Stack.Screen
-        name={Screens.Backup.RestoreChromeFile.Name}
-        component={BackupRestore.RestoreChromeFile} />
 
       <Stack.Screen
         name={Screens.Backup.Create.Name}

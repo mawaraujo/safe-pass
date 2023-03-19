@@ -11,6 +11,7 @@
   "Cancel": "Cancel",
   "Select": "Select",
   "Continue": "Continue",
+  "selectAll": "Select all",
 
   "Contains [n] passwords": "Passwords found: [n]",
   
@@ -73,11 +74,6 @@
     "selectItemInstruction": "Select the items you want to import",
     "existingItemsFound": "Duplicate items detected",
     "existingItemsFoundDescription": "Some elements will be disabled and cannot be imported because they already exist",
-    "selectFile": "Choose file",
-
-    "actions": {
-      "restoreFile": "Restore backup",
-      "restoreChromeFile": "Import file from Google Chrome"
-    }
+    "selectFile": "Choose file"
   }
 }

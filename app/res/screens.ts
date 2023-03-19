@@ -36,11 +36,5 @@ export default {
     Restore: {
       Name: 'Restore',
     },
-    RestoreFile: {
-      Name: 'RestoreFile',
-    },
-    RestoreChromeFile: {
-      Name: 'RestoreChromeFile',
-    },
   },
 };

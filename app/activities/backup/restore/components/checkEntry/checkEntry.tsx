@@ -8,17 +8,17 @@ import { useTranslation } from 'react-i18next';
 
 interface Props {
   name: string,
-  duplicated: boolean,
-  checked: boolean,
-  onAdd: () => void
-  onRemove: () => void,
+  disabled?: boolean,
+  checked?: boolean,
+  onAdd?: () => void
+  onRemove?: () => void,
   showDescription?: boolean,
   description?: string,
 }
 
 export default function CheckEntry({
   name,
-  duplicated,
+  disabled,
   checked,
   onAdd,
   onRemove,
@@ -34,19 +34,19 @@ export default function CheckEntry({
         tintColors={{
           true: Colors.System.Brand,
         }}
-        disabled={duplicated}
+        disabled={disabled}
         style={[
-          duplicated && styles.checkboxDisabled,
+          disabled && styles.checkboxDisabled,
           styles.checkbox,
         ]}
         value={checked}
         onValueChange={(val) => {
-          if (val) return onAdd();
-          onRemove();
+          if (val) return onAdd?.();
+          onRemove?.();
         }}
       />
       <View style={styles.cardContentText}>
-        <Text size="2" muted={duplicated}>{name}</Text>
+        <Text size="2" muted={disabled}>{name}</Text>
 
         {
           showDescription && description && (

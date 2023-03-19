@@ -96,6 +96,16 @@ export default function useRestore() {
     setTagsToSave([]);
   };
 
+
+  const cleanImportedPasswords = importedPasswords.filter((d) => !d.duplicated);
+  const checkAllPasswords = () => setPasswordsToSave(cleanImportedPasswords);
+  const uncheckAllPasswords = () => setPasswordsToSave([]);
+
+
+  const cleanImportedTags = importedTags.filter((d) => !d.duplicated);
+  const checkAllTags = () => setTagsToSave(cleanImportedTags);
+  const uncheckAllTags = () => setTagsToSave([]);
+
   return {
     importPasswords,
     importTags,
@@ -115,5 +125,11 @@ export default function useRestore() {
     addTagToSave,
     removeTagToSave,
     reset,
+    cleanImportedPasswords,
+    checkAllPasswords,
+    uncheckAllPasswords,
+    cleanImportedTags,
+    checkAllTags,
+    uncheckAllTags,
   };
 }
