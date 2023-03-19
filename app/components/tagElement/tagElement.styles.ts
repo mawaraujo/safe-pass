@@ -11,7 +11,6 @@ export default StyleSheet.create({
   },
   left: {
     flex: 1,
-    marginLeft: Layout.Spacing.MD,
   },
   actions: {
     flexDirection: 'row',

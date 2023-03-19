@@ -33,15 +33,6 @@ export default function TagElement({ item, linkedPasswords, onPressDelete }: ITa
     <View
       style={styles.container}>
 
-      <Icon
-        name={
-          (linkedPasswords && linkedPasswords > 1)
-            ? 'documents-outline'
-            : 'document-outline'
-        }
-        color={Colors.System.Brand}
-        size={Fonts.Size.Icon} />
-
       <View style={styles.left}>
         <Text size="2" bold>{item.name}</Text>
         <Text muted>
