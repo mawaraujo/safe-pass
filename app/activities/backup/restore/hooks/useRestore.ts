@@ -96,13 +96,23 @@ export default function useRestore() {
     setTagsToSave([]);
   };
 
+  /**
+   * Imported passwords list without duplicated rows
+   * @type {NPassword.VerifiedPasswords}
+   */
+  const cleanImportedPasswords: NPassword.VerifiedPasswords = importedPasswords
+      .filter((d) => !d.duplicated);
 
-  const cleanImportedPasswords = importedPasswords.filter((d) => !d.duplicated);
   const checkAllPasswords = () => setPasswordsToSave(cleanImportedPasswords);
   const uncheckAllPasswords = () => setPasswordsToSave([]);
 
+  /**
+   * Imported tags list without duplicated rows
+   * @type {NTag.VerifiedTags}
+   */
+  const cleanImportedTags: NTag.VerifiedTags = importedTags
+      .filter((d) => !d.duplicated);
 
-  const cleanImportedTags = importedTags.filter((d) => !d.duplicated);
   const checkAllTags = () => setTagsToSave(cleanImportedTags);
   const uncheckAllTags = () => setTagsToSave([]);
 

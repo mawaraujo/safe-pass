@@ -10,6 +10,7 @@ export default StyleSheet.create({
   },
   listContainer: {
     marginHorizontal: Layout.Spacing.MD,
+    borderWidth: 1,
   },
   statusContainer: {
     alignItems: 'center',

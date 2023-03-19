@@ -92,7 +92,11 @@ export default function CardAccordion({ title, description, children }: Props) {
       </TouchableOpacity>
 
       <Animated.View style={animatedMainStyles}>
-        { children && children }
+        {
+          show && (
+            children && children
+          )
+        }
       </Animated.View>
     </CardBase>
   );
