@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { BackHandler, ScrollView } from 'react-native';
 import Default from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import { FormikHelpers, useFormik } from 'formik';
@@ -19,8 +19,10 @@ import alertSlice from '../../store/reducers/alertSlice';
 import { RootState } from '../../store/store';
 import { useTranslation } from 'react-i18next';
 import PasswordActionIcons from './components/passwordActionIcons/passwordActionIcons';
+import Confirm from '../../components/modal/confirm/confirm';
 
 interface Props {
+  navigation: any,
   route?: {
     params: {
       password: NPassword.Password
@@ -28,14 +30,23 @@ interface Props {
   }
 }
 
-export default function CreatePassword({ route }: Props) {
+export default function CreatePassword({ navigation, route }: Props) {
   const { t } = useTranslation();
+
   const dispatch = useDispatch();
-
-  const { editMode, setEditMode, showPassword, setShowPassword, initialValues, validationSchema } = useForm();
-
   const tags = useSelector((state: RootState) => state.tags);
   const password = route?.params?.password;
+
+  const {
+    editMode,
+    setEditMode,
+    showPassword,
+    setShowPassword,
+    initialValues,
+    validationSchema,
+  } = useForm();
+
+  const [showExitModal, setShowExitModal] = React.useState<boolean>(false);
 
   const onSubmit = (value: NPassword.Password, _helpers: FormikHelpers<NPassword.Password>) => {
     if (!editMode) {
@@ -101,14 +112,31 @@ export default function CreatePassword({ route }: Props) {
     }
   }, [password]);
 
+  React.useEffect(() => {
+    const subscription = BackHandler
+        .addEventListener('hardwareBackPress', () => {
+          setShowExitModal(true);
+          return true;
+        });
+
+    return subscription.remove;
+  }, []);
+
   return (
-    <Default>
+    <Default bottomTab={false}>
       <NavigationBar
         name={
           editMode
           ? t('Edit password') ?? 'Edit password'
           : t('Create password') ?? 'Create password'
         } />
+
+      <Confirm
+        show={showExitModal}
+        title={t('exitConfirmTitle').toString()}
+        extraInformation={t('exitConfirmDescription').toString()}
+        onAccept={navigation.goBack}
+        onCancel={() => setShowExitModal(false)} />
 
       <ScrollView
         keyboardShouldPersistTaps={'always'}

@@ -12,7 +12,8 @@ import { Colors } from '../../res';
 interface IDefaultProps {
   statusBar?: StatusBarProps
   children?: React.ReactNode,
-  style?: ViewStyle
+  style?: ViewStyle,
+  bottomTab?: boolean,
 }
 
 const initialStatusBarConfig: StatusBarProps = {
@@ -24,6 +25,7 @@ export default function Default({
   statusBar = initialStatusBarConfig,
   children,
   style,
+  bottomTab = true,
 }: IDefaultProps) {
 
   return (
@@ -38,7 +40,11 @@ export default function Default({
 
       { children && children }
 
-      <BottomTab />
+      {
+        bottomTab && (
+          <BottomTab />
+        )
+      }
     </SafeAreaView>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { BackHandler, ScrollView } from 'react-native';
 import Default from '../../layout/default/default';
 import NavigationBar from '../../components/navigationBar/navigationBar';
 import { FormikHelpers, useFormik } from 'formik';
@@ -15,8 +15,10 @@ import screens from '../../res/screens';
 import uuid from 'react-native-uuid';
 import alertSlice from '../../store/reducers/alertSlice';
 import { useTranslation } from 'react-i18next';
+import Confirm from '../../components/modal/confirm/confirm';
 
 interface ICreateTag {
+  navigation: any,
   route?: {
     params: {
       tag: NTag.Tag
@@ -24,7 +26,7 @@ interface ICreateTag {
   }
 }
 
-export default function CreateTag({ route }: ICreateTag) {
+export default function CreateTag({ navigation, route }: ICreateTag) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -35,6 +37,7 @@ export default function CreateTag({ route }: ICreateTag) {
 
   const tag = route?.params?.tag;
   const [editMode, setEditMode] = React.useState(false);
+  const [showExitModal, setShowExitModal] = React.useState<boolean>(false);
 
   const onSubmit = (
       value: NTag.Tag,
@@ -97,14 +100,31 @@ export default function CreateTag({ route }: ICreateTag) {
     }
   }, [tag]);
 
+  React.useEffect(() => {
+    const subscription = BackHandler
+        .addEventListener('hardwareBackPress', () => {
+          setShowExitModal(true);
+          return true;
+        });
+
+    return subscription.remove;
+  }, []);
+
   return (
-    <Default>
+    <Default bottomTab={false}>
       <NavigationBar
         name={
           editMode
           ? t('Edit tag') ?? 'Edit tag'
           : t('Create tag') ?? 'Create tag'
         } />
+
+      <Confirm
+        show={showExitModal}
+        title={t('exitConfirmTitle').toString()}
+        extraInformation={t('exitConfirmDescription').toString()}
+        onAccept={navigation.goBack}
+        onCancel={() => setShowExitModal(false)} />
 
       <ScrollView
         keyboardShouldPersistTaps={'always'}
