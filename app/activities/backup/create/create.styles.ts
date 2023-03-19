@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Layout } from '../../../res';
+import { Layout } from '../../../res';
 
 export default StyleSheet.create({
   container: {
@@ -11,12 +11,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  button: {
-    backgroundColor: Colors.System.Brand,
-    width: 100,
-    height: 100,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: Layout.BorderRadius.PILL,
+  importImage: {
+    height: 200,
+    marginBottom: Layout.Spacing.LG,
   },
 });

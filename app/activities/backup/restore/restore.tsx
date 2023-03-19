@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ActivityIndicator, ScrollView } from 'react-native';
+import { View, ActivityIndicator, ScrollView, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import alertSlice from '../../../store/reducers/alertSlice';
 import { Backup } from '../../../utils';
@@ -12,7 +12,8 @@ import { useTranslation } from 'react-i18next';
 import useRestore from './hooks/useRestore';
 import { CardAccordion } from '../../../components/card';
 import CheckEntry from './components/checkEntry/checkEntry';
-import ActionButton from '../../../components/actionButton/actionButton';
+import RestoreImage from '../../../res/images/restore.png';
+import Text from '../../../components/text/text';
 
 export default function RestoreFile() {
   const { t } = useTranslation();
@@ -87,18 +88,41 @@ export default function RestoreFile() {
 
   return (
     <Default>
-      <NavigationBar
-        name={t('backup.restore.title').toString()} />
+      <NavigationBar />
+
+      <View style={styles.listContainer}>
+        <Text size="3">
+          {t('backup.restore.title').toString()}
+        </Text>
+
+        {
+          restore.hasElementsToSave && (
+            <Text
+              style={styles.subTitle}
+              size="2"
+              muted>
+              {t('backup.restore.selectItemInstruction').toString()}
+            </Text>
+          )
+        }
+      </View>
+
 
       {
         !restore.hasElementsToSave && (
           <ScrollView contentContainerStyle={styles.container}>
             {
               !isLoading && (
-                <ActionButton
-                  text={t('backup.restore.selectFile').toString()}
-                  icon="attach-outline"
-                  onPress={importFile} />
+                <React.Fragment>
+                  <Image
+                    source={RestoreImage}
+                    resizeMode="contain"
+                    style={styles.importImage} />
+
+                  <Button
+                    text={t('backup.restore.selectFile').toString()}
+                    onPress={importFile} />
+                </React.Fragment>
               )
             }
 

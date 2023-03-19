@@ -10,7 +10,6 @@ export default StyleSheet.create({
   },
   listContainer: {
     marginHorizontal: Layout.Spacing.MD,
-    borderWidth: 1,
   },
   statusContainer: {
     alignItems: 'center',
@@ -19,10 +18,8 @@ export default StyleSheet.create({
   icon: {
     marginBottom: Layout.Spacing.SM,
   },
-  title: {
-    marginBottom: Layout.Spacing.MD,
-  },
   subTitle: {
+    marginTop: Layout.Spacing.SM,
     marginBottom: Layout.Spacing.MD,
   },
   cardContainer: {
@@ -36,7 +33,8 @@ export default StyleSheet.create({
   buttonText: {
     color: Colors.System.Brand,
   },
-  description: {
-    marginBottom: Layout.Spacing.MD,
+  importImage: {
+    height: 200,
+    marginBottom: Layout.Spacing.LG,
   },
 });

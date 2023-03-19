@@ -66,7 +66,6 @@
 
   "backup.restore": {
     "title": "Restaurar copia de seguridad",
-    "description": "Elige cómo quieres restaurar tus datos",
     "noItemsFound": "No se encontraron elementos para importar",
     "selectItemInstruction": "Seleccione los elementos que desea importar",
     "existingItemsFound": "Se detectaron elementos duplicados",

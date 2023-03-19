@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, Image, View } from 'react-native';
 import Default from '../../../layout/default/default';
 import { Crypto, FileSystem, Storage } from '../../../utils';
 import { useDispatch } from 'react-redux';
@@ -9,7 +9,8 @@ import styles from './create.styles';
 import { Colors } from '../../../res';
 import { useTranslation } from 'react-i18next';
 import Text from '../../../components/text/text';
-import ActionButton from '../../../components/actionButton/actionButton';
+import CreateBackupImage from '../../../res/images/create_backup.png';
+import Button from '../../../components/button/button';
 
 export default function CreateBackup() {
   const { t } = useTranslation();
@@ -82,10 +83,16 @@ export default function CreateBackup() {
         {
           !isLoading && (
             <View style={styles.content}>
-              <ActionButton
-                onPress={handleExport}
-                icon="cloud-download-outline"
-                text={t('Create backup').toString()} />
+              <React.Fragment>
+                <Image
+                  source={CreateBackupImage}
+                  resizeMode="contain"
+                  style={styles.importImage} />
+
+                <Button
+                  text={t('Create backup').toString()}
+                  onPress={handleExport} />
+              </React.Fragment>
             </View>
           )
         }

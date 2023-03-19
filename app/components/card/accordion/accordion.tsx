@@ -75,7 +75,7 @@ export default function CardAccordion({ title, description, children }: Props) {
         style={styles.header}
         onPress={() => setShow(!show)}>
         <View id="left-container">
-          <Text size="3">{title}</Text>
+          <Text size="2">{title}</Text>
 
           {
             description &&
