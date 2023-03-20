@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import passwordSlice from '../../../../store/reducers/passwordSlice';
-import tagSlice from '../../../../store/reducers/tagSlice';
-import { RootState } from '../../../../store/store';
-import { NPassword, NTag } from '../../../../types';
+import passwordSlice from '../../../store/reducers/passwordSlice';
+import tagSlice from '../../../store/reducers/tagSlice';
+import { RootState } from '../../../store/store';
+import { NPassword, NTag } from '../../../types';
 
 export default function useRestore() {
   const dispatch = useDispatch();

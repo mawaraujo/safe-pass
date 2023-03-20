@@ -11,6 +11,6 @@ export default StyleSheet.create({
     flex: 1,
   },
   flatList: {
-    flex: 1,
+    paddingBottom: Layout.Spacing.MD,
   },
 });

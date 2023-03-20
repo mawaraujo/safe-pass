@@ -1,16 +1,16 @@
 import React from 'react';
 import { ActivityIndicator, Image, View } from 'react-native';
-import Default from '../../../layout/default/default';
-import { Crypto, FileSystem, Storage } from '../../../utils';
+import Default from '../../layout/default/default';
+import { Crypto, FileSystem, Storage } from '../../utils';
 import { useDispatch } from 'react-redux';
-import alertSlice from '../../../store/reducers/alertSlice';
-import NavigationBar from '../../../components/navigationBar/navigationBar';
-import styles from './create.styles';
-import { Colors } from '../../../res';
+import alertSlice from '../../store/reducers/alertSlice';
+import NavigationBar from '../../components/navigationBar/navigationBar';
+import styles from './backupCreate.styles';
+import { Colors } from '../../res';
 import { useTranslation } from 'react-i18next';
-import Text from '../../../components/text/text';
-import CreateBackupImage from '../../../res/images/create_backup.png';
-import Button from '../../../components/button/button';
+import Text from '../../components/text/text';
+import CreateBackupImage from '../../res/images/create_backup.png';
+import Button from '../../components/button/button';
 
 export default function CreateBackup() {
   const { t } = useTranslation();

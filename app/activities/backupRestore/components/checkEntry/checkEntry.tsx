@@ -2,8 +2,8 @@ import React from 'react';
 import { View } from 'react-native';
 import styles from './checkEntry.styles';
 import CheckBox from '@react-native-community/checkbox';
-import { Colors } from '../../../../../res';
-import Text from '../../../../../components/text/text';
+import { Colors } from '../../../../res';
+import Text from '../../../../components/text/text';
 import { useTranslation } from 'react-i18next';
 
 interface Props {

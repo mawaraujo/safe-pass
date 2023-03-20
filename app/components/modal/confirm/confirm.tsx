@@ -32,6 +32,7 @@ export default function Confirm({ show, title, onCancel, onAccept, extraInformat
     <BaseModal show={show}>
       <Text
         size="3"
+        bold
         style={confirmStyles.title}>
         {title}
       </Text>

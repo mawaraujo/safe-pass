@@ -2,10 +2,11 @@ import { StyleSheet } from 'react-native';
 import { Colors, Layout } from '../../../../res';
 
 export default StyleSheet.create({
-  main: { },
+  main: {
+    marginBottom: Layout.Spacing.MD,
+  },
   container: {
     gap: Layout.Spacing.MD,
-    paddingBottom: Layout.Spacing.MD,
   },
   card: {
     backgroundColor: Colors.Light.CardColor,

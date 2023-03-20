@@ -86,7 +86,7 @@ export default function Main({ navigation }: ImainProps) {
         }
 
         <FlatList
-          style={styles.flatList}
+          contentContainerStyle={styles.flatList}
           keyboardShouldPersistTaps={'always'}
           removeClippedSubviews={true}
           maxToRenderPerBatch={10}

@@ -4,7 +4,7 @@ namespace Colors {
   export enum System {
     Brand = '#0D2043',
     BrandSemiLight = '#223654',
-    BrandTransparent = 'rgba(13, 32, 67, 0.3)',
+    BrandTransparent = 'rgba(13, 32, 67, 0.1)',
 
     White = '#FFFFFF',
     WhiteTransparent = 'rgba(255, 255, 255, 0.5)',

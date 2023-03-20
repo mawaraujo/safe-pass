@@ -6,6 +6,6 @@ export default StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: Colors.System.BrandTransparent,
     width: '100%',
-    marginVertical: Layout.Spacing.SM,
+    marginVertical: Layout.Spacing.MD,
   },
 });

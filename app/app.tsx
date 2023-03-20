@@ -17,8 +17,8 @@ import Settings from './activities/settings/settings';
 import Preview from './activities/preview/preview';
 import CreateTag from './activities/createTag/createTag';
 import Tags from './activities/tags/tags';
-import BackupCreate from './activities/backup/create/create';
-import BackupRestore from './activities/backup/restore/restore';
+import BackupCreate from './activities/backupCreate/backupCreate';
+import BackupRestore from './activities/backupRestore/backupRestore';
 
 const Stack = createNativeStackNavigator();
 

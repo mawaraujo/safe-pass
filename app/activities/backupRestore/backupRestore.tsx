@@ -1,19 +1,19 @@
 import React from 'react';
 import { View, ActivityIndicator, ScrollView, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
-import alertSlice from '../../../store/reducers/alertSlice';
-import { Backup } from '../../../utils';
-import Button from '../../../components/button/button';
-import { Colors } from '../../../res';
-import styles from './restore.styles';
-import NavigationBar from '../../../components/navigationBar/navigationBar';
-import Default from '../../../layout/default/default';
+import alertSlice from '../../store/reducers/alertSlice';
+import { Backup } from '../../utils';
+import Button from '../../components/button/button';
+import { Colors } from '../../res';
+import styles from './backupRestore.styles';
+import NavigationBar from '../../components/navigationBar/navigationBar';
+import Default from '../../layout/default/default';
 import { useTranslation } from 'react-i18next';
 import useRestore from './hooks/useRestore';
-import { CardAccordion } from '../../../components/card';
+import { CardAccordion } from '../../components/card';
 import CheckEntry from './components/checkEntry/checkEntry';
-import RestoreImage from '../../../res/images/restore.png';
-import Text from '../../../components/text/text';
+import RestoreImage from '../../res/images/restore.png';
+import Text from '../../components/text/text';
 
 export default function RestoreFile() {
   const { t } = useTranslation();

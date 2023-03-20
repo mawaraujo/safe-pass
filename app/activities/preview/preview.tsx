@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../../components/button/button';
 import ClipboardButton from './components/clipboardButton/clipboardButton';
 import Text from '../../components/text/text';
+import Separator from '../../components/separator/separator';
 
 interface IPreviewProps {
   route?: {
@@ -129,7 +130,6 @@ export default function Preview({ route }: IPreviewProps) {
           <View
             style={[
               styles.cardRow,
-              styles.cardRowMarginBottom,
             ]}>
 
             <View style={styles.left}>
@@ -158,10 +158,11 @@ export default function Preview({ route }: IPreviewProps) {
             }
           </View>
 
+          <Separator />
+
           <View
             style={[
               styles.cardRow,
-              styles.cardRowMarginBottom,
             ]}>
 
             <View style={styles.left}>
@@ -180,10 +181,11 @@ export default function Preview({ route }: IPreviewProps) {
             }
           </View>
 
+          <Separator />
+
           <View
             style={[
               styles.cardRow,
-              styles.cardRowMarginBottom,
             ]}>
 
             <View style={styles.left}>
@@ -202,10 +204,11 @@ export default function Preview({ route }: IPreviewProps) {
             }
           </View>
 
+          <Separator />
+
           <View
             style={[
               styles.cardRow,
-              styles.cardRowMarginBottom,
             ]}>
 
             <View style={styles.left}>
@@ -224,10 +227,11 @@ export default function Preview({ route }: IPreviewProps) {
             }
           </View>
 
+          <Separator />
+
           <View
             style={[
               styles.cardRow,
-              styles.cardRowMarginBottom,
             ]}>
 
             <View style={styles.left}>
@@ -237,6 +241,8 @@ export default function Preview({ route }: IPreviewProps) {
               </Text>
             </View>
           </View>
+
+          <Separator />
 
           <View style={styles.cardRow}>
             <View style={styles.left}>

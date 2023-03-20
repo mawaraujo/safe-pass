@@ -11,7 +11,7 @@ export default StyleSheet.create({
     zIndex: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: Layout.Spacing.MD,
+    padding: Layout.Spacing.SM,
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
   modal: {
