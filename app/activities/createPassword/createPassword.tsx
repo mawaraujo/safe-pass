@@ -150,7 +150,7 @@ export default function CreatePassword({ navigation, route }: Props) {
           onChangeText={(e) => {
             formik.setFieldValue('name', e);
           }}
-          placeholder="Facebook Username"
+          placeholder="Amazon"
         />
 
         <InputAutocomplete
@@ -162,7 +162,7 @@ export default function CreatePassword({ navigation, route }: Props) {
           onChangeText={(e) => {
             formik.setFieldValue('url', e);
           }}
-          placeholder="facebook.com"
+          placeholder="www.amazon.com/your-account"
         />
 
         <Input
@@ -174,7 +174,7 @@ export default function CreatePassword({ navigation, route }: Props) {
           onChangeText={(e) => {
             formik.setFieldValue('username', e);
           }}
-          placeholder="myusername1"
+          placeholder="username"
         />
 
         <Input
@@ -186,7 +186,7 @@ export default function CreatePassword({ navigation, route }: Props) {
           onChangeText={(e) => {
             formik.setFieldValue('email', e);
           }}
-          placeholder="email@example.com"
+          placeholder="email@domain.com"
         />
 
         <Input
