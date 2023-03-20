@@ -10,12 +10,9 @@ interface ItemSwitchProps {
   description?: string,
   onChange?: (value: boolean) => void,
   value?: boolean,
-
-  /** When this flag is true, the margin-top of the item is removed  */
-  firstItem?: boolean,
 }
 
-export default function ItemSwitch({ title, description, onChange, firstItem = false, value }: ItemSwitchProps) {
+export default function ItemSwitch({ title, description, onChange, value }: ItemSwitchProps) {
 
   const handleToggle = (): void => {
     onChange?.(!value);
@@ -24,10 +21,8 @@ export default function ItemSwitch({ title, description, onChange, firstItem = f
   return (
     <TouchableOpacity
       onPress={handleToggle}
-      style={[
-        itemSwitchStyles.container,
-        firstItem && itemSwitchStyles.removeMargin,
-      ]}>
+      style={itemSwitchStyles.container}>
+
       <View style={itemSwitchStyles.leftContainer}>
         <Text size="2">{title && title}</Text>
 

@@ -4,6 +4,7 @@ import { Item } from '../../../../components/item';
 import { Navigation } from '../../../../utils';
 import { Screens } from '../../../../res';
 import { useTranslation } from 'react-i18next';
+import Separator from '../../../../components/separator/separator';
 
 export default function BackupSection() {
   const { t } = useTranslation();
@@ -16,9 +17,10 @@ export default function BackupSection() {
             screen: Screens.Backup.Create.Name,
           });
         }}
-        firstItem={true}
         title={t('Create backup') ?? 'Create backup'}
         description={t('Create backup summary') ?? 'Save your passwords, tags, and other settings on a backup file'} />
+
+      <Separator />
 
       <Item
         onPress={() => {

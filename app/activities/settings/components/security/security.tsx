@@ -48,7 +48,6 @@ export default function SecuritySection() {
   return (
     <Card>
       <ItemSwitch
-        firstItem={true}
         title={t('Unlock system') ?? 'Unlock system'}
         description={t('Unlock system summary') ?? 'Use your device unlock system to enter the app'}
         onChange={toggleLocalAuthentication}

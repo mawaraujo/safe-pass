@@ -15,6 +15,7 @@ import Navigation from '../../utils/navigation';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
 import TagsSelector from './components/tagsSelector/tagsSelector';
 import { useTranslation } from 'react-i18next';
+import Separator from '../../components/separator/separator';
 
 interface ImainProps {
   navigation: {
@@ -92,6 +93,7 @@ export default function Main({ navigation }: ImainProps) {
           initialNumToRender={10}
           keyExtractor={(item, index) => (item.id + index)}
           data={computedPasswords}
+          ItemSeparatorComponent={Separator}
           renderItem={({ item }) => (
             <PasswordElement
               onPress={() => handleViewPasswordDetails(item)}

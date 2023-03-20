@@ -22,7 +22,7 @@
   "An error occurred while trying to create the file": "Ocurrió un error al intentar crear el archivo",
   
   "Create backup": "Crear copia de seguridad",
-  "Create backup summary": "Guarda tus contraseñas, etiquetas y otras configuraciones en un archivo",
+  "Create backup summary": "Guarda tus contraseñas, etiquetas y otras configuraciones en un archivo encriptado",
   "Export your data and save it locally": "Exporta tus datos y guárdalos en tu dispositivo",
   "Backup created successfully": "Copia de seguridad creada con éxito",
   "Restore backup": "Restaurar copia de seguridad",

@@ -3,8 +3,7 @@ import { Layout } from '../../res';
 
 export default StyleSheet.create({
   container: {
-    marginBottom: Layout.Spacing.XS,
-    paddingVertical: Layout.Spacing.SM,
+    paddingVertical: Layout.Spacing.XS,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

@@ -9,6 +9,7 @@ import { Colors, Storage as StorageRes } from '../../../../res';
 import { Link, Storage } from '../../../../utils';
 import { NLang } from '../../../../types';
 import { useTranslation } from 'react-i18next';
+import Separator from '../../../../components/separator/separator';
 
 const LANG_LIST = [
   {
@@ -60,8 +61,7 @@ export default function GeneralSection() {
       <Card>
         <ItemSlot
           childrenPosition="bottom"
-          title={t('Language') ?? 'Language'}
-          firstItem={true}>
+          title={t('Language') ?? 'Language'}>
 
           <Picker
             style={generalStyles.picker}
@@ -85,11 +85,12 @@ export default function GeneralSection() {
 
       <Card>
         <Item
-          firstItem
           onPress={() => Link.openURL(Application.github)}
           isLink={true}
           title={t('Developer') ?? 'Developer'}
           description={Application.author} />
+
+        <Separator />
 
         <Item
           title={t('Version') ?? 'Version'}

@@ -14,6 +14,7 @@ import tagSlice from '../../store/reducers/tagSlice';
 import Confirm from '../../components/modal/confirm/confirm';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeHeader';
 import { useTranslation } from 'react-i18next';
+import Separator from '../../components/separator/separator';
 
 interface ITagsProps {
   navigation: {
@@ -90,6 +91,7 @@ export default function Tags({ navigation }: ITagsProps) {
           maxToRenderPerBatch={10}
           initialNumToRender={10}
           keyExtractor={(item, index) => (item.id + index)}
+          ItemSeparatorComponent={Separator}
           renderItem={({ item }) => (
             <TagElement
               linkedPasswords={countLinkedPasswords(item)}

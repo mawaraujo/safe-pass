@@ -11,19 +11,14 @@ interface ItemProps {
   description?: string,
   onPress?: () => void,
   isLink?: boolean,
-
-  /** When this flag is true, the margin-top of the item is removed  */
-  firstItem?: boolean,
 }
 
-export default function Item({ title, description, onPress, isLink, firstItem = false }: ItemProps) {
+export default function Item({ title, description, onPress, isLink }: ItemProps) {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[
-        itemSelectorStyles.container,
-        firstItem && itemSelectorStyles.removeMargin,
-      ]}>
+      style={itemSelectorStyles.container}>
+
       <View style={itemSelectorStyles.leftContainer}>
         <Text size="2">{title && title}</Text>
 
